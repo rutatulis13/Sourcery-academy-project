@@ -14,16 +14,12 @@
       "instruction": "run 'npm install'"
     },
     {
-      "id": 4,
-      "instruction": "run 'npm install -g json-server'"
-    },
-    {
       "id": 5,
       "instruction": "run 'npm run start-server'"
     },
     {
       "id": 6,
-      "instruction": "run 'npm run start'"
+      "instruction": "run 'npm start'"
     }
   ]
 }
