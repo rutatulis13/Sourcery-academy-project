@@ -1,0 +1,14 @@
+.get-started-list {
+  border: 1px solid #000;
+  margin: 25px;
+  padding: 10px;
+
+  &__list {
+    margin-left: 20px;
+    padding: 10px;
+  }
+
+  &__list-item {
+    padding: 5px;
+  }
+}
