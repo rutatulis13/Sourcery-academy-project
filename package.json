@@ -5,6 +5,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "json-server": "^0.16.2",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "3.4.4"
@@ -13,7 +14,28 @@
     "start": "react-scripts start",
     "start-server": "json-server --watch db.json --port 3008",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "npm run -s lint:prettier:check && npm run -s lint:eslint:check && npm run -s lint:stylelint:check",
+    "lint:fix": "npm run -s lint:prettier:fix",
+    "lint:prettier": "prettier --check",
+    "lint:prettier:check": "prettier --check \"src/**/*.{js,jsx,scss,json,css,md}\"",
+    "lint:prettier:fix": "prettier --write \"src/**/*.{js,jsx,scss,json,css,md}\"",
+    "lint:eslint": "eslint --max-warnings 0",
+    "lint:eslint:check": "npm run -s lint:eslint \"src/**/*.{js,jsx}\"",
+    "lint:eslint:fix": "npm run -s lint:eslint \"src/**/*.{js,jsx}\" --fix",
+    "lint:stylelint": "stylelint",
+    "lint:stylelint:check": "npm run -s lint:stylelint \"src/**/*.scss\"",
+    "lint:stylelint:fix": "npm run -s lint:stylelint \"src/**/*.scss\" --fix"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css,scss,md}": "prettier --write",
+    "src/**/*.{js,jsx}": "eslint --fix --max-warnings 0",
+    "src/**/*.{css,scss}": "stylelint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,6 +53,17 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^4.14.1"
+    "eslint-config-prettier": "^6.14.0",
+    "eslint-plugin-formatjs": "^2.7.15",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.2",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.1.2",
+    "stylelint": "^13.7.2",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-sass-guidelines": "^7.1.0",
+    "stylelint-declaration-use-variable": "^1.7.2",
+    "stylelint-prettier": "^1.1.2"
   }
 }
