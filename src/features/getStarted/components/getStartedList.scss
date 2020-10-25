@@ -1,5 +1,7 @@
+@import './src/styles/base/base';
+
 .get-started-list {
-  border: 1px solid #000;
+  border: 1px solid $color-black;
   margin: 25px;
   padding: 10px;
 
