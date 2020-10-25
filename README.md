@@ -12,6 +12,10 @@
 
 In the project directory, you can run:
 
+### `npm run start-server`
+
+Runs JSON server. Edit `db.json` to update data.
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
