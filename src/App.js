@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import GetStartedList from "./features/getStarted/components";
+import { ReactComponent as SourceryLogo } from "assests/logo.svg";
 
 function App() {
   const [instructions, setInstructions] = useState([]);
@@ -18,8 +19,9 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="app">
       <header className="App-header">
+        <SourceryLogo />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
