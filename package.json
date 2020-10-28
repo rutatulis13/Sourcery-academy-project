@@ -25,7 +25,9 @@
     "lint:eslint:fix": "npm run -s lint:eslint \"src/**/*.{js,jsx}\" --fix",
     "lint:stylelint": "stylelint",
     "lint:stylelint:check": "npm run -s lint:stylelint \"src/**/*.scss\"",
-    "lint:stylelint:fix": "npm run -s lint:stylelint \"src/**/*.scss\" --fix"
+    "lint:stylelint:fix": "npm run -s lint:stylelint \"src/**/*.scss\" --fix",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css,scss,md}": "prettier --write",
@@ -53,13 +55,24 @@
     ]
   },
   "devDependencies": {
+    "@sambego/storybook-state": "^2.0.1",
+    "@storybook/addon-actions": "^6.0.27",
+    "@storybook/addon-backgrounds": "^6.0.27",
+    "@storybook/addon-knobs": "^6.0.27",
+    "@storybook/addon-links": "^6.0.27",
+    "@storybook/addon-notes": "^5.3.21",
+    "@storybook/addons": "^6.0.27",
+    "@storybook/react": "^6.0.27",
+    "css-loader": "^5.0.0",
     "eslint-config-prettier": "^6.14.0",
     "eslint-plugin-formatjs": "^2.7.15",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.2",
     "node-sass": "^4.14.1",
+    "postcss-loader": "^4.0.4",
     "prettier": "^2.1.2",
+    "style-loader": "^2.0.0",
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-sass-guidelines": "^7.1.0",
