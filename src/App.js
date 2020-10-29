@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+
 import GetStartedList from "./features/getStarted/components";
-import { ReactComponent as SourceryLogo } from "assests/logo.svg";
+import { ReactComponent as SourceryLogo } from "assets/logo.svg";
 
 function App() {
   const [instructions, setInstructions] = useState([]);

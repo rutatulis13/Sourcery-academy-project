@@ -63,6 +63,7 @@
     "@storybook/addon-notes": "^5.3.21",
     "@storybook/addons": "^6.0.27",
     "@storybook/react": "^6.0.27",
+    "@svgr/webpack": "^5.4.0",
     "css-loader": "^5.0.0",
     "eslint-config-prettier": "^6.14.0",
     "eslint-plugin-formatjs": "^2.7.15",
