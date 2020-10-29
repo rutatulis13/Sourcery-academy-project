@@ -1,7 +1,7 @@
 import React from "react";
 import { text, boolean, withKnobs } from "@storybook/addon-knobs";
 
-import GetStartedList from "./";
+import { GetStartedList } from "./";
 
 export default {
   title: "Components / GetStartedList",
