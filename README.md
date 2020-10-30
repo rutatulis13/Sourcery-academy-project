@@ -6,6 +6,8 @@
     * `nvm install [version in .nvmrc file]`
     * `nvm use`
     * `npm install`
+    * `npm run start-server` - runs server
+    * `npm start` - builds project for development
 
 
 ## Available Scripts
@@ -37,6 +39,10 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `npm run lint`
 
 Runs all linters and prettier and shows any warnings/errors in console.
+
+### `npm run storybook`
+
+Runs storybook for development.
 
 ## Learn More
 
