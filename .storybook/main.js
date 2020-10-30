@@ -28,7 +28,7 @@ module.exports = {
           loader: "sass-loader",
           options: {
             prependData: `
-              @import 'src/styles/styles.scss';
+              @import 'src/styles/index.scss';
             `,
           },
         },
