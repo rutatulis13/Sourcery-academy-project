@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { ReactComponent as SourceryLogo } from "assets/logo.svg";
 import { GetStartedList } from "features/getStarted/components/GetStartedList";
 
+const defaultInstructions = [{ id: 1, instruction: "Have fun!" }];
+
 function App() {
-  const [instructions, setInstructions] = useState([]);
+  const [instructions, setInstructions] = useState(defaultInstructions);
 
   useEffect(() => {
     fetch("http://localhost:3008/instructions")

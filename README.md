@@ -6,7 +6,6 @@
     * `nvm install [version in .nvmrc file]`
     * `nvm use`
     * `npm install`
-    * `npm run start-server` - runs server
     * `npm start` - builds project for development
 
 
