@@ -1,17 +1,12 @@
 @charset "utf-8";
 
 @import 'base/base';
+@import 'fonts/fonts';
 @import 'mixins/mixins';
-
 @import 'print';
 
-// Delete this
-$font-family-delete: sans-serif;
-
-.app {
-    font-family: $font-family-delete;
-    margin: 40px auto;
-    max-width: 400px;
-    text-align: center;
-    width: 100%;
+* {
+    font-family: $font-main;
+    margin: 0;
+    padding: 0;
 }
