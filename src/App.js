@@ -1,44 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { ReactComponent as SourceryLogo } from "assets/logo.svg";
-import { GetStartedList } from "features/getStarted/components/GetStartedList";
-
-const defaultInstructions = [{ id: 1, instruction: "Have fun!" }];
+import React from "react";
+import EatOutPage from "pages/EatOutPage";
 
 function App() {
-  const [instructions, setInstructions] = useState(defaultInstructions);
-
-  useEffect(() => {
-    fetch("http://localhost:3008/instructions")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setInstructions(result);
-        },
-        (error) => {
-          // handle error here
-        }
-      );
-  }, []);
-
-  return (
-    <div className="app">
-      <header className="App-header">
-        <SourceryLogo />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <GetStartedList key={instructions.length} instructions={instructions} />
-    </div>
-  );
+  return <EatOutPage />;
 }
 
 export default App;
