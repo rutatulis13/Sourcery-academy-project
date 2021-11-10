@@ -7,11 +7,19 @@
     justify-content: space-between;
     min-height: 100vh;
 
-    &__container {
+    .container {
         flex-grow: 1;
+        padding: 48px;
+        @include mobile {
+            padding: 24px;
+        }
+
+        &__content {
+            @extend %restrict-block-width;
+        }
     }
 
-    &__footer {
+    .footer {
         align-items: center;
         background-color: $color-bg-footer;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
@@ -19,11 +27,16 @@
         height: 72px;
         justify-content: flex-end;
         padding: 0 48px;
+        @include mobile {
+            padding: 0 24px;
+        }
 
         &__copyright {
+            @extend %restrict-block-width;
             color: $color-text-footer;
             font-size: $font-size-footer;
             font-weight: 500;
+            text-align: right;
         }
     }
 }
