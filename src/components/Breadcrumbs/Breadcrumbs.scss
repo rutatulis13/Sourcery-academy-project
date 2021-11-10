@@ -1,12 +1,19 @@
-$color-breadcrumbs: #9ea7b3;
-$color-breadcrumbs-last: #6a7889;
-$font-size-breadcrumbs: 12px;
+@import 'styles';
 
 .breadcrumbs {
-    padding: 48px 48px 24px;
+    padding: 0 48px;
     user-select: none;
 
-    &__ul {
+    @include mobile {
+        padding: 0 24px;
+    }
+
+    &__content {
+        @include restrict-block-to-max-width($max-page-width);
+        padding-top: 48px;
+    }
+
+    .breadcrumbs-list {
         display: flex;
         flex-wrap: wrap;
 
@@ -26,10 +33,10 @@ $font-size-breadcrumbs: 12px;
                 text-decoration: none;
                 text-transform: uppercase;
             }
-        }
 
-        &__li:last-child a {
-            color: $color-breadcrumbs-last;
+            &:last-child a {
+                color: $color-breadcrumbs-last;
+            }
         }
     }
 }
