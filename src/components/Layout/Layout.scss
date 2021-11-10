@@ -15,7 +15,7 @@
         }
 
         &__content {
-            @extend %restrict-block-width;
+            @include restrict-block-to-max-width($max-page-width);
         }
     }
 
@@ -32,7 +32,7 @@
         }
 
         &__copyright {
-            @extend %restrict-block-width;
+            @include restrict-block-to-max-width($max-page-width);
             color: $color-text-footer;
             font-size: $font-size-footer;
             font-weight: 500;

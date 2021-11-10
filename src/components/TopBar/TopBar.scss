@@ -9,7 +9,7 @@
     }
 
     &__content {
-        @extend %restrict-block-width;
+        @include restrict-block-to-max-width($max-page-width);
         height: 100%;
     }
 }

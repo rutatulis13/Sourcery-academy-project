@@ -12,6 +12,13 @@
     }
 }
 
+@mixin restrict-block-to-max-width($width) {
+    box-sizing: border-box;
+    margin: auto;
+    max-width: 1920px;
+    width: 100%;
+}
+
 @mixin mobile {
     @media (max-width: 480px) {
         @content;
