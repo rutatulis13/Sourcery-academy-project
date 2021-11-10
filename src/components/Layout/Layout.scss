@@ -1,7 +1,4 @@
-$color-bg-container: #f6f7f8;
-$color-bg-footer: #fff;
-$color-text-footer: #3e5067;
-$font-size-footer: 10px;
+@import 'styles';
 
 .layout {
     background-color: $color-bg-container;
@@ -10,11 +7,19 @@ $font-size-footer: 10px;
     justify-content: space-between;
     min-height: 100vh;
 
-    &__container {
+    .container {
         flex-grow: 1;
+        padding: 48px;
+        @include mobile {
+            padding: 24px;
+        }
+
+        &__content {
+            @include restrict-block-to-max-width($max-page-width);
+        }
     }
 
-    &__footer {
+    .footer {
         align-items: center;
         background-color: $color-bg-footer;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
@@ -22,11 +27,16 @@ $font-size-footer: 10px;
         height: 72px;
         justify-content: flex-end;
         padding: 0 48px;
+        @include mobile {
+            padding: 0 24px;
+        }
 
         &__copyright {
+            @include restrict-block-to-max-width($max-page-width);
             color: $color-text-footer;
             font-size: $font-size-footer;
             font-weight: 500;
+            text-align: right;
         }
     }
 }
