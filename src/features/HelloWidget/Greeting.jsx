@@ -1,6 +1,8 @@
 import React from "react";
 
-export function Greeting(name = "%USER%") {
+import "./HelloWidget.scss";
+
+export function Greeting(name) {
     
     let date = new Date();
 

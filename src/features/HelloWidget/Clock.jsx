@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './Clock.scss'
+import "./HelloWidget.scss"
 
 export class Clock extends Component {
     constructor(props){
@@ -19,6 +19,9 @@ export class Clock extends Component {
     }
 
     time(){
+        if(this.state.date.getMinutes() < 10){
+            return `${this.state.date.getHours()}:0${this.state.date.getMinutes()}`;
+        }
         return `${this.state.date.getHours()}:${this.state.date.getMinutes()}`;
     }
 
