@@ -1,21 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 import "./PageLayout.scss";
 import PropTypes from "prop-types";
 
-class PageLayout extends Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    title: PropTypes.string.isRequired,
-  };
+const PageLayout = ({ title, children }) => {
+  return (
+    <main className="page-layout">
+      <h1 className="page-layout__title">{title}</h1>
+      {children}
+    </main>
+  );
+};
 
-  render() {
-    return (
-      <div className="PageLayout">
-        <h1>{this.props.title}</h1>
-        {this.props.children}
-      </div>
-    );
-  }
-}
+PageLayout.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default PageLayout;
