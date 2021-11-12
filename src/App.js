@@ -1,6 +1,6 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Dashboard from "components/pages/Dashboard";
 import Reservations from "components/pages/Reservations";
 import Eat from "components/pages/Eat";
@@ -8,22 +8,16 @@ import Eat from "components/pages/Eat";
 function App() {
   return (
     <div>
-      <Router>
+      <BrowserRouter>
         <div>
           <Navigation />
-          <Switch>
-            <Route exact path="/">
-              <Dashboard />
-            </Route>
-            <Route path="/Reservations">
-              <Reservations />
-            </Route>
-            <Route path="/EatOut">
-              <Eat />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/Reservations" element={<Reservations />} />
+            <Route path="/EatOut" element={<Eat />} />
+          </Routes>
         </div>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
