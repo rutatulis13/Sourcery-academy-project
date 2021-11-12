@@ -26,7 +26,7 @@
                 width: 7px;
             }
 
-            a {
+            .breadcrumbs-link {
                 color: $color-breadcrumbs;
                 font-size: $font-size-breadcrumbs;
                 font-weight: 500;
@@ -34,7 +34,7 @@
                 text-transform: uppercase;
             }
 
-            &:last-child a {
+            &:last-child > .breadcrumbs-link {
                 color: $color-breadcrumbs-last;
             }
         }
