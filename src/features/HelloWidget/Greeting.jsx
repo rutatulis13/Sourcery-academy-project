@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./HelloWidget.scss";
 
-export function Greeting(name) {
+export const Greeting = ({name}) => {
     
     let date = new Date();
 
@@ -22,3 +23,7 @@ export function Greeting(name) {
         </div>
     );
 }
+
+Greeting.propTypes = {
+    name: PropTypes.string,
+  };

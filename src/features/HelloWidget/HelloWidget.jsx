@@ -1,17 +1,16 @@
 import React from "react";
+
 import { Clock } from "./Clock";
 import { Greeting } from "./Greeting";
 
 import "./HelloWidget.scss"
 
-export function HelloWidget(name = "%USER%") {
+export const HelloWidget = (username = "%USER%") => {
 
     return (
         <div className="hello-widget">
             <Clock/>
-            <div>
-                {Greeting(name)}
-            </div>
+            <Greeting name = {username}/>
         </div>
         
     );
