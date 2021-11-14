@@ -1,35 +1,27 @@
-import React, { Component } from "react";
-import "./HelloWidget.scss"
+import React, { useState } from "react";
 
-export class Clock extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            date: new Date(),
-        };
-    }
+import "./HelloWidget.scss";
 
-    componentDidMount(){
-        var interval = setInterval(
-            () => {
-                this.setState({date: new Date()})
-            }, 
-            1000
-        );
-    }
 
-    time(){
-        if(this.state.date.getMinutes() < 10){
-            return `${this.state.date.getHours()}:0${this.state.date.getMinutes()}`;
+export const Clock = () => {
+    const [date, setDate] = useState(new Date());
+    
+    const timer = setInterval(() => {setDate(new Date());}, 1000);
+
+    let getTimeString = () => {
+
+        if(date.getMinutes() < 10){
+            return `${date.getHours()}:0${date.getMinutes()}`;
         }
-        return `${this.state.date.getHours()}:${this.state.date.getMinutes()}`;
-    }
+        return `${date.getHours()}:${date.getMinutes()}`;
 
-    render(){
-        return (
-            <div className="hello-widget__clock">
-                {this.state.date.getHours() + ":" + this.state.date.getMinutes()}
-            </div>
-        );
     }
+    
+
+    return(
+        <div className="hello-widget__clock">
+            {getTimeString()}
+        </div>
+    );
+    
 }
