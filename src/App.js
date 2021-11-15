@@ -1,42 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { ReactComponent as SourceryLogo } from "assets/logo.svg";
-import { GetStartedList } from "features/getStarted/components/GetStartedList";
-
-const defaultInstructions = [{ id: 1, instruction: "Have fun!" }];
+import React, { useState } from "react";
+import Registration from "./pages/login/Register";
+import Login from "./pages/login/Login";
 
 function App() {
-  const [instructions, setInstructions] = useState(defaultInstructions);
-
-  useEffect(() => {
-    fetch("http://localhost:3008/instructions")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setInstructions(result);
-        },
-        (error) => {
-          // handle error here
-        }
-      );
-  }, []);
+  const [state, setState] = useState(0);
+  if (state === 0) {
+    return (
+      <div className="app">
+        <Registration
+          openLoginCallBack={() => {
+            setState(1);
+          }}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="app">
-      <header className="App-header">
-        <SourceryLogo />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <GetStartedList key={instructions.length} instructions={instructions} />
+      <Login />
     </div>
   );
 }

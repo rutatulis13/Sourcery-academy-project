@@ -2,16 +2,17 @@
 
 @import 'base/base';
 @import 'mixins/mixins';
+@import 'components/index';
 
 @import 'print';
 
-// Delete this
-$font-family-delete: sans-serif;
+body {
+    background-color: $color-grey;
+}
 
 .app {
-    font-family: $font-family-delete;
     margin: 40px auto;
-    max-width: 400px;
+    max-width: 556px;
     text-align: center;
     width: 100%;
 }

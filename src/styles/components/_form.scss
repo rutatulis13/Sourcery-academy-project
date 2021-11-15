@@ -1,0 +1,92 @@
+$col-spacer: 10px;
+@mixin form-row-style() {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: -#{$col-spacer};
+    margin-right: -#{$col-spacer};
+    position: relative;
+}
+
+.form {
+    &-row {
+        @include form-row-style();
+    }
+
+    &-col-33 {
+        padding-left: $col-spacer;
+        padding-right: $col-spacer;
+        position: relative;
+        width: calc(33% - (2 * #{$col-spacer}));
+    }
+
+    &-col-5 {
+        padding-left: $col-spacer;
+        padding-right: $col-spacer;
+        position: relative;
+        width: calc(50% - (2 * #{$col-spacer}));
+    }
+
+    &-col-66 {
+        padding-left: $col-spacer;
+        padding-right: $col-spacer;
+        position: relative;
+        width: calc(66% - (2 * #{$col-spacer}));
+    }
+
+    &-col-10 {
+        padding-left: $col-spacer;
+        padding-right: $col-spacer;
+        position: relative;
+        width: 100%;
+    }
+
+    &-col-33,
+    &-col-5,
+    &-col-66 {
+        @include respond-to($break-point-mobile, 'max') {
+            width: 100%;
+        }
+    }
+
+    &-label {
+        @extend %typography-label;
+        color: $color-text-grey;
+        display: block;
+        margin-bottom: 25px;
+        text-align: left;
+    }
+
+    &-input {
+        @extend %typography-input;
+        background: $color-white;
+        border: 1px solid $color-text-grey;
+        border-radius: 5px;
+        color: $color-text-grey;
+        display: block;
+        margin-top: 8px;
+        padding: 13px 16px;
+        width: calc(100% - 32px);
+
+        &::placeholder {
+            color: $color-text-grey;
+        }
+    }
+
+    &-action {
+        @include form-row-style();
+        align-items: baseline;
+        margin-bottom: 0;
+    }
+
+    &-submit {
+        @extend %typography-btn;
+        background-color: $color-purple;
+        border: unset;
+        border-radius: 65px;
+        color: $color-white;
+        padding: 8px 24px;
+    }
+}
