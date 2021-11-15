@@ -1,25 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Registration from "./pages/login/Register";
 import Login from "./pages/login/Login";
+//import EatOutPage from "pages/EatOutPage";
+//import Layout from "components/Layout/Layout";
 
 function App() {
-  const [state, setState] = useState(0);
-  if (state === 0) {
-    return (
-      <div className="app">
-        <Registration
-          openLoginCallBack={() => {
-            setState(1);
-          }}
-        />
-      </div>
-    );
-  }
-
   return (
-    <div className="app">
-      <Login />
-    </div>
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route path="/" exact element={<Registration />} />
+          <Route path="/login" element={<Login />} />
+          {/* <Login />
+      <Layout>
+        <EatOutPage />
+      </Layout> */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

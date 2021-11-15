@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
 import "./register.scss";
 import PropTypes from "prop-types";
@@ -45,7 +46,6 @@ const Registration = (props) => {
       values.repeatPassword
     ) {
       setValid(true);
-      props.openLoginCallBack();
     }
     setSubmitted(true);
   };
@@ -53,17 +53,15 @@ const Registration = (props) => {
   return (
     <div className="register-page">
       <img className="logo" src={Logo} alt="" />
-      <div className="wrapper">
-        <div className="wrapper__header">
-          <h2 className="wrapper__title">Register</h2>
-          <div className="wrapper__subtitle">{"Let's get you on board."}</div>
+      <div className="login-wrapper">
+        <div className="login-wrapper__header">
+          <h2 className="login-wrapper__title">Register</h2>
+          <div className="login-wrapper__subtitle">
+            {"Let's get you on board."}
+          </div>
         </div>
         <form className="form" onSubmit={handleSubmit}>
-          {submitted && valid ? (
-            <div className="success-message">
-              Success! Thank you for registering
-            </div>
-          ) : null}
+          {submitted && valid ? <Navigate to="/login" /> : null}
           <div className="form__row">
             <div className="form__col-5">
               <label htmlFor="first-name" className="form__label">
@@ -161,14 +159,18 @@ const Registration = (props) => {
           </div>
           <div className="form__action">
             <div className="form__col-33 text-left register-btn-col">
-              <button className="form__submit" type="submit">
+              <button
+                className="form__submit"
+                type="submit"
+                onClick="handleSubmit"
+              >
                 Register
               </button>
             </div>
             <div className="form__col-66 text-right register-sign-in-col">
-              <p className="wrapper__subtitle">
+              <p className="login-wrapper__subtitle">
                 Already have an account? &nbsp;
-                <a href={"/#"}>Sign in</a>
+                <Link to="/login">Sign in</Link>
               </p>
             </div>
           </div>
