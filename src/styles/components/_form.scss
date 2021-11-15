@@ -11,47 +11,47 @@ $col-spacer: 10px;
 }
 
 .form {
-    &-row {
+    &__row {
         @include form-row-style();
     }
 
-    &-col-33 {
+    &__col-33 {
         padding-left: $col-spacer;
         padding-right: $col-spacer;
         position: relative;
         width: calc(33% - (2 * #{$col-spacer}));
     }
 
-    &-col-5 {
+    &__col-5 {
         padding-left: $col-spacer;
         padding-right: $col-spacer;
         position: relative;
         width: calc(50% - (2 * #{$col-spacer}));
     }
 
-    &-col-66 {
+    &__col-66 {
         padding-left: $col-spacer;
         padding-right: $col-spacer;
         position: relative;
         width: calc(66% - (2 * #{$col-spacer}));
     }
 
-    &-col-10 {
+    &__col-10 {
         padding-left: $col-spacer;
         padding-right: $col-spacer;
         position: relative;
         width: 100%;
     }
 
-    &-col-33,
-    &-col-5,
-    &-col-66 {
+    &__col-33,
+    &__col-5,
+    &__col-66 {
         @include respond-to($break-point-mobile, 'max') {
             width: 100%;
         }
     }
 
-    &-label {
+    &__label {
         @extend %typography-label;
         color: $color-text-grey;
         display: block;
@@ -59,7 +59,7 @@ $col-spacer: 10px;
         text-align: left;
     }
 
-    &-input {
+    &__input {
         @extend %typography-input;
         background: $color-white;
         border: 1px solid $color-text-grey;
@@ -75,13 +75,13 @@ $col-spacer: 10px;
         }
     }
 
-    &-action {
+    &__action {
         @include form-row-style();
         align-items: baseline;
         margin-bottom: 0;
     }
 
-    &-submit {
+    &__submit {
         @extend %typography-btn;
         background-color: $color-purple;
         border: unset;

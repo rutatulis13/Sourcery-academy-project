@@ -54,9 +54,9 @@ const Registration = (props) => {
     <div className="register-page">
       <img className="logo" src={Logo} alt="" />
       <div className="wrapper">
-        <div className="wrapper-header">
-          <h2 className="wrapper-title">Register</h2>
-          <div className="wrapper-subtitle">{"Let's get you on board."}</div>
+        <div className="wrapper__header">
+          <h2 className="wrapper__title">Register</h2>
+          <div className="wrapper__subtitle">{"Let's get you on board."}</div>
         </div>
         <form className="form" onSubmit={handleSubmit}>
           {submitted && valid ? (
@@ -64,15 +64,15 @@ const Registration = (props) => {
               Success! Thank you for registering
             </div>
           ) : null}
-          <div className="form-row">
-            <div className="form-col-5">
-              <label htmlFor="first-name" className="form-label">
+          <div className="form__row">
+            <div className="form__col-5">
+              <label htmlFor="first-name" className="form__label">
                 FIRST NAME
                 <input
                   onChange={handleFirstNameInput}
                   value={values.firstName}
                   id="first-name"
-                  className="form-input"
+                  className="form__input"
                   type="text"
                   placeholder="First Name"
                   name="firstName"
@@ -84,14 +84,14 @@ const Registration = (props) => {
                 </div>
               ) : null}
             </div>
-            <div className="form-col-5">
-              <label htmlFor="last-name" className="form-label">
+            <div className="form__col-5">
+              <label htmlFor="last-name" className="form__label">
                 LAST NAME
                 <input
                   onChange={handleLastNameInput}
                   value={values.lastName}
                   id="last-name"
-                  className="form-input"
+                  className="form__input"
                   type="text"
                   placeholder="Last Name"
                   name="lastName"
@@ -102,15 +102,15 @@ const Registration = (props) => {
               ) : null}
             </div>
           </div>
-          <div className="form-row">
-            <div className="form-col-10">
-              <label htmlFor="email" className="form-label">
+          <div className="form__row">
+            <div className="form__col-10">
+              <label htmlFor="email" className="form__label">
                 EMAIL
                 <input
                   onChange={handleEmailInput}
                   value={values.email}
                   id="email"
-                  className="form-input"
+                  className="form__input"
                   type="text"
                   placeholder="Email"
                   name="email"
@@ -121,15 +121,15 @@ const Registration = (props) => {
               ) : null}
             </div>
           </div>
-          <div className="form-row">
-            <div className="form-col-5">
-              <label htmlFor="password" className="form-label">
+          <div className="form__row">
+            <div className="form__col-5">
+              <label htmlFor="password" className="form__label">
                 PASSWORD
                 <input
                   onChange={handlePasswordInput}
                   value={values.password}
                   id="password"
-                  className="form-input"
+                  className="form__input"
                   type="text"
                   placeholder="Password"
                   name="password"
@@ -139,14 +139,14 @@ const Registration = (props) => {
                 <div className="form-error">Please enter a password</div>
               ) : null}
             </div>
-            <div className="form-col-5">
-              <label htmlFor="repeat-password" className="form-label">
+            <div className="form__col-5">
+              <label htmlFor="repeat-password" className="form__label">
                 REPEAT PASSWORD
                 <input
                   onChange={handleRepeatPasswordInput}
                   value={values.repeatPassword}
                   id="repeat-password"
-                  className="form-input"
+                  className="form__input"
                   type="text"
                   placeholder="Repeat Password"
                   name="repeatPassword"
@@ -159,14 +159,14 @@ const Registration = (props) => {
               ) : null}
             </div>
           </div>
-          <div className="form-action">
-            <div className="form-col-33 text-left register-btn-col">
-              <button className="form-submit" type="submit">
+          <div className="form__action">
+            <div className="form__col-33 text-left register-btn-col">
+              <button className="form__submit" type="submit">
                 Register
               </button>
             </div>
-            <div className="form-col-66 text-right register-sign-in-col">
-              <p className="wrapper-subtitle">
+            <div className="form__col-66 text-right register-sign-in-col">
+              <p className="wrapper__subtitle">
                 Already have an account? &nbsp;
                 <a href={"/#"}>Sign in</a>
               </p>
