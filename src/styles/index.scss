@@ -1,14 +1,13 @@
 @charset "utf-8";
-
 @import 'base/base';
+@import 'fonts/fonts';
 @import 'mixins/mixins';
-
+@import 'placeholders/placeholders';
 @import 'print';
 
-*,
-*::after,
-*::before {
+* {
     box-sizing: border-box;
+    font-family: $font-main;
     margin: 0;
     padding: 0;
 }

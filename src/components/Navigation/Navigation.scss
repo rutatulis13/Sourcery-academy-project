@@ -1,21 +1,21 @@
-$base-color: #6e44ff;
-$hover-color: #603bdf;
-$font-color: #fff;
-$font: 'Roboto', sans-serif;
-$font-size: 16px;
+@import 'styles';
 
 .navbar {
     align-items: center;
-    background-color: $base-color;
-    color: $font-color;
+    background-color: $color-bg-topbar;
+    color: $color-white;
     display: flex;
     height: 80px;
     justify-content: space-between;
     width: 100%;
+    @include mobile {
+        padding: 0 24px;
+    }
 
     &__list {
         align-items: center;
         display: flex;
+        height: 100%;
         justify-content: center;
 
         li {
@@ -25,11 +25,11 @@ $font-size: 16px;
 
     &__list-item {
         align-items: center;
-        color: $font-color;
+        color: $color-white;
         display: flex;
         flex-direction: row;
-        font-family: $font;
-        font-size: $font-size;
+        font-family: $font-main;
+        font-size: $font-size-header;
         font-weight: 500;
         height: 80px;
         justify-content: center;
@@ -38,11 +38,11 @@ $font-size: 16px;
         text-decoration: none;
 
         &:hover {
-            background-color: $hover-color;
+            background-color: $color-bg-hover;
         }
 
         &--active {
-            background-color: $hover-color;
+            background-color: $color-bg-hover;
         }
     }
 
