@@ -1,0 +1,13 @@
+$title-color: #3e5067;
+$title-font-size: 36px;
+
+.page-layout {
+    text-align: left;
+
+    &__title {
+        color: $title-color;
+        font-size: $title-font-size;
+        font-weight: 700;
+        line-height: 42px;
+    }
+}
