@@ -1,0 +1,19 @@
+.user__widget {
+    align-items: center;
+    cursor: pointer;
+    float: right;
+    justify-content: flex-end;
+    margin: 15px 60px auto auto;
+}
+
+.user__widget-avatar {
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+}
+
+.user__widget-heart {
+    margin-top: 35px;
+    position: absolute;
+    right: 60px;
+}
