@@ -1,11 +1,12 @@
 import React from "react";
+import EatOutPage from "pages/EatOutPage";
 import Layout from "components/Layout/Layout";
 
 function App() {
   return (
-    <div className="app">
-      <Layout />
-    </div>
+    <Layout>
+      <EatOutPage />
+    </Layout>
   );
 }
 

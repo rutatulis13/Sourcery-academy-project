@@ -5,6 +5,7 @@ const TopBar = () => {
   return (
     <div className="top-bar">
       <AvatarComponent />
+      <div className="top-bar__content"></div>
     </div>
   );
 };
