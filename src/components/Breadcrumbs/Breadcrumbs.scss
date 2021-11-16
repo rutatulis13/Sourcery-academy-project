@@ -1,17 +1,7 @@
 @import 'styles';
 
 .breadcrumbs {
-    padding: 0 48px;
     user-select: none;
-
-    @include mobile {
-        padding: 0 24px;
-    }
-
-    &__content {
-        @include restrict-block-to-max-width($max-page-width);
-        padding-top: 48px;
-    }
 
     .breadcrumbs-list {
         display: flex;
@@ -29,7 +19,8 @@
             .breadcrumbs-link {
                 color: $color-breadcrumbs;
                 font-size: $font-size-breadcrumbs;
-                font-weight: 500;
+                font-weight: $font-weight-breadcrumbs;
+                line-height: $line-height-breadcrumbs;
                 text-decoration: none;
                 text-transform: uppercase;
             }

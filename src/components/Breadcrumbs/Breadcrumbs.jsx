@@ -25,31 +25,16 @@ const Breadcrumbs = () => {
 
   return (
     <div className="breadcrumbs">
-      <div className="breadcrumbs__content">
-        <ul className="breadcrumbs-list">
-          {breadcrumbsArray.map((v, i) => (
-            <li className="breadcrumbs-list__li" key={v.name}>
-              {i > 0 && <ChevronRightSvg />}
-              <Link className="breadcrumbs-link" to={v.path}>
-                {v.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        {/* <ul className="breadcrumbs-list">
-          <li className="breadcrumbs-list__li">
-            <a href="/">Dashboard</a>
+      <ul className="breadcrumbs-list">
+        {breadcrumbsArray.map((v, i) => (
+          <li className="breadcrumbs-list__li" key={v.name}>
+            {i > 0 && <ChevronRightSvg />}
+            <Link className="breadcrumbs-link" to={v.path}>
+              {v.name}
+            </Link>
           </li>
-          <li className="breadcrumbs-list__li">
-            <ChevronRightSvg />
-            <a href="/">Reservations</a>
-          </li>
-          <li className="breadcrumbs-list__li">
-            <ChevronRightSvg />
-            <a href="/">Books</a>
-          </li>
-        </ul> */}
-      </div>
+        ))}
+      </ul>
     </div>
   );
 };
