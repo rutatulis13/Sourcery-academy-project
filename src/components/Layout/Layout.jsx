@@ -11,7 +11,9 @@ const Layout = (props) => {
         <div className="container__content">{props.children}</div>
       </div>
       <footer className="footer">
-        <div className="footer__copyright">COPYRIGHT &copy; 2021 DEVBRIDGE</div>
+        <div className="footer__copyright">
+          COPYRIGHT &copy; {new Date().getFullYear()} DEVBRIDGE
+        </div>
       </footer>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import EatOutPage from "pages/EatOutPage";
 import Layout from "components/Layout/Layout";
 import {
   BrowserRouter,
@@ -19,6 +20,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="reservations" element={<Reservations />} />
           </Route>
+          <Route path="/eat-out" element={<EatOutPage />} />
           <Route path="*" element={<p>404</p>} />
         </Routes>
       </BrowserRouter>
