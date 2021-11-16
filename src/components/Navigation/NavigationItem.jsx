@@ -10,8 +10,8 @@ const NavigationItem = ({ route, icon, iconAlt, pageName }) => {
         to={route}
         className={({ isActive }) =>
           classNames({
-            "navbar__list-item": true,
-            "navbar__list-item--active": isActive,
+            "navbar__link-item": true,
+            "navbar__link-item--active": isActive,
           })
         }
       >

@@ -11,10 +11,14 @@ const Navigation = () => {
   return (
     <div className="navbar">
       <NavLink to="/">
-        <img className="logo" src={logo} alt="Team Space Application" />
+        <img
+          className="navbar__logo-section"
+          src={logo}
+          alt="Team Space Application"
+        />
       </NavLink>
       <nav>
-        <ul className="navbar__list">
+        <ul className="navbar__link-section">
           <NavigationItem
             route="/"
             icon={home}

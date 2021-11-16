@@ -12,7 +12,12 @@
         padding: 0 24px;
     }
 
-    &__list {
+    &__logo-section {
+        height: 48px;
+        margin-left: 48px;
+    }
+
+    &__link-section {
         align-items: center;
         display: flex;
         height: 100%;
@@ -23,7 +28,7 @@
         }
     }
 
-    &__list-item {
+    &__link-item {
         align-items: center;
         color: $color-white;
         display: flex;
@@ -51,9 +56,4 @@
         padding-right: 17px;
         width: auto;
     }
-}
-
-.logo {
-    height: 48px;
-    margin-left: 48px;
 }

@@ -1,12 +1,16 @@
-$title-color: #3e5067;
-$title-font-size: 36px;
+@import 'styles';
 
 .page-layout {
+    flex-grow: 1;
+    padding: 48px;
     text-align: left;
+    @include mobile {
+        padding: 24px;
+    }
 
     &__title {
-        color: $title-color;
-        font-size: $title-font-size;
+        color: $color-text-title;
+        font-size: $font-size-title;
         font-weight: 700;
         line-height: 42px;
     }
