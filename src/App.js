@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "components/Layout/Layout";
 import Dashboard from "pages/Dashboard";
 import BookReservations from "pages/BookReservations";
@@ -7,11 +7,15 @@ import EatOutPage from "pages/EatOutPage";
 
 function App() {
   return (
-    <Layout>
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/Reservations" element={<BookReservations />} />
-      <Route path="/EatOut" element={<EatOutPage />} />
-    </Layout>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/reservations" element={<BookReservations />} />
+          <Route path="/eat-out" element={<EatOutPage />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 

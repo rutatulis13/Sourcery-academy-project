@@ -26,21 +26,20 @@ const Navigation = () => {
             pageName="Dashboard"
           />
           <NavigationItem
-            route="/Reservations"
+            route="/reservations"
             icon={bookmark}
             iconAlt="bookmark"
             pageName="Reservations"
           />
           <NavigationItem
-            route="/EatOut"
+            route="/eat-out"
             icon={compass}
             iconAlt="compass"
             pageName="Eat-Out"
           />
         </ul>
       </nav>
-      {/* kol kas nera */}
-      <div className="sign-in"></div>
+      <div className="navbar__user-section"></div>
     </div>
   );
 };

@@ -1,22 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Layout.scss";
-import { BrowserRouter, Routes } from "react-router-dom";
 import Navigation from "../../components/Navigation/Navigation";
-import PageLayout from "components/PageLayout/PageLayout";
+import "./Layout.scss";
 
-const Layout = ({ children }) => {
+const Layout = (props) => {
   return (
     <div className="layout">
       <header className="header">
-        <BrowserRouter>
-          <div>
-            <Navigation />
-            <Routes>{children}</Routes>
-          </div>
-        </BrowserRouter>
+        <Navigation />
       </header>
-      <PageLayout />
+      <div className="container">
+        <div className="container__content">{props.children}</div>
+      </div>
       <footer className="footer">
         <div className="footer__copyright">COPYRIGHT &copy; 2021 DEVBRIDGE</div>
       </footer>

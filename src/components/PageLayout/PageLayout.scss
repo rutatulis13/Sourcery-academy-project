@@ -1,12 +1,7 @@
 @import 'styles';
 
 .page-layout {
-    flex-grow: 1;
-    padding: 48px;
     text-align: left;
-    @include mobile {
-        padding: 24px;
-    }
 
     &__title {
         color: $color-text-title;
