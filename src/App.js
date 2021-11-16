@@ -1,15 +1,10 @@
 import React from "react";
-import EatOutPage from "pages/EatOutPage";
-import Layout from "components/Layout/Layout";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  Outlet,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
+import Layout from "components/Layout/Layout";
+import Dashboard from "pages/Dashboard/Dashboard";
+import EatOutPage from "pages/EatOutPage";
+import PageLayout from "components/PageLayout/PageLayout";
 
 function App() {
   return (
@@ -18,30 +13,16 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate replace to="/dashboard" />} />
           <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="reservations" element={<Reservations />} />
+            <Route path="eat-out" element={<EatOutPage />} />
           </Route>
-          <Route path="/eat-out" element={<EatOutPage />} />
-          <Route path="*" element={<p>404</p>} />
+          <Route
+            path="*"
+            element={<PageLayout title="404">Page not found!</PageLayout>}
+          />
         </Routes>
       </BrowserRouter>
     </Layout>
   );
 }
-
-// Temporary:
-const Dashboard = () => (
-  <div>
-    <Breadcrumbs />
-    <br />
-    <p>Dashboard page</p>
-    <Outlet />
-  </div>
-);
-
-const Reservations = () => (
-  <div>
-    <p>Reservations page</p>
-  </div>
-);
 
 export default App;
