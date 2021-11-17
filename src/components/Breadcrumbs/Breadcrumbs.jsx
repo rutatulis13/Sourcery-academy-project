@@ -8,7 +8,7 @@ const Breadcrumbs = () => {
   const [breadcrumbsArray, setBreadcrumbsArray] = useState([]);
 
   useEffect(() => {
-    let splittedPathNames = routerLocation.pathname.split("/");
+    const splittedPathNames = routerLocation.pathname.split("/");
     let currentPath = "";
     let _breadcrumbsArray = [];
     for (const page of splittedPathNames) {
@@ -24,18 +24,16 @@ const Breadcrumbs = () => {
   }, [routerLocation]);
 
   return (
-    <div className="breadcrumbs">
-      <ul className="breadcrumbs-list">
-        {breadcrumbsArray.map((v, i) => (
-          <li className="breadcrumbs-list__li" key={v.name}>
-            {i > 0 && <ChevronRightSvg />}
-            <Link className="breadcrumbs-link" to={v.path}>
-              {v.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className="breadcrumbs-list">
+      {breadcrumbsArray.map((page, index) => (
+        <li className="breadcrumbs-list__li" key={page.name}>
+          {index > 0 && <ChevronRightSvg />}
+          <Link className="breadcrumbs-link" to={page.path}>
+            {page.name}
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 };
 

@@ -1,33 +1,30 @@
-@import 'styles';
+@import '../../styles/base/base';
 
-.breadcrumbs {
+.breadcrumbs-list {
+    display: flex;
+    flex-wrap: wrap;
     user-select: none;
 
-    .breadcrumbs-list {
-        display: flex;
-        flex-wrap: wrap;
+    &__li {
+        display: block;
 
-        &__li {
-            display: block;
+        svg {
+            height: 6px;
+            margin: 1px 6px;
+            width: 6px;
+        }
 
-            svg {
-                height: 6px;
-                margin: 1px 6px;
-                width: 6px;
-            }
+        .breadcrumbs-link {
+            color: $color-breadcrumbs;
+            font-size: $font-size-breadcrumbs;
+            font-weight: $font-weight-breadcrumbs;
+            line-height: $line-height-breadcrumbs;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
 
-            .breadcrumbs-link {
-                color: $color-breadcrumbs;
-                font-size: $font-size-breadcrumbs;
-                font-weight: $font-weight-breadcrumbs;
-                line-height: $line-height-breadcrumbs;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            &:last-child > .breadcrumbs-link {
-                color: $color-breadcrumbs-last;
-            }
+        &:last-child > .breadcrumbs-link {
+            color: $color-breadcrumbs-last;
         }
     }
 }
