@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import Logo from "../../assets/logo.svg";
-import "./register.scss";
-import PropTypes from "prop-types";
+import Form from "../../components/FormComponents/Form/Form.js";
+import FormLabel from "../../components/FormComponents/FormLabel/FormLabel.js";
+import FormInput from "../../components/FormComponents/FormInput/FormInput.js";
+import FormAction from "../../components/FormComponents/FormAction/FormAction.js";
+import FormWrapper from "../../components/FormComponents/FormWrapper/FormWrapper.js";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage.js";
+import "../../components/FormComponents/Register.scss";
+import "../../components/FormComponents/Form.scss";
 
-const Registration = (props) => {
+const Registration = () => {
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -16,24 +21,12 @@ const Registration = (props) => {
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
 
-  const handleFirstNameInput = (e) => {
-    setValues({ ...values, firstName: e.target.value });
-  };
-
-  const handleLastNameInput = (e) => {
-    setValues({ ...values, lastName: e.target.value });
-  };
-
-  const handleEmailInput = (e) => {
-    setValues({ ...values, email: e.target.value });
-  };
-
-  const handlePasswordInput = (e) => {
-    setValues({ ...values, password: e.target.value });
-  };
-
-  const handleRepeatPasswordInput = (e) => {
-    setValues({ ...values, repeatPassword: e.target.value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
   };
 
   const handleSubmit = (e) => {
@@ -51,137 +44,102 @@ const Registration = (props) => {
   };
 
   return (
-    <div className="register-page">
-      <img className="logo" src={Logo} alt="" />
-      <div className="login-wrapper">
-        <div className="login-wrapper__header">
-          <h2 className="login-wrapper__title">Register</h2>
-          <div className="login-wrapper__subtitle">
-            {"Let's get you on board."}
+    <FormWrapper title="Register" subtitle="Let's get you on board.">
+      <Form onSubmit={handleSubmit}>
+        {submitted && valid ? <Navigate to="/login" /> : null}
+        <div className="form__row">
+          <div className="form__col-50">
+            <FormLabel htmlFor="first-name">
+              FIRST NAME
+              <FormInput
+                onChange={handleChange}
+                value={values.firstName}
+                id="first-name"
+                type="text"
+                placeholder="First Name"
+                name="firstName"
+              />
+              {submitted && !values.firstName ? (
+                <ErrorMessage>Please enter a first name</ErrorMessage>
+              ) : null}
+            </FormLabel>
+          </div>
+          <div className="form__col-50">
+            <FormLabel htmlFor="last-name">
+              LAST NAME
+              <FormInput
+                onChange={handleChange}
+                value={values.lastName}
+                id="last-name"
+                type="text"
+                placeholder="Last Name"
+                name="lastName"
+              />
+              {submitted && !values.lastName ? (
+                <ErrorMessage>Please enter a last name</ErrorMessage>
+              ) : null}
+            </FormLabel>
           </div>
         </div>
-        <form className="form" onSubmit={handleSubmit}>
-          {submitted && valid ? <Navigate to="/login" /> : null}
-          <div className="form__row">
-            <div className="form__col-5">
-              <label htmlFor="first-name" className="form__label">
-                FIRST NAME
-                <input
-                  onChange={handleFirstNameInput}
-                  value={values.firstName}
-                  id="first-name"
-                  className="form__input"
-                  type="text"
-                  placeholder="First Name"
-                  name="firstName"
-                />
-              </label>
-              {submitted && !values.firstName ? (
-                <div className="first-name-error">
-                  Please enter a first name
-                </div>
-              ) : null}
-            </div>
-            <div className="form__col-5">
-              <label htmlFor="last-name" className="form__label">
-                LAST NAME
-                <input
-                  onChange={handleLastNameInput}
-                  value={values.lastName}
-                  id="last-name"
-                  className="form__input"
-                  type="text"
-                  placeholder="Last Name"
-                  name="lastName"
-                />
-              </label>
-              {submitted && !values.lastName ? (
-                <div className="last-name-error">Please enter a last name</div>
-              ) : null}
-            </div>
-          </div>
-          <div className="form__row">
-            <div className="form__col-10">
-              <label htmlFor="email" className="form__label">
-                EMAIL
-                <input
-                  onChange={handleEmailInput}
-                  value={values.email}
-                  id="email"
-                  className="form__input"
-                  type="text"
-                  placeholder="Email"
-                  name="email"
-                />
-              </label>
+        <div className="form__row">
+          <div className="form__col-100">
+            <FormLabel htmlFor="email">
+              EMAIL
+              <FormInput
+                onChange={handleChange}
+                value={values.email}
+                id="email"
+                type="email"
+                placeholder="Email"
+                name="email"
+              />
               {submitted && !values.email ? (
-                <div className="email-error">Please enter a email</div>
+                <ErrorMessage>Please enter an email</ErrorMessage>
               ) : null}
-            </div>
+            </FormLabel>
           </div>
-          <div className="form__row">
-            <div className="form__col-5">
-              <label htmlFor="password" className="form__label">
-                PASSWORD
-                <input
-                  onChange={handlePasswordInput}
-                  value={values.password}
-                  id="password"
-                  className="form__input"
-                  type="text"
-                  placeholder="Password"
-                  name="password"
-                />
-              </label>
+        </div>
+        <div className="form__row">
+          <div className="form__col-50">
+            <FormLabel htmlFor="password">
+              PASSWORD
+              <FormInput
+                onChange={handleChange}
+                value={values.password}
+                id="password"
+                type="password"
+                placeholder="Password"
+                name="password"
+              />
               {submitted && !values.password ? (
-                <div className="form-error">Please enter a password</div>
+                <ErrorMessage>Please enter a password</ErrorMessage>
               ) : null}
-            </div>
-            <div className="form__col-5">
-              <label htmlFor="repeat-password" className="form__label">
-                REPEAT PASSWORD
-                <input
-                  onChange={handleRepeatPasswordInput}
-                  value={values.repeatPassword}
-                  id="repeat-password"
-                  className="form__input"
-                  type="text"
-                  placeholder="Repeat Password"
-                  name="repeatPassword"
-                />
-              </label>
+            </FormLabel>
+          </div>
+          <div className="form__col-50">
+            <FormLabel htmlFor="repeat-password">
+              REPEAT PASSWORD
+              <FormInput
+                onChange={handleChange}
+                value={values.repeatPassword}
+                id="repeat-password"
+                type="password"
+                placeholder="Repeat Password"
+                name="repeatPassword"
+              />
               {submitted && !values.repeatPassword ? (
-                <div className="repeat-password-error">
-                  Please repeat password
-                </div>
+                <ErrorMessage>Please repeat a password</ErrorMessage>
               ) : null}
-            </div>
+            </FormLabel>
           </div>
-          <div className="form__action">
-            <div className="form__col-33 text-left register-btn-col">
-              <button
-                className="form__submit"
-                type="submit"
-                onClick="handleSubmit"
-              >
-                Register
-              </button>
-            </div>
-            <div className="form__col-66 text-right register-sign-in-col">
-              <p className="login-wrapper__subtitle">
-                Already have an account? &nbsp;
-                <Link to="/login">Sign in</Link>
-              </p>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+        </div>
+        <FormAction title="Register">
+          Already have an account? &nbsp;
+          <Link to="/login">Sign in</Link>
+        </FormAction>
+      </Form>
+    </FormWrapper>
   );
-};
-
-Registration.propTypes = {
-  openLoginCallBack: PropTypes.func,
 };
 
 export default Registration;

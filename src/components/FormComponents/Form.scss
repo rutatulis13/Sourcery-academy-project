@@ -1,50 +1,32 @@
-$col-spacer: 10px;
-@mixin form-row-style() {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-left: -#{$col-spacer};
-    margin-right: -#{$col-spacer};
-    position: relative;
-}
+@import 'styles';
 
 .form {
     &__row {
-        @include form-row-style();
+        @include form-row-style;
     }
 
     &__col-33 {
-        padding-left: $col-spacer;
-        padding-right: $col-spacer;
-        position: relative;
-        width: calc(33% - (2 * #{$col-spacer}));
+        @include form-col-style;
+        width: calc(33% - (2 * #{$lenght-10}));
     }
 
-    &__col-5 {
-        padding-left: $col-spacer;
-        padding-right: $col-spacer;
-        position: relative;
-        width: calc(50% - (2 * #{$col-spacer}));
+    &__col-50 {
+        @include form-col-style;
+        width: calc(50% - (2 * #{$lenght-10}));
     }
 
     &__col-66 {
-        padding-left: $col-spacer;
-        padding-right: $col-spacer;
-        position: relative;
-        width: calc(66% - (2 * #{$col-spacer}));
+        @include form-col-style;
+        width: calc(66% - (2 * #{$lenght-10}));
     }
 
-    &__col-10 {
-        padding-left: $col-spacer;
-        padding-right: $col-spacer;
-        position: relative;
+    &__col-100 {
+        @include form-col-style;
         width: 100%;
     }
 
     &__col-33,
-    &__col-5,
+    &__col-50,
     &__col-66 {
         @include respond-to($break-point-mobile, 'max') {
             width: 100%;

@@ -30,3 +30,20 @@
         @content;
     }
 }
+
+@mixin form-row-style {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: -#{$lenght-10};
+    margin-right: -#{$lenght-10};
+    position: relative;
+}
+
+@mixin form-col-style {
+    padding-left: $lenght-10;
+    padding-right: $lenght-10;
+    position: relative;
+}
