@@ -1,0 +1,10 @@
+@import 'styles';
+
+.top-bar {
+    background-color: $color-bg-topbar;
+    height: 80px;
+    padding: 0 48px;
+    @include mobile {
+        padding: 0 24px;
+    }
+}
