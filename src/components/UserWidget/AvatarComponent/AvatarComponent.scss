@@ -1,18 +1,19 @@
-.user__widget {
+.user-widget {
     align-items: center;
     cursor: pointer;
     float: right;
     justify-content: flex-end;
-    margin: 15px 60px auto auto;
-}
+    margin: 15px 20px auto auto;
 
-.user__widget-avatar {
-    border-radius: 50%;
-    height: 45px;
-    width: 45px;
-}
+    &__avatar {
+        border-radius: 50%;
+        height: 45px;
+        width: 45px;
+    }
 
-.user__widget-heart {
-    position: relative;
-    right: 10px;
+    &__badge {
+        margin-left: 33px;
+        margin-top: -20px;
+        position: absolute;
+    }
 }

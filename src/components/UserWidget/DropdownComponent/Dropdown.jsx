@@ -1,19 +1,31 @@
 import React from "react";
 import "./Dropdown.scss";
-class DropdownComponent extends React.Component {
-  render() {
-    return (
-      <div className="dropdown">
-        <ul className="dropdown__content">
-          <li className="dropdown__content-settings">
-            <span>Settings</span>
-          </li>
-          <li className="dropdown__content-logout">
-            <span>Log-out</span>
-          </li>
-        </ul>
-      </div>
-    );
-  }
-}
+import PropTypes from "prop-types";
+
+const DropdownComponent = (props) => {
+  const dropdownClassNames = props.dropdownClassName;
+  const dropdownTexts = props.dropdownText;
+  return (
+    <div className="dropdown">
+      <ul className="dropdown__content">
+        {dropdownClassNames.map((dropdownClassName, index) => {
+          return (
+            <li
+              key={index}
+              className={`dropdown__content__${dropdownClassName}`}
+            >
+              <a href="/#">{dropdownTexts[index]}</a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
+
+DropdownComponent.propTypes = {
+  dropdownClassName: PropTypes.string,
+  dropdownText: PropTypes.string,
+};
+
 export default DropdownComponent;

@@ -1,40 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import DropdownComponent from "../DropdownComponent/Dropdown.jsx";
 import "./AvatarComponent.scss";
-class AvatarComponent extends React.Component {
-  state = {
-    displayAvatarDropdown: false,
-  };
-  dropdownState = () => {
-    this.setState({
-      displayAvatarDropdown: !this.state.displayAvatarDropdown,
-    });
-  };
-  render() {
-    return (
-      <div
-        className="user__widget"
-        role="button"
-        tabIndex="0"
-        onClick={() => {
-          this.dropdownState();
-        }}
-        onKeyPress={() => {}}
-      >
-        <img
-          src={require("../../../resources/avatar.png")}
-          alt="avatar"
-          className="user__widget-avatar"
-        />
-        <img
-          src={require("../../../resources/heart.svg")}
-          alt="heart"
-          className="user__widget-heart"
-        />
+import avatarImage from "../../../resources/avatar.png";
+import badgeImage from "../../../resources/heart.svg";
 
-        {this.state.displayAvatarDropdown && <DropdownComponent />}
+const AvatarComponent = () => {
+  const [dropdownState, setDropdownState] = useState(false);
+
+  // const dropdownListItems = [{ name: "Settings" }, { name: "Log-out" }];
+
+  const changeDropdownState = () => {
+    setDropdownState((dropdownState) => !dropdownState);
+  };
+
+  return (
+    <div
+      className="user-widget"
+      role="button"
+      tabIndex="0"
+      onClick={() => {
+        changeDropdownState();
+      }}
+      onKeyPress={() => {}}
+    >
+      <img src={avatarImage} alt="avatar" className="user-widget__avatar" />
+
+      <div className="user-widget__badge">
+        <img
+          src={badgeImage}
+          alt="heart"
+          className="user-widget__badge-heart"
+        />
       </div>
-    );
-  }
-}
+      {dropdownState && (
+        <DropdownComponent
+          dropdownClassName={["settings", "logout"]}
+          dropdownText={["Settings", "Log-out"]}
+        />
+      )}
+    </div>
+  );
+};
 export default AvatarComponent;
