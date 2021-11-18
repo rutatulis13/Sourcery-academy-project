@@ -1,8 +1,8 @@
-import Navigation from "components/Navigation/Navigation";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./TopBar.scss";
+import Navigation from "components/Navigation/Navigation";
 import logo from "assets/logo-nav.svg";
+import "./TopBar.scss";
 
 const TopBar = () => {
   return (
