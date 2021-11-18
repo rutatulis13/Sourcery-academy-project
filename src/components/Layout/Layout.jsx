@@ -1,14 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Layout.scss";
 import TopBar from "components/TopBar/TopBar";
+import "./Layout.scss";
 
 const Layout = (props) => {
   return (
     <div className="layout">
-      <header className="header">
-        <TopBar />
-      </header>
+      <TopBar />
       <div className="container">
         <div className="container__content">{props.children}</div>
       </div>

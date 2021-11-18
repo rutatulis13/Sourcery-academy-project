@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import classNames from "classnames/bind";
+import "./NavigationItem.scss";
 
 const NavigationItem = ({ route, icon, iconAlt, pageName }) => {
   return (

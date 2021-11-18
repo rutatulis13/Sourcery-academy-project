@@ -1,4 +1,6 @@
-@import 'styles';
+@import '../../styles/base/base';
+@import '../../styles/mixins';
+@import '../../styles/base/config';
 
 .layout {
     background-color: $color-bg-container;
