@@ -75,7 +75,7 @@ $white-triangle-length: 6px;
 
         &__settings {
             &::before {
-                content: url('../../../resources/settings.svg');
+                content: url('../../../assets/settings.svg');
                 font-size: $list-size;
                 line-height: 20px;
                 padding-right: 10px;
@@ -85,7 +85,7 @@ $white-triangle-length: 6px;
 
         &__logout {
             &::before {
-                content: url('../../../resources/logOut.svg');
+                content: url('../../../assets/logOut.svg');
                 font-size: $list-size;
                 line-height: 20px;
                 padding-right: 10px;

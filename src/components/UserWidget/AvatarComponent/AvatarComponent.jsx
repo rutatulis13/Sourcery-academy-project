@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import DropdownComponent from "../DropdownComponent/Dropdown.jsx";
 import "./AvatarComponent.scss";
-import avatarImage from "../../../resources/avatar.png";
-import badgeImage from "../../../resources/heart.svg";
+import avatarImage from "../../../assets/avatar.png";
+import badgeImage from "../../../assets/heart.svg";
 
 const AvatarComponent = () => {
   const [dropdownState, setDropdownState] = useState(false);
