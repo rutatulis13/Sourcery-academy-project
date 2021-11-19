@@ -1,0 +1,14 @@
+.navbar {
+    &__link-section {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+    }
+
+    &__img {
+        height: 24px;
+        padding-right: 17px;
+        width: auto;
+    }
+}

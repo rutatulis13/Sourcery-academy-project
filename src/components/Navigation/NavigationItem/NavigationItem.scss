@@ -1,0 +1,30 @@
+@import '../../../styles/base/base';
+
+.navbar {
+    &__link-section li {
+        list-style: none;
+    }
+
+    &__link-item {
+        align-items: center;
+        color: $color-white;
+        display: flex;
+        flex-direction: row;
+        font-family: $font-main;
+        font-size: $font-size-header;
+        font-weight: 500;
+        height: 80px;
+        justify-content: center;
+        line-height: 24px;
+        padding: 0 25px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: $color-bg-hover;
+        }
+
+        &--active {
+            background-color: $color-bg-hover;
+        }
+    }
+}
