@@ -1,6 +1,8 @@
 import React from "react";
-import { Outlet } from "react-router";
+import PageLayout from "components/PageLayout/PageLayout";
 
-const Dashboard = (props) => <Outlet />;
+const Dashboard = () => {
+  return <PageLayout title="Dashboard"></PageLayout>;
+};
 
 export default Dashboard;
