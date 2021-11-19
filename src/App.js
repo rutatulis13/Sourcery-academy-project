@@ -3,8 +3,10 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Layout from "components/Layout/Layout";
 import Dashboard from "pages/Dashboard/Dashboard";
-import BookReservations from "pages/BookReservations";
-import EatOutPage from "pages/EatOutPage";
+import Reservations from "pages/Reservations/Reservations";
+import BookReservations from "pages/BookReservations/BookReservations";
+import DeviceReservations from "pages/DeviceReservations/DeviceReservations";
+import EatOutPage from "pages/EatOutPage/EatOutPage";
 import NotFound from "pages/NotFound/NotFound";
 
 function App() {
@@ -13,7 +15,14 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/reservations" element={<BookReservations />} />
+          <Route
+            path="/reservations"
+            element={<Navigate replace to="/reservations/books" />}
+          />
+          <Route path="/reservations" element={<Reservations />}>
+            <Route path="books" element={<BookReservations />} />
+            <Route path="devices" element={<DeviceReservations />} />
+          </Route>
           <Route path="/eat-out" element={<EatOutPage />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate replace to="/404" />} />
