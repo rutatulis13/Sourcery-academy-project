@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import thunder from "../../assets/WeatherWidget/thunder.svg";
 import cloud from "../../assets/WeatherWidget/cloud.svg";
 import rain from "../../assets/WeatherWidget/rain.svg";
@@ -13,34 +14,34 @@ import {
 } from "../../utils/dates.js";
 import "./WeatherWidget.scss";
 
-const api = {
-  key: "d41a013214b42469776718663683b478",
-  base: "https://api.openweathermap.org/data/2.5/",
-};
-
-const WeatherWidget = () => {
+const WeatherWidget = ({ city }) => {
   const [weatherData, setWeatherData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${api.base}weather?q=Vilnius&units=metric&appid=${api.key}`)
+    setIsLoading(true);
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+    )
       .then((res) => {
         if (!res.ok) {
-          throw Error("Could not fetch the data");
+          throw Error();
         }
         return res.json();
       })
       .then((data) => {
         setWeatherData(data);
       })
-      .catch((error) => {
-        setError(error.message);
+      .catch(() => {
+        setError(
+          "Whoops! Something went under the weather while trying to show current weather :/"
+        );
       })
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [city]);
 
   const getTodayDate = () => {
     return `${getCurrentWeekDay()}, ${getCurrentDay()} ${getCurrentMonth()}`;
@@ -76,8 +77,8 @@ const WeatherWidget = () => {
             {getTodayDate()} | {weatherData.name},{" "}
             {countryName.of(weatherData.sys.country)}
           </div>
-          <div className="weather-widget__bottom">
-            <div className="weather-widget__bottom-top">
+          <div>
+            <div className="weather-widget__main">
               <div className="weather-widget__temperature">
                 {Math.round(weatherData.main.temp)}°
               </div>
@@ -85,7 +86,7 @@ const WeatherWidget = () => {
                 {weatherData.weather[0].main}
               </div>
             </div>
-            <div className="weather-widget__bottom-bottom">
+            <div className="weather-widget__details">
               <div className="weather-widget__info">
                 <img src={wind} alt="Wind" />
                 {weatherData.wind.speed.toFixed(1)} m/s
@@ -106,6 +107,10 @@ const WeatherWidget = () => {
       )}
     </div>
   );
+};
+
+WeatherWidget.propTypes = {
+  city: PropTypes.string.isRequired,
 };
 
 export default WeatherWidget;

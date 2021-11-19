@@ -15,8 +15,11 @@
     width: 420px;
 
     &__message {
+        align-items: center;
         display: flex;
+        height: 100%;
         justify-content: center;
+        text-align: center;
     }
 
     &__location {
@@ -25,7 +28,7 @@
         text-transform: capitalize;
     }
 
-    &__bottom-top {
+    &__main {
         display: flex;
         flex-direction: row;
         font-weight: 300;
@@ -44,7 +47,7 @@
         padding-bottom: 10px;
     }
 
-    &__bottom-bottom {
+    &__details {
         border-top: 1px solid rgba(0, 0, 0, 0.3);
         display: flex;
         flex-direction: row;
