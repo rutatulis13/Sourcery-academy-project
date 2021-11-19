@@ -4,10 +4,10 @@ import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 
 const EatOutPage = () => {
   return (
-    <div>
+    <React.Fragment>
       <Breadcrumbs />
       <PageLayout title="Hungry? Find the best place!"></PageLayout>
-    </div>
+    </React.Fragment>
   );
 };
 
