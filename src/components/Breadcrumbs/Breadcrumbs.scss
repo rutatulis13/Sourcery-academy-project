@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     user-select: none;
 
-    &__li {
+    &__item {
         display: block;
 
         svg {
@@ -14,7 +14,7 @@
             width: 6px;
         }
 
-        .breadcrumbs-link {
+        &-link {
             color: $color-breadcrumbs;
             font-size: $font-size-breadcrumbs;
             font-weight: $font-weight-breadcrumbs;
@@ -23,7 +23,7 @@
             text-transform: uppercase;
         }
 
-        &:last-child > .breadcrumbs-link {
+        &:last-child > &-link {
             color: $color-breadcrumbs-last;
         }
     }

@@ -27,9 +27,9 @@ const Breadcrumbs = () => {
     <nav>
       <ul className="breadcrumbs-list">
         {breadcrumbsArray.map((page, index) => (
-          <li className="breadcrumbs-list__li" key={`${page.name}_${index}`}>
+          <li className="breadcrumbs-list__item" key={`${page.name}_${index}`}>
             {index > 0 && <ChevronRightSvg />}
-            <Link className="breadcrumbs-link" to={page.path}>
+            <Link className="breadcrumbs-list__item-link" to={page.path}>
               {page.name}
             </Link>
           </li>
