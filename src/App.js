@@ -9,8 +9,8 @@ import NotFound from "pages/NotFound/NotFound";
 
 function App() {
   return (
-    <Layout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Layout>
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/reservations" element={<BookReservations />} />
@@ -18,8 +18,8 @@ function App() {
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate replace to="/404" />} />
         </Routes>
-      </BrowserRouter>
-    </Layout>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
