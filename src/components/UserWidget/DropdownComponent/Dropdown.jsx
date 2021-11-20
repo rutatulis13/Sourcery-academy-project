@@ -2,19 +2,18 @@ import React from "react";
 import "./Dropdown.scss";
 import PropTypes from "prop-types";
 
-const DropdownComponent = (props) => {
-  const dropdownClassNames = props.dropdownClassName;
-  const dropdownTexts = props.dropdownText;
+const DropdownComponent = ({ dropdownItems }) => {
   return (
     <div className="dropdown">
       <ul className="dropdown__content">
-        {dropdownClassNames.map((dropdownClassName, index) => {
+        {dropdownItems.map((dropdownItem, index) => {
           return (
             <li
               key={index}
-              className={`dropdown__content__${dropdownClassName}`}
+              className={`dropdown__content__${dropdownItem.iconName}`}
             >
-              <a href="/#">{dropdownTexts[index]}</a>
+              <img src={dropdownItem.iconName} alt="dropdownItem" />
+              <a href="/#">{dropdownItem.text}</a>
             </li>
           );
         })}
@@ -24,8 +23,7 @@ const DropdownComponent = (props) => {
 };
 
 DropdownComponent.propTypes = {
-  dropdownClassName: PropTypes.string,
-  dropdownText: PropTypes.string,
+  dropdownItems: PropTypes.array,
 };
 
 export default DropdownComponent;

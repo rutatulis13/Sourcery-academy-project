@@ -1,11 +1,11 @@
 import React from "react";
 import "./TopBar.scss";
-import AvatarComponent from "../UserWidget/AvatarComponent/AvatarComponent.jsx";
+import UserWidgetComponent from "../UserWidget/UserWidgetComponent/UserWidget.jsx";
 const TopBar = () => {
   return (
     <div className="top-bar">
       <div className="top-bar__content">
-        <AvatarComponent />
+        <UserWidgetComponent />
       </div>
     </div>
   );
