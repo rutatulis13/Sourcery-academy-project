@@ -4,6 +4,7 @@ import Navigation from "components/Navigation/Navigation";
 import logo from "assets/logo-nav.svg";
 import "./TopBar.scss";
 import UserWidgetComponent from "../UserWidget/UserWidgetComponent/UserWidget.jsx";
+
 const TopBar = () => {
   return (
     <header className="top-bar">
