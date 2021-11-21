@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import Form from "../../components/FormComponents/Form/Form.js";
 import FormLabel from "../../components/FormComponents/FormLabel/FormLabel.js";
-import FormInput from "../../components/FormComponents/FormInput/FormInput.js";
 import FormAction from "../../components/FormComponents/FormAction/FormAction.js";
 import FormWrapper from "../../components/FormComponents/FormWrapper/FormWrapper.js";
+import LoginButton from "../../components/Button/LoginButton.js";
+import DeleteButton from "../../components/Button/DeleteButton.js";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage.js";
-import "../../components/FormComponents/Register.scss";
-import "../../components/FormComponents/Form.scss";
+import "../../components/FormComponents/Form/Form.scss";
+import "./Register.scss";
 
 const Registration = () => {
   const [values, setValues] = useState({
@@ -32,11 +33,11 @@ const Registration = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      values.firstName &&
-      values.lastName &&
-      values.email &&
-      values.password &&
-      values.repeatPassword
+      values.firstName.length > 2 &&
+      values.lastName.length > 2 &&
+      values.email.length > 2 &&
+      values.password.length > 2 &&
+      values.repeatPassword.length > 2
     ) {
       setValid(true);
     }
@@ -51,7 +52,12 @@ const Registration = () => {
           <div className="form__col-50">
             <FormLabel htmlFor="first-name">
               FIRST NAME
-              <FormInput
+              <input
+                className={
+                  submitted && values.firstName.length < 3
+                    ? "form__input__invalid"
+                    : "form__input"
+                }
                 onChange={handleChange}
                 value={values.firstName}
                 id="first-name"
@@ -59,15 +65,25 @@ const Registration = () => {
                 placeholder="First Name"
                 name="firstName"
               />
-              {submitted && !values.firstName ? (
-                <ErrorMessage>Please enter a first name</ErrorMessage>
+              {submitted && values.firstName.length < 3 ? (
+                <>
+                  <DeleteButton
+                    onClick={() => setValues({ ...values, firstName: "" })}
+                  />
+                  <ErrorMessage>Please enter a first name</ErrorMessage>
+                </>
               ) : null}
             </FormLabel>
           </div>
           <div className="form__col-50">
             <FormLabel htmlFor="last-name">
               LAST NAME
-              <FormInput
+              <input
+                className={
+                  submitted && values.lastName.length < 3
+                    ? "form__input__invalid"
+                    : "form__input"
+                }
                 onChange={handleChange}
                 value={values.lastName}
                 id="last-name"
@@ -75,8 +91,13 @@ const Registration = () => {
                 placeholder="Last Name"
                 name="lastName"
               />
-              {submitted && !values.lastName ? (
-                <ErrorMessage>Please enter a last name</ErrorMessage>
+              {submitted && values.lastName.length < 3 ? (
+                <>
+                  <DeleteButton
+                    onClick={() => setValues({ ...values, lastName: "" })}
+                  />
+                  <ErrorMessage>Please enter a last name name</ErrorMessage>
+                </>
               ) : null}
             </FormLabel>
           </div>
@@ -85,16 +106,26 @@ const Registration = () => {
           <div className="form__col-100">
             <FormLabel htmlFor="email">
               EMAIL
-              <FormInput
+              <input
+                className={
+                  submitted && values.email.length < 3
+                    ? "form__input__invalid"
+                    : "form__input"
+                }
                 onChange={handleChange}
                 value={values.email}
                 id="email"
-                type="email"
+                type="text"
                 placeholder="Email"
                 name="email"
               />
-              {submitted && !values.email ? (
-                <ErrorMessage>Please enter an email</ErrorMessage>
+              {submitted && values.email.length < 3 ? (
+                <>
+                  <DeleteButton
+                    onClick={() => setValues({ ...values, email: "" })}
+                  />
+                  <ErrorMessage>Please enter an email</ErrorMessage>
+                </>
               ) : null}
             </FormLabel>
           </div>
@@ -103,7 +134,12 @@ const Registration = () => {
           <div className="form__col-50">
             <FormLabel htmlFor="password">
               PASSWORD
-              <FormInput
+              <input
+                className={
+                  submitted && values.password.length < 3
+                    ? "form__input__invalid"
+                    : "form__input"
+                }
                 onChange={handleChange}
                 value={values.password}
                 id="password"
@@ -111,15 +147,25 @@ const Registration = () => {
                 placeholder="Password"
                 name="password"
               />
-              {submitted && !values.password ? (
-                <ErrorMessage>Please enter a password</ErrorMessage>
+              {submitted && values.password.length < 3 ? (
+                <>
+                  <DeleteButton
+                    onClick={() => setValues({ ...values, password: "" })}
+                  />
+                  <ErrorMessage>Please enter a password</ErrorMessage>
+                </>
               ) : null}
             </FormLabel>
           </div>
           <div className="form__col-50">
             <FormLabel htmlFor="repeat-password">
               REPEAT PASSWORD
-              <FormInput
+              <input
+                className={
+                  submitted && values.repeatPassword.length < 3
+                    ? "form__input__invalid"
+                    : "form__input"
+                }
                 onChange={handleChange}
                 value={values.repeatPassword}
                 id="repeat-password"
@@ -127,15 +173,27 @@ const Registration = () => {
                 placeholder="Repeat Password"
                 name="repeatPassword"
               />
-              {submitted && !values.repeatPassword ? (
-                <ErrorMessage>Please repeat a password</ErrorMessage>
+              {submitted && values.repeatPassword.length < 3 ? (
+                <>
+                  <DeleteButton
+                    onClick={() => setValues({ ...values, repeatPassword: "" })}
+                  />
+                  <ErrorMessage>Please repeat password</ErrorMessage>
+                </>
               ) : null}
             </FormLabel>
           </div>
         </div>
-        <FormAction title="Register">
-          Already have an account? &nbsp;
-          <Link to="/login">Sign in</Link>
+        <FormAction>
+          <div className="form__col-33 text-left register-btn-col">
+            <LoginButton type="submit">Register</LoginButton>
+          </div>
+          <div className="form__col-66 text-right register-sign-in-col">
+            <p className="login-wrapper__subtitle">
+              Already have an account? &nbsp;
+              <Link to="/login">Sign in</Link>
+            </p>
+          </div>
         </FormAction>
       </Form>
     </FormWrapper>

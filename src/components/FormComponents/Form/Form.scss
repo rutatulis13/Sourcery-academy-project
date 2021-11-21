@@ -1,0 +1,75 @@
+@import 'src/styles/base/colors';
+@import 'src/styles/base/config';
+@import 'src/styles/base/typography';
+@import 'src/styles/base/util';
+@import 'src/styles/mixins/mixins';
+
+.form {
+    &__row {
+        @include form-row-style;
+    }
+
+    &__col-33 {
+        @include form-col-style;
+        width: calc(33% - (2 * #{$lenght-10}));
+    }
+
+    &__col-50 {
+        @include form-col-style;
+        width: 50%;
+    }
+
+    &__col-66 {
+        @include form-col-style;
+        width: calc(66% - (2 * #{$lenght-10}));
+    }
+
+    &__col-100 {
+        @include form-col-style;
+        width: 100%;
+    }
+
+    &__col-33,
+    &__col-50,
+    &__col-66 {
+        @include respond-to($break-point-mobile, 'max') {
+            width: 100%;
+        }
+    }
+
+    &__input {
+        @extend %typography-input;
+        background: $color-white;
+        border: 1px solid $color-light-grey;
+        border-radius: 5px;
+        color: $color-light-grey;
+        display: block;
+        margin-top: 8px;
+        padding: 13px 16px;
+        width: 100%;
+
+        &::placeholder {
+            color: $color-light-grey;
+        }
+
+        &:focus {
+            color: $color-text-dark-grey;
+        }
+
+        &:valid {
+            color: $color-text-dark-grey;
+        }
+
+        &__invalid {
+            @extend %typography-input;
+            background: $color-white;
+            border: 1px solid $color-text-light-red;
+            border-radius: 5px;
+            color: $color-text-dark-grey;
+            display: block;
+            margin-top: 8px;
+            padding: 13px 16px;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@import 'src/styles/base/colors';
+@import 'src/styles/base/typography';
+
+.form-label {
+    @extend %typography-label;
+    color: $color-text-grey;
+    display: block;
+    margin-bottom: 25px;
+    text-align: left;
+}

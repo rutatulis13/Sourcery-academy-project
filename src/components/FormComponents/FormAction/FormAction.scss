@@ -1,0 +1,8 @@
+@import 'src/styles/base/util';
+@import 'src/styles/mixins/mixins';
+
+.form-action {
+    @include form-row-style();
+    align-items: baseline;
+    margin-bottom: 0;
+}

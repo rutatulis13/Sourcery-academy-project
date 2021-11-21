@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../Form.scss";
+import "./FormLabel.scss";
 
 const FormLabel = (props) => {
   return (
-    <label className="form__label" {...props}>
+    <label className="form-label" {...props}>
       {props.children}
     </label>
   );
