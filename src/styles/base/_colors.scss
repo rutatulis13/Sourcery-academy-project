@@ -1,11 +1,22 @@
 $color-black: #000;
 $color-white: #fff;
 
+// layout:
 $color-bg-topbar: #6e44ff;
+$color-bg-hover: #603bdf;
 $color-bg-container: #f6f7f8;
 $color-bg-footer: $color-white;
 
+$color-text-title: #3e5067;
 $color-text-footer: #3e5067;
 $color-text: #3e5067;
 
 $color-border: #cacfd5;
+
+// breadcrumbs:
+$color-breadcrumbs: #9ea7b3;
+$color-breadcrumbs-last: #6a7889;
+
+// weather:
+$color-text-weather: rgba(0, 0, 0, 0.5);
+$color-text-weather-temp: rgba(0, 0, 0, 0.7);

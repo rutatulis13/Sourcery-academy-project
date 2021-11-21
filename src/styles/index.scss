@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 @import 'base/base';
 @import 'base/typography';
 @import 'fonts/fonts';
@@ -12,4 +11,8 @@
     font-family: $font-main;
     margin: 0;
     padding: 0;
+}
+
+body {
+    min-width: 240px;
 }
