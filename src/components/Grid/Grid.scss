@@ -1,0 +1,14 @@
+@import '../../styles/mixins/mixins';
+
+.grid {
+    display: grid;
+    gap: 48px;
+
+    @include mobile {
+        gap: 24px;
+    }
+
+    @include tablet {
+        gap: 36px;
+    }
+}
