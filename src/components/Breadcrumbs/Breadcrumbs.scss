@@ -1,0 +1,30 @@
+@import '../../styles/base/base';
+
+.breadcrumbs-list {
+    display: flex;
+    flex-wrap: wrap;
+    user-select: none;
+
+    &__item {
+        display: block;
+
+        svg {
+            height: 6px;
+            margin: 1px 6px;
+            width: 6px;
+        }
+
+        &-link {
+            color: $color-breadcrumbs;
+            font-size: $font-size-breadcrumbs;
+            font-weight: $font-weight-breadcrumbs;
+            line-height: $line-height-breadcrumbs;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        &:last-child > &-link {
+            color: $color-breadcrumbs-last;
+        }
+    }
+}
