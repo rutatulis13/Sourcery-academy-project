@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Layout from "components/Layout/Layout";
-import Dashboard from "pages/Dashboard";
-import BookReservations from "pages/BookReservations";
-import EatOutPage from "pages/EatOutPage";
+import Dashboard from "pages/Dashboard/Dashboard";
+import BookReservations from "pages/BookReservations/BookReservations";
+import EatOutPage from "pages/EatOutPage/EatOutPage";
 import Reservations from "pages/Reservations/Reservations";
 import DeviceReservations from "pages/DeviceReservations/DeviceReservations";
 import NotFound from "pages/NotFound/NotFound";
