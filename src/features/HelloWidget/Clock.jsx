@@ -1,27 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./HelloWidget.scss";
 
+const Clock = () => {
+  const [date, setDate] = useState(new Date());
 
-export const Clock = () => {
-    const [date, setDate] = useState(new Date());
-    
-    const timer = setInterval(() => {setDate(new Date());}, 1000);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
 
-    let getTimeString = () => {
+    return () => {
+      clearInterval(timer);
+    };
+  });
 
-        if(date.getMinutes() < 10){
-            return `${date.getHours()}:0${date.getMinutes()}`;
-        }
-        return `${date.getHours()}:${date.getMinutes()}`;
-
+  let getTimeString = () => {
+    if (date.getMinutes() < 10) {
+      return `${date.getHours()}:0${date.getMinutes()}`;
     }
-    
+    return `${date.getHours()}:${date.getMinutes()}`;
+  };
 
-    return(
-        <div className="hello-widget__clock">
-            {getTimeString()}
-        </div>
-    );
-    
-}
+  return <div className="hello-widget__clock">{getTimeString()}</div>;
+};
+
+export default Clock;

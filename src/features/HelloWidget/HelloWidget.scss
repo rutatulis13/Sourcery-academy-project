@@ -1,29 +1,25 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+$large-font-size: 100px;
+$medium-font-size: 36px;
+$dark-blue: #3e5067;
+$main-font: Roboto;
 
 .hello-widget {
-    position: relative;
-    left: 0px;
-    top: calc(50% - 117px/2 - 30.5px);
-
     border-radius: 3px;
+    color: $dark-blue;
+    font-family: $main-font;
+    font-weight: bold;
     margin: 25px;
     padding: 10px;
+    position: relative;
     text-align: left;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    color: #3E5067;
 
     &__clock {
-    
-        font-size: 100px;
-        line-height: 117px;
+        font-size: $large-font-size;
     }
 
     &__greeting {
+        font-size: $medium-font-size;
         padding: 5px;
-        font-size: 36px;
-        line-height: 42px;
     }
 }
