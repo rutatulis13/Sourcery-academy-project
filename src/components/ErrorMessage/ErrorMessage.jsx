@@ -10,8 +10,7 @@ const ErrorMessage = (props) => {
 };
 
 ErrorMessage.propTypes = {
-  className: PropTypes.any,
-  children: PropTypes.any,
+  children: PropTypes.node,
 };
 
 export default ErrorMessage;

@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./FormAction.scss";
+import "../Form/Form.scss";
 
 const FormAction = (props) => {
   return (
-    <div className="form-action" {...props}>
+    <div className="form__row" {...props}>
       {props.children}
     </div>
   );
@@ -12,7 +12,6 @@ const FormAction = (props) => {
 
 FormAction.propTypes = {
   children: PropTypes.any,
-  className: PropTypes.any,
 };
 
 export default FormAction;

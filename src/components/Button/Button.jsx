@@ -1,20 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./LoginButton.scss";
+import "./Button.scss";
 
-const LoginButton = (props) => {
+const Button = (props) => {
   return (
-    <button className="login-button" {...props}>
+    <button className="button" {...props}>
       {props.children}
     </button>
   );
 };
 
-LoginButton.propTypes = {
-  className: PropTypes.any,
+Button.propTypes = {
   type: PropTypes.string,
   children: PropTypes.any,
   onClick: PropTypes.func,
 };
 
-export default LoginButton;
+export default Button;

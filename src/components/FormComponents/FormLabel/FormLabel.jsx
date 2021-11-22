@@ -11,8 +11,7 @@ const FormLabel = (props) => {
 };
 
 FormLabel.propTypes = {
-  className: PropTypes.any,
-  children: PropTypes.any,
+  children: PropTypes.node,
   htmlFor: PropTypes.string,
 };
 

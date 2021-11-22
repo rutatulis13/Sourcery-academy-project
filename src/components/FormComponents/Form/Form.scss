@@ -7,6 +7,11 @@
 .form {
     &__row {
         @include form-row-style;
+
+        &:last-child {
+            align-items: baseline;
+            margin-bottom: 0;
+        }
     }
 
     &__col-33 {

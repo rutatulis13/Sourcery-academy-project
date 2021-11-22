@@ -13,7 +13,6 @@ const Form = (props) => {
 Form.propTypes = {
   children: PropTypes.any,
   onSubmit: PropTypes.func,
-  className: PropTypes.any,
 };
 
 export default Form;
