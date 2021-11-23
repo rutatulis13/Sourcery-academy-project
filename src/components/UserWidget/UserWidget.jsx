@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import DropdownComponent from "../DropdownComponent/Dropdown.jsx";
 import "./UserWidget.scss";
-import avatarImage from "../../../assets/avatar.png";
-import badgeImage from "../../../assets/arrowDown.svg";
-import settingsImage from "../../../assets/settings.svg";
-import logoutImage from "../../../assets/logOut.svg";
+import avatarImage from "../../assets/avatar.png";
+import badgeImage from "../../assets/arrowDown.svg";
+import settingsImage from "../../assets/settings.svg";
+import logoutImage from "../../assets/logOut.svg";
 
 const UserWidgetComponent = () => {
   const node = useRef();
