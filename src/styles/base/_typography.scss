@@ -1,4 +1,6 @@
 $font-size-label: 14px;
+$font-size-input: 14px;
+$font-size-btn: 14px;
 $font-size-h2: 24px;
 $font-size-error: 10px;
 $font-size-header: 16px;
@@ -39,14 +41,14 @@ h2 {
 }
 
 %typography-input {
-    font-size: $font-size-label;
+    font-size: $font-size-input;
     font-style: normal;
     font-weight: normal;
     line-height: 22px;
 }
 
 %typography-btn {
-    font-size: $font-size-label;
+    font-size: $font-size-btn;
     font-style: normal;
     font-weight: 500;
     line-height: 24px;
