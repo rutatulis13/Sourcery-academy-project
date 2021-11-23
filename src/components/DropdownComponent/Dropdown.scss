@@ -11,7 +11,7 @@ $white-triangle-length: 6px;
 
     &__content {
         background-color: $color-white;
-        border: 1px solid $color-border;
+        border: 1px solid $color-border-primary;
         border-radius: 5px;
         list-style: none;
         min-width: 200px;
@@ -20,7 +20,7 @@ $white-triangle-length: 6px;
         top: 10px;
 
         li {
-            font-size: $text-size;
+            font-size: $font-size-dropdown;
             padding: 15px 16px;
 
             &:hover {
@@ -35,7 +35,7 @@ $white-triangle-length: 6px;
             a:visited,
             a:hover,
             a:active {
-                color: $color-text;
+                color: $color-text-dropdown;
             }
 
             &:first-child {
@@ -59,7 +59,7 @@ $white-triangle-length: 6px;
         }
 
         &::before {
-            border-bottom-color: $color-border;
+            border-bottom-color: $color-border-primary;
             border-width: $grey-triangle-length;
             margin-left: -$grey-triangle-length;
         }
