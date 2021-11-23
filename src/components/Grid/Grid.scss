@@ -2,13 +2,39 @@
 
 .grid {
     display: grid;
-    gap: 48px;
+    gap: 32px;
 
     @include tablet {
-        gap: 36px;
+        gap: 16px;
     }
 
     @include mobile {
-        gap: 24px;
+        gap: 8px;
+    }
+
+    @for $i from 1 through 12 {
+        &--mobile-#{$i} {
+            @include mobile {
+                grid-template-columns: repeat(#{$i}, 1fr);
+            }
+        }
+
+        &--tablet-#{$i} {
+            @include tablet {
+                grid-template-columns: repeat(#{$i}, 1fr);
+            }
+        }
+
+        &--laptop-#{$i} {
+            @include laptop {
+                grid-template-columns: repeat(#{$i}, 1fr);
+            }
+        }
+
+        &--desktop-#{$i} {
+            @include desktop {
+                grid-template-columns: repeat(#{$i}, 1fr);
+            }
+        }
     }
 }
