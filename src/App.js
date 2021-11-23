@@ -8,8 +8,8 @@ import EatOutPage from "pages/EatOutPage/EatOutPage";
 import Reservations from "pages/Reservations/Reservations";
 import DeviceReservations from "pages/DeviceReservations/DeviceReservations";
 import NotFound from "pages/NotFound/NotFound";
-import Register from "pages/login/Register";
-import Login from "pages/login/Login";
+import Register from "pages/Register/Register";
+import Login from "pages/Login/Login";
 
 function App() {
   return (
