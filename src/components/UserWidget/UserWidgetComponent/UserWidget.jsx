@@ -15,14 +15,26 @@ const UserWidgetComponent = () => {
     { iconName: logoutImage, text: "Log-out" },
   ];
 
-  const handleDropdownClick = (e) => {
-    if (node.current.contains(e.target)) return;
-    setDropdownOpen(false);
+  const handleAvatarClick = (e) => {
+    if (!node.current.contains(e.target)) {
+      setDropdownOpen(false);
+    }
   };
+  const handleKeyboardClick = (e) => {
+    if (e.keyCode === 27) {
+      setDropdownOpen(false);
+    }
+    if (e.keyCode === 13) {
+      setDropdownOpen(true);
+    }
+  };
+
   useEffect(() => {
-    document.addEventListener("mousedown", handleDropdownClick);
+    document.addEventListener("keydown", handleKeyboardClick);
+    document.addEventListener("mousedown", handleAvatarClick);
     return () => {
-      document.removeEventListener("mousedown", handleDropdownClick);
+      document.removeEventListener("keydown", handleKeyboardClick);
+      document.removeEventListener("mousedown", handleAvatarClick);
     };
   }, []);
 

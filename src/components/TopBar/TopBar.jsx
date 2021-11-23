@@ -18,8 +18,9 @@ const TopBar = () => {
         </NavLink>
         <Navigation />
 
-        <div className="top-bar__user-section"></div>
-        <UserWidgetComponent />
+        <div className="top-bar__user-section">
+          <UserWidgetComponent />
+        </div>
       </div>
     </header>
   );
