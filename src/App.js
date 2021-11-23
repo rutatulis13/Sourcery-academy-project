@@ -1,43 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { ReactComponent as SourceryLogo } from "assets/logo.svg";
-import { GetStartedList } from "features/getStarted/components/GetStartedList";
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-const defaultInstructions = [{ id: 1, instruction: "Have fun!" }];
+import Layout from "components/Layout/Layout";
+import Dashboard from "pages/Dashboard/Dashboard";
+import Reservations from "pages/Reservations/Reservations";
+import BookReservations from "pages/BookReservations/BookReservations";
+import DeviceReservations from "pages/DeviceReservations/DeviceReservations";
+import EatOutPage from "pages/EatOutPage/EatOutPage";
+import NotFound from "pages/NotFound/NotFound";
 
 function App() {
-  const [instructions, setInstructions] = useState(defaultInstructions);
-
-  useEffect(() => {
-    fetch("http://localhost:3008/instructions")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setInstructions(result);
-        },
-        (error) => {
-          // handle error here
-        }
-      );
-  }, []);
-
   return (
-    <div className="app">
-      <header className="App-header">
-        <SourceryLogo />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <GetStartedList key={instructions.length} instructions={instructions} />
-    </div>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route
+            path="/reservations"
+            element={<Navigate replace to="/reservations/books" />}
+          />
+          <Route path="/reservations" element={<Reservations />}>
+            <Route path="books" element={<BookReservations />} />
+            <Route path="devices" element={<DeviceReservations />} />
+          </Route>
+          <Route path="/eat-out" element={<EatOutPage />} />
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<Navigate replace to="/404" />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 

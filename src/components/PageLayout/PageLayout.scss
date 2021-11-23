@@ -1,0 +1,12 @@
+@import 'styles';
+
+.page-layout {
+    text-align: left;
+
+    &__title {
+        color: $color-text-title;
+        font-size: $font-size-title;
+        font-weight: 700;
+        line-height: 42px;
+    }
+}
