@@ -12,7 +12,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import "../../components/FormComponents/Form/Form.scss";
 import "./Register.scss";
 
-const Registration = () => {
+const Register = () => {
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -202,4 +202,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default Register;

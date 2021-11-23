@@ -37,13 +37,13 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-left: -#{$lenght-10};
-    margin-right: -#{$lenght-10};
+    margin-left: -#{$form-row-length};
+    margin-right: -#{$form-row-length};
     position: relative;
 }
 
 @mixin form-col-style {
-    padding-left: $lenght-10;
-    padding-right: $lenght-10;
+    padding-left: $form-col-length;
+    padding-right: $form-col-length;
     position: relative;
 }

@@ -1,7 +1,7 @@
 @import 'src/styles/mixins/mixins';
 @import 'src/styles/base/config';
 
-@include respond-to($break-point-mobile, 'max') {
+@include mobile {
     .register-btn-col {
         margin-top: 20px;
         order: 2;

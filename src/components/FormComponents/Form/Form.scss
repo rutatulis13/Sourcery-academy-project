@@ -16,7 +16,7 @@
 
     &__col-33 {
         @include form-col-style;
-        width: calc(33% - (2 * #{$lenght-10}));
+        width: calc(33% - (2 * #{$form-col-length}));
     }
 
     &__col-50 {
@@ -26,7 +26,7 @@
 
     &__col-66 {
         @include form-col-style;
-        width: calc(66% - (2 * #{$lenght-10}));
+        width: calc(66% - (2 * #{$form-col-length}));
     }
 
     &__col-100 {
@@ -37,7 +37,7 @@
     &__col-33,
     &__col-50,
     &__col-66 {
-        @include respond-to($break-point-mobile, 'max') {
+        @include mobile {
             width: 100%;
         }
     }

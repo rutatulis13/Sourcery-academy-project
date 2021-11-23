@@ -8,14 +8,14 @@ import EatOutPage from "pages/EatOutPage/EatOutPage";
 import Reservations from "pages/Reservations/Reservations";
 import DeviceReservations from "pages/DeviceReservations/DeviceReservations";
 import NotFound from "pages/NotFound/NotFound";
-// import Registration from "pages/login/Register";
-// import Login from "pages/login/Login";
+import Register from "pages/login/Register";
+import Login from "pages/login/Login";
 
 function App() {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
+      <Routes>
+        <Route element={<Layout />}>
           <Route path="/" element={<Dashboard />} />
           <Route
             path="/reservations"
@@ -26,12 +26,12 @@ function App() {
             <Route path="devices" element={<DeviceReservations />} />
           </Route>
           <Route path="/eat-out" element={<EatOutPage />} />
-          {/* <Route path="/register" element={<Registration />} />
-        <Route path="/login" element={<Login />} /> */}
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate replace to="/404" />} />
-        </Routes>
-      </Layout>
+        </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </BrowserRouter>
   );
 }
