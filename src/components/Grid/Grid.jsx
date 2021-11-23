@@ -7,7 +7,6 @@ const Grid = (props) => {
     <div
       className="grid"
       style={{
-        display: "grid",
         gridTemplateColumns: `repeat(auto-fill, minmax(min(${props.colWidth}, 100%), 1fr))`,
       }}
     >
