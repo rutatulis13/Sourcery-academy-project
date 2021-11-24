@@ -11,8 +11,8 @@ const UserWidgetComponent = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const dropdownItems = [
-    { iconName: settingsImage, text: "Settings" },
-    { iconName: logoutImage, text: "Log-out" },
+    { iconPath: settingsImage, text: "Settings" },
+    { iconPath: logoutImage, text: "Log-out" },
   ];
 
   const handleAvatarClick = (e) => {

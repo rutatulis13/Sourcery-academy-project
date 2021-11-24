@@ -10,9 +10,9 @@ const DropdownComponent = ({ dropdownItems }) => {
           return (
             <li
               key={index}
-              className={`dropdown__content__${dropdownItem.iconName}`}
+              className={`dropdown__content__${dropdownItem.iconPath}`}
             >
-              <img src={dropdownItem.iconName} alt="dropdownItem" />
+              <img src={dropdownItem.iconPath} alt="dropdownItem" />
               <a href="/#">{dropdownItem.text}</a>
             </li>
           );
@@ -23,7 +23,7 @@ const DropdownComponent = ({ dropdownItems }) => {
 };
 
 DropdownComponent.propTypes = {
-  dropdownItems: PropTypes.array,
+  dropdownItems: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default DropdownComponent;
