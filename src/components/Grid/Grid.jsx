@@ -12,7 +12,6 @@ const Grid = ({ children, breakpointCols }) => {
         grid--laptop-${breakpointCols[2]}
         grid--desktop-${breakpointCols[3]}
       `}
-      // style={{gridTemplateColumns: `repeat(auto-fill, minmax(min(${props.colWidth}, 100%), 1fr))`,}}
     >
       {children}
     </div>
@@ -32,7 +31,6 @@ Grid.propTypes = {
     }
   },
   children: PropTypes.node,
-  //colWidth: PropTypes.string,
 };
 
 Grid.defaultProps = {
