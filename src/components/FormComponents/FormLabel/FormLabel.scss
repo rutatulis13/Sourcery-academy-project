@@ -2,7 +2,7 @@
 @import 'src/styles/base/typography';
 
 .form-label {
-    @extend %typography-label;
+    @extend %caption-1;
     color: $color-text-grey;
     display: block;
     margin-bottom: 25px;

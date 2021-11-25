@@ -43,7 +43,7 @@
     }
 
     &__input {
-        @extend %typography-input;
+        @extend %body-small;
         background: $color-white;
         border: 1px solid $color-light-grey;
         border-radius: 5px;
@@ -66,7 +66,7 @@
         }
 
         &__invalid {
-            @extend %typography-input;
+            @extend %body-small;
             background: $color-white;
             border: 1px solid $color-text-light-red;
             border-radius: 5px;
@@ -76,5 +76,18 @@
             padding: 13px 16px;
             width: 100%;
         }
+    }
+}
+
+@include mobile {
+    .register-btn-col {
+        margin-top: 20px;
+        order: 2;
+        text-align: center !important;
+    }
+
+    .register-sign-in-col {
+        order: 1;
+        text-align: center !important;
     }
 }

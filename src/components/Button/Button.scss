@@ -2,7 +2,7 @@
 @import 'src/styles/base/typography';
 
 .button {
-    @extend %typography-btn;
+    @extend %button-large;
     background-color: $color-button-purple;
     border: unset;
     border-radius: 65px;

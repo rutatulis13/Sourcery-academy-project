@@ -12,12 +12,12 @@
     text-align: center;
 
     &__title {
+        @extend %h2-alternative;
         color: $color-text-dark-grey;
         margin-bottom: 8px;
     }
 
     &__subtitle {
-        @extend %h2-subtitle;
         color: $color-text-dark-grey;
         margin-bottom: 0;
     }
