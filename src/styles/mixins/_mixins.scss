@@ -30,3 +30,15 @@
         @content;
     }
 }
+
+@mixin laptop {
+    @media (min-width: 769px) and (max-width: 1600px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1601px) {
+        @content;
+    }
+}
