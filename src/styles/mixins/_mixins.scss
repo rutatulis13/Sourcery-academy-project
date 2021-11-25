@@ -37,8 +37,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-left: -#{$form-row-length};
-    margin-right: -#{$form-row-length};
+    margin-left: -#{$form-row-spacing};
+    margin-right: -#{$form-row-spacing};
     position: relative;
 }
 

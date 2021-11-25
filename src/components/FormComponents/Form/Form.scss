@@ -15,6 +15,7 @@
     }
 
     &__col-33 {
+        @extend %text-left;
         @include form-col-style;
         width: calc(33% - (2 * #{$form-col-length}));
     }
@@ -25,6 +26,7 @@
     }
 
     &__col-66 {
+        @extend %text-right;
         @include form-col-style;
         width: calc(66% - (2 * #{$form-col-length}));
     }
@@ -80,13 +82,13 @@
 }
 
 @include mobile {
-    .register-btn-col {
+    .form__col-33 {
         margin-top: 20px;
         order: 2;
         text-align: center !important;
     }
 
-    .register-sign-in-col {
+    .form__col-66 {
         order: 1;
         text-align: center !important;
     }

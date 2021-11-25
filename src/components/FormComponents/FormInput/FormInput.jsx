@@ -1,15 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import FormLabel from "../FormLabel/FormLabel";
+import InputDelete from "../InputDelete/InputDelete";
+import ErrorMessage from "../../ErrorMessage/ErrorMessage";
 import "../Form/Form.scss";
 
 const FormInput = (props) => {
+  const { isValid } = props;
+
+  const inputClass = classNames("form__input", {
+    form__input__invalid: !isValid,
+  });
+
   return (
-    <div className={"form__col-" + props.column_width}>
+    <div className={"form__col-" + props.width}>
       <FormLabel>
         {props.label}
         <input
-          className={props.className}
+          className={inputClass}
           onChange={props.onChange}
           value={props.value}
           id={props.id}
@@ -17,6 +26,12 @@ const FormInput = (props) => {
           placeholder={props.placeholder}
           name={props.name}
         />
+        {!isValid ? (
+          <>
+            <InputDelete onClick={() => props.onClick(props.name)} />
+            <ErrorMessage>Please enter {props.placeholder}</ErrorMessage>
+          </>
+        ) : null}
         {props.children}
       </FormLabel>
     </div>
@@ -24,15 +39,18 @@ const FormInput = (props) => {
 };
 
 FormInput.propTypes = {
-  column_width: PropTypes.string,
-  className: PropTypes.any,
+  width: PropTypes.oneOf(["33", "50", "66", "100"]),
+  isValid: PropTypes.bool.isRequired,
+  values: PropTypes.any,
+  setValues: PropTypes.any,
+  onClick: PropTypes.func,
   onChange: PropTypes.func,
   value: PropTypes.any,
   id: PropTypes.string,
   type: PropTypes.string,
   placeholder: PropTypes.string,
   name: PropTypes.string,
-  children: PropTypes.any,
+  children: PropTypes.node,
   label: PropTypes.string,
 };
 

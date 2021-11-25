@@ -1,11 +1,11 @@
 // FORM
-$form-row-length: 10px;
+$form-row-spacing: 10px;
 $form-col-length: 10px;
 
-.text-left {
+%text-left {
     text-align: left;
 }
 
-.text-right {
+%text-right {
     text-align: right;
 }

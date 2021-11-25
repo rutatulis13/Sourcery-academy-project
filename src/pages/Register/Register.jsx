@@ -4,10 +4,7 @@ import Form from "../../components/FormComponents/Form/Form";
 import FormAction from "../../components/FormComponents/FormAction/FormAction";
 import FormRow from "../../components/FormComponents/FormRow/FormRow";
 import FormInput from "../../components/FormComponents/FormInput/FormInput";
-import InputDelete from "../../components/FormComponents/InputDelete/InputDelete";
 import AuthorizationLayout from "../../components/AuthorizationLayout/AuthorizationLayout";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import "../../components/FormComponents/Form/Form.scss";
 
 const Register = () => {
   const [values, setValues] = useState({
@@ -26,6 +23,13 @@ const Register = () => {
     setValues({
       ...values,
       [name]: value,
+    });
+  };
+
+  const handleClear = (name) => {
+    setValues({
+      ...values,
+      [name]: "",
     });
   };
 
@@ -49,12 +53,8 @@ const Register = () => {
         {submitted && valid ? <Navigate to="/login" /> : null}
         <FormRow>
           <FormInput
-            column_width="50"
-            className={
-              submitted && values.firstName.length < 3
-                ? "form__input__invalid"
-                : "form__input"
-            }
+            width="50"
+            isValid={!submitted || values.firstName.length >= 3}
             onChange={handleChange}
             value={values.firstName}
             id="first-name"
@@ -62,23 +62,11 @@ const Register = () => {
             placeholder="First Name"
             name="firstName"
             label="FIRST NAME"
-          >
-            {submitted && values.firstName.length < 3 ? (
-              <>
-                <InputDelete
-                  onClick={() => setValues({ ...values, firstName: "" })}
-                />
-                <ErrorMessage>Please enter a first name</ErrorMessage>
-              </>
-            ) : null}
-          </FormInput>
+            onClick={handleClear}
+          ></FormInput>
           <FormInput
-            column_width="50"
-            className={
-              submitted && values.lastName.length < 3
-                ? "form__input__invalid"
-                : "form__input"
-            }
+            width="50"
+            isValid={!submitted || values.lastName.length >= 3}
             onChange={handleChange}
             value={values.lastName}
             id="last-name"
@@ -86,25 +74,13 @@ const Register = () => {
             placeholder="Last Name"
             name="lastName"
             label="LAST NAME"
-          >
-            {submitted && values.lastName.length < 3 ? (
-              <>
-                <InputDelete
-                  onClick={() => setValues({ ...values, lastName: "" })}
-                />
-                <ErrorMessage>Please enter a first name</ErrorMessage>
-              </>
-            ) : null}
-          </FormInput>
+            onClick={handleClear}
+          ></FormInput>
         </FormRow>
         <FormRow>
           <FormInput
-            column_width="100"
-            className={
-              submitted && values.email.length < 3
-                ? "form__input__invalid"
-                : "form__input"
-            }
+            width="100"
+            isValid={!submitted || values.email.length >= 3}
             onChange={handleChange}
             value={values.email}
             id="email"
@@ -112,25 +88,13 @@ const Register = () => {
             placeholder="Email"
             name="email"
             label="Email"
-          >
-            {submitted && values.email.length < 3 ? (
-              <>
-                <InputDelete
-                  onClick={() => setValues({ ...values, email: "" })}
-                />
-                <ErrorMessage>Please enter a first name</ErrorMessage>
-              </>
-            ) : null}
-          </FormInput>
+            onClick={handleClear}
+          ></FormInput>
         </FormRow>
         <FormRow>
           <FormInput
-            column_width="50"
-            className={
-              submitted && values.password.length < 3
-                ? "form__input__invalid"
-                : "form__input"
-            }
+            width="50"
+            isValid={!submitted || values.password.length >= 3}
             onChange={handleChange}
             value={values.password}
             id="password"
@@ -138,23 +102,11 @@ const Register = () => {
             placeholder="Password"
             name="password"
             label="Password"
-          >
-            {submitted && values.password.length < 3 ? (
-              <>
-                <InputDelete
-                  onClick={() => setValues({ ...values, password: "" })}
-                />
-                <ErrorMessage>Please enter a first name</ErrorMessage>
-              </>
-            ) : null}
-          </FormInput>
+            onClick={handleClear}
+          ></FormInput>
           <FormInput
-            column_width="50"
-            className={
-              submitted && values.repeatPassword.length < 3
-                ? "form__input__invalid"
-                : "form__input"
-            }
+            width="50"
+            isValid={!submitted || values.repeatPassword.length >= 3}
             onChange={handleChange}
             value={values.repeatPassword}
             id="repeatPassword"
@@ -162,23 +114,15 @@ const Register = () => {
             placeholder="Repeat Password"
             name="repeatPassword"
             label="REPEAT PASSWORD"
-          >
-            {submitted && values.repeatPassword.length < 3 ? (
-              <>
-                <InputDelete
-                  onClick={() => setValues({ ...values, repeatPassword: "" })}
-                />
-                <ErrorMessage>Please enter a first name</ErrorMessage>
-              </>
-            ) : null}
-          </FormInput>
+            onClick={handleClear}
+          ></FormInput>
         </FormRow>
         <FormAction
           type="submit"
           to="/login"
-          button_name="Register"
-          words_before_link="Already have an account?"
-          link_name="Sign in"
+          buttonName="Register"
+          question="Already have an account?"
+          linkName="Sign in"
         />
       </Form>
     </AuthorizationLayout>

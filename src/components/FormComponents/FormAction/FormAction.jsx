@@ -9,13 +9,13 @@ import "../../AuthorizationLayout/AuthorizationLayout.scss";
 const FormAction = (props) => {
   return (
     <FormRow>
-      <div className="form__col-33 text-left register-btn-col">
-        <Button type={props.type}>{props.button_name}</Button>
+      <div className="form__col-33">
+        <Button type={props.type}>{props.buttonName}</Button>
       </div>
-      <div className="form__col-66 text-right register-sign-in-col">
+      <div className="form__col-66">
         <p className="authorization-layout__subtitle">
-          {props.words_before_link} &nbsp;
-          <Link to={props.to}>{props.link_name}</Link>
+          {props.question} &nbsp;
+          <Link to={props.to}>{props.linkName}</Link>
         </p>
       </div>
     </FormRow>
@@ -25,9 +25,9 @@ const FormAction = (props) => {
 FormAction.propTypes = {
   type: PropTypes.string,
   to: PropTypes.any,
-  button_name: PropTypes.string,
-  words_before_link: PropTypes.string,
-  link_name: PropTypes.string,
+  buttonName: PropTypes.string,
+  question: PropTypes.string,
+  linkName: PropTypes.string,
   children: PropTypes.any,
 };
 
