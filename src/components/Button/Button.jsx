@@ -12,7 +12,7 @@ const Button = (props) => {
 
 Button.propTypes = {
   type: PropTypes.string,
-  children: PropTypes.any,
+  children: PropTypes.node,
   onClick: PropTypes.func,
 };
 

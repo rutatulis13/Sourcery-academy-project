@@ -11,7 +11,7 @@ const Form = (props) => {
 };
 
 Form.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
   onSubmit: PropTypes.func,
 };
 

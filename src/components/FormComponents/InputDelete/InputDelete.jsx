@@ -13,7 +13,7 @@ const InputDelete = (props) => {
 
 InputDelete.propTypes = {
   type: PropTypes.string,
-  children: PropTypes.any,
+  children: PropTypes.node,
   onClick: PropTypes.func,
 };
 

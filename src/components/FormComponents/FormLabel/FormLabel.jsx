@@ -11,7 +11,7 @@ const FormLabel = (props) => {
 };
 
 FormLabel.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
 };
 
 export default FormLabel;
