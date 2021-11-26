@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import 'styles';
 
 .hello-widget {
     border-radius: 3px;
@@ -8,7 +8,6 @@
     margin: 25px;
     padding: 10px;
     position: relative;
-    text-align: left;
 
     &__clock {
         font-size: $font-size-clock;
