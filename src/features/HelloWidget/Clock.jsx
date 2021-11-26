@@ -15,7 +15,7 @@ const Clock = () => {
     };
   });
 
-  let getTimeString = () => {
+  const getTimeString = () => {
     if (date.getMinutes() < 10) {
       return `${date.getHours()}:0${date.getMinutes()}`;
     }

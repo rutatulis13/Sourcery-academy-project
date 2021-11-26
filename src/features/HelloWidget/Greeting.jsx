@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import "./HelloWidget.scss";
 
 const Greeting = ({ name }) => {
-  let date = new Date();
-  let hours = date.getHours();
+  const date = new Date();
+  const hours = date.getHours();
 
   const greeting = () => {
     if (hours >= 5 && hours < 12) {
