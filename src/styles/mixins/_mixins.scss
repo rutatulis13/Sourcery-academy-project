@@ -55,7 +55,7 @@
 }
 
 @mixin form-col-style {
-    padding-left: $form-col-length;
-    padding-right: $form-col-length;
+    padding-left: $form-col-padding;
+    padding-right: $form-col-padding;
     position: relative;
 }
