@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import Clock from "./Clock";
 import Greeting from "./Greeting";
-
 import "./HelloWidget.scss";
 
 const HelloWidget = ({ username = "User" }) => {
