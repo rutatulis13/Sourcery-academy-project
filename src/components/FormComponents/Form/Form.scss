@@ -15,8 +15,8 @@
     }
 
     &__col-33 {
-        @extend %text-left;
         @include form-col-style;
+        text-align: left;
         width: calc(33% - (2 * #{$form-col-length}));
     }
 
@@ -26,8 +26,8 @@
     }
 
     &__col-66 {
-        @extend %text-right;
         @include form-col-style;
+        text-align: right;
         width: calc(66% - (2 * #{$form-col-length}));
     }
 
