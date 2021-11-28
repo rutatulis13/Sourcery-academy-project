@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import Navigation from "components/Navigation/Navigation";
 import logo from "assets/logo-nav.svg";
 import "./TopBar.scss";
+import UserWidget from "../UserWidget/UserWidget.jsx";
 
 const TopBar = () => {
   return (
@@ -16,7 +17,9 @@ const TopBar = () => {
           />
         </NavLink>
         <Navigation />
-        <div className="top-bar__user-section"></div>
+        <div className="top-bar__user-section">
+          <UserWidget />
+        </div>
       </div>
     </header>
   );
