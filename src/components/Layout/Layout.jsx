@@ -1,14 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { Outlet } from "react-router";
 import TopBar from "components/TopBar/TopBar";
 import "./Layout.scss";
 
-const Layout = (props) => {
+const Layout = () => {
   return (
     <div className="layout">
       <TopBar />
       <div className="container">
-        <div className="container__content">{props.children}</div>
+        <div className="container__content">
+          <Outlet />
+        </div>
       </div>
       <footer className="footer">
         <div className="footer__copyright">
@@ -17,10 +19,6 @@ const Layout = (props) => {
       </footer>
     </div>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

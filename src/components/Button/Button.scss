@@ -1,0 +1,20 @@
+@import 'src/styles/base/colors';
+@import 'src/styles/base/typography';
+
+.button {
+    @extend %button-large;
+    background-color: $color-button-purple;
+    border: unset;
+    border-radius: 65px;
+    color: $color-white;
+    padding: 8px 24px;
+
+    &:focus,
+    &:hover {
+        background-color: $color-button-dark-purple;
+    }
+
+    &:active {
+        background-color: $color-button-darkest-purple;
+    }
+}

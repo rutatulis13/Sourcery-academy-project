@@ -5,10 +5,12 @@ import ReservationsSection from "components/ReservationsSection/ReservationsSect
 import DoorImage from "../../assets/ReservationsSection/Door.svg";
 import BookImage from "../../assets/ReservationsSection/Book.svg";
 import DeviceImage from "../../assets/ReservationsSection/Device.svg";
+import HelloWidget from "features/HelloWidget/HelloWidget";
 
 const Dashboard = () => {
   return (
     <PageLayout title="Dashboard">
+      <HelloWidget />
       <Grid breakpointCols={[1, 1, 2, 3]}>
         <div className="dashboard__reservations-section">
           <ReservationsSection
