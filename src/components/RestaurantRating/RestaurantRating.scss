@@ -1,0 +1,33 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+$color-restaurant-rating-primary: #fadb5e;
+$color-restaurant-rating-secondary: #31465e;
+$color-icon-heart-filled: #ff6e75;
+
+.restaurant-rating {
+    align-items: center;
+    background-color: $color-restaurant-rating-primary;
+    border-radius: 8px;
+    display: flex;
+    height: 32px;
+    padding: 0 12px;
+
+    .rating-star {
+        box-sizing: content-box;
+        padding-right: 6px;
+
+        path {
+            stroke: $color-restaurant-rating-secondary;
+        }
+
+        &--filled {
+            fill: $color-restaurant-rating-secondary;
+        }
+    }
+
+    .rating-value {
+        color: $color-restaurant-rating-secondary;
+        font-size: $font-size-restaurant-rating;
+    }
+}

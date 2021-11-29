@@ -2,9 +2,10 @@ $font-family-name: 'Roboto';
 
 @font-face {
     font-family: $font-family-name;
-    src: url('./Roboto-Regular.ttf');
+    //src: url('./Roboto-Regular.ttf');
+    src: url('./Roboto-Medium.woff2');
 }
-
+/*
 @font-face {
     font-family: $font-family-name;
     font-weight: 500; // medium
@@ -22,3 +23,4 @@ $font-family-name: 'Roboto';
     font-weight: 900; // heavy
     src: url('./Roboto-Black.ttf');
 }
+*/
