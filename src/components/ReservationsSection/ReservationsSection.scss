@@ -1,0 +1,63 @@
+@import '../../styles/fonts/Roboto/Roboto';
+@import '../../styles/base/colors';
+@import '../../styles/base/typography';
+
+.dashboard__reservations {
+    color: $color-text-reservations;
+    margin: 83px 0 0;
+
+    &__header {
+        position: absolute;
+    }
+
+    h2 {
+        font-family: $font-family-name;
+        font-size: $font-size-h2;
+        font-weight: 900;
+        line-height: 32px;
+    }
+
+    &__door,
+    &__book,
+    &__device {
+        background-color: $color-white;
+        border-radius: 8px;
+        box-shadow: 0 8px 23px ($color-box-shadow);
+        font-size: $font-size-reserved;
+        font-weight: 500;
+        line-height: 18px;
+        margin: 48px 48px 0 0;
+        padding: 24px 16px;
+
+        &__text {
+            margin: auto;
+
+            &-reserved {
+                text-transform: uppercase;
+            }
+        }
+
+        &__image {
+            &-door {
+                float: right;
+                height: 123px;
+                margin: -65px 0 0;
+                width: 88px;
+            }
+
+            &-book {
+                float: right;
+                height: 124px;
+                margin: -65px 0 0;
+                width: 111px;
+            }
+
+            &-device {
+                float: right;
+                height: 131px;
+                margin: -70px 0 0;
+                width: 86px;
+            }
+        }
+    }
+}
