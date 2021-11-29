@@ -4,7 +4,7 @@ import EatOutSection from "features/EatOutSection/EatOutSection";
 
 const Dashboard = () => {
   return (
-    <PageLayout title="Dashboard">
+    <PageLayout>
       <EatOutSection />
     </PageLayout>
   );
