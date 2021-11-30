@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import DropdownComponent from "../DropdownComponent/Dropdown.jsx";
 import "./UserWidget.scss";
-import avatarImage from "../../assets/avatar.png";
 import badgeImage from "../../assets/arrowDown.svg";
 import settingsImage from "../../assets/settings.svg";
 import logoutImage from "../../assets/logOut.svg";
+import { UserContext } from "components/UserContext/UserContext";
 
 const UserWidgetComponent = () => {
   const node = useRef();
@@ -38,6 +38,8 @@ const UserWidgetComponent = () => {
     };
   }, []);
 
+  const { userData } = useContext(UserContext);
+
   return (
     <div
       ref={node}
@@ -47,7 +49,11 @@ const UserWidgetComponent = () => {
       onClick={(e) => setDropdownOpen(!dropdownOpen)}
       onKeyPress={() => {}}
     >
-      <img src={avatarImage} alt="avatar" className="user-widget__avatar" />
+      <img
+        src={userData.userData[0].userImage}
+        alt="avatar"
+        className="user-widget__avatar"
+      />
 
       <div className="user-widget__badge">
         <img
