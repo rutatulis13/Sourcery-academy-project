@@ -4,6 +4,24 @@ $font-size-header: 16px;
 $font-size-footer: 10px;
 $font-size-dropdown: 14px;
 $font-size-title: 36px;
+$line-height-title: 42px;
+
+// caption:
+$font-size-caption-1: 14px;
+
+// h2:
+$font-size-h2: 32px;
+$font-size-h2-alternative: 24px;
+
+// body:
+$font-size-body: 16px;
+$font-size-body-small: 14px;
+
+// button:
+$font-size-button-large: 14px;
+
+// tiny:
+$font-size-tiny: 10px;
 
 // breadcrumbs:
 $font-size-breadcrumbs: 12px;
@@ -22,3 +40,55 @@ $font-size-restaurant-rating: 14px;
 $font-size-weather: 12px;
 $font-size-weather-temp: 60px;
 $font-size-weather-cond: 20px;
+
+h2 {
+    font-size: $font-size-h2;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 37px;
+}
+
+%h2-alternative {
+    font-size: $font-size-h2-alternative;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 32px;
+}
+
+body {
+    font-size: $font-size-body;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 24px;
+}
+
+%body-small {
+    font-size: $font-size-body-small;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 22px;
+}
+
+%tiny {
+    font-size: $font-size-tiny;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    text-transform: uppercase;
+}
+
+%caption-1 {
+    font-size: $font-size-caption-1;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 16px;
+    text-transform: uppercase;
+}
+
+%button-large {
+    font-size: $font-size-button-large;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    text-transform: uppercase;
+}
