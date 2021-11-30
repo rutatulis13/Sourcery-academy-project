@@ -1,0 +1,20 @@
+@import 'styles';
+
+.hello-widget {
+    border-radius: 3px;
+    color: $color-text-title;
+    font-family: $font-main;
+    font-weight: bold;
+    margin: 25px;
+    padding: 10px;
+    position: relative;
+
+    &__clock {
+        font-size: $font-size-clock;
+    }
+
+    &__greeting {
+        font-size: $font-size-title;
+        padding: 5px;
+    }
+}
