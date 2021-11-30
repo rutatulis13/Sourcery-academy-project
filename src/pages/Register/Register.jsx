@@ -33,6 +33,10 @@ const Register = () => {
     });
   };
 
+  const isInputValid = (name) => {
+    return !submitted || values[name].length >= 3;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
@@ -54,7 +58,7 @@ const Register = () => {
         <FormRow>
           <FormInput
             width="50"
-            isValid={!submitted || values.firstName.length >= 3}
+            isValid={isInputValid("firstName")}
             onChange={handleChange}
             value={values.firstName}
             id="first-name"
@@ -66,7 +70,7 @@ const Register = () => {
           ></FormInput>
           <FormInput
             width="50"
-            isValid={!submitted || values.lastName.length >= 3}
+            isValid={isInputValid("lastName")}
             onChange={handleChange}
             value={values.lastName}
             id="last-name"
@@ -80,7 +84,7 @@ const Register = () => {
         <FormRow>
           <FormInput
             width="100"
-            isValid={!submitted || values.email.length >= 3}
+            isValid={isInputValid("email")}
             onChange={handleChange}
             value={values.email}
             id="email"
@@ -94,7 +98,7 @@ const Register = () => {
         <FormRow>
           <FormInput
             width="50"
-            isValid={!submitted || values.password.length >= 3}
+            isValid={isInputValid("password")}
             onChange={handleChange}
             value={values.password}
             id="password"
@@ -106,7 +110,7 @@ const Register = () => {
           ></FormInput>
           <FormInput
             width="50"
-            isValid={!submitted || values.repeatPassword.length >= 3}
+            isValid={isInputValid("repeatPassword")}
             onChange={handleChange}
             value={values.repeatPassword}
             id="repeatPassword"

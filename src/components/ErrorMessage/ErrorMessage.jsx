@@ -4,7 +4,7 @@ import "./ErrorMessage.scss";
 
 const ErrorMessage = (props) => {
   return (
-    <div className="error-message text-left" {...props}>
+    <div className="error-message" {...props}>
       {props.children}
     </div>
   );

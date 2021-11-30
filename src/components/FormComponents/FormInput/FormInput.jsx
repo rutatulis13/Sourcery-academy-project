@@ -9,8 +9,9 @@ import "../Form/Form.scss";
 const FormInput = (props) => {
   const { isValid } = props;
 
-  const inputClass = classNames("form__input", {
-    form__input__invalid: !isValid,
+  const inputClass = classNames({
+    form__input: true,
+    "form__input--invalid": !isValid,
   });
 
   return (
@@ -41,11 +42,9 @@ const FormInput = (props) => {
 FormInput.propTypes = {
   width: PropTypes.oneOf(["33", "50", "66", "100"]),
   isValid: PropTypes.bool.isRequired,
-  values: PropTypes.any,
-  setValues: PropTypes.any,
   onClick: PropTypes.func,
   onChange: PropTypes.func,
-  value: PropTypes.any,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   id: PropTypes.string,
   type: PropTypes.string,
   placeholder: PropTypes.string,
