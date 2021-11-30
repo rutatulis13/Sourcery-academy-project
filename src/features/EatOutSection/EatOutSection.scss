@@ -1,4 +1,5 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
 .browse-card {
     align-items: center;
@@ -19,5 +20,10 @@
         font-weight: 900;
         margin: 16px;
         text-align: center;
+
+        @include laptop {
+            font-size: $font-size-restaurant-card-primary-laptop;
+            margin: 1vw;
+        }
     }
 }

@@ -13,7 +13,7 @@ const RestaurantCard = () => {
           <PersonCheckIn />
           <div>6</div>
         </div>
-        <RestaurantRating />
+        <RestaurantRating value={4.5} />
       </div>
       <div className="restaurant-card__bottom">
         <div className="restaurant-card__categories">
