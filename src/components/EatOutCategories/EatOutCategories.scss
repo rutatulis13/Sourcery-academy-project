@@ -1,0 +1,11 @@
+@import '../../styles/base/base';
+
+.section-container {
+    &_title {
+        color: $color-text-title;
+        font-size: $font-size-title-medium;
+        font-weight: 900;
+        margin-top: 72px;
+        padding-bottom: 42px;
+    }
+}
