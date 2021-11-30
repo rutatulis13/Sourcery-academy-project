@@ -40,7 +40,7 @@ const Login = () => {
   return (
     <AuthorizationLayout title="Login" subtitle="Welcome back, please login.">
       <Form onSubmit={handleSubmit}>
-        {submitted && valid ? <Navigate to="" /> : null}
+        {submitted && valid ? <Navigate to="/" /> : null}
         <FormRow>
           <FormInput
             width="100"
@@ -71,7 +71,7 @@ const Login = () => {
         </FormRow>
         <FormAction
           type="submit"
-          to="/login"
+          to="/register"
           buttonName="Login"
           question="Don’t have an account?"
           linkName="Sign up"
