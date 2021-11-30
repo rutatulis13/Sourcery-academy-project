@@ -1,8 +1,10 @@
+$font-main: 'Roboto', sans-serif;
+
 $font-size-header: 16px;
 $font-size-footer: 10px;
 $font-size-dropdown: 14px;
 $font-size-title: 36px;
-$font-main: 'Roboto', sans-serif;
+$line-height-title: 42px;
 
 // caption:
 $font-size-caption-1: 14px;
@@ -30,9 +32,6 @@ $line-height-breadcrumbs: 18px;
 $font-size-weather: 12px;
 $font-size-weather-temp: 60px;
 $font-size-weather-cond: 20px;
-
-// clock:
-$font-size-clock: 100px;
 
 h2 {
     font-size: $font-size-h2;

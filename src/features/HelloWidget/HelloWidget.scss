@@ -1,20 +1,20 @@
-@import 'styles';
+@import '../../styles/base/base';
+
+$font-size-clock: 100px;
+$line-height-clock: 118px;
 
 .hello-widget {
-    border-radius: 3px;
     color: $color-text-title;
-    font-family: $font-main;
     font-weight: bold;
-    margin: 25px;
-    padding: 10px;
-    position: relative;
 
     &__clock {
         font-size: $font-size-clock;
+        line-height: $line-height-clock;
     }
 
     &__greeting {
         font-size: $font-size-title;
-        padding: 5px;
+        line-height: $line-height-title;
+        margin-top: 16px;
     }
 }
