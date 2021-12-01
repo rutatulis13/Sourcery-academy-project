@@ -4,29 +4,79 @@ import { ReactComponent as PersonCheckIn } from "assets/person-check-in.svg";
 import { ReactComponent as Ellipse } from "assets/ellipse.svg";
 import { ReactComponent as Heart } from "assets/heart.svg";
 import RestaurantRating from "components/RestaurantRating/RestaurantRating";
+import PropTypes from "prop-types";
+import { getRestaurantAverageRating } from "utils/restaurants";
 
-const RestaurantCard = () => {
+const RestaurantCard = ({ restaurant }) => {
+  const weekDayToNumber = (weekDay) => {
+    const weekDays = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ];
+    return weekDays.indexOf(weekDay);
+  };
+
+  const getTodayWorkingHours = (hoursArray) => {
+    let result = "CLOSED TODAY";
+    if (Array.isArray(hoursArray)) {
+      let weekDay = new Date().getDay();
+      weekDay = weekDay === 0 ? 6 : weekDay - 1; // convert to monday-sunday
+      hoursArray.forEach((v, i) => {
+        let daysArr = v.days.split(" - ");
+        if (
+          weekDay >= weekDayToNumber(daysArr[0]) &&
+          weekDay <= weekDayToNumber(daysArr[1])
+        ) {
+          result = v.hours;
+        }
+      });
+    }
+    return result;
+  };
+
   return (
-    <div className="restaurant-card">
+    <div
+      className="restaurant-card"
+      style={{
+        background: `linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 80%), url('${restaurant.image}')`,
+        backgroundSize: "cover",
+      }}
+    >
       <div className="restaurant-card__top">
         <div className="restaurant-card__check-in">
           <PersonCheckIn />
-          <div>6</div>
+          <div>{restaurant.checkIns}</div>
         </div>
-        <RestaurantRating value={4.5} />
+        <RestaurantRating value={getRestaurantAverageRating(restaurant)} />
       </div>
       <div className="restaurant-card__bottom">
         <div className="restaurant-card__categories">
-          Salads <Ellipse /> snacks <Ellipse /> pizza
+          {restaurant.categories.map((v, i) => (
+            <span key={`${i}_${v}`}>
+              {i > 0 ? <Ellipse /> : ""}
+              {v}
+            </span>
+          ))}
         </div>
         <div className="restaurant-card__title">
-          <span>Restorante Viva Piccola Italia</span>{" "}
+          <span>{restaurant.name}</span>{" "}
           <Heart className="heart heart--filled" />
         </div>
-        <div className="restaurant-card__time">10:00 - 21:00</div>
+        <div className="restaurant-card__time">
+          {getTodayWorkingHours(restaurant.openingHours)}
+        </div>
       </div>
     </div>
   );
+};
+
+RestaurantCard.propTypes = {
+  restaurant: PropTypes.object,
 };
 
 export default RestaurantCard;

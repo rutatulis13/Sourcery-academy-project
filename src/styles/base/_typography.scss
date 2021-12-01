@@ -30,7 +30,6 @@ $line-height-breadcrumbs: 18px;
 
 // restaurant card:
 $font-size-restaurant-card-primary: 24px;
-$font-size-restaurant-card-primary-laptop: 2vw;
 $font-size-restaurant-card-secondary: 10px;
 
 // restaurant rating:
@@ -45,21 +44,12 @@ h2 {
     font-size: $font-size-h2;
     font-style: normal;
     font-weight: 500;
-    line-height: 37px;
 }
 
 %h2-alternative {
     font-size: $font-size-h2-alternative;
     font-style: normal;
     font-weight: 900;
-    line-height: 32px;
-}
-
-body {
-    font-size: $font-size-body;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 24px;
 }
 
 %body-small {

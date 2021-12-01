@@ -1,6 +1,10 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
+.eat-out-section {
+    margin: 32px 0;
+}
+
 .browse-card {
     align-items: center;
     background: #fff;
@@ -14,15 +18,15 @@
     padding: 16px;
 
     &__text {
+        @extend %h2-alternative;
         color: $color-text-eat-out-browse-card;
         display: block;
-        font-size: $font-size-restaurant-card-primary;
-        font-weight: 900;
         margin: 16px;
         text-align: center;
 
         @include laptop {
-            font-size: $font-size-restaurant-card-primary-laptop;
+            /* stylelint-disable-next-line sh-waqar/declaration-use-variable */
+            font-size: 2vw;
             margin: 1vw;
         }
     }
