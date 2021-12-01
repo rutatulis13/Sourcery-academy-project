@@ -13,7 +13,6 @@ const Login = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
-  const [valid, setValid] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,22 +28,19 @@ const Login = () => {
       [name]: "",
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (values.email.length > 2 && values.password.length > 2) {
-      setValid(true);
-    }
     setSubmitted(true);
   };
 
   return (
     <AuthorizationLayout title="Login" subtitle="Welcome back, please login.">
       <Form onSubmit={handleSubmit}>
-        {submitted && valid ? <Navigate to="/" /> : null}
+        {submitted ? <Navigate to="/" /> : null}
         <FormRow>
           <FormInput
             width="100"
-            isValid={!submitted || values.email.length >= 3}
             onChange={handleChange}
             value={values.email}
             id="email"
@@ -53,12 +49,11 @@ const Login = () => {
             name="email"
             label="Email"
             onClick={handleClear}
-          ></FormInput>
+          />
         </FormRow>
         <FormRow>
           <FormInput
             width="100"
-            isValid={!submitted || values.password.length >= 3}
             onChange={handleChange}
             value={values.password}
             id="password"
@@ -67,7 +62,7 @@ const Login = () => {
             name="password"
             label="password"
             onClick={handleClear}
-          ></FormInput>
+          />
         </FormRow>
         <FormAction
           type="submit"

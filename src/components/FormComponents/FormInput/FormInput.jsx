@@ -7,7 +7,7 @@ import ErrorMessage from "../../ErrorMessage/ErrorMessage";
 import "../Form/Form.scss";
 
 const FormInput = (props) => {
-  const { isValid } = props;
+  const { isValid = true } = props;
 
   const inputClass = classNames({
     form__input: true,
@@ -41,7 +41,7 @@ const FormInput = (props) => {
 
 FormInput.propTypes = {
   width: PropTypes.oneOf(["33", "50", "66", "100"]),
-  isValid: PropTypes.bool.isRequired,
+  isValid: PropTypes.bool,
   onClick: PropTypes.func,
   onChange: PropTypes.func,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
