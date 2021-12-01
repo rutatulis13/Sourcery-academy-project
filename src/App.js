@@ -14,9 +14,9 @@ import { UserProvider } from "components/UserContext/UserContext";
 
 function App() {
   return (
-    <UserProvider>
-      <BrowserRouter>
-        <Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<UserProvider />}>
           <Route element={<Layout />}>
             <Route path="/" element={<Dashboard />} />
             <Route
@@ -31,11 +31,11 @@ function App() {
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<Navigate replace to="/404" />} />
           </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </BrowserRouter>
-    </UserProvider>
+        </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

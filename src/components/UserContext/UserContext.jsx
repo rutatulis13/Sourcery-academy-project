@@ -1,10 +1,10 @@
 import React, { useState, useEffect, createContext } from "react";
-import PropTypes from "prop-types";
+import { Outlet } from "react-router";
 
 const UserContext = createContext();
 
-const UserProvider = (props) => {
-  const [userData, setUserData] = useState({});
+const UserProvider = () => {
+  const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const UserProvider = (props) => {
         return res.json();
       })
       .then((data) => {
-        setUserData(data);
+        setUserData(data.userData);
       })
       .finally(() => {
         setLoading(false);
@@ -26,18 +26,10 @@ const UserProvider = (props) => {
   }, []);
 
   return (
-    <>
-      {!loading && (
-        <UserContext.Provider value={{ userData, setUserData, loading }}>
-          {props.children}
-        </UserContext.Provider>
-      )}
-    </>
+    <UserContext.Provider value={{ userData, setUserData, loading }}>
+      <Outlet />
+    </UserContext.Provider>
   );
-};
-
-UserProvider.propTypes = {
-  children: PropTypes.node,
 };
 
 export { UserProvider, UserContext };

@@ -49,12 +49,13 @@ const UserWidgetComponent = () => {
       onClick={(e) => setDropdownOpen(!dropdownOpen)}
       onKeyPress={() => {}}
     >
-      <img
-        src={userData.userData[0].userImage}
-        alt="avatar"
-        className="user-widget__avatar"
-      />
-
+      {userData[0] && (
+        <img
+          src={userData[0].userImage}
+          alt="avatar"
+          className="user-widget__avatar"
+        />
+      )}
       <div className="user-widget__badge">
         <img
           src={badgeImage}
