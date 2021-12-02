@@ -4,7 +4,7 @@ import HelloWidget from "features/HelloWidget/HelloWidget";
 
 const Dashboard = () => {
   return (
-    <PageLayout title="Dashboard">
+    <PageLayout>
       <HelloWidget />
     </PageLayout>
   );
