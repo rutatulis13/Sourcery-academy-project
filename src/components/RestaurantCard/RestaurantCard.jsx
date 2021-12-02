@@ -8,6 +8,11 @@ import PropTypes from "prop-types";
 import { getRestaurantAverageRating } from "utils/restaurants";
 
 const RestaurantCard = ({ restaurant }) => {
+  const likeRestaurant = () => {
+    // eslint-disable-next-line no-console
+    console.log("Like/dislike restaurant"); // TODO: Create restaurants liking system
+  };
+
   const weekDayToNumber = (weekDay) => {
     const weekDays = [
       "Monday",
@@ -25,7 +30,7 @@ const RestaurantCard = ({ restaurant }) => {
     let result = "CLOSED TODAY";
     if (Array.isArray(hoursArray)) {
       let weekDay = new Date().getDay();
-      weekDay = weekDay === 0 ? 6 : weekDay - 1; // convert to monday-sunday
+      weekDay = weekDay === 0 ? 6 : weekDay - 1; // convert sun-sat to mon-sun
       hoursArray.forEach((v, i) => {
         let daysArr = v.days.split(" - ");
         if (
@@ -65,7 +70,13 @@ const RestaurantCard = ({ restaurant }) => {
         </div>
         <div className="restaurant-card__title">
           <span>{restaurant.name}</span>{" "}
-          <Heart className="heart heart--filled" />
+          <button
+            className="heart"
+            aria-label="Like restaurant"
+            onClick={likeRestaurant}
+          >
+            <Heart className="heart__icon" alt="" />
+          </button>
         </div>
         <div className="restaurant-card__time">
           {getTodayWorkingHours(restaurant.openingHours)}

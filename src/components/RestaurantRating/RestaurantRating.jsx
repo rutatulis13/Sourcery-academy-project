@@ -1,18 +1,15 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./RestaurantRating.scss";
 import { ReactComponent as StarRating } from "assets/star-rating.svg";
 
-const RestaurantRating = ({ value, voteValue }) => {
+const RestaurantRating = ({ value, userValue }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [ratingHovered, setRatingHovered] = useState(-1);
-  //const [vote, setVote] = useState(voteValue);
 
   const rateRestaurant = (rating) => {
     // eslint-disable-next-line no-console
-    console.log(rating);
+    console.log(`rated restaurant with ${rating} stars`); // TODO: Create restaurants rating system
   };
 
   return (
@@ -24,7 +21,8 @@ const RestaurantRating = ({ value, voteValue }) => {
       {Array(5)
         .fill(null)
         .map((v, i) => (
-          <div
+          <button
+            aria-label={`Rate restaurant with ${i} star of 5`}
             key={i}
             className={`rating-star${
               isExpanded || i === 0 ? " rating-star--show" : ""
@@ -35,12 +33,15 @@ const RestaurantRating = ({ value, voteValue }) => {
           >
             <StarRating
               className={`rating-star__icon${
-                ratingHovered >= i + 1 || (i === 0 && !isExpanded)
+                ratingHovered >= i + 1 ||
+                (i === 0 && !isExpanded) ||
+                (i <= userValue - 1 && ratingHovered === -1)
                   ? " rating-star__icon--filled"
                   : ""
               }`}
+              alt=""
             />
-          </div>
+          </button>
         ))}
       <div className="rating-star"></div>
       <div className="rating-value">{value.toFixed(1)}</div>
@@ -50,11 +51,11 @@ const RestaurantRating = ({ value, voteValue }) => {
 
 RestaurantRating.propTypes = {
   value: PropTypes.number.isRequired,
-  voteValue: PropTypes.number,
+  userValue: PropTypes.number,
 };
 
 RestaurantRating.defaultProps = {
-  voteValue: -1,
+  userValue: -1,
 };
 
 export default RestaurantRating;

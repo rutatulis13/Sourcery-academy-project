@@ -81,20 +81,31 @@ $color-text-restaurant-category: #6a7889;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-
-        .heart {
-            flex-shrink: 0;
-            margin: 0 8px;
-
-            &--filled path {
-                fill: $color-icon-heart-filled;
-                stroke: $color-icon-heart-filled;
-            }
-        }
     }
 
     &__time {
         color: $color-text-restaurant-card-secondary;
         font-size: $font-size-restaurant-card-secondary;
+    }
+}
+
+.heart {
+    background: transparent;
+    border: 0 none;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin: 0 8px;
+    padding: 0;
+
+    &__icon {
+        &--filled path {
+            fill: $color-icon-heart-filled;
+            stroke: $color-icon-heart-filled;
+        }
+
+        &:not(.heart--filled):hover path {
+            fill: $color-icon-heart-filled;
+            fill-opacity: 0.75;
+        }
     }
 }

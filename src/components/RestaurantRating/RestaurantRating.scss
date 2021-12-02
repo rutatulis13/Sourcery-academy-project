@@ -14,11 +14,14 @@ $color-icon-heart-filled: #ff6e75;
     padding: 0 12px;
 
     .rating-star {
+        background: transparent;
+        border: 0 none;
         box-sizing: content-box;
         cursor: pointer;
         max-width: 0;
         opacity: 0;
         overflow: hidden;
+        padding: 0;
         transition: 250ms ease-in;
 
         &--show {
