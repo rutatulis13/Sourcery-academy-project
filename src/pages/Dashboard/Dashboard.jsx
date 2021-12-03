@@ -17,7 +17,7 @@ const Dashboard = () => {
             firstElement={true}
             name={"door"}
             imagePath={DoorImage}
-            headerMessage={"Door"}
+            headerMessage={"Meeting rooms"}
             reservedItems={2}
           />
         </div>

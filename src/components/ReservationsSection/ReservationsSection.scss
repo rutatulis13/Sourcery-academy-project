@@ -2,19 +2,56 @@
 @import '../../styles/base/colors';
 @import '../../styles/base/typography';
 
-.dashboard__reservations {
-    color: $color-text-reservations;
-    margin: 83px 0 0;
+.dashboard {
+    &__reservations {
+        color: $color-text-reservations;
 
-    &__header {
-        position: absolute;
+        // margin: 164px 0 0;
     }
 
-    h2 {
-        font-family: $font-family-name;
+    &__title {
         font-size: $font-size-reservation-h2;
         font-weight: 900;
         line-height: 32px;
+        margin: -72px 0 0;
+        position: absolute;
+    }
+
+    &__header {
+        font-size: $font-size-reservation-h2;
+        font-weight: 900;
+        line-height: 32px;
+    }
+
+    &-image {
+        &__door {
+            float: right;
+            height: 122px;
+            margin: -70px 0 0;
+            width: 88px;
+        }
+
+        &__book {
+            float: right;
+            height: 124px;
+            margin: -70px 0 0;
+            width: 112px;
+        }
+
+        &__device {
+            float: right;
+            height: 132px;
+            margin: -70px 0 0;
+            width: 86px;
+        }
+    }
+
+    &-text {
+        margin: auto;
+
+        &--uppercase {
+            text-transform: uppercase;
+        }
     }
 
     &__door,
@@ -22,42 +59,11 @@
     &__device {
         background-color: $color-white;
         border-radius: 8px;
-        box-shadow: 0 8px 23px ($color-box-shadow);
+        box-shadow: 0 8px 22px ($color-box-shadow);
         font-size: $font-size-reserved;
         font-weight: 500;
         line-height: 18px;
         margin: 48px 48px 0 0;
         padding: 24px 16px;
-
-        &__text {
-            margin: auto;
-
-            &-reserved {
-                text-transform: uppercase;
-            }
-        }
-
-        &__image {
-            &-door {
-                float: right;
-                height: 123px;
-                margin: -65px 0 0;
-                width: 88px;
-            }
-
-            &-book {
-                float: right;
-                height: 124px;
-                margin: -65px 0 0;
-                width: 111px;
-            }
-
-            &-device {
-                float: right;
-                height: 131px;
-                margin: -70px 0 0;
-                width: 86px;
-            }
-        }
     }
 }

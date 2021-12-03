@@ -5,22 +5,20 @@ const ReservationsSection = (props) => {
   return (
     <div className="dashboard__reservations">
       {props.firstElement === true ? (
-        <div className="dashboard__reservations__header">
+        <div className="dashboard__title">
           <h2>Reservations</h2>
         </div>
       ) : null}
 
-      <div className={`dashboard__reservations__${props.name}`}>
-        <div className={`dashboard__reservations__${props.name}__text`}>
-          <h2>{props.headerMessage}</h2>
+      <div className={`dashboard__${props.name}`}>
+        <div className={`dashboard-text__${props.name}`}>
+          <h2 className="dashboard__header">{props.headerMessage}</h2>
           <img
             src={props.imagePath}
             alt={props.name}
-            className={`dashboard__reservations__${props.name}__image-${props.name}`}
+            className={`dashboard-image__${props.name}`}
           />
-          <div
-            className={`dashboard__reservations__${props.name}__text-reserved`}
-          >
+          <div className={`dashboard-text--uppercase`}>
             {props.reservedItems} Reserved
           </div>
         </div>
