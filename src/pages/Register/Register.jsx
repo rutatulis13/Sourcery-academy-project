@@ -58,7 +58,7 @@ const Register = () => {
         <FormRow>
           <FormInput
             width="50"
-            isValid={isInputValid("firstName")}
+            invalid={isInputValid("firstName")}
             onChange={handleChange}
             value={values.firstName}
             id="first-name"
@@ -70,7 +70,7 @@ const Register = () => {
           ></FormInput>
           <FormInput
             width="50"
-            isValid={isInputValid("lastName")}
+            invalid={isInputValid("lastName")}
             onChange={handleChange}
             value={values.lastName}
             id="last-name"
@@ -84,7 +84,7 @@ const Register = () => {
         <FormRow>
           <FormInput
             width="100"
-            isValid={isInputValid("email")}
+            invalid={isInputValid("email")}
             onChange={handleChange}
             value={values.email}
             id="email"
@@ -98,7 +98,7 @@ const Register = () => {
         <FormRow>
           <FormInput
             width="50"
-            isValid={isInputValid("password")}
+            invalid={isInputValid("password")}
             onChange={handleChange}
             value={values.password}
             id="password"
@@ -110,7 +110,7 @@ const Register = () => {
           ></FormInput>
           <FormInput
             width="50"
-            isValid={isInputValid("repeatPassword")}
+            invalid={isInputValid("repeatPassword")}
             onChange={handleChange}
             value={values.repeatPassword}
             id="repeatPassword"
