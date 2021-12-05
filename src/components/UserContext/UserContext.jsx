@@ -4,7 +4,7 @@ import { Outlet } from "react-router";
 const UserContext = createContext();
 
 const UserProvider = () => {
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const UserProvider = () => {
         return res.json();
       })
       .then((data) => {
-        setUserData(data.userData);
+        setUserData(data.userData[0]);
       })
       .finally(() => {
         setLoading(false);
