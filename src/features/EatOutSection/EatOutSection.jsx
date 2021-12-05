@@ -38,7 +38,7 @@ const EatOutSection = () => {
 
   return (
     <div className="eat-out-section">
-      <Grid breakpointCols={[1, 1, 3, 3]}>
+      <Grid breakpointCols={[1, 1, 3, 3, 3]}>
         <div className="browse-card">
           <h2 className="browse-card__text">
             View all your favourite lunch spots and more

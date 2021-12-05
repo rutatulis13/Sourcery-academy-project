@@ -1,6 +1,8 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
+$font-size-browse-card-tablet-l: 2vw;
+
 .eat-out-section {
     margin: 32px 0;
 }
@@ -24,9 +26,8 @@
         margin: 16px;
         text-align: center;
 
-        @include laptop {
-            /* stylelint-disable-next-line sh-waqar/declaration-use-variable */
-            font-size: 2vw;
+        @include tablet-l {
+            font-size: $font-size-browse-card-tablet-l;
             margin: 1vw;
         }
     }

@@ -18,6 +18,11 @@ $color-text-restaurant-category: #6a7889;
     min-width: 0;
     padding: 16px;
 
+    @include tablet-l {
+        height: 16vw;
+        padding: 8px;
+    }
+
     @include laptop {
         height: 16vw;
     }
