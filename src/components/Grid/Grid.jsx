@@ -8,9 +8,10 @@ const Grid = ({ children, breakpointCols }) => {
       className={`
         grid
         grid--mobile-${breakpointCols[0]}
-        grid--tablet-${breakpointCols[1]}
-        grid--laptop-${breakpointCols[2]}
-        grid--desktop-${breakpointCols[3]}
+        grid--tablet-s-${breakpointCols[1]}
+        grid--tablet-l-${breakpointCols[2]}
+        grid--laptop-${breakpointCols[3]}
+        grid--desktop-${breakpointCols[4]}
       `}
     >
       {children}
@@ -22,7 +23,7 @@ Grid.propTypes = {
   breakpointCols: ({ breakpointCols: prop }, propName, componentName) => {
     if (
       !Array.isArray(prop) ||
-      prop.length !== 4 ||
+      prop.length !== 5 ||
       !prop.every(Number.isInteger)
     ) {
       return new Error(
@@ -34,7 +35,7 @@ Grid.propTypes = {
 };
 
 Grid.defaultProps = {
-  breakpointCols: [1, 2, 3, 4],
+  breakpointCols: [1, 2, 3, 4, 6],
 };
 
 export default Grid;
