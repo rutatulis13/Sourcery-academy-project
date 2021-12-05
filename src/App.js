@@ -3,17 +3,19 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Layout from "components/Layout/Layout";
 import Dashboard from "pages/Dashboard/Dashboard";
-import Reservations from "pages/Reservations/Reservations";
 import BookReservations from "pages/BookReservations/BookReservations";
-import DeviceReservations from "pages/DeviceReservations/DeviceReservations";
 import EatOutPage from "pages/EatOutPage/EatOutPage";
+import Reservations from "pages/Reservations/Reservations";
+import DeviceReservations from "pages/DeviceReservations/DeviceReservations";
 import NotFound from "pages/NotFound/NotFound";
+import Register from "pages/Register/Register";
+import Login from "pages/Login/Login";
 
 function App() {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
+      <Routes>
+        <Route element={<Layout />}>
           <Route path="/" element={<Dashboard />} />
           <Route
             path="/reservations"
@@ -26,8 +28,10 @@ function App() {
           <Route path="/eat-out" element={<EatOutPage />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate replace to="/404" />} />
-        </Routes>
-      </Layout>
+        </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </BrowserRouter>
   );
 }
