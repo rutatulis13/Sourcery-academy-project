@@ -5,7 +5,7 @@ import "./ReservationCard.scss";
 const ReservationCard = (props) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]); //TODO
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -67,29 +67,8 @@ const ReservationCard = (props) => {
   }
 };
 
-// TODO
-// fetchint data
-
 ReservationCard.propTypes = {
   reservationItems: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-/*
-dataRestaurants=restaurants
-{dataRestaurants.map(
-(item) =>item.categories.filter( (item) => item ===
-name === "Brunch" ? "Breakfast" : name)).length)
-.reduce((a, b) => a + b, 0) +" " +"places"}
-
-*/
-
 export default ReservationCard;
-
-/*
-{
-  "items": [
-    { "id": 1, "name": "Apples",  "price": "$2" },
-    { "id": 2, "name": "Peaches", "price": "$5" }
-  ] 
-}
-*/
