@@ -4,7 +4,11 @@
     display: grid;
     gap: 32px;
 
-    @include tablet {
+    @include tablet-l {
+        gap: 24px;
+    }
+
+    @include tablet-s {
         gap: 16px;
     }
 
@@ -19,8 +23,14 @@
             }
         }
 
-        &--tablet-#{$i} {
-            @include tablet {
+        &--tablet-s-#{$i} {
+            @include tablet-s {
+                grid-template-columns: repeat(#{$i}, 1fr);
+            }
+        }
+
+        &--tablet-l-#{$i} {
+            @include tablet-l {
                 grid-template-columns: repeat(#{$i}, 1fr);
             }
         }
