@@ -37,9 +37,7 @@ const ReservationCard = (props) => {
       );
   }, []);
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
+  if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
     return props.reservationItems.map((reservationItem, index) => {
@@ -50,9 +48,10 @@ const ReservationCard = (props) => {
               {reservationItem.headerMessage}
             </h2>
             <div className={`reservation-card--uppercase`}>
-              {items.length
+              {items.length && !error && isLoaded
                 ? items.find((o) => o.name === reservationItem.name).reservated
-                : null}{" "}
+                : null}
+              {error ? 0 : null}
               &nbsp; Reserved
             </div>
             <img
