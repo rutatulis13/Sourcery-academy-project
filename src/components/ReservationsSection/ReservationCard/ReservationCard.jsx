@@ -5,7 +5,7 @@ import "./ReservationCard.scss";
 const ReservationCard = (props) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
+  const [reservations, setReservations] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -15,7 +15,7 @@ const ReservationCard = (props) => {
       .then(
         (data) => {
           setIsLoaded(true);
-          setItems([
+          setReservations([
             {
               name: "rooms",
               reservated: data.userData[0].reservations.rooms.length,
@@ -48,8 +48,9 @@ const ReservationCard = (props) => {
               {reservationItem.headerMessage}
             </h2>
             <div className={`reservation-card--uppercase`}>
-              {items.length && !error && isLoaded
-                ? items.find((o) => o.name === reservationItem.name).reservated
+              {reservations.length && !error && isLoaded
+                ? reservations.find((o) => o.name === reservationItem.name)
+                    .reservated
                 : null}
               {error ? 0 : null}
               &nbsp; Reserved
