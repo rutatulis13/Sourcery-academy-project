@@ -49,8 +49,9 @@ const ReservationCard = (props) => {
             </h2>
             <div className={`reservation-card--uppercase`}>
               {reservations.length && !error && isLoaded
-                ? reservations.find((o) => o.name === reservationItem.name)
-                    .reservated
+                ? reservations.find(
+                    (reservation) => reservation.name === reservationItem.name
+                  ).reservated
                 : null}
               {error ? 0 : null}
               &nbsp; Reserved
