@@ -1,0 +1,35 @@
+@import '../../../styles/fonts/Roboto/Roboto';
+@import '../../../styles/base/colors';
+@import '../../../styles/base/typography';
+
+.reservation-card {
+    background-color: $color-white;
+    border-radius: 8px;
+    box-shadow: 0 8px 22px ($color-box-shadow);
+    color: $color-text-reservations-primary;
+    font-size: $font-size-reserved;
+    font-weight: 500;
+    height: 94px;
+    line-height: 18px;
+    margin: 48px 48px 0 0;
+    padding: 24px 16px;
+    text-decoration: none;
+    width: 100%;
+
+    &__header {
+        font-size: $font-size-reservation-h2;
+        font-weight: 900;
+        line-height: 32px;
+    }
+
+    &--uppercase {
+        color: $color-text-reservations-secondary;
+        text-transform: uppercase;
+        word-spacing: -2px;
+    }
+
+    &__image {
+        float: right;
+        margin: -96px 0 0;
+    }
+}

@@ -1,43 +1,38 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./ReservationsSection.scss";
-const ReservationsSection = (props) => {
-  return (
-    <div className="dashboard__reservations">
-      {props.firstElement === true ? (
-        <div className="dashboard__title">
-          <h2>Reservations</h2>
-        </div>
-      ) : null}
+import ReservationCard from "./ReservationCard/ReservationCard";
+import DoorImage from "../../assets/ReservationsSection/Door.svg";
+import BookImage from "../../assets/ReservationsSection/Book.svg";
+import DeviceImage from "../../assets/ReservationsSection/Device.svg";
+import Grid from "components/Grid/Grid";
 
-      <div className={`dashboard__${props.name}`}>
-        <div className={`dashboard-text__${props.name}`}>
-          <h2 className="dashboard__header">{props.headerMessage}</h2>
-          <img
-            src={props.imagePath}
-            alt={props.name}
-            className={`dashboard-image__${props.name}`}
-          />
-          <div className={`dashboard-text--uppercase`}>
-            {props.reservedItems} Reserved
-          </div>
-        </div>
-      </div>
-    </div>
+const ReservationsSection = () => {
+  const reservationItems = [
+    {
+      name: "rooms",
+      imagePath: DoorImage,
+      headerMessage: "Meeting rooms",
+    },
+    {
+      name: "books",
+      imagePath: BookImage,
+      headerMessage: "Books",
+    },
+    {
+      name: "devices",
+      imagePath: DeviceImage,
+      headerMessage: "Devices",
+    },
+  ];
+
+  return (
+    <section>
+      <h2 className="reservations__title">Reservations</h2>
+      <Grid breakpointCols={[1, 1, 2, 3]}>
+        <ReservationCard reservationItems={reservationItems} />
+      </Grid>
+    </section>
   );
 };
 
-ReservationsSection.propTypes = {
-  firstElement: PropTypes.bool,
-  sectionHeader: PropTypes.string,
-  name: PropTypes.string,
-  headerMessage: PropTypes.string,
-  reservedItems: PropTypes.number,
-  imagePath: PropTypes.string.isRequired,
-};
-
-ReservationsSection.defaultProps = {
-  firstElement: false,
-  reservedItems: 0,
-};
 export default ReservationsSection;
