@@ -45,7 +45,7 @@ const EatOutSection = () => {
           </h2>
           <div className="browse-card__button">Browse list</div>
         </div>
-        {restaurants.slice(0, 20).map((restaurant, index) => (
+        {restaurants.slice(0, 2).map((restaurant, index) => (
           <RestaurantCard
             key={`${index}_${restaurant.id}`}
             restaurant={restaurant}
