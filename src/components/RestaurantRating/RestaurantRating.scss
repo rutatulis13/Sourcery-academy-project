@@ -1,10 +1,6 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
-$color-restaurant-rating-primary: #fadb5e;
-$color-restaurant-rating-secondary: #31465e;
-$color-icon-heart-filled: #ff6e75;
-
 .restaurant-rating {
     align-items: center;
     background-color: $color-restaurant-rating-primary;

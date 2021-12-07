@@ -1,10 +1,6 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
-$color-restaurant-rating-primary: #fadb5e;
-$color-restaurant-rating-secondary: #31465e;
-// $color-text-restaurant-category: #6a7889;
-
 .restaurant-card {
     background-size: cover;
     border-radius: 8px;
