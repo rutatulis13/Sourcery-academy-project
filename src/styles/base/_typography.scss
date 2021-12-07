@@ -14,7 +14,6 @@ $font-size-h2: 32px;
 $font-size-h2-alternative: 24px;
 
 // body:
-$font-size-body: 16px;
 $font-size-body-small: 14px;
 
 // button:
@@ -44,26 +43,28 @@ h2 {
     font-size: $font-size-h2;
     font-style: normal;
     font-weight: 500;
+    line-height: 1.156;
 }
 
 %h2-alternative {
     font-size: $font-size-h2-alternative;
     font-style: normal;
     font-weight: 900;
+    line-height: 1.3;
 }
 
 %body-small {
     font-size: $font-size-body-small;
     font-style: normal;
     font-weight: normal;
-    line-height: 22px;
+    line-height: 1.57;
 }
 
 %tiny {
     font-size: $font-size-tiny;
     font-style: normal;
     font-weight: 500;
-    line-height: 150%;
+    line-height: 1.5;
     text-transform: uppercase;
 }
 
@@ -71,7 +72,7 @@ h2 {
     font-size: $font-size-caption-1;
     font-style: normal;
     font-weight: bold;
-    line-height: 16px;
+    line-height: 1.14;
     text-transform: uppercase;
 }
 
@@ -79,6 +80,6 @@ h2 {
     font-size: $font-size-button-large;
     font-style: normal;
     font-weight: 500;
-    line-height: 24px;
+    line-height: 1.71;
     text-transform: uppercase;
 }
