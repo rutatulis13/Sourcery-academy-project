@@ -8,8 +8,11 @@ const RestaurantRating = ({ value, userValue }) => {
   const [ratingHovered, setRatingHovered] = useState(-1);
 
   const rateRestaurant = (rating) => {
-    // eslint-disable-next-line no-console
-    console.log(`rated restaurant with ${rating} stars`); // TODO: Create restaurants rating system
+    if (isExpanded) {
+      // eslint-disable-next-line no-console
+      console.log(`rated restaurant with ${rating} stars`);
+      // TODO: Create restaurants rating system (after restaurants context is created).
+    }
   };
 
   return (
@@ -20,29 +23,34 @@ const RestaurantRating = ({ value, userValue }) => {
     >
       {Array(5)
         .fill(null)
-        .map((v, i) => (
-          <button
-            aria-label={`Rate restaurant with ${i} star of 5`}
-            key={i}
-            className={`rating-star${
-              isExpanded || i === 0 ? " rating-star--show" : ""
-            }`}
-            onClick={() => rateRestaurant(i + 1)}
-            onMouseEnter={() => setRatingHovered(i + 1)}
-            onMouseLeave={() => setRatingHovered(-1)}
-          >
-            <StarRating
-              className={`rating-star__icon${
-                ratingHovered >= i + 1 ||
-                (i === 0 && !isExpanded) ||
-                (i <= userValue - 1 && ratingHovered === -1)
-                  ? " rating-star__icon--filled"
-                  : ""
+        .map((value, index) => {
+          const voteValue = index + 1;
+          return (
+            <button
+              aria-label={`Rate restaurant with ${voteValue} star${
+                voteValue > 1 ? "s" : ""
+              } of 5`}
+              key={index}
+              className={`rating-star${
+                isExpanded || index === 0 ? " rating-star--show" : ""
               }`}
-              alt=""
-            />
-          </button>
-        ))}
+              onClick={() => rateRestaurant(voteValue)}
+              onMouseEnter={() => setRatingHovered(voteValue)}
+              onMouseLeave={() => setRatingHovered(-1)}
+            >
+              <StarRating
+                className={`rating-star__icon${
+                  ratingHovered >= voteValue ||
+                  (index === 0 && !isExpanded) ||
+                  (isExpanded <= userValue && ratingHovered === -1)
+                    ? " rating-star__icon--filled"
+                    : ""
+                }`}
+                alt=""
+              />
+            </button>
+          );
+        })}
       <div className="rating-star"></div>
       <div className="rating-value">{value.toFixed(1)}</div>
     </div>
@@ -52,6 +60,7 @@ const RestaurantRating = ({ value, userValue }) => {
 RestaurantRating.propTypes = {
   value: PropTypes.number.isRequired,
   userValue: PropTypes.number,
+  // TODO: make component more flexible by passing only restaurantId to it (after restaurants context is created).
 };
 
 RestaurantRating.defaultProps = {

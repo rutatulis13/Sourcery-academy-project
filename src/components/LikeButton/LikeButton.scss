@@ -1,0 +1,22 @@
+$color-icon-heart-filled: #ff6e75;
+
+.heart {
+    background: transparent;
+    border: 0 none;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin: 0 8px;
+    padding: 0;
+
+    &__icon {
+        &--filled path {
+            fill: $color-icon-heart-filled;
+            stroke: $color-icon-heart-filled;
+        }
+
+        &:not(.heart--filled):hover path {
+            fill: $color-icon-heart-filled;
+            fill-opacity: 0.75;
+        }
+    }
+}

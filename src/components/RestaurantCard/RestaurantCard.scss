@@ -3,8 +3,7 @@
 
 $color-restaurant-rating-primary: #fadb5e;
 $color-restaurant-rating-secondary: #31465e;
-$color-icon-heart-filled: #ff6e75;
-$color-text-restaurant-category: #6a7889;
+// $color-text-restaurant-category: #6a7889;
 
 .restaurant-card {
     background-size: cover;
@@ -91,26 +90,5 @@ $color-text-restaurant-category: #6a7889;
     &__time {
         color: $color-text-restaurant-card-secondary;
         font-size: $font-size-restaurant-card-secondary;
-    }
-}
-
-.heart {
-    background: transparent;
-    border: 0 none;
-    cursor: pointer;
-    flex-shrink: 0;
-    margin: 0 8px;
-    padding: 0;
-
-    &__icon {
-        &--filled path {
-            fill: $color-icon-heart-filled;
-            stroke: $color-icon-heart-filled;
-        }
-
-        &:not(.heart--filled):hover path {
-            fill: $color-icon-heart-filled;
-            fill-opacity: 0.75;
-        }
     }
 }

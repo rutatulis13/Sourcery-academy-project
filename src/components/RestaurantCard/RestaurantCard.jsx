@@ -2,42 +2,27 @@ import React from "react";
 import "./RestaurantCard.scss";
 import { ReactComponent as PersonCheckIn } from "assets/person-check-in.svg";
 import { ReactComponent as Ellipse } from "assets/ellipse.svg";
-import { ReactComponent as Heart } from "assets/heart.svg";
 import RestaurantRating from "components/RestaurantRating/RestaurantRating";
 import PropTypes from "prop-types";
 import { getRestaurantAverageRating } from "utils/restaurants";
+import { convertToMonSunWeekFormat } from "utils/dates";
+import { weekDayNameToNumber } from "utils/dates";
+import LikeButton from "components/LikeButton/LikeButton";
 
 const RestaurantCard = ({ restaurant }) => {
-  const likeRestaurant = () => {
-    // eslint-disable-next-line no-console
-    console.log("Like/dislike restaurant"); // TODO: Create restaurants liking system
-  };
-
-  const weekDayToNumber = (weekDay) => {
-    const weekDays = [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ];
-    return weekDays.indexOf(weekDay);
-  };
-
   const getTodayWorkingHours = (hoursArray) => {
     let result = "CLOSED TODAY";
     if (Array.isArray(hoursArray)) {
-      let weekDay = new Date().getDay();
-      weekDay = weekDay === 0 ? 6 : weekDay - 1; // convert sun-sat to mon-sun
-      hoursArray.forEach((v, i) => {
-        let daysArr = v.days.split(" - ");
+      const currentWeekDay = convertToMonSunWeekFormat(new Date().getDay());
+      hoursArray.forEach((workingHourPeriod) => {
+        const [fromWeekDayName, toWeekDayName] = workingHourPeriod.days.split(
+          " - "
+        );
         if (
-          weekDay >= weekDayToNumber(daysArr[0]) &&
-          weekDay <= weekDayToNumber(daysArr[1])
+          currentWeekDay >= weekDayNameToNumber(fromWeekDayName, true) &&
+          currentWeekDay <= weekDayNameToNumber(toWeekDayName, true)
         ) {
-          result = v.hours;
+          result = workingHourPeriod.hours;
         }
       });
     }
@@ -61,22 +46,16 @@ const RestaurantCard = ({ restaurant }) => {
       </div>
       <div className="restaurant-card__bottom">
         <div className="restaurant-card__categories">
-          {restaurant.categories.map((v, i) => (
-            <span key={`${i}_${v}`}>
-              {i > 0 ? <Ellipse /> : ""}
-              {v}
+          {restaurant.categories.map((categoryName, index) => (
+            <span key={`${index}_${categoryName}`}>
+              {index > 0 ? <Ellipse /> : ""}
+              {categoryName}
             </span>
           ))}
         </div>
         <div className="restaurant-card__title">
           <span>{restaurant.name}</span>{" "}
-          <button
-            className="heart"
-            aria-label="Like restaurant"
-            onClick={likeRestaurant}
-          >
-            <Heart className="heart__icon" alt="" />
-          </button>
+          <LikeButton restaurantId={restaurant.id} />
         </div>
         <div className="restaurant-card__time">
           {getTodayWorkingHours(restaurant.openingHours)}
