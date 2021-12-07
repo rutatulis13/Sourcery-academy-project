@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { UserContext } from "components/UserContext/UserContext";
 import { ReactComponent as Heart } from "assets/heart.svg";
 import "./LikeButton.scss";
+import classNames from "classnames/bind";
 
 const LikeButton = ({ restaurantId }) => {
   const { userData, setUserData } = useContext(UserContext);
@@ -61,6 +62,9 @@ const LikeButton = ({ restaurantId }) => {
   };
 
   if (userData && Object.keys(userData).length > 0) {
+    const heartIconClasses = classNames("heart__icon", {
+      "heart__icon--filled": isRestaurantLiked,
+    });
     return (
       <button
         type="button"
@@ -68,12 +72,7 @@ const LikeButton = ({ restaurantId }) => {
         aria-label={`${isRestaurantLiked ? "Unlike" : "Like"} the restaurant`}
         onClick={clickHandler}
       >
-        <Heart
-          className={`heart__icon${
-            isRestaurantLiked ? " heart__icon--filled" : ""
-          }`}
-          alt=""
-        />
+        <Heart className={heartIconClasses} alt="" />
       </button>
     );
   } else {

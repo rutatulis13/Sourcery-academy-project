@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import "./RestaurantRating.scss";
 import { ReactComponent as StarRating } from "assets/star-rating.svg";
 
@@ -25,29 +26,27 @@ const RestaurantRating = ({ value, userValue }) => {
         .fill(null)
         .map((value, index) => {
           const voteValue = index + 1;
+          const starButtonClasses = classNames("rating-star", {
+            "rating-star--show": isExpanded || index === 0,
+          });
+          const starImageClasses = classNames("rating-star__icon", {
+            "rating-star__icon--filled":
+              ratingHovered >= voteValue ||
+              (index === 0 && !isExpanded) ||
+              (isExpanded <= userValue && ratingHovered === -1),
+          });
           return (
             <button
               aria-label={`Rate restaurant with ${voteValue} star${
                 voteValue > 1 ? "s" : ""
               } of 5`}
               key={index}
-              className={`rating-star${
-                isExpanded || index === 0 ? " rating-star--show" : ""
-              }`}
+              className={starButtonClasses}
               onClick={() => rateRestaurant(voteValue)}
               onMouseEnter={() => setRatingHovered(voteValue)}
               onMouseLeave={() => setRatingHovered(-1)}
             >
-              <StarRating
-                className={`rating-star__icon${
-                  ratingHovered >= voteValue ||
-                  (index === 0 && !isExpanded) ||
-                  (isExpanded <= userValue && ratingHovered === -1)
-                    ? " rating-star__icon--filled"
-                    : ""
-                }`}
-                alt=""
-              />
+              <StarRating className={starImageClasses} alt="" />
             </button>
           );
         })}

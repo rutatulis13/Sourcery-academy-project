@@ -1,5 +1,5 @@
 $color-icon-heart-filled: #ff6e75;
-$color-icon-heart-filled-active: darken($color-icon-heart-filled, 10%);
+$color-icon-heart-filled-active: darken($color-icon-heart-filled, 5%);
 $color-icon-heart-active: desaturate($color-icon-heart-filled-active, 25%);
 
 .heart {
