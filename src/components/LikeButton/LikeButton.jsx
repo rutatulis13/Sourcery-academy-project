@@ -35,7 +35,7 @@ const LikeButton = ({ restaurantId }) => {
     });
   };
 
-  const undoLikeRestaurant = () => {
+  const unlikeRestaurant = () => {
     setUserData((currentUserData) => {
       let nextUserData = { ...currentUserData };
       if (
@@ -53,7 +53,7 @@ const LikeButton = ({ restaurantId }) => {
   const clickHandler = () => {
     if (restaurantId) {
       if (isRestaurantLiked) {
-        undoLikeRestaurant();
+        unlikeRestaurant();
       } else {
         likeRestaurant();
       }
@@ -62,7 +62,12 @@ const LikeButton = ({ restaurantId }) => {
 
   if (userData && Object.keys(userData).length > 0) {
     return (
-      <button type="button" className="heart" onClick={clickHandler}>
+      <button
+        type="button"
+        className="heart"
+        aria-label={`${isRestaurantLiked ? "Unlike" : "Like"} the restaurant`}
+        onClick={clickHandler}
+      >
         <Heart
           className={`heart__icon${
             isRestaurantLiked ? " heart__icon--filled" : ""

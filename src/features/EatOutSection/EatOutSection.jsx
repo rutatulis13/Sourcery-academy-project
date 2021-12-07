@@ -45,8 +45,11 @@ const EatOutSection = () => {
           </h2>
           <div className="browse-card__button">Browse list</div>
         </div>
-        {restaurants.slice(0, 2).map((v, i) => (
-          <RestaurantCard key={`${i}_${v.id}`} restaurant={v} />
+        {restaurants.slice(0, 20).map((restaurant, index) => (
+          <RestaurantCard
+            key={`${index}_${restaurant.id}`}
+            restaurant={restaurant}
+          />
         ))}
       </Grid>
     </div>
