@@ -1,6 +1,6 @@
 $color-icon-heart-filled: #ff6e75;
 $color-icon-heart-filled-active: darken($color-icon-heart-filled, 10%);
-$color-icon-heart-active: desaturate($color-icon-heart-filled-active, 20%);
+$color-icon-heart-active: desaturate($color-icon-heart-filled-active, 25%);
 
 .heart {
     background: transparent;
@@ -23,6 +23,7 @@ $color-icon-heart-active: desaturate($color-icon-heart-filled-active, 20%);
 
         &--filled:active path {
             fill: $color-icon-heart-active;
+            fill-opacity: 1;
         }
 
         &:not(.heart__icon--filled):active path {
