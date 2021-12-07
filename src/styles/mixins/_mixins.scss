@@ -26,13 +26,25 @@
 }
 
 @mixin tablet {
+    @media (min-width: 481px) and (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin tablet-s {
     @media (min-width: 481px) and (max-width: 768px) {
         @content;
     }
 }
 
+@mixin tablet-l {
+    @media (min-width: 769px) and (max-width: 1200px) {
+        @content;
+    }
+}
+
 @mixin laptop {
-    @media (min-width: 769px) and (max-width: 1600px) {
+    @media (min-width: 1201px) and (max-width: 1600px) {
         @content;
     }
 }
