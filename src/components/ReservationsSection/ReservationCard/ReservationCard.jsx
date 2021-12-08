@@ -4,21 +4,22 @@ import "./ReservationCard.scss";
 import { UserContext } from "../../UserContext/UserContext.jsx";
 
 const ReservationCard = (props) => {
-  const userContext = useContext(UserContext);
+  const context = useContext(UserContext);
 
   const getReservedNumber = () => {
-    if (userContext.loading === false && userContext.userData) {
+    if (context.loading === false && context.userData) {
       for (const [key, value] of Object.entries(
-        userContext.userData.reservations
+        context.userData.reservations
       )) {
         if (key === props.reservationItem.name) {
           return value.length;
         }
       }
     } else {
-      return null;
+      return 0;
     }
   };
+
   return (
     <a href="/#" className="reservation-card">
       <div className={`reservation-card__${props.reservationItem.name}`}>
