@@ -28,7 +28,7 @@ const ReservationsSection = () => {
   return (
     <section>
       <h2 className="reservations__title">Reservations</h2>
-      <Grid breakpointCols={[1, 1, 2, 3]}>
+      <Grid breakpointCols={[1, 1, 2, 3, 3, 3]}>
         <ReservationCard reservationItems={reservationItems} />
       </Grid>
     </section>

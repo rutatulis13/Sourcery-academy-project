@@ -10,24 +10,27 @@ import DeviceReservations from "pages/DeviceReservations/DeviceReservations";
 import NotFound from "pages/NotFound/NotFound";
 import Register from "pages/Register/Register";
 import Login from "pages/Login/Login";
+import { UserProvider } from "components/UserContext/UserContext";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Dashboard />} />
-          <Route
-            path="/reservations"
-            element={<Navigate replace to="/reservations/books" />}
-          />
-          <Route path="/reservations" element={<Reservations />}>
-            <Route path="books" element={<BookReservations />} />
-            <Route path="devices" element={<DeviceReservations />} />
+        <Route element={<UserProvider />}>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Dashboard />} />
+            <Route
+              path="/reservations"
+              element={<Navigate replace to="/reservations/books" />}
+            />
+            <Route path="/reservations" element={<Reservations />}>
+              <Route path="books" element={<BookReservations />} />
+              <Route path="devices" element={<DeviceReservations />} />
+            </Route>
+            <Route path="/eat-out" element={<EatOutPage />} />
+            <Route path="/404" element={<NotFound />} />
+            <Route path="*" element={<Navigate replace to="/404" />} />
           </Route>
-          <Route path="/eat-out" element={<EatOutPage />} />
-          <Route path="/404" element={<NotFound />} />
-          <Route path="*" element={<Navigate replace to="/404" />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
