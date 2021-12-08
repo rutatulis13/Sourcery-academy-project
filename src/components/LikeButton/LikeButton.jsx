@@ -5,83 +5,79 @@ import { ReactComponent as Heart } from "assets/heart.svg";
 import "./LikeButton.scss";
 import classNames from "classnames/bind";
 
-const LikeButton = ({ restaurantId }) => {
+const LikeButton = ({ itemDataAccessor, itemId }) => {
   const { userData, setUserData } = useContext(UserContext);
-  const [isRestaurantLiked, setIsRestaurantLiked] = useState(false);
+  const [isItemLiked, setIsItemLiked] = useState(false);
 
   useEffect(() => {
     if (
-      userData?.liked?.restaurants &&
-      Array.isArray(userData.liked.restaurants)
+      userData?.liked?.[itemDataAccessor] &&
+      Array.isArray(userData.liked[itemDataAccessor])
     ) {
-      setIsRestaurantLiked(
-        userData.liked.restaurants.reduce(
-          (resultValue, { id }) => (id === restaurantId ? true : resultValue),
+      setIsItemLiked(
+        userData.liked[itemDataAccessor].reduce(
+          (resultValue, { id }) => (id === itemId ? true : resultValue),
           false
         )
       );
     }
-  }, [userData, restaurantId]);
+  }, [userData, itemDataAccessor, itemId]);
 
-  const likeRestaurant = () => {
+  const likeItem = () => {
     setUserData((currentUserData) => {
       let nextUserData = { ...currentUserData };
       if (
-        currentUserData?.liked?.restaurants &&
-        Array.isArray(currentUserData.liked.restaurants)
+        currentUserData?.liked?.[itemDataAccessor] &&
+        Array.isArray(currentUserData.liked[itemDataAccessor])
       ) {
-        nextUserData.liked.restaurants.push({ id: restaurantId });
+        nextUserData.liked[itemDataAccessor].push({ id: itemId });
       }
       return nextUserData;
     });
   };
 
-  const unlikeRestaurant = () => {
+  const unlikeItem = () => {
     setUserData((currentUserData) => {
       let nextUserData = { ...currentUserData };
       if (
-        currentUserData?.liked?.restaurants &&
-        Array.isArray(currentUserData.liked.restaurants)
+        currentUserData?.liked?.[itemDataAccessor] &&
+        Array.isArray(currentUserData.liked[itemDataAccessor])
       ) {
-        nextUserData.liked.restaurants = currentUserData.liked.restaurants.filter(
-          ({ id }) => id !== restaurantId
-        );
+        nextUserData.liked[itemDataAccessor] = currentUserData.liked[
+          itemDataAccessor
+        ].filter(({ id }) => id !== itemId);
       }
       return nextUserData;
     });
   };
 
   const clickHandler = () => {
-    if (restaurantId) {
-      if (isRestaurantLiked) {
-        unlikeRestaurant();
-      } else {
-        likeRestaurant();
-      }
+    if (itemId) {
+      isItemLiked ? unlikeItem() : likeItem();
     }
   };
 
-  if (userData && Object.keys(userData).length > 0) {
-    const heartIconClasses = classNames("heart__icon", {
-      "heart__icon--filled": isRestaurantLiked,
-    });
-    return (
+  const heartIconClasses = classNames("heart__icon", {
+    "heart__icon--filled": isItemLiked,
+  });
+  return (
+    userData &&
+    Object.keys(userData).length > 0 && (
       <button
         type="button"
         className="heart"
-        aria-label={`${isRestaurantLiked ? "Unlike" : "Like"} the restaurant`}
+        aria-label={`${isItemLiked ? "Unlike" : "Like"} the item`}
         onClick={clickHandler}
       >
         <Heart className={heartIconClasses} alt="" />
       </button>
-    );
-  } else {
-    return null;
-  }
+    )
+  );
 };
 
 LikeButton.propTypes = {
-  restaurantId: PropTypes.string,
+  itemDataAccessor: PropTypes.oneOf(["books", "devices", "restaurants"]),
+  itemId: PropTypes.string,
 };
 
 export default LikeButton;

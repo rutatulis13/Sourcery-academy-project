@@ -3,6 +3,8 @@ import Grid from "components/Grid/Grid";
 import RestaurantCard from "components/RestaurantCard/RestaurantCard";
 import "./EatOutSection.scss";
 import { getRestaurantAverageRating } from "utils/restaurants";
+import Button from "components/Button/Button";
+import { Link } from "react-router-dom";
 
 const EatOutSection = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -43,7 +45,12 @@ const EatOutSection = () => {
           <h2 className="browse-card__text">
             View all your favourite lunch spots and more
           </h2>
-          <div className="browse-card__button">Browse list</div>
+          {/* <div className="browse-card__button">Browse list</div> */}
+          <Link to="/eat-out">
+            <Button type="button">
+              <span className="browse-card__button-text">Browse list</span>
+            </Button>
+          </Link>
         </div>
         {restaurants.slice(0, 2).map((restaurant, index) => (
           <RestaurantCard

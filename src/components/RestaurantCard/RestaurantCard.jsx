@@ -55,7 +55,7 @@ const RestaurantCard = ({ restaurant }) => {
         </div>
         <div className="restaurant-card__title">
           <span>{restaurant.name}</span>{" "}
-          <LikeButton restaurantId={restaurant.id} />
+          <LikeButton itemDataAccessor="restaurants" itemId={restaurant.id} />
         </div>
         <div className="restaurant-card__time">
           {getTodayWorkingHours(restaurant.openingHours)}

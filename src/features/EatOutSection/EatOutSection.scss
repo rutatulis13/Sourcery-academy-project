@@ -2,6 +2,7 @@
 @import '../../styles/mixins/mixins';
 
 $font-size-browse-card-tablet-l: 2vw;
+$font-size-browse-button: 12px;
 
 .eat-out-section {
     margin: 32px 0;
@@ -16,7 +17,6 @@ $font-size-browse-card-tablet-l: 2vw;
     flex-direction: column;
     justify-content: center;
     min-height: 128px;
-    min-width: 0;
     padding: 16px;
 
     &__text {
@@ -30,5 +30,9 @@ $font-size-browse-card-tablet-l: 2vw;
             font-size: $font-size-browse-card-tablet-l;
             margin: 1vw;
         }
+    }
+
+    &__button-text {
+        font-size: $font-size-browse-button;
     }
 }
