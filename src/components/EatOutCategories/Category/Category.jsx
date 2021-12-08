@@ -30,7 +30,7 @@ const Category = ({ dataRestaurants, dataCategories, isLoading }) => {
   return (
     <section className="categories-section">
       <h2 className="categories-section__title">Categories</h2>
-      <Grid breakpointCols={[1, 2, 3, 4]}>
+      <Grid breakpointCols={[1, 2, 3, 4, 4, 4]}>
         {dataCategories.map((name) => (
           <a
             key={name}

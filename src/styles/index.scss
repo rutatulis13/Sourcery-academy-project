@@ -3,8 +3,15 @@
 @import 'base/typography';
 @import 'fonts/fonts';
 @import 'mixins/mixins';
+@import 'components/index';
+
 @import 'placeholders/placeholders';
 @import 'print';
+
+body {
+    background-color: $color-grey;
+    min-width: 240px;
+}
 
 * {
     box-sizing: border-box;

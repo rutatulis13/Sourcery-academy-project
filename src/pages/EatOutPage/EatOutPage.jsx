@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PageLayout from "components/PageLayout/PageLayout";
+import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import Category from "components/EatOutCategories/Category/Category";
 
 const EatOutPage = () => {
@@ -41,14 +42,15 @@ const EatOutPage = () => {
   }, []);
 
   return (
-    <div>
+    <React.Fragment>
+      <Breadcrumbs />
       <PageLayout title="Hungry? Find the best place!" />
       <Category
         dataRestaurants={dataRestaurants}
         dataCategories={dataCategories}
         isLoading={isLoading}
       />
-    </div>
+    </React.Fragment>
   );
 };
 
