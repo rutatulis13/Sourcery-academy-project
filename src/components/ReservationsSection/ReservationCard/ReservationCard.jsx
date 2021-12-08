@@ -1,75 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import "./ReservationCard.scss";
+import { UserContext } from "../../UserContext/UserContext.jsx";
 
 const ReservationCard = (props) => {
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [reservations, setReservations] = useState([]);
+  const userContext = useContext(UserContext);
 
-  useEffect(() => {
-    fetch(
-      "http://frontendsourceryweb.s3-website.eu-central-1.amazonaws.com/userData.json"
-    )
-      .then((response) => response.json())
-      .then(
-        (data) => {
-          setIsLoaded(true);
-          setReservations([
-            {
-              name: "rooms",
-              reservated: data.userData[0].reservations.rooms.length,
-            },
-            {
-              name: "books",
-              reservated: data.userData[0].reservations.books.length,
-            },
-            {
-              name: "devices",
-              reservated: data.userData[0].reservations.devices.length,
-            },
-          ]);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
+  const getReservedNumber = () => {
+    if (userContext.loading === false && userContext.userData) {
+      for (const [key, value] of Object.entries(
+        userContext.userData.reservations
+      )) {
+        if (key === props.reservationItem.name) {
+          return value.length;
         }
-      );
-  }, []);
-
-  if (!isLoaded) {
-    return <div>Loading...</div>;
-  } else {
-    return props.reservationItems.map((reservationItem, index) => {
-      return (
-        <a key={index} href="/#" className="reservation-card">
-          <div className={`reservation-card__${reservationItem.name}`}>
-            <h2 className="reservation-card__header">
-              {reservationItem.headerMessage}
-            </h2>
-            <div className={`reservation-card--uppercase`}>
-              {reservations.length && !error && isLoaded
-                ? reservations.find(
-                    (reservation) => reservation.name === reservationItem.name
-                  ).reservated
-                : null}
-              {error ? 0 : null}
-              &nbsp; Reserved
-            </div>
-            <img
-              src={reservationItem.imagePath}
-              alt={reservationItem.name}
-              className={`reservation-card__image`}
-            />
-          </div>
-        </a>
-      );
-    });
-  }
+      }
+    } else {
+      return null;
+    }
+  };
+  return (
+    <a href="/#" className="reservation-card">
+      <div className={`reservation-card__${props.reservationItem.name}`}>
+        <h2 className="reservation-card__header">
+          {props.reservationItem.headerMessage}
+        </h2>
+        <div
+          className={`reservation-card--uppercase`}
+        >{`${getReservedNumber()} Reserved`}</div>
+        <img
+          src={props.reservationItem.imagePath}
+          alt={props.reservationItem.name}
+          className={`reservation-card__image`}
+        />
+      </div>
+    </a>
+  );
 };
 
 ReservationCard.propTypes = {
-  reservationItems: PropTypes.arrayOf(PropTypes.object).isRequired,
+  reservationItem: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ReservationCard;

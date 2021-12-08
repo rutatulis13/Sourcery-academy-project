@@ -29,7 +29,11 @@ const ReservationsSection = () => {
     <section>
       <h2 className="reservations__title">Reservations</h2>
       <Grid breakpointCols={[1, 1, 2, 3, 3, 3]}>
-        <ReservationCard reservationItems={reservationItems} />
+        {reservationItems.map((reservationItem, index) => {
+          return (
+            <ReservationCard reservationItem={reservationItem} key={index} />
+          );
+        })}
       </Grid>
     </section>
   );
