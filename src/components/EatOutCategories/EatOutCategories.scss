@@ -1,7 +1,7 @@
 @import '../../styles/base/base';
 
-.section-container {
-    &_title {
+.categories-section {
+    &__title {
         color: $color-text-title;
         font-size: $font-size-title-medium;
         font-weight: 900;

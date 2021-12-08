@@ -1,7 +1,7 @@
 @import '../../../styles/base/base';
 @import '../../../styles/mixins/mixins';
 
-.section-btn {
+.categories__link {
     background: $color-white;
     border-radius: 8px;
     box-shadow: $box-shadow-card-small;
@@ -13,7 +13,11 @@
     text-decoration: none;
     width: 100%;
 
-    &_title {
+    &--hidden {
+        display: none;
+    }
+
+    &-title {
         color: $color-text-title;
         font-size: $font-size-title-medium;
         font-weight: 900;
@@ -23,7 +27,7 @@
         }
     }
 
-    &_text {
+    &-text {
         color: $color-text-title;
         font-size: $font-size-text;
         font-weight: 500;
@@ -31,7 +35,7 @@
         text-transform: uppercase;
     }
 
-    &_img {
+    &-icon {
         height: 120px;
         position: absolute;
         right: -10px;

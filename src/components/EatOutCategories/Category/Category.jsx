@@ -1,91 +1,64 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import "./Category.scss";
 import Grid from "components/Grid/Grid";
+import EatOutCategoryIcon from "../EatOutCategoryIcon";
+import "./Category.scss";
 
-const Category = ({ image, altText, name }) => {
-  const [dataRestaurants, setDataRestaurants] = useState([]);
-  const [dataCategories, setDataCategories] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    fetch(
-      "http://frontendsourceryweb.s3-website.eu-central-1.amazonaws.com/categories.json"
-    )
-      .then((res) => {
-        if (!res.ok) {
-          throw Error();
-        }
-        return res.json();
-      })
-      .then((dataCategories) => {
-        setDataCategories(dataCategories.categories);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+const Category = ({ dataRestaurants, dataCategories, isLoading }) => {
+  const numOfRest = (name) => {
+    const sum = dataRestaurants
+      .map(
+        (item) =>
+          item.categories.filter(
+            (item) => item === (name === "Brunch" ? "Breakfast" : name)
+          ).length
+      )
+      .reduce((prevValue, currValue) => prevValue + currValue, 0);
+    return sum;
+  };
 
-    fetch(
-      "http://frontendsourceryweb.s3-website.eu-central-1.amazonaws.com/restaurants.json"
-    )
-      .then((res) => {
-        if (!res.ok) {
-          throw Error();
-        }
-        return res.json();
-      })
-      .then((dataRestaurants) => {
-        setDataRestaurants(dataRestaurants.restaurants);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
-
-  // const names = dataCategories.map(myFunc);
-  // function myFunc() {
-  //   if (name === "Donuts") {
-  //     name = "Sweets";
-  //   } else if (name === "Hot dogs") {
-  //     name = "Sandwich";
-  //   }
-  // }
-  // console.log(names);
+  const correctNumbers = (name) => {
+    if (name === "Sweets") {
+      return Number(numOfRest("Sweets")) + Number(numOfRest("Donuts"));
+    } else if (name === "Sandwich") {
+      return Number(numOfRest("Sandwich")) + Number(numOfRest("Hot dogs"));
+    } else {
+      return numOfRest(name);
+    }
+  };
 
   return (
-    <section className="section-container">
-      <h2 className="section-container_title">Categories</h2>
+    <section className="categories-section">
+      <h2 className="categories-section__title">Categories</h2>
       <Grid breakpointCols={[1, 2, 3, 4]}>
         {dataCategories.map((name) => (
-          <a key={name} className="section-btn" href="eat-out-next-page">
-            <div className="section-btn_item">
-              <h2 className="section-btn_title">
+          <a
+            key={name}
+            className={
+              name === "Donuts" || name === "Hot dogs"
+                ? "categories__link--hidden"
+                : "categories__link"
+            }
+            href="eat-out-next-page"
+          >
+            <div className="categories__link-item">
+              <h2 className="categories__link-title">
                 {name === "Breakfast" ? "Brunch" : name}
-                <span className="section-btn_text">
+                <span className="categories__link-text">
                   {isLoading ? (
                     <div>Loading</div>
                   ) : (
                     <div>
-                      {dataRestaurants
-                        .map(
-                          (item) =>
-                            item.categories.filter(
-                              (item) =>
-                                item ===
-                                (name === "Brunch" ? "Breakfast" : name)
-                            ).length
-                        )
-                        .reduce((a, b) => a + b, 0) +
-                        " " +
-                        "places"}
-                      {/* {sum > 1 ? "places" : "place"} */}
+                      {correctNumbers(name) > 1
+                        ? correctNumbers(name) + " places"
+                        : correctNumbers(name) + " place"}
                     </div>
                   )}
                 </span>
               </h2>
             </div>
-
             <figure>
-              <img className="section-btn_img" src={image} alt={altText} />
+              <EatOutCategoryIcon name={name} />
             </figure>
           </a>
         ))}
@@ -95,9 +68,9 @@ const Category = ({ image, altText, name }) => {
 };
 
 Category.propTypes = {
-  image: PropTypes.string,
-  altText: PropTypes.string,
+  dataRestaurants: PropTypes.string,
+  dataCategories: PropTypes.string,
+  isLoading: PropTypes.bool,
   name: PropTypes.string,
 };
-
 export default Category;
