@@ -29,9 +29,9 @@ const ReservationsSection = () => {
     <section>
       <h2 className="reservations__title">Reservations</h2>
       <Grid breakpointCols={[1, 1, 2, 3, 3]}>
-        {reservationItems.map((reservationItem, index) => {
+        {reservationItems.map((reservationItem, name) => {
           return (
-            <ReservationCard reservationItem={reservationItem} key={index} />
+            <ReservationCard reservationItem={reservationItem} key={name} />
           );
         })}
       </Grid>
