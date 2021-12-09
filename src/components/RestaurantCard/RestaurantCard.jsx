@@ -1,13 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./RestaurantCard.scss";
+import LikeButton from "components/LikeButton/LikeButton";
+import RestaurantRating from "components/RestaurantRating/RestaurantRating";
 import { ReactComponent as PersonCheckIn } from "assets/person-check-in.svg";
 import { ReactComponent as Ellipse } from "assets/ellipse.svg";
-import RestaurantRating from "components/RestaurantRating/RestaurantRating";
-import PropTypes from "prop-types";
-import { getRestaurantAverageRating } from "utils/restaurants";
 import { convertToMonSunWeekFormat } from "utils/dates";
+import { getRestaurantAverageRating } from "utils/restaurants";
 import { weekDayNameToNumber } from "utils/dates";
-import LikeButton from "components/LikeButton/LikeButton";
 
 const RestaurantCard = ({ restaurant }) => {
   const getTodayWorkingHours = (hoursArray) => {

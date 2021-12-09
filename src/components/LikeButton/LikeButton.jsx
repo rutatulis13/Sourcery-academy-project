@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames/bind";
+import "./LikeButton.scss";
 import { UserContext } from "components/UserContext/UserContext";
 import { ReactComponent as Heart } from "assets/heart.svg";
-import "./LikeButton.scss";
-import classNames from "classnames/bind";
 
 const LikeButton = ({ itemDataAccessor, itemId }) => {
   const { userData, setUserData } = useContext(UserContext);
