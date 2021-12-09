@@ -3,16 +3,16 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Layout from "components/Layout/Layout";
 import Dashboard from "pages/Dashboard/Dashboard";
+import Reservations from "pages/Reservations/Reservations";
 import BookReservations from "pages/BookReservations/BookReservations";
+import DeviceReservations from "pages/DeviceReservations/DeviceReservations";
 import EatOutPage from "pages/EatOutPage/EatOutPage";
 import EatOutCategoryPage from "pages/EatOutCategoryPage/EatOutCategoryPage";
-import Reservations from "pages/Reservations/Reservations";
-import DeviceReservations from "pages/DeviceReservations/DeviceReservations";
-import NotFound from "pages/NotFound/NotFound";
+import EatOutRestaurantPage from "pages/EatOutRestaurantPage/EatOutRestaurantPage";
 import Register from "pages/Register/Register";
 import Login from "pages/Login/Login";
+import NotFound from "pages/NotFound/NotFound";
 import { UserProvider } from "components/UserContext/UserContext";
-import EatOutRestaurantPage from "pages/EatOutRestaurantPage/EatOutRestaurantPage";
 
 function App() {
   return (
