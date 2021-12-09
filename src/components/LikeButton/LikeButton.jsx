@@ -15,10 +15,7 @@ const LikeButton = ({ itemDataAccessor, itemId }) => {
       Array.isArray(userData.liked[itemDataAccessor])
     ) {
       setIsItemLiked(
-        userData.liked[itemDataAccessor].reduce(
-          (resultValue, { id }) => (id === itemId ? true : resultValue),
-          false
-        )
+        userData.liked[itemDataAccessor].some(({ id }) => id === itemId)
       );
     }
   }, [userData, itemDataAccessor, itemId]);
