@@ -1,0 +1,35 @@
+$color-icon-heart-filled: #ff6e75;
+$color-icon-heart-filled-active: darken($color-icon-heart-filled, 5%);
+$color-icon-heart-active: desaturate($color-icon-heart-filled-active, 25%);
+
+.heart {
+    background: transparent;
+    border: 0 none;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin: 0 8px;
+    padding: 0;
+
+    &__icon {
+        &--filled path {
+            fill: $color-icon-heart-filled;
+            stroke: $color-icon-heart-filled;
+        }
+
+        &:hover path {
+            fill: $color-icon-heart-filled;
+            fill-opacity: 0.75;
+        }
+
+        &--filled:active path {
+            fill: $color-icon-heart-active;
+            fill-opacity: 1;
+        }
+
+        &:not(.heart__icon--filled):active path {
+            fill: $color-icon-heart-filled-active;
+            fill-opacity: 1;
+            stroke: $color-icon-heart-filled-active;
+        }
+    }
+}
