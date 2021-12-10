@@ -1,14 +1,15 @@
 import React from "react";
-import PageLayout from "components/PageLayout/PageLayout";
 import ReservationsSection from "components/ReservationsSection/ReservationsSection";
 import HelloWidget from "features/HelloWidget/HelloWidget";
+import EatOutSection from "features/EatOutSection/EatOutSection";
 
 const Dashboard = () => {
   return (
-    <PageLayout>
+    <>
       <HelloWidget />
       <ReservationsSection />
-    </PageLayout>
+      <EatOutSection />
+    </>
   );
 };
 

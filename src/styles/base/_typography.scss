@@ -27,6 +27,13 @@ $font-size-breadcrumbs: 12px;
 $font-weight-breadcrumbs: 500;
 $line-height-breadcrumbs: 18px;
 
+// restaurant card:
+$font-size-restaurant-card-primary: 24px;
+$font-size-restaurant-card-secondary: 10px;
+
+// restaurant rating:
+$font-size-restaurant-rating: 14px;
+
 // weather:
 $font-size-weather: 12px;
 $font-size-weather-temp: 60px;
@@ -35,9 +42,6 @@ $font-size-weather-cond: 20px;
 //Reservation-section
 $font-size-reserved: 12px;
 $font-size-reservation-h2: 24px;
-
-// clock:
-$font-size-clock: 100px;
 
 h2 {
     font-size: $font-size-h2;

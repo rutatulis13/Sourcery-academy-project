@@ -27,7 +27,7 @@ Grid.propTypes = {
       !prop.every(Number.isInteger)
     ) {
       return new Error(
-        `Invalid prop ${propName} supplied to ${componentName}. It should be be an array of 4 numbers.`
+        `Invalid prop ${propName} supplied to ${componentName}. It should be be an array of 5 numbers.`
       );
     }
   },

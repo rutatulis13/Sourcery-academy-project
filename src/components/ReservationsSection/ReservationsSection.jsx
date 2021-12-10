@@ -12,16 +12,19 @@ const ReservationsSection = () => {
       name: "rooms",
       imagePath: DoorImage,
       headerMessage: "Meeting rooms",
+      linkPath: "reservations/meeting-rooms",
     },
     {
       name: "books",
       imagePath: BookImage,
       headerMessage: "Books",
+      linkPath: "reservations/books",
     },
     {
       name: "devices",
       imagePath: DeviceImage,
       headerMessage: "Devices",
+      linkPath: "reservations/devices",
     },
   ];
 
@@ -29,9 +32,12 @@ const ReservationsSection = () => {
     <section>
       <h2 className="reservations__title">Reservations</h2>
       <Grid breakpointCols={[1, 1, 2, 3, 3]}>
-        {reservationItems.map((reservationItem, name) => {
+        {reservationItems.map((reservationItem) => {
           return (
-            <ReservationCard reservationItem={reservationItem} key={name} />
+            <ReservationCard
+              reservationItem={reservationItem}
+              key={reservationItem.name}
+            />
           );
         })}
       </Grid>

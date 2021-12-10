@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import "./ReservationCard.scss";
 import { UserContext } from "../../UserContext/UserContext.jsx";
+import { Link } from "react-router-dom";
 
 const ReservationCard = ({ reservationItem }) => {
-  const { name, headerMessage, imagePath } = reservationItem;
+  const { name, headerMessage, imagePath, linkPath } = reservationItem;
   const context = useContext(UserContext);
 
   const getReservedNumber = () => {
@@ -16,11 +17,11 @@ const ReservationCard = ({ reservationItem }) => {
   };
 
   return (
-    <a href="/#" className="reservation-card">
+    <Link to={linkPath} className="reservation-card">
       <h2 className="reservation-card__header">{headerMessage}</h2>
-      <div className="reservation-card--uppercase">{`${getReservedNumber()} Reserved`}</div>
+      <div className="reservation-card__uppercase">{`${getReservedNumber()} Reserved`}</div>
       <img src={imagePath} alt={name} className="reservation-card__image" />
-    </a>
+    </Link>
   );
 };
 

@@ -1,4 +1,3 @@
-@import '../../../styles/fonts/Roboto/Roboto';
 @import '../../../styles/base/colors';
 @import '../../../styles/base/typography';
 
@@ -22,7 +21,7 @@
         line-height: 32px;
     }
 
-    &--uppercase {
+    &__uppercase {
         color: $color-text-reservations-secondary;
         text-transform: uppercase;
     }

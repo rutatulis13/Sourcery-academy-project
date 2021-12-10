@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "components/Layout/Layout";
 import Dashboard from "pages/Dashboard/Dashboard";
 import BookReservations from "pages/BookReservations/BookReservations";
+import RoomsReservations from "pages/RoomsReservations/RoomsReservation";
 import EatOutPage from "pages/EatOutPage/EatOutPage";
 import Reservations from "pages/Reservations/Reservations";
 import DeviceReservations from "pages/DeviceReservations/DeviceReservations";
@@ -24,6 +25,7 @@ function App() {
               element={<Navigate replace to="/reservations/books" />}
             />
             <Route path="/reservations" element={<Reservations />}>
+              <Route path="meeting-rooms" element={<RoomsReservations />} />
               <Route path="books" element={<BookReservations />} />
               <Route path="devices" element={<DeviceReservations />} />
             </Route>
