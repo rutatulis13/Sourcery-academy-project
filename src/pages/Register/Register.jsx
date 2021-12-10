@@ -47,6 +47,7 @@ const Register = () => {
       values.repeatPassword.length > 2
     ) {
       setValid(true);
+      localStorage.setItem("storedValues", JSON.stringify(values));
     }
     setSubmitted(true);
   };

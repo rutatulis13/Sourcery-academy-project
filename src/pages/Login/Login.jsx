@@ -31,7 +31,16 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    const storedValues = JSON.parse(localStorage.getItem("storedValues"));
+    if (
+      storedValues &&
+      values.email === storedValues.email &&
+      values.password === storedValues.password
+    ) {
+      setSubmitted(true);
+    } else {
+      setSubmitted(false);
+    }
   };
 
   return (
@@ -70,6 +79,7 @@ const Login = () => {
           buttonName="Login"
           question="Don’t have an account?"
           linkName="Sign up"
+          isDisabled={values.email.length <= 2 || values.password.length <= 2}
         />
       </Form>
     </AuthorizationLayout>

@@ -10,7 +10,9 @@ const FormAction = (props) => {
   return (
     <FormRow>
       <div className="form__col-33">
-        <Button type={props.type}>{props.buttonName}</Button>
+        <Button type={props.type} disabled={props.isDisabled}>
+          {props.buttonName}
+        </Button>
       </div>
       <div className="form__col-66">
         <FormLink>
@@ -29,6 +31,7 @@ FormAction.propTypes = {
   question: PropTypes.string,
   linkName: PropTypes.string,
   children: PropTypes.node,
+  isDisabled: PropTypes.bool,
 };
 
 export default FormAction;
