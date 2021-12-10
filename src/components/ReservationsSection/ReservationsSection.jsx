@@ -29,8 +29,8 @@ const ReservationsSection = () => {
   ];
 
   return (
-    <section>
-      <h2 className="reservations__title">Reservations</h2>
+    <section className="reservations-section">
+      <h2 className="reservations-section__title">Reservations</h2>
       <Grid breakpointCols={[1, 1, 2, 3, 3]}>
         {reservationItems.map((reservationItem) => {
           return (

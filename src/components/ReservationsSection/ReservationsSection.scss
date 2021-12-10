@@ -1,10 +1,13 @@
 @import '../../styles/base/colors';
 @import '../../styles/base/typography';
 
-.reservations__title {
-    color: $color-text-reservations-primary;
-    font-size: $font-size-reservation-h2;
-    font-weight: 900;
-    line-height: 32px;
-    margin: 84px 0 0;
+.reservations-section {
+    margin: 84px 0 96px;
+
+    &__title {
+        color: $color-text-reservations-primary;
+        font-size: $font-size-reservation-h2;
+        font-weight: 900;
+        line-height: 32px;
+    }
 }
