@@ -6,6 +6,11 @@ const UserContext = createContext();
 const UserProvider = () => {
   const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(true);
+  const [contextData, setContextData] = useState({
+    userData,
+    setUserData,
+    loading,
+  });
 
   useEffect(() => {
     fetch(
@@ -25,8 +30,16 @@ const UserProvider = () => {
       });
   }, []);
 
+  useEffect(() => {
+    setContextData({
+      userData,
+      setUserData,
+      loading,
+    });
+  }, [userData, loading]);
+
   return (
-    <UserContext.Provider value={{ userData, setUserData, loading }}>
+    <UserContext.Provider value={contextData}>
       <Outlet />
     </UserContext.Provider>
   );
