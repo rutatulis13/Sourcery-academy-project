@@ -5,11 +5,15 @@ const RestaurantsContext = createContext();
 
 const RestaurantsProvider = () => {
   const [restaurantsData, setRestaurantsData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [categoriesData, setCategoriesData] = useState([]);
+  const [loadingRestaurants, setLoadingRestaurants] = useState(true);
+  const [loadingCategories, setLoadingCategories] = useState(true);
   const [contextData, setContextData] = useState({
     restaurantsData,
     setRestaurantsData,
-    loading,
+    categoriesData,
+    loadingRestaurants,
+    loadingCategories,
   });
 
   useEffect(() => {
@@ -26,17 +30,34 @@ const RestaurantsProvider = () => {
         setRestaurantsData(data.restaurants);
       })
       .finally(() => {
-        setLoading(false);
+        setLoadingRestaurants(false);
+      });
+    fetch(
+      "http://frontendsourceryweb.s3-website.eu-central-1.amazonaws.com/categories.json"
+    )
+      .then((res) => {
+        if (!res.ok) {
+          throw Error();
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setCategoriesData(data.categories);
+      })
+      .finally(() => {
+        setLoadingCategories(false);
       });
   }, []);
 
   useEffect(() => {
     setContextData({
       restaurantsData,
+      categoriesData,
       setRestaurantsData,
-      loading,
+      loadingRestaurants,
+      loadingCategories,
     });
-  }, [restaurantsData, loading]);
+  }, [restaurantsData, categoriesData, loadingRestaurants, loadingCategories]);
 
   return (
     <RestaurantsContext.Provider value={contextData}>
