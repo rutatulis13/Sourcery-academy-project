@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames/bind";
 import "./LikeButton.scss";
-import { UserContext } from "components/UserContext/UserContext";
+import { UserContext } from "contexts/UserContext/UserContext";
 import { ReactComponent as Heart } from "assets/heart.svg";
 
 const LikeButton = ({ itemDataAccessor, itemId }) => {
