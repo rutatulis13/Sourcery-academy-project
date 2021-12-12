@@ -6,7 +6,7 @@ import RestaurantRating from "components/RestaurantRating/RestaurantRating";
 import { ReactComponent as PersonCheckIn } from "assets/person-check-in.svg";
 import { ReactComponent as Ellipse } from "assets/ellipse.svg";
 import { convertToMonSunWeekFormat } from "utils/dates";
-import { getRestaurantAverageRating } from "utils/restaurants";
+//import { getRestaurantAverageRating } from "utils/restaurants";
 import { weekDayNameToNumber } from "utils/dates";
 
 const RestaurantCard = ({ restaurant }) => {
@@ -42,7 +42,7 @@ const RestaurantCard = ({ restaurant }) => {
           <PersonCheckIn />
           <div>{restaurant.checkIns}</div>
         </div>
-        <RestaurantRating value={getRestaurantAverageRating(restaurant)} />
+        <RestaurantRating restaurantId={restaurant.id} />
       </div>
       <div className="restaurant-card__bottom">
         <div className="restaurant-card__categories">
