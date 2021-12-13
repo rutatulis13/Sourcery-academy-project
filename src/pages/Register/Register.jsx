@@ -46,8 +46,12 @@ const Register = () => {
       values.password.length > 2 &&
       values.repeatPassword.length > 2
     ) {
+      const { firstName, lastName, email, password } = values;
       setValid(true);
-      localStorage.setItem("storedValues", JSON.stringify(values));
+      localStorage.setItem(
+        "userDetails",
+        JSON.stringify({ firstName, lastName, email, password })
+      );
     }
     setSubmitted(true);
   };

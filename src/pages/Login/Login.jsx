@@ -1,16 +1,22 @@
 import AuthorizationLayout from "components/AuthorizationLayout/AuthorizationLayout";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Navigate } from "react-router-dom";
 import Form from "../../components/FormComponents/Form/Form";
 import FormRow from "../../components/FormComponents/FormRow/FormRow";
 import FormInput from "../../components/FormComponents/FormInput/FormInput";
 import FormAction from "../../components/FormComponents/FormAction/FormAction";
+import { AuthContext } from "components/AuthContext/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
+
+  const authCtx = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const [submitted, setSubmitted] = useState(false);
 
@@ -31,13 +37,16 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const storedValues = JSON.parse(localStorage.getItem("storedValues"));
+    const userDetails = JSON.parse(localStorage.getItem("userDetails"));
     if (
-      storedValues &&
-      values.email === storedValues.email &&
-      values.password === storedValues.password
+      userDetails &&
+      values.email === userDetails.email &&
+      values.password === userDetails.password
     ) {
+      localStorage.setItem("userLoggedIn", JSON.stringify(true));
       setSubmitted(true);
+      authCtx.login();
+      navigate("/");
     } else {
       setSubmitted(false);
     }

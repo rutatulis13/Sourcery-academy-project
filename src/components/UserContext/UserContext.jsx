@@ -5,9 +5,10 @@ const UserContext = createContext();
 
 const UserProvider = () => {
   const [userData, setUserData] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch(
       "http://frontendsourceryweb.s3-website.eu-central-1.amazonaws.com/userData.json"
     )
