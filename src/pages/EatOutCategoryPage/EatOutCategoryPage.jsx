@@ -21,7 +21,11 @@ const EatOutCategoryPage = () => {
           <Grid breakpointCols={[1, 1, 2, 3, 3]}>
             {restaurantsData.map((restaurant) => {
               return (
-                <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+                <RestaurantCard
+                  large
+                  key={restaurant.id}
+                  restaurant={restaurant}
+                />
               );
             })}
           </Grid>

@@ -17,4 +17,8 @@
     &:active {
         background-color: $color-button-darkest-purple;
     }
+
+    &--medium {
+        @extend %button-medium;
+    }
 }

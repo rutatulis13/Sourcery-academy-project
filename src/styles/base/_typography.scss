@@ -1,5 +1,16 @@
 $font-main: 'Roboto', sans-serif;
 
+// main font sizes:
+$font-size-2xs: 10px;
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-2xl: 24px;
+$font-size-3xl: 32px;
+$font-size-4xl: 36px;
+
 $font-size-header: 16px;
 $font-size-footer: 10px;
 $font-size-dropdown: 14px;
@@ -7,20 +18,27 @@ $font-size-title: 36px;
 $line-height-title: 42px;
 
 // caption:
-$font-size-caption-1: 14px;
+$font-size-caption-1: $font-size-sm;
+$font-size-caption-2: $font-size-xs;
 
 // h2:
-$font-size-h2: 32px;
-$font-size-h2-alternative: 24px;
+$font-size-h2: $font-size-3xl;
+$font-size-h2-alternative: $font-size-2xl;
+
+// h3:
+$font-size-h3: $font-size-2xl;
+$font-size-h3-alternative: $font-size-xl;
 
 // body:
-$font-size-body-small: 14px;
+$font-size-body: $font-size-base;
+$font-size-body-small: $font-size-sm;
 
 // button:
-$font-size-button-large: 14px;
+$font-size-button-large: $font-size-sm;
+$font-size-button-medium: $font-size-xs;
 
 // tiny:
-$font-size-tiny: 10px;
+$font-size-tiny: $font-size-2xs;
 
 // breadcrumbs:
 $font-size-breadcrumbs: 12px;
@@ -53,6 +71,25 @@ h2 {
     line-height: 1.3;
 }
 
+h3 {
+    font-size: $font-size-h3;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.172;
+}
+
+%h3-alternative {
+    font-size: $font-size-h3-alternative;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+%body {
+    font-size: $font-size-body;
+    line-height: 1.5;
+}
+
 %body-small {
     font-size: $font-size-body-small;
     font-style: normal;
@@ -76,10 +113,25 @@ h2 {
     text-transform: uppercase;
 }
 
+%caption-2 {
+    font-size: $font-size-caption-2;
+    font-weight: 500;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
 %button-large {
     font-size: $font-size-button-large;
     font-style: normal;
     font-weight: 500;
     line-height: 1.71;
+    text-transform: uppercase;
+}
+
+%button-medium {
+    font-size: $font-size-button-medium;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
     text-transform: uppercase;
 }
