@@ -1,0 +1,14 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.categories__link-icon {
+    height: 120px;
+    position: absolute;
+    right: -10px;
+    top: calc(50% - 126px / 2);
+    width: auto;
+    @include medium-size {
+        height: 75px;
+        top: calc(50% - 75px / 2);
+    }
+}

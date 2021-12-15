@@ -12,12 +12,13 @@ import kebab from "assets/RestaurantCategoriesIcons/kebab.svg";
 import brunch from "assets/RestaurantCategoriesIcons/brunch.svg";
 import sweets from "assets/RestaurantCategoriesIcons/sweets.svg";
 import grill from "assets/RestaurantCategoriesIcons/grill.svg";
-import "./EatOutCategories.scss";
+import { EAT_OUT_CATEGORIES } from "./constants.js";
+import "./EatOutCategoryIcon.scss";
 
-const EatOutCategoryIcon = ({ name }) => {
+const EatOutCategoryIcon = ({ category }) => {
   let component;
-  switch (name) {
-    case "Ramen":
+  switch (category) {
+    case EAT_OUT_CATEGORIES.RAMEN:
       component = (
         <img
           className="categories__link-icon"
@@ -26,7 +27,7 @@ const EatOutCategoryIcon = ({ name }) => {
         />
       );
       break;
-    case "Pizza":
+    case EAT_OUT_CATEGORIES.PIZZA:
       component = (
         <img
           className="categories__link-icon"
@@ -35,7 +36,7 @@ const EatOutCategoryIcon = ({ name }) => {
         />
       );
       break;
-    case "Salads":
+    case EAT_OUT_CATEGORIES.SALADS:
       component = (
         <img
           className="categories__link-icon"
@@ -44,7 +45,7 @@ const EatOutCategoryIcon = ({ name }) => {
         />
       );
       break;
-    case "Pancakes":
+    case EAT_OUT_CATEGORIES.PANCAKES:
       component = (
         <img
           className="categories__link-icon"
@@ -53,17 +54,17 @@ const EatOutCategoryIcon = ({ name }) => {
         />
       );
       break;
-    case "Sandwich":
+    case EAT_OUT_CATEGORIES.SANDWICH:
       component = (
         <img className="categories__link-icon" src={sandwich} alt="Sandwich" />
       );
       break;
-    case "Burger":
+    case EAT_OUT_CATEGORIES.BURGER:
       component = (
         <img className="categories__link-icon" src={burger} alt="Burger" />
       );
       break;
-    case "Sushi":
+    case EAT_OUT_CATEGORIES.SUSHI:
       component = (
         <img
           className="categories__link-icon"
@@ -72,17 +73,17 @@ const EatOutCategoryIcon = ({ name }) => {
         />
       );
       break;
-    case "Soups":
+    case EAT_OUT_CATEGORIES.SOUPS:
       component = (
         <img className="categories__link-icon" src={soups} alt="Bowl of Soup" />
       );
       break;
-    case "Kebab":
+    case EAT_OUT_CATEGORIES.KEBAB:
       component = (
         <img className="categories__link-icon" src={kebab} alt="Kebab" />
       );
       break;
-    case "Brunch":
+    case EAT_OUT_CATEGORIES.BRUNCH:
       component = (
         <img
           className="categories__link-icon"
@@ -91,7 +92,7 @@ const EatOutCategoryIcon = ({ name }) => {
         />
       );
       break;
-    case "Sweets":
+    case EAT_OUT_CATEGORIES.SWEETS:
       component = (
         <img
           className="categories__link-icon"
@@ -100,7 +101,7 @@ const EatOutCategoryIcon = ({ name }) => {
         />
       );
       break;
-    case "Grill":
+    case EAT_OUT_CATEGORIES.GRILL:
       component = (
         <img
           className="categories__link-icon"
@@ -110,12 +111,26 @@ const EatOutCategoryIcon = ({ name }) => {
       );
       break;
     default:
-      component = <div />;
+      component = <div></div>;
   }
   return <figure>{component}</figure>;
 };
 
 EatOutCategoryIcon.propTypes = {
-  name: PropTypes.string,
+  category: PropTypes.oneOf([
+    "ramen",
+    "pizza",
+    "salads",
+    "pancakes",
+    "sandwich",
+    "burger",
+    "sushi",
+    "soups",
+    "Kebab",
+    "brunch",
+    "sweets",
+    "grill",
+  ]),
+  EAT_OUT_CATEGORIES: PropTypes.object,
 };
 export default EatOutCategoryIcon;

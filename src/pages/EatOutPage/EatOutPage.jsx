@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import PageLayout from "components/PageLayout/PageLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
-import Category from "components/EatOutCategories/Category/Category";
+import Category from "components/EatOutCategories/EatOutCategorySection/EatOutCategorySection";
 
 const EatOutPage = () => {
-  const [dataRestaurants, setDataRestaurants] = useState([]);
-  const [dataCategories, setDataCategories] = useState([]);
+  const [restaurantData, setRestaurantData] = useState([]);
+  const [categoryList, setCategoryList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     fetch(
@@ -17,13 +17,13 @@ const EatOutPage = () => {
         }
         return res.json();
       })
-      .then((dataCategories) => {
-        setDataCategories(dataCategories.categories);
+      .then((categoryList) => {
+        setCategoryList(categoryList.categories);
       })
-
       .finally(() => {
         setIsLoading(false);
       });
+
     fetch(
       "http://frontendsourceryweb.s3-website.eu-central-1.amazonaws.com/restaurants.json"
     )
@@ -33,8 +33,8 @@ const EatOutPage = () => {
         }
         return res.json();
       })
-      .then((dataRestaurants) => {
-        setDataRestaurants(dataRestaurants.restaurants);
+      .then((restaurantData) => {
+        setRestaurantData(restaurantData.restaurants);
       })
       .finally(() => {
         setIsLoading(false);
@@ -46,8 +46,8 @@ const EatOutPage = () => {
       <Breadcrumbs />
       <PageLayout title="Hungry? Find the best place!" />
       <Category
-        dataRestaurants={dataRestaurants}
-        dataCategories={dataCategories}
+        restaurantData={restaurantData}
+        categoryList={categoryList}
         isLoading={isLoading}
       />
     </React.Fragment>
