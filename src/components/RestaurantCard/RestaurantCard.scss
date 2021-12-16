@@ -124,13 +124,18 @@
     }
 
     &__website {
-        @extend %caption-2;
         align-items: center;
         display: flex;
         margin-top: 8px;
+    }
 
-        span {
-            margin: 4px;
+    &__website-link {
+        @extend %caption-2;
+        color: $color-text-restaurant-card-details;
+        margin: 4px;
+
+        &:not(:hover) {
+            text-decoration: none;
         }
     }
 
@@ -141,6 +146,7 @@
         margin-bottom: 12px;
 
         span {
+            color: $color-text-restaurant-card-details;
             margin: 4px;
         }
     }

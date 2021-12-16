@@ -3,6 +3,17 @@ $color-light-grey: #cacfd5;
 $color-grey: #dcdfe3;
 $color-white: #fff;
 $color-purple: #6e44ff;
+$color-green: #7bf1a8;
+$color-red: #ff6e75;
+
+$color-gray-1: #001836;
+$color-gray-2: #3e5067;
+$color-gray-3: #6a7889;
+$color-gray-4: #9ea7b3;
+$color-gray-5: #cacfd5;
+$color-gray-6: #dcdfe3;
+$color-gray-7: #edeff1;
+$color-gray-8: #f6f7f8;
 
 // layout:
 $color-bg-topbar: #6e44ff;
@@ -28,9 +39,10 @@ $color-breadcrumbs-last: #6a7889;
 $color-text-eat-out-browse-card: rgba(0, 0, 0, 0.7);
 
 // restaurant card:
-$color-text-restaurant-card-primary: #001836;
-$color-text-restaurant-card-secondary: #6a7889;
-$color-icon-heart-filled: #ff6e75;
+$color-text-restaurant-card-primary: $color-gray-1;
+$color-text-restaurant-card-secondary: $color-gray-3;
+$color-text-restaurant-card-details: $color-gray-2;
+$color-icon-heart-filled: $color-red;
 $color-bg-restaurant-card: $color-white;
 
 // restaurant rating:

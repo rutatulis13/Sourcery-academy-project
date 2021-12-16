@@ -85,7 +85,14 @@ const RestaurantCard = ({ restaurant, large }) => {
           <>
             <div className="restaurant-card__website">
               <Website className="restaurant-card__info-icon" />{" "}
-              <span>{restaurant.website.replace(/(^\w+:|^)\/\//, "")}</span>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={restaurant.website}
+                className="restaurant-card__website-link"
+              >
+                {restaurant.website.replace(/(^\w+:|^)\/\//, "")}
+              </a>
             </div>
             <div className="restaurant-card__address">
               <Location className="restaurant-card__info-icon" />{" "}
