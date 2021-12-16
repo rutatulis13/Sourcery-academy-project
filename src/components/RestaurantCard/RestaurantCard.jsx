@@ -84,11 +84,11 @@ const RestaurantCard = ({ restaurant, large }) => {
         {large && (
           <>
             <div className="restaurant-card__website">
-              <Website class="restaurant-card__info-icon" />{" "}
+              <Website className="restaurant-card__info-icon" />{" "}
               <span>{restaurant.website.replace(/(^\w+:|^)\/\//, "")}</span>
             </div>
             <div className="restaurant-card__address">
-              <Location class="restaurant-card__info-icon" />{" "}
+              <Location className="restaurant-card__info-icon" />{" "}
               <span>{restaurant.location.address}</span>
             </div>
             <div className="restaurant-card__description">
