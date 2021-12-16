@@ -15,7 +15,8 @@ const EatOutSection = () => {
     if (restaurants.length === 0) {
       setRestaurants(sortRestaurantsByRating(restaurantsData));
     }
-  }, [restaurants, restaurantsData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [restaurantsData]);
 
   return (
     restaurants.length > 0 && (
