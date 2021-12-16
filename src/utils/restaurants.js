@@ -16,4 +16,15 @@ const getRestaurantAverageRating = (restaurantObj) => {
   return result;
 };
 
-export { filterRestaurantsByCategory, getRestaurantAverageRating };
+const sortRestaurantsByRating = (restaurantsArray) => {
+  const sortedArray = [...restaurantsArray].sort((a, b) => {
+    return getRestaurantAverageRating(b) - getRestaurantAverageRating(a);
+  });
+  return sortedArray;
+};
+
+export {
+  filterRestaurantsByCategory,
+  getRestaurantAverageRating,
+  sortRestaurantsByRating,
+};

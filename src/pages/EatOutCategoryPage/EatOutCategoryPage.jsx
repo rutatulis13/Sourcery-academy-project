@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { filterRestaurantsByCategory } from "utils/restaurants";
 import { RestaurantsContext } from "contexts/RestaurantsContext/RestaurantsContext";
 import "./EatOutCategoryPage.scss";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import PageLayout from "components/PageLayout/PageLayout";
 import Grid from "components/Grid/Grid";
 import RestaurantCard from "components/RestaurantCard/RestaurantCard";
-import { useEffect } from "react";
-import { useState } from "react";
-import { filterRestaurantsByCategory } from "utils/restaurants";
 
 const EatOutCategoryPage = () => {
   const navigate = useNavigate();
