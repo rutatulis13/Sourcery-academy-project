@@ -17,9 +17,7 @@ import { UserProvider } from "contexts/UserContext/UserContext";
 import { RestaurantsProvider } from "contexts/RestaurantsContext/RestaurantsContext";
 
 function App() {
-  const authCtx = useContext(AuthContext);
-
-  const isLoggedIn = authCtx.isLoggedIn;
+  const { isLoggedIn } = useContext(AuthContext);
 
   return (
     <BrowserRouter>

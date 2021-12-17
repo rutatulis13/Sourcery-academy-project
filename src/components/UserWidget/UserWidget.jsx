@@ -10,7 +10,7 @@ import { UserContext } from "contexts/UserContext/UserContext";
 const UserWidgetComponent = () => {
   const node = useRef();
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const authCtx = useContext(AuthContext);
+  const { logout } = useContext(AuthContext);
 
   const dropdownItems = [
     { iconPath: settingsImage, text: "Settings" },
@@ -18,7 +18,7 @@ const UserWidgetComponent = () => {
       iconPath: logoutImage,
       text: "Log-out",
       func: () => {
-        authCtx.logout();
+        logout();
       },
     },
   ];

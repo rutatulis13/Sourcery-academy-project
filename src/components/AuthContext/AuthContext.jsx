@@ -4,34 +4,33 @@ import PropTypes from "prop-types";
 
 const AuthContext = createContext({
   isLoggedIn: false,
-  login: () => {},
-  logout: () => {},
 });
 
 const AuthContextProvider = ({ children }) => {
-  const [userIsLoggedIn, setIsLoggedIn] = useState(
+  const [userIsLoggedIn, setUserIsLoggedIn] = useState(
     JSON.parse(localStorage.getItem("userLoggedIn"))
   );
 
-  const loginHandler = () => {
-    setIsLoggedIn(true);
+  const handleLogin = () => {
+    localStorage.setItem("userLoggedIn", JSON.stringify(true));
+    setUserIsLoggedIn(true);
   };
 
-  const logoutHandler = () => {
-    setIsLoggedIn(false);
+  const handleLogout = () => {
     localStorage.removeItem("userLoggedIn");
+    setUserIsLoggedIn(false);
   };
 
   const contextValue = {
     isLoggedIn: userIsLoggedIn,
-    login: loginHandler,
-    logout: logoutHandler,
+    login: handleLogin,
+    logout: handleLogout,
   };
 
   useEffect(() => {
     const userLoggedIn = JSON.parse(localStorage.getItem("userLoggedIn"));
     if (userLoggedIn) {
-      loginHandler();
+      setUserIsLoggedIn(true);
     }
   }, []);
 

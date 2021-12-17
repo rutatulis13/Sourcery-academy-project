@@ -14,7 +14,7 @@ const Login = () => {
     password: "",
   });
 
-  const authCtx = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -43,9 +43,8 @@ const Login = () => {
       values.email === userDetails.email &&
       values.password === userDetails.password
     ) {
-      localStorage.setItem("userLoggedIn", JSON.stringify(true));
       setSubmitted(true);
-      authCtx.login();
+      login();
       navigate("/");
     } else {
       setSubmitted(false);
