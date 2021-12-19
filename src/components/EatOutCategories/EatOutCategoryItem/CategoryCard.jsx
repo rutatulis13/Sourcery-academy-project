@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import EatOutCategoryIcon from "../EatOutCategoryIcon";
+import EatOutCategoryIcon from "./EatOutCategoryIcon";
 import "./CategoryCard.scss";
 
 const CategoryCard = ({ isLoading, category, numberOfPlaces }) => {
@@ -28,7 +28,7 @@ const CategoryCard = ({ isLoading, category, numberOfPlaces }) => {
 CategoryCard.propTypes = {
   isLoading: PropTypes.bool,
   category: PropTypes.string,
-  numberOfPlaces: PropTypes.string,
+  numberOfPlaces: PropTypes.number,
 };
 
 export default CategoryCard;

@@ -1,25 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ramen from "assets/RestaurantCategoriesIcons/ramen.svg";
-import pizza from "assets/RestaurantCategoriesIcons/pizza.svg";
-import pancakes from "assets/RestaurantCategoriesIcons/pancakes.svg";
-import salads from "assets/RestaurantCategoriesIcons/salads.svg";
-import sandwich from "assets/RestaurantCategoriesIcons/sandwich.svg";
-import burger from "assets/RestaurantCategoriesIcons/burger.svg";
-import sushi from "assets/RestaurantCategoriesIcons/sushi.svg";
-import soups from "assets/RestaurantCategoriesIcons/soups.svg";
-import kebab from "assets/RestaurantCategoriesIcons/kebab.svg";
-import brunch from "assets/RestaurantCategoriesIcons/brunch.svg";
-import sweets from "assets/RestaurantCategoriesIcons/sweets.svg";
-import grill from "assets/RestaurantCategoriesIcons/grill.svg";
-import { EAT_OUT_CATEGORIES } from "./constants.js";
+import ramen from "assets/restaurantCategoriesIcons/ramen.svg";
+import pizza from "assets/restaurantCategoriesIcons/pizza.svg";
+import pancakes from "assets/restaurantCategoriesIcons/pancakes.svg";
+import salads from "assets/restaurantCategoriesIcons/salads.svg";
+import sandwich from "assets/restaurantCategoriesIcons/sandwich.svg";
+import burger from "assets/restaurantCategoriesIcons/burger.svg";
+import sushi from "assets/restaurantCategoriesIcons/sushi.svg";
+import soups from "assets/restaurantCategoriesIcons/soups.svg";
+import kebab from "assets/restaurantCategoriesIcons/kebab.svg";
+import brunch from "assets/restaurantCategoriesIcons/brunch.svg";
+import sweets from "assets/restaurantCategoriesIcons/sweets.svg";
+import grill from "assets/restaurantCategoriesIcons/grill.svg";
+import { EAT_OUT_CATEGORIES } from "../constants.js";
 import "./EatOutCategoryIcon.scss";
 
 const EatOutCategoryIcon = ({ category }) => {
-  let component;
+  let icon;
   switch (category) {
     case EAT_OUT_CATEGORIES.RAMEN:
-      component = (
+      icon = (
         <img
           className="categories__link-icon"
           src={ramen}
@@ -28,7 +28,7 @@ const EatOutCategoryIcon = ({ category }) => {
       );
       break;
     case EAT_OUT_CATEGORIES.PIZZA:
-      component = (
+      icon = (
         <img
           className="categories__link-icon"
           src={pizza}
@@ -37,7 +37,7 @@ const EatOutCategoryIcon = ({ category }) => {
       );
       break;
     case EAT_OUT_CATEGORIES.SALADS:
-      component = (
+      icon = (
         <img
           className="categories__link-icon"
           src={salads}
@@ -46,7 +46,7 @@ const EatOutCategoryIcon = ({ category }) => {
       );
       break;
     case EAT_OUT_CATEGORIES.PANCAKES:
-      component = (
+      icon = (
         <img
           className="categories__link-icon"
           src={pancakes}
@@ -55,17 +55,17 @@ const EatOutCategoryIcon = ({ category }) => {
       );
       break;
     case EAT_OUT_CATEGORIES.SANDWICH:
-      component = (
+      icon = (
         <img className="categories__link-icon" src={sandwich} alt="Sandwich" />
       );
       break;
     case EAT_OUT_CATEGORIES.BURGER:
-      component = (
+      icon = (
         <img className="categories__link-icon" src={burger} alt="Burger" />
       );
       break;
     case EAT_OUT_CATEGORIES.SUSHI:
-      component = (
+      icon = (
         <img
           className="categories__link-icon"
           src={sushi}
@@ -74,17 +74,15 @@ const EatOutCategoryIcon = ({ category }) => {
       );
       break;
     case EAT_OUT_CATEGORIES.SOUPS:
-      component = (
+      icon = (
         <img className="categories__link-icon" src={soups} alt="Bowl of Soup" />
       );
       break;
     case EAT_OUT_CATEGORIES.KEBAB:
-      component = (
-        <img className="categories__link-icon" src={kebab} alt="Kebab" />
-      );
+      icon = <img className="categories__link-icon" src={kebab} alt="Kebab" />;
       break;
     case EAT_OUT_CATEGORIES.BRUNCH:
-      component = (
+      icon = (
         <img
           className="categories__link-icon"
           src={brunch}
@@ -93,7 +91,7 @@ const EatOutCategoryIcon = ({ category }) => {
       );
       break;
     case EAT_OUT_CATEGORIES.SWEETS:
-      component = (
+      icon = (
         <img
           className="categories__link-icon"
           src={sweets}
@@ -102,7 +100,7 @@ const EatOutCategoryIcon = ({ category }) => {
       );
       break;
     case EAT_OUT_CATEGORIES.GRILL:
-      component = (
+      icon = (
         <img
           className="categories__link-icon"
           src={grill}
@@ -111,26 +109,12 @@ const EatOutCategoryIcon = ({ category }) => {
       );
       break;
     default:
-      component = <div></div>;
+      icon = <div></div>;
   }
-  return <figure>{component}</figure>;
+  return <figure>{icon}</figure>;
 };
 
 EatOutCategoryIcon.propTypes = {
-  category: PropTypes.oneOf([
-    "ramen",
-    "pizza",
-    "salads",
-    "pancakes",
-    "sandwich",
-    "burger",
-    "sushi",
-    "soups",
-    "Kebab",
-    "brunch",
-    "sweets",
-    "grill",
-  ]),
-  EAT_OUT_CATEGORIES: PropTypes.object,
+  category: PropTypes.oneOf(Object.values(EAT_OUT_CATEGORIES)),
 };
 export default EatOutCategoryIcon;

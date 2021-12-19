@@ -4,7 +4,7 @@ import "./UserWidget.scss";
 import badgeImage from "../../assets/arrowDown.svg";
 import settingsImage from "../../assets/settings.svg";
 import logoutImage from "../../assets/logOut.svg";
-import { UserContext } from "components/UserContext/UserContext";
+import { UserContext } from "contexts/UserContext/UserContext";
 
 const UserWidgetComponent = () => {
   const node = useRef();

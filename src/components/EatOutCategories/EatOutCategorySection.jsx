@@ -1,21 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import Grid from "components/Grid/Grid";
-import CategoryCard from "./CategoryCard";
-import { EAT_OUT_CATEGORIES } from "../constants.js";
+import CategoryCard from "./EatOutCategoryItem/CategoryCard";
+import { RestaurantsContext } from "contexts/RestaurantsContext/RestaurantsContext";
 import "./EatOutCategorySection.scss";
 
-const EatOutCategorySection = ({ restaurantData, categoryList, isLoading }) => {
-  const categoryListLowerCase = categoryList.map((categoryListItem) =>
-    categoryListItem.toLowerCase()
+const EatOutCategorySection = () => {
+  const { restaurantsData, categoriesData, loadingRestaurants } = useContext(
+    RestaurantsContext
   );
 
-  const categoryListFiltered = Object.values(
-    EAT_OUT_CATEGORIES
-  ).filter((categoryName) => categoryListLowerCase.includes(categoryName));
-
   const getRestaurantAmount = (category) => {
-    return restaurantData.reduce((total, currentRestaurant) => {
+    return restaurantsData.reduce((total, currentRestaurant) => {
       const adjustedCategory = category;
       const isRestaurantInThisCategory = currentRestaurant.categories.some(
         (restaurantCategory) =>
@@ -29,11 +25,11 @@ const EatOutCategorySection = ({ restaurantData, categoryList, isLoading }) => {
     <section className="categories-section">
       <h2 className="categories-section__title">Categories</h2>
       <Grid breakpointCols={[1, 2, 3, 4, 4]}>
-        {categoryListFiltered.map((category) => (
+        {categoriesData.map((category) => (
           <CategoryCard
             key={category}
             category={category}
-            isLoading={isLoading}
+            isLoading={loadingRestaurants}
             numberOfPlaces={getRestaurantAmount(category)}
           />
         ))}
@@ -43,8 +39,8 @@ const EatOutCategorySection = ({ restaurantData, categoryList, isLoading }) => {
 };
 
 EatOutCategorySection.propTypes = {
-  restaurantData: PropTypes.string,
-  categoryList: PropTypes.string,
-  isLoading: PropTypes.bool,
+  restaurantsData: PropTypes.array,
+  categoriesData: PropTypes.array,
+  loadingRestaurants: PropTypes.bool,
 };
 export default EatOutCategorySection;
