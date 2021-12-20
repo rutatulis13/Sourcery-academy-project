@@ -100,12 +100,14 @@
 
     &__title {
         align-items: center;
-        color: $color-text-restaurant-card-primary;
+
         display: flex;
         justify-content: space-between;
 
-        h3 {
+        a {
+            color: $color-text-restaurant-card-primary;
             overflow: hidden;
+            text-decoration: none;
             text-overflow: ellipsis;
             white-space: nowrap;
         }

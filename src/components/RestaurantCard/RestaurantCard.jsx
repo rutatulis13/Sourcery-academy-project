@@ -75,7 +75,9 @@ const RestaurantCard = ({ restaurant, large }) => {
           ))}
         </div>
         <div className="restaurant-card__title">
-          <h3>{restaurant.name}</h3>{" "}
+          <Link to={`/eat-out/restaurant/${restaurant.id}`}>
+            <h3>{restaurant.name}</h3>
+          </Link>{" "}
           <LikeButton itemDataAccessor="restaurants" itemId={restaurant.id} />
         </div>
         <div className="restaurant-card__time">
