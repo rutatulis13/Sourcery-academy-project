@@ -1,3 +1,21 @@
+const addRestaurantCheckIns = (
+  setRestaurantsData,
+  restaurantId,
+  increase = 1
+) => {
+  setRestaurantsData((currentRestaurantsData) => {
+    const nextRestaurantsData = [...currentRestaurantsData];
+    const restaurantIndex = nextRestaurantsData.findIndex(
+      ({ id }) => id === restaurantId
+    );
+    if (restaurantIndex > -1) {
+      nextRestaurantsData[restaurantIndex].checkIns =
+        nextRestaurantsData[restaurantIndex].checkIns + increase;
+    }
+    return nextRestaurantsData;
+  });
+};
+
 const filterRestaurantsByCategory = (restaurantsArray, categoryName) => {
   const categoryRegex = new RegExp(`^${categoryName}$`, "i");
   return restaurantsArray.filter(({ categories }) =>
@@ -24,6 +42,7 @@ const sortRestaurantsByRating = (restaurantsArray) => {
 };
 
 export {
+  addRestaurantCheckIns,
   filterRestaurantsByCategory,
   getRestaurantAverageRating,
   sortRestaurantsByRating,
