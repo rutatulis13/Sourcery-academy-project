@@ -13,7 +13,9 @@ const DropdownComponent = ({ dropdownItems }) => {
               className={`dropdown__content__${dropdownItem.iconPath}`}
             >
               <img src={dropdownItem.iconPath} alt="dropdownItem" />
-              <a href="/#">{dropdownItem.text}</a>
+              <a href="/#" onClick={dropdownItem.func}>
+                {dropdownItem.text}
+              </a>
             </li>
           );
         })}

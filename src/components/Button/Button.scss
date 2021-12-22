@@ -17,4 +17,9 @@
     &:active {
         background-color: $color-button-darkest-purple;
     }
+
+    &:disabled {
+        background-color: $color-button-grey;
+        color: $color-text-button-disabled;
+    }
 }
