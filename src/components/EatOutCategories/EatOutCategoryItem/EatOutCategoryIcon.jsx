@@ -15,102 +15,76 @@ import grill from "assets/restaurantCategoriesIcons/grill.svg";
 import { EAT_OUT_CATEGORIES } from "../constants.js";
 import "./EatOutCategoryIcon.scss";
 
+const availableIcons = [
+  {
+    categoryName: EAT_OUT_CATEGORIES.RAMEN,
+    image: ramen,
+    altText: "Bowl of Ramen",
+  },
+  {
+    categoryName: EAT_OUT_CATEGORIES.PIZZA,
+    image: pizza,
+    altText: "Slice of Pizza",
+  },
+  {
+    categoryName: EAT_OUT_CATEGORIES.SALADS,
+    image: salads,
+    altText: "Plate of Salads",
+  },
+  {
+    categoryName: EAT_OUT_CATEGORIES.PANCAKES,
+    image: pancakes,
+    altText: "Pile of Pancakes",
+  },
+  {
+    categoryName: EAT_OUT_CATEGORIES.SANDWICH,
+    image: sandwich,
+    altText: "Sandwich",
+  },
+  { categoryName: EAT_OUT_CATEGORIES.BURGER, image: burger, altText: "Burger" },
+  {
+    categoryName: EAT_OUT_CATEGORIES.SUSHI,
+    image: sushi,
+    altText: "Four Sushi Rolls",
+  },
+  {
+    categoryName: EAT_OUT_CATEGORIES.SOUPS,
+    image: soups,
+    altText: "Bowl of Soup",
+  },
+  { categoryName: EAT_OUT_CATEGORIES.KEBAB, image: kebab, altText: "Kebab" },
+  {
+    categoryName: EAT_OUT_CATEGORIES.BRUNCH,
+    image: brunch,
+    altText: "Two Fried Eggs",
+  },
+  {
+    categoryName: EAT_OUT_CATEGORIES.SWEETS,
+    image: sweets,
+    altText: "Donut Covered with Chocolate",
+  },
+  {
+    categoryName: EAT_OUT_CATEGORIES.GRILL,
+    image: grill,
+    altText: "Two Grilled Meat Skewers",
+  },
+];
+
 const EatOutCategoryIcon = ({ category }) => {
-  let icon;
-  switch (category) {
-    case EAT_OUT_CATEGORIES.RAMEN:
-      icon = (
-        <img
-          className="categories__link-icon"
-          src={ramen}
-          alt="Bowl of Ramen"
-        />
-      );
-      break;
-    case EAT_OUT_CATEGORIES.PIZZA:
-      icon = (
-        <img
-          className="categories__link-icon"
-          src={pizza}
-          alt="Slice of Pizza"
-        />
-      );
-      break;
-    case EAT_OUT_CATEGORIES.SALADS:
-      icon = (
-        <img
-          className="categories__link-icon"
-          src={salads}
-          alt="Plate of Salads"
-        />
-      );
-      break;
-    case EAT_OUT_CATEGORIES.PANCAKES:
-      icon = (
-        <img
-          className="categories__link-icon"
-          src={pancakes}
-          alt="Pile of Pancakes"
-        />
-      );
-      break;
-    case EAT_OUT_CATEGORIES.SANDWICH:
-      icon = (
-        <img className="categories__link-icon" src={sandwich} alt="Sandwich" />
-      );
-      break;
-    case EAT_OUT_CATEGORIES.BURGER:
-      icon = (
-        <img className="categories__link-icon" src={burger} alt="Burger" />
-      );
-      break;
-    case EAT_OUT_CATEGORIES.SUSHI:
-      icon = (
-        <img
-          className="categories__link-icon"
-          src={sushi}
-          alt="Four Sushi Rolls"
-        />
-      );
-      break;
-    case EAT_OUT_CATEGORIES.SOUPS:
-      icon = (
-        <img className="categories__link-icon" src={soups} alt="Bowl of Soup" />
-      );
-      break;
-    case EAT_OUT_CATEGORIES.KEBAB:
-      icon = <img className="categories__link-icon" src={kebab} alt="Kebab" />;
-      break;
-    case EAT_OUT_CATEGORIES.BRUNCH:
-      icon = (
-        <img
-          className="categories__link-icon"
-          src={brunch}
-          alt="Two Fried Eggs"
-        />
-      );
-      break;
-    case EAT_OUT_CATEGORIES.SWEETS:
-      icon = (
-        <img
-          className="categories__link-icon"
-          src={sweets}
-          alt="Donut Covered with Chocolate"
-        />
-      );
-      break;
-    case EAT_OUT_CATEGORIES.GRILL:
-      icon = (
-        <img
-          className="categories__link-icon"
-          src={grill}
-          alt="Two Grilled Meat Skewers"
-        />
-      );
-      break;
-    default:
-      icon = <div></div>;
-  }
+  const iconInfo = availableIcons.find(
+    ({ categoryName }) => categoryName === category
+  );
+
+  const icon = iconInfo ? (
+    <img
+      className="eat-out-category-icon"
+      src={iconInfo.image}
+      alt={iconInfo.altText}
+    ></img>
+  ) : (
+    <div></div>
+  );
+
   return <figure>{icon}</figure>;
 };
 

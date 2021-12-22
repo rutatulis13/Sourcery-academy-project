@@ -1,11 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import EatOutCategoryIcon from "./EatOutCategoryIcon";
 import "./CategoryCard.scss";
 
 const CategoryCard = ({ isLoading, category, numberOfPlaces }) => {
   return (
-    <a key={category} className="categories__link" href="eat-out-next-page">
+    <Link
+      to={"/eat-out/" + category}
+      key={category}
+      className="categories__link"
+    >
       <div className="categories__link-item">
         <h2 className="categories__link-title">{category}</h2>
         <span className="categories__link-text">
@@ -21,7 +26,7 @@ const CategoryCard = ({ isLoading, category, numberOfPlaces }) => {
         </span>
       </div>
       <EatOutCategoryIcon category={category} />
-    </a>
+    </Link>
   );
 };
 

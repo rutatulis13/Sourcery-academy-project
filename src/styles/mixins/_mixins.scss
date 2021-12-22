@@ -49,17 +49,6 @@
     }
 }
 
-@mixin small-size {
-    @media (min-width: 481px) and (max-width: 533px) {
-        @content;
-    }
-}
-@mixin medium-size {
-    @media (max-width: 986px) {
-        @content;
-    }
-}
-
 @mixin desktop {
     @media (min-width: 1601px) {
         @content;

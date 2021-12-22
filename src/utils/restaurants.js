@@ -9,4 +9,12 @@ const getRestaurantAverageRating = (restaurantObj) => {
   return result;
 };
 
-export { getRestaurantAverageRating };
+const transformRestaurantCategories = (categoryList) => {
+  const categoryListLowerCase = categoryList.map((categoryListItem) =>
+    categoryListItem.toLowerCase()
+  );
+
+  return categoryListLowerCase;
+};
+
+export { getRestaurantAverageRating, transformRestaurantCategories };

@@ -1,5 +1,4 @@
 @import '../../../styles/base/base';
-@import '../../../styles/mixins/mixins';
 
 .categories__link {
     background: $color-white;
@@ -19,7 +18,7 @@
         font-weight: 900;
         line-height: 32px;
         text-transform: capitalize;
-        @include small-size {
+        @media (min-width: 481px) and (max-width: 533px) {
             font-size: $font-size-title-small;
         }
     }

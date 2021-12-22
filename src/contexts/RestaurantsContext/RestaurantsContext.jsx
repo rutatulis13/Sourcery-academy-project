@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
 import { Outlet } from "react-router";
-import { transformRestaurantCategories } from "./transformUtilities.js";
+import { transformRestaurantCategories } from "utils/restaurants.js";
 
 const RestaurantsContext = createContext();
 
