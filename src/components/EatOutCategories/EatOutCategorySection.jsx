@@ -11,9 +11,7 @@ const EatOutCategorySection = () => {
     RestaurantsContext
   );
 
-  const [categoriesDataFiltered, setCategoriesDataFiltered] = useState([
-    categoriesData,
-  ]);
+  const [categoriesDataFiltered, setCategoriesDataFiltered] = useState([]);
 
   useEffect(() => {
     setCategoriesDataFiltered(
