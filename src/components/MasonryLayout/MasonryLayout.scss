@@ -17,8 +17,4 @@
     @include mobile {
         gap: 12px;
     }
-
-    > *:nth-child(even) {
-        grid-row-end: span 2;
-    }
 }
