@@ -60,7 +60,7 @@ const CheckInButton = ({ restaurantId }) => {
   };
 
   return (
-    <Button type="button" medium onClick={clickHandler}>
+    <Button type="button" size="medium" onClick={clickHandler}>
       {isCheckedIn ? "check-out" : "check-in"}
     </Button>
   );
