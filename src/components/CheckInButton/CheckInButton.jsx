@@ -22,35 +22,31 @@ const CheckInButton = ({ restaurantId }) => {
   }, [userData, restaurantId]);
 
   const checkInRestaurant = () => {
-    if (!isCheckedIn) {
-      setUserData((currentUserData) => {
-        const nextUserData = { ...currentUserData };
-        if (!nextUserData?.checkIn?.restaurants) {
-          nextUserData.checkIn.restaurants = [];
-        }
-        nextUserData.checkIn.restaurants.push({ id: restaurantId });
-        return nextUserData;
-      });
-      addRestaurantCheckIns(setRestaurantsData, restaurantId, 1);
-    }
+    setUserData((currentUserData) => {
+      const nextUserData = { ...currentUserData };
+      if (!nextUserData?.checkIn?.restaurants) {
+        nextUserData.checkIn.restaurants = [];
+      }
+      nextUserData.checkIn.restaurants.push({ id: restaurantId });
+      return nextUserData;
+    });
+    addRestaurantCheckIns(setRestaurantsData, restaurantId, 1);
   };
 
   const checkOutRestaurant = () => {
-    if (isCheckedIn) {
-      setUserData((currentUserData) => {
-        const nextUserData = { ...currentUserData };
-        if (
-          currentUserData?.checkIn?.restaurants &&
-          Array.isArray(currentUserData?.checkIn?.restaurants)
-        ) {
-          nextUserData.checkIn.restaurants = currentUserData.checkIn.restaurants.filter(
-            ({ id }) => id !== restaurantId
-          );
-        }
-        return nextUserData;
-      });
-      addRestaurantCheckIns(setRestaurantsData, restaurantId, -1);
-    }
+    setUserData((currentUserData) => {
+      const nextUserData = { ...currentUserData };
+      if (
+        currentUserData?.checkIn?.restaurants &&
+        Array.isArray(currentUserData?.checkIn?.restaurants)
+      ) {
+        nextUserData.checkIn.restaurants = currentUserData.checkIn.restaurants.filter(
+          ({ id }) => id !== restaurantId
+        );
+      }
+      return nextUserData;
+    });
+    addRestaurantCheckIns(setRestaurantsData, restaurantId, -1);
   };
 
   const clickHandler = () => {
