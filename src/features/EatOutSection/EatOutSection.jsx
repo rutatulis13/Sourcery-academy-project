@@ -27,7 +27,7 @@ const EatOutSection = () => {
               View all your favourite lunch spots and more
             </h2>
             <Link to="/eat-out">
-              <Button type="button" medium>
+              <Button type="button" size="medium">
                 Browse list
               </Button>
             </Link>
