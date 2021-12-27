@@ -21,14 +21,12 @@ const EatOutCategoryPage = () => {
       restaurantsData.length > 0 &&
       params.categoryName
     ) {
-      const categoryRegex = new RegExp(`^${params.categoryName}$`, "i");
-      const isValidCategory = categoriesData.some((category) =>
-        categoryRegex.test(category)
+      const _filteredRestaurants = filterRestaurantsByCategory(
+        restaurantsData,
+        params.categoryName
       );
-      if (isValidCategory) {
-        setFilteredRestaurants(
-          filterRestaurantsByCategory(restaurantsData, params.categoryName)
-        );
+      if (_filteredRestaurants.length) {
+        setFilteredRestaurants(_filteredRestaurants);
       } else {
         navigate("/404");
       }
