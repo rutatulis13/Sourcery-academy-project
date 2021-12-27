@@ -77,7 +77,7 @@ const RestaurantCard = ({ restaurant, large }) => {
         <div className="restaurant-card__title">
           <Link to={`/eat-out/restaurant/${restaurant.id}`}>
             <h3>{restaurant.name}</h3>
-          </Link>{" "}
+          </Link>
           <LikeButton itemDataAccessor="restaurants" itemId={restaurant.id} />
         </div>
         <div className="restaurant-card__time">
@@ -86,7 +86,7 @@ const RestaurantCard = ({ restaurant, large }) => {
         {large && (
           <>
             <div className="restaurant-card__website">
-              <Website className="restaurant-card__info-icon" />{" "}
+              <Website className="restaurant-card__info-icon" />
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -97,7 +97,7 @@ const RestaurantCard = ({ restaurant, large }) => {
               </a>
             </div>
             <div className="restaurant-card__address">
-              <Location className="restaurant-card__info-icon" />{" "}
+              <Location className="restaurant-card__info-icon" />
               <span>{restaurant.location.address}</span>
             </div>
             <div className="restaurant-card__description">
