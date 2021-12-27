@@ -46,6 +46,7 @@ const RestaurantCard = ({ restaurant, large }) => {
     background: `linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff ${
       large ? "100" : "80"
     }%), url('${restaurant.image}')`,
+    backgroundPosition: "center",
     backgroundSize: "cover",
   };
 

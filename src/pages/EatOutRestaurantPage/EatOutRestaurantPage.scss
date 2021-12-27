@@ -1,0 +1,88 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins';
+
+$image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80';
+
+:root {
+    --restaurant-background-rgb: $color-bg-container;
+}
+
+.restaurant-page-banner {
+    position: relative;
+
+    &__background {
+        // background: linear-gradient(
+        //         90deg,
+        //         $color-bg-container 0%,
+        //         rgba($color-bg-container, 0.5) 50%,
+        //         $color-bg-container 100%
+        //     ),
+        //     url($image-url);
+        // background-position: center;
+        // background-size: cover;
+        height: calc(100% + 20px);
+        position: absolute;
+        top: -48px;
+        width: 100%;
+
+        @include mobile {
+            top: -24px;
+        }
+    }
+
+    &__content {
+        position: relative;
+    }
+
+    &__breadcrumbs-wrapper {
+        margin-bottom: 300px;
+        position: relative;
+        top: -24px;
+
+        @include mobile {
+            margin-bottom: 100px;
+            top: 0;
+        }
+    }
+
+    &__categories {
+        display: flex;
+        gap: 12px;
+    }
+
+    &__category-card {
+        background-color: $color-text-restaurant-page-title;
+        border-radius: 8px;
+        color: $color-text-restaurant-page-category;
+        font-size: $font-size-restaurant-page-category;
+        font-weight: 500;
+        padding: 6px 12px;
+    }
+
+    &__title {
+        color: $color-text-restaurant-page-title;
+        font-size: $font-size-restaurant-page-title;
+        margin: 12px 0 48px;
+    }
+}
+
+.restaurant-actions-bar {
+    align-items: center;
+    background-color: $color-bg-container;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 12px 16px;
+    width: 100%;
+
+    &__check-in-info {
+        @extend %caption-1;
+        color: $color-text-title;
+        font-weight: 700;
+        margin: auto;
+        text-align: center;
+    }
+}
