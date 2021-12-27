@@ -30,12 +30,15 @@ const EatOutRestaurantPage = () => {
   }, [restaurantsData, params]);
 
   const backgroundStyle = restaurantIndex > -1 && {
-    background: `linear-gradient(
-      90deg,
-      rgb(246, 247, 248) 0%,
-      rgb(246, 247, 248, 0.5) 50%,
-      rgb(246, 247, 248) 100%
-  ), url('${restaurantsData[restaurantIndex].image}')`,
+    background: `
+      linear-gradient(
+        90deg, 
+        #F6F7F8 0%, 
+        rgb(0, 0, 0, 0) 50%, 
+        #F6F7F8 100%
+      ),
+      url('${restaurantsData[restaurantIndex].image}')
+    `,
     backgroundPosition: "center",
     backgroundSize: "cover",
   };
@@ -83,6 +86,7 @@ const EatOutRestaurantPage = () => {
                     } already checked-in!`
                   : "No people have checked in yet."}
               </div>
+              <span className="restaurant-actions-bar__invite">invite</span>
               <CheckInButton restaurantId={params.restaurantId} />
             </div>
           </div>

@@ -3,24 +3,12 @@
 
 $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80';
 
-:root {
-    --restaurant-background-rgb: $color-bg-container;
-}
-
 .restaurant-page-banner {
     position: relative;
 
     &__background {
-        // background: linear-gradient(
-        //         90deg,
-        //         $color-bg-container 0%,
-        //         rgba($color-bg-container, 0.5) 50%,
-        //         $color-bg-container 100%
-        //     ),
-        //     url($image-url);
-        // background-position: center;
-        // background-size: cover;
         height: calc(100% + 20px);
+        opacity: 0.7;
         position: absolute;
         top: -48px;
         width: 100%;
@@ -84,5 +72,11 @@ $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=
         font-weight: 700;
         margin: auto;
         text-align: center;
+    }
+
+    &__invite {
+        @extend %caption-2;
+        color: $color-text-restaurant-page-invite;
+        margin: 4px 8px;
     }
 }
