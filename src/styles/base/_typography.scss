@@ -10,6 +10,7 @@ $font-size-xl: 20px;
 $font-size-2xl: 24px;
 $font-size-3xl: 32px;
 $font-size-4xl: 36px;
+$font-size-5xl: 48px;
 
 $font-size-header: 16px;
 $font-size-footer: 10px;
@@ -52,6 +53,10 @@ $font-size-restaurant-card-secondary: 10px;
 
 // restaurant rating:
 $font-size-restaurant-rating: 14px;
+
+// restaurant page:
+$font-size-restaurant-page-category: $font-size-xs;
+$font-size-restaurant-page-title: $font-size-5xl;
 
 // weather:
 $font-size-weather: 12px;
@@ -113,7 +118,7 @@ h3 {
 %caption-1 {
     font-size: $font-size-caption-1;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 500;
     line-height: 1.14;
     text-transform: uppercase;
 }
