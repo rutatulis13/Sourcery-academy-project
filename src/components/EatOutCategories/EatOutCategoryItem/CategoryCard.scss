@@ -1,0 +1,33 @@
+@import '../../../styles/base/base';
+
+.categories__link {
+    background: $color-white;
+    border-radius: 8px;
+    box-shadow: $box-shadow-card-small;
+    display: flex;
+    font-family: $font-main;
+    height: 98px;
+    padding: 24px;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+
+    &-title {
+        color: $color-text-title;
+        font-size: $font-size-h2-alternative;
+        font-weight: 900;
+        line-height: 32px;
+        text-transform: capitalize;
+        @media (min-width: 481px) and (max-width: 533px) {
+            font-size: $font-size-title-small;
+        }
+    }
+
+    &-text {
+        color: $color-text-title;
+        font-size: $font-size-text;
+        font-weight: 500;
+        line-height: 150%;
+        text-transform: uppercase;
+    }
+}

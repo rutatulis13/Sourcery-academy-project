@@ -41,9 +41,18 @@ const sortRestaurantsByRating = (restaurantsArray) => {
   return sortedArray;
 };
 
+const transformRestaurantCategories = (categoryList) => {
+  const categoryListLowerCase = categoryList.map((categoryListItem) =>
+    categoryListItem.toLowerCase()
+  );
+
+  return categoryListLowerCase;
+};
+
 export {
   addRestaurantCheckIns,
   filterRestaurantsByCategory,
   getRestaurantAverageRating,
   sortRestaurantsByRating,
+  transformRestaurantCategories,
 };

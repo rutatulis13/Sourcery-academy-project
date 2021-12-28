@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
 import { Outlet } from "react-router";
+import { transformRestaurantCategories } from "utils/restaurants.js";
 
 const RestaurantsContext = createContext();
 
@@ -42,7 +43,7 @@ const RestaurantsProvider = () => {
         return res.json();
       })
       .then((data) => {
-        setCategoriesData(data.categories);
+        setCategoriesData(transformRestaurantCategories(data.categories));
       })
       .finally(() => {
         setLoadingCategories(false);
