@@ -1,19 +1,63 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { filterRestaurantsByCategory } from "utils/restaurants";
+import { RestaurantsContext } from "contexts/RestaurantsContext/RestaurantsContext";
+import "./EatOutCategoryPage.scss";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import PageLayout from "components/PageLayout/PageLayout";
+import Grid from "components/Grid/Grid";
+import RestaurantCard from "components/RestaurantCard/RestaurantCard";
 
 const EatOutCategoryPage = () => {
+  const navigate = useNavigate();
   const params = useParams();
-  // TODO: check if params.categoryName is one of provided categories in categories api
-  // and get a list of restaurants in this category, redirect to 404 otherwise
+  const { categoriesData, restaurantsData } = useContext(RestaurantsContext);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+
+  useEffect(() => {
+    if (
+      Array.isArray(categoriesData) &&
+      categoriesData.length > 0 &&
+      restaurantsData.length > 0 &&
+      params.categoryName
+    ) {
+      const _filteredRestaurants = filterRestaurantsByCategory(
+        restaurantsData,
+        params.categoryName
+      );
+      if (_filteredRestaurants.length) {
+        setFilteredRestaurants(_filteredRestaurants);
+      } else {
+        navigate("/404");
+      }
+    }
+  }, [categoriesData, restaurantsData, navigate, params]);
+
   return (
-    <React.Fragment>
-      <Breadcrumbs />
-      <PageLayout
-        title={`The best places for the ${params.categoryName.toUpperCase()}!`}
-      ></PageLayout>
-    </React.Fragment>
+    restaurantsData && (
+      <React.Fragment>
+        <div className="eat-out-category-breadcrumbs">
+          <Breadcrumbs />
+        </div>
+        <PageLayout
+          title={`The best places for the ${params.categoryName.toUpperCase()}!`}
+        >
+          <div className="eat-out-category-content">
+            <Grid breakpointCols={[1, 1, 2, 3, 3]}>
+              {filteredRestaurants.map((restaurant) => {
+                return (
+                  <RestaurantCard
+                    large
+                    key={restaurant.id}
+                    restaurant={restaurant}
+                  />
+                );
+              })}
+            </Grid>
+          </div>
+        </PageLayout>
+      </React.Fragment>
+    )
   );
 };
 

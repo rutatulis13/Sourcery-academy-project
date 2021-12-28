@@ -1,65 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { sortRestaurantsByRating } from "utils/restaurants";
+import { RestaurantsContext } from "contexts/RestaurantsContext/RestaurantsContext";
+import "./EatOutSection.scss";
 import Grid from "components/Grid/Grid";
 import RestaurantCard from "components/RestaurantCard/RestaurantCard";
-import "./EatOutSection.scss";
-import { getRestaurantAverageRating } from "utils/restaurants";
 import Button from "components/Button/Button";
-import { Link } from "react-router-dom";
 
 const EatOutSection = () => {
+  const { restaurantsData } = useContext(RestaurantsContext);
   const [restaurants, setRestaurants] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(
-      "http://frontendsourceryweb.s3-website.eu-central-1.amazonaws.com/restaurants.json"
-    )
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          if (result?.restaurants) {
-            setRestaurants(getSortedRestaurantsByRating(result.restaurants));
-          }
-        },
-        (err) => {
-          setError(err);
-        }
-      );
-  }, []);
-
-  const getSortedRestaurantsByRating = (restaurantsArray) => {
-    const sortedArray = [...restaurantsArray].sort((a, b) => {
-      return getRestaurantAverageRating(b) - getRestaurantAverageRating(a);
-    });
-    return sortedArray;
-  };
-
-  if (error) {
-    return null;
-  }
+    if (restaurants.length === 0) {
+      setRestaurants(sortRestaurantsByRating(restaurantsData));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [restaurantsData]);
 
   return (
-    <div className="eat-out-section">
-      <Grid breakpointCols={[1, 1, 3, 3, 3]}>
-        <div className="browse-card">
-          <h2 className="browse-card__text">
-            View all your favourite lunch spots and more
-          </h2>
-          {/* <div className="browse-card__button">Browse list</div> */}
-          <Link to="/eat-out">
-            <Button type="button">
-              <span className="browse-card__button-text">Browse list</span>
-            </Button>
-          </Link>
-        </div>
-        {restaurants.slice(0, 2).map((restaurant, index) => (
-          <RestaurantCard
-            key={`${index}_${restaurant.id}`}
-            restaurant={restaurant}
-          />
-        ))}
-      </Grid>
-    </div>
+    restaurants.length > 0 && (
+      <div className="eat-out-section">
+        <Grid breakpointCols={[1, 1, 3, 3, 3]}>
+          <div className="browse-card">
+            <h2 className="browse-card__text">
+              View all your favourite lunch spots and more
+            </h2>
+            <Link to="/eat-out">
+              <Button type="button" size="medium">
+                Browse list
+              </Button>
+            </Link>
+          </div>
+          {restaurants.slice(0, 2).map((restaurant, index) => (
+            <RestaurantCard
+              key={`${index}_${restaurant.id}`}
+              restaurant={restaurant}
+            />
+          ))}
+        </Grid>
+      </div>
+    )
   );
 };
 

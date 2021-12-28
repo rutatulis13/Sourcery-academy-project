@@ -22,7 +22,7 @@ const LikeButton = ({ itemDataAccessor, itemId }) => {
 
   const likeItem = () => {
     setUserData((currentUserData) => {
-      let nextUserData = { ...currentUserData };
+      const nextUserData = { ...currentUserData };
       if (
         currentUserData?.liked?.[itemDataAccessor] &&
         Array.isArray(currentUserData.liked[itemDataAccessor])
@@ -35,7 +35,7 @@ const LikeButton = ({ itemDataAccessor, itemId }) => {
 
   const unlikeItem = () => {
     setUserData((currentUserData) => {
-      let nextUserData = { ...currentUserData };
+      const nextUserData = { ...currentUserData };
       if (
         currentUserData?.liked?.[itemDataAccessor] &&
         Array.isArray(currentUserData.liked[itemDataAccessor])

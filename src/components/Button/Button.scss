@@ -18,6 +18,10 @@
         background-color: $color-button-darkest-purple;
     }
 
+    &--medium {
+        @extend %button-medium;
+    }
+
     &:disabled {
         background-color: $color-button-grey;
         color: $color-text-button-disabled;
