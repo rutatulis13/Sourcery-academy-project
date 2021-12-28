@@ -1,0 +1,11 @@
+.eat-out-category-icon {
+    height: 120px;
+    position: absolute;
+    right: -10px;
+    top: calc(50% - 120px / 2);
+    width: auto;
+    @media (max-width: 845px) {
+        height: 100px;
+        top: calc(50% - 100px / 2);
+    }
+}
