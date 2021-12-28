@@ -1,0 +1,54 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.restaurant-information-card {
+    background-color: $color-bg-restaurant-card;
+    box-shadow: $box-shadow-restaurant-card;
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    padding: 24px;
+
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+
+    @include tablet-s {
+        grid-template-columns: 1fr;
+    }
+
+    &__item {
+        align-items: center;
+        display: flex;
+        gap: 12px;
+        min-width: 0;
+    }
+
+    &__item-icon {
+        flex-shrink: 0;
+    }
+
+    &__item-text-wrapper {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    &__item-name {
+        @extend %h3-alternative;
+        color: $color-text-restaurant-page-section-title;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__item-value {
+        @extend %caption-1;
+        color: $color-text-restaurant-page-details;
+        font-weight: 700;
+
+        &:not(:hover) {
+            text-decoration: none;
+        }
+    }
+}

@@ -58,7 +58,7 @@ $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=
     align-items: center;
     background-color: $color-bg-container;
     border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: $box-shadow-restaurant-card;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -76,7 +76,20 @@ $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=
 
     &__invite {
         @extend %caption-2;
-        color: $color-text-restaurant-page-invite;
+        color: $color-text-restaurant-page-details;
         margin: 4px 8px;
     }
 }
+
+.restaurant-page-content {
+    margin-top: 48px;
+}
+
+.restaurant-section-title {
+    @extend %h2-alternative;
+    color: $color-text-restaurant-page-section-title;
+    margin-bottom: 24px;
+}
+
+// .restaurant-information {
+// }

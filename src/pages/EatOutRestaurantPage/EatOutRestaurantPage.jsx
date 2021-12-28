@@ -8,6 +8,7 @@ import { RestaurantsContext } from "contexts/RestaurantsContext/RestaurantsConte
 import { useState } from "react";
 import LikeButton from "components/LikeButton/LikeButton";
 import CheckInButton from "components/CheckInButton/CheckInButton";
+import RestaurantInformationCard from "components/RestaurantInformationCard/RestaurantInformationCard";
 
 const EatOutRestaurantPage = () => {
   const navigate = useNavigate();
@@ -91,7 +92,15 @@ const EatOutRestaurantPage = () => {
             </div>
           </div>
         </div>
-        <div className="restaurant-page-content"></div>
+
+        <div className="restaurant-page-content">
+          <section className="restaurant-information">
+            <h2 className="restaurant-section-title">Information</h2>
+            <RestaurantInformationCard
+              restaurant={restaurantsData[restaurantIndex]}
+            />
+          </section>
+        </div>
       </>
     )
   );
