@@ -3,7 +3,7 @@
 
 .restaurant-information-card {
     background-color: $color-bg-restaurant-card;
-    box-shadow: $box-shadow-restaurant-card;
+    box-shadow: $box-shadow-main;
     display: grid;
     gap: 28px;
     grid-template-columns: 1fr 1fr;
@@ -47,6 +47,8 @@
         @extend %caption-1;
         color: $color-text-restaurant-page-details;
         font-weight: 700;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         &:not(:hover) {
             text-decoration: none;

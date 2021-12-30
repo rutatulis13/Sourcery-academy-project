@@ -9,6 +9,7 @@ import { useState } from "react";
 import LikeButton from "components/LikeButton/LikeButton";
 import CheckInButton from "components/CheckInButton/CheckInButton";
 import RestaurantInformationCard from "components/RestaurantInformationCard/RestaurantInformationCard";
+import LocationMap from "components/LocationMap/LocationMap";
 
 const EatOutRestaurantPage = () => {
   const navigate = useNavigate();
@@ -110,9 +111,19 @@ const EatOutRestaurantPage = () => {
 
               <section className="restaurant-location">
                 <h2 className="restaurant-section-title">Location</h2>
-                <></>
+                <LocationMap
+                  coordinates={[
+                    restaurantsData[restaurantIndex].location.coordinates.lat,
+                    restaurantsData[restaurantIndex].location.coordinates.lng,
+                  ]}
+                />
               </section>
             </div>
+
+            <section className="restaurant-reviews">
+              <h2 className="restaurant-section-title">Reviews</h2>
+              <></>
+            </section>
           </div>
         </div>
       </>
