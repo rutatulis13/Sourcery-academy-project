@@ -59,7 +59,7 @@ const EatOutRestaurantPage = () => {
             <div className="restaurant-page-banner__categories">
               {restaurantsData[restaurantIndex].categories.map((value) => (
                 <div
-                  key="value"
+                  key={value}
                   className="restaurant-page-banner__category-card"
                 >
                   {value}
