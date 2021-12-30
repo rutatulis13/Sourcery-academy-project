@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./MasonryLayout.scss";
 
 const MasonryLayout = ({ children }) => {
-  return <div className="mansonry-layout">{children}</div>;
+  return <div className="masonry-layout">{children}</div>;
 };
 
 const MasonryItem = ({ children, span = 1 }) => {
