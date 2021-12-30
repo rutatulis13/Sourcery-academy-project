@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { getUrlWithoutProtocol } from "utils/strings";
 import { ReactComponent as Location } from "assets/restaurantInformationCardIcons/location.svg";
 import { ReactComponent as Website } from "assets/restaurantInformationCardIcons/website.svg";
 import { ReactComponent as Phone } from "assets/restaurantInformationCardIcons/phone.svg";
@@ -8,6 +9,8 @@ import { ReactComponent as Clock } from "assets/restaurantInformationCardIcons/c
 import "./RestaurantInformationCard.scss";
 
 const RestaurantInformationCard = ({ restaurant }) => {
+  const trimmedWebsite = getUrlWithoutProtocol(restaurant.website);
+
   const workHours = restaurant.openingHours.reduce(
     (previousValue, currentValue, currentIndex, array) =>
       `${previousValue}${currentValue.days} ${currentValue.hours}${
@@ -38,7 +41,7 @@ const RestaurantInformationCard = ({ restaurant }) => {
               href={restaurant.website}
               className="restaurant-information-card__item-value"
             >
-              {restaurant.website.replace(/(^\w+:|^)\/\//, "")}
+              {trimmedWebsite}
             </a>
           </div>
         </li>
@@ -63,7 +66,6 @@ const RestaurantInformationCard = ({ restaurant }) => {
               Work hours
             </h3>
             <span className="restaurant-information-card__item-value">
-              {/* Monday - sunday 12:00 - 24 :00 */}
               {workHours}
             </span>
           </div>

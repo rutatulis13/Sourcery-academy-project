@@ -35,7 +35,8 @@ const EatOutRestaurantPage = () => {
       linear-gradient(
         90deg, 
         #F6F7F8 0%, 
-        rgb(0, 0, 0, 0) 50%, 
+        rgb(0, 0, 0, 0) 35%, 
+        rgb(0, 0, 0, 0) 65%, 
         #F6F7F8 100%
       ),
       url('${restaurantsData[restaurantIndex].image}')
@@ -60,7 +61,7 @@ const EatOutRestaurantPage = () => {
             <div className="restaurant-page-banner__categories">
               {restaurantsData[restaurantIndex].categories.map((value) => (
                 <div
-                  key="value"
+                  key={value}
                   className="restaurant-page-banner__category-card"
                 >
                   {value}
@@ -73,11 +74,13 @@ const EatOutRestaurantPage = () => {
             </h1>
 
             <div className="restaurant-actions-bar">
-              <RestaurantRating restaurantId={params.restaurantId} />
-              <LikeButton
-                itemDataAccessor="restaurants"
-                itemId={params.restaurantId}
-              />
+              <div className="restaurant-actions-bar__actions-group">
+                <RestaurantRating restaurantId={params.restaurantId} />
+                <LikeButton
+                  itemDataAccessor="restaurants"
+                  itemId={params.restaurantId}
+                />
+              </div>
               <div className="restaurant-actions-bar__check-in-info">
                 {restaurantsData[restaurantIndex].checkIns > 0
                   ? `${restaurantsData[restaurantIndex].checkIns} ${
@@ -87,19 +90,30 @@ const EatOutRestaurantPage = () => {
                     } already checked-in!`
                   : "No people have checked in yet."}
               </div>
-              <span className="restaurant-actions-bar__invite">invite</span>
-              <CheckInButton restaurantId={params.restaurantId} />
+              <div className="restaurant-actions-bar__actions-group">
+                <span className="restaurant-actions-bar__invite">invite</span>
+                <CheckInButton restaurantId={params.restaurantId} />
+              </div>
             </div>
           </div>
         </div>
 
         <div className="restaurant-page-content">
-          <section className="restaurant-information">
-            <h2 className="restaurant-section-title">Information</h2>
-            <RestaurantInformationCard
-              restaurant={restaurantsData[restaurantIndex]}
-            />
-          </section>
+          <div className="restaurant-page-outer-grid">
+            <div className="restaurant-page-inner-grid">
+              <section className="restaurant-information">
+                <h2 className="restaurant-section-title">Information</h2>
+                <RestaurantInformationCard
+                  restaurant={restaurantsData[restaurantIndex]}
+                />
+              </section>
+
+              <section className="restaurant-location">
+                <h2 className="restaurant-section-title">Location</h2>
+                <></>
+              </section>
+            </div>
+          </div>
         </div>
       </>
     )

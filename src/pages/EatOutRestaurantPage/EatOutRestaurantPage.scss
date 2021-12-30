@@ -31,6 +31,14 @@ $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=
             margin-bottom: 100px;
             top: 0;
         }
+
+        @include tablet-s {
+            margin-bottom: 150px;
+        }
+
+        @include tablet-l {
+            margin-bottom: 200px;
+        }
     }
 
     &__categories {
@@ -60,17 +68,29 @@ $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=
     border-radius: 5px;
     box-shadow: $box-shadow-restaurant-card;
     display: flex;
-    flex-wrap: wrap;
     gap: 8px;
-    justify-content: center;
+    justify-content: space-between;
     padding: 12px 16px;
     width: 100%;
+
+    @include mobile {
+        flex-direction: column;
+    }
+
+    @include tablet-s {
+        flex-direction: column;
+    }
+
+    &__actions-group {
+        align-items: center;
+        display: flex;
+        gap: 8px;
+    }
 
     &__check-in-info {
         @extend %caption-1;
         color: $color-text-title;
         font-weight: 700;
-        margin: auto;
         text-align: center;
     }
 
@@ -83,6 +103,26 @@ $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=
 
 .restaurant-page-content {
     margin-top: 48px;
+}
+
+.restaurant-page-outer-grid {
+    display: grid;
+    gap: 48px;
+    grid-template-columns: 2fr 1fr;
+
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+
+    @include tablet {
+        grid-template-columns: 1fr;
+    }
+}
+
+.restaurant-page-inner-grid {
+    display: grid;
+    gap: 48px;
+    grid-template-columns: 1fr;
 }
 
 .restaurant-section-title {

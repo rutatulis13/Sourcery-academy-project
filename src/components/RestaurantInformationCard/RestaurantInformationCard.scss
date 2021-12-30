@@ -5,7 +5,7 @@
     background-color: $color-bg-restaurant-card;
     box-shadow: $box-shadow-restaurant-card;
     display: grid;
-    gap: 24px;
+    gap: 28px;
     grid-template-columns: 1fr 1fr;
     padding: 24px;
 
@@ -31,6 +31,7 @@
     &__item-text-wrapper {
         display: flex;
         flex-direction: column;
+        gap: 4px;
         overflow: hidden;
     }
 
