@@ -1,0 +1,56 @@
+@import '../../styles/base/base';
+
+.restaurant-reviews-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow-y: auto;
+    padding: 4px;
+    scrollbar-width: thin;
+}
+
+.restaurant-reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style-type: none;
+
+    &__item {
+        background-color: $color-bg-restaurant-card;
+        border-radius: 8px;
+        box-shadow: $box-shadow-main;
+        overflow: hidden;
+        padding: 19px 16px;
+        position: relative;
+    }
+
+    &__item-name {
+        @extend %caption-1;
+        font-weight: 700;
+        margin: 0 64px 6px 0;
+    }
+
+    &__item-rating {
+        align-items: center;
+        background-color: $color-restaurant-rating-primary;
+        border-radius: 0 8px;
+        color: $color-restaurant-rating-secondary;
+        display: flex;
+        font-size: $font-size-restaurant-rating;
+        font-weight: 700;
+        gap: 8px;
+        justify-content: center;
+        padding: 7px 13px;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        svg {
+            fill: $color-restaurant-rating-secondary;
+        }
+    }
+
+    &__item-comment {
+        @extend %body-small;
+    }
+}

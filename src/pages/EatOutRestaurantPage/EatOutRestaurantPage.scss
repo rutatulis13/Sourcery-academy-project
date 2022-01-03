@@ -109,6 +109,7 @@ $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=
     display: grid;
     gap: 48px;
     grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
 
     @include mobile {
         grid-template-columns: 1fr;
@@ -131,5 +132,9 @@ $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=
     margin-bottom: 24px;
 }
 
-// .restaurant-information {
-// }
+.restaurant-reviews {
+    display: flex;
+    flex-direction: column;
+    max-height: 640px;
+    min-height: 100%;
+}
