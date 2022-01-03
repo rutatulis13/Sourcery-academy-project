@@ -1,0 +1,52 @@
+@import '../../styles/base/colors';
+@import '../../styles/base/typography';
+@import '../../styles/mixins/mixins';
+
+.reservation-card {
+    background-color: $color-white;
+    border-radius: 8px;
+    box-shadow: 0 8px 22px ($color-box-shadow);
+    display: flex;
+    font-weight: 500;
+    justify-content: space-between;
+    margin: 48px 0 0;
+    min-height: 47px;
+    padding: 24px 16px;
+    text-decoration: none;
+    width: 100%;
+
+    @include desktop {
+        // height: auto;
+        // max-height: 94px;
+    }
+
+    @include laptop {
+        // height: auto;
+        // max-height: 94px;
+    }
+    @include tablet-l {
+        // height: auto;
+        // max-height: 94px;
+    }
+
+    &__header {
+        color: $color-text-reservations-primary;
+        font-size: $font-size-reservation-h2;
+        font-weight: 900;
+        line-height: 30px;
+        margin: 0 0 6px;
+    }
+
+    &__uppercase {
+        color: $color-text-reservations-secondary;
+        font-size: $font-size-reserved;
+        text-transform: uppercase;
+    }
+
+    &__image {
+        margin: -42px 0 0;
+    }
+    // &__right {
+    //     // position: absolute;
+    // }
+}

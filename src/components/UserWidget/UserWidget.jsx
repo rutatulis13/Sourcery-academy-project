@@ -4,15 +4,23 @@ import "./UserWidget.scss";
 import badgeImage from "../../assets/arrowDown.svg";
 import settingsImage from "../../assets/settings.svg";
 import logoutImage from "../../assets/logOut.svg";
-import { UserContext } from "components/UserContext/UserContext";
+import { AuthContext } from "components/AuthContext/AuthContext";
+import { UserContext } from "contexts/UserContext/UserContext";
 
 const UserWidgetComponent = () => {
   const node = useRef();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { logout } = useContext(AuthContext);
 
   const dropdownItems = [
     { iconPath: settingsImage, text: "Settings" },
-    { iconPath: logoutImage, text: "Log-out" },
+    {
+      iconPath: logoutImage,
+      text: "Log-out",
+      func: () => {
+        logout();
+      },
+    },
   ];
 
   const handleAvatarClick = (e) => {

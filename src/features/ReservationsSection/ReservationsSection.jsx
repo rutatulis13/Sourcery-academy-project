@@ -1,6 +1,6 @@
 import React from "react";
 import "./ReservationsSection.scss";
-import ReservationCard from "./ReservationCard/ReservationCard";
+import ReservationCard from "../../components/ReservationCard/ReservationCard";
 import DoorImage from "../../assets/ReservationsSection/Door.svg";
 import BookImage from "../../assets/ReservationsSection/Book.svg";
 import DeviceImage from "../../assets/ReservationsSection/Device.svg";
@@ -11,7 +11,7 @@ const ReservationsSection = () => {
     {
       name: "rooms",
       imagePath: DoorImage,
-      headerMessage: "Meeting rooms",
+      headerMessage: "Meeting rooms", //TODO
       linkPath: "reservations/meeting-rooms",
     },
     {
@@ -31,7 +31,7 @@ const ReservationsSection = () => {
   return (
     <section className="reservations-section">
       <h2 className="reservations-section__title">Reservations</h2>
-      <Grid breakpointCols={[1, 1, 2, 3, 3]}>
+      <Grid breakpointCols={[1, 1, 3, 3, 3]}>
         {reservationItems.map((reservationItem) => {
           return (
             <ReservationCard
