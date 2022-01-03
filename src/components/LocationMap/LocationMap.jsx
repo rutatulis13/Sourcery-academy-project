@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { MapContainer, TileLayer, Marker } from "@monsonjeremy/react-leaflet";
-import "./LocationMap.scss";
-
 import { icon as leafletIcon } from "leaflet";
+import "./LocationMap.scss";
 
 const LocationMap = ({ coordinates }) => {
   const markerIcon = leafletIcon({

@@ -5,7 +5,6 @@ import { ReactComponent as Location } from "assets/restaurantInformationCardIcon
 import { ReactComponent as Website } from "assets/restaurantInformationCardIcons/website.svg";
 import { ReactComponent as Phone } from "assets/restaurantInformationCardIcons/phone.svg";
 import { ReactComponent as Clock } from "assets/restaurantInformationCardIcons/clock.svg";
-
 import "./RestaurantInformationCard.scss";
 
 const RestaurantInformationCard = ({ restaurant }) => {

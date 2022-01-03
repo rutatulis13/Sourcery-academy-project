@@ -1,15 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { RestaurantsContext } from "contexts/RestaurantsContext/RestaurantsContext";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import RestaurantRating from "components/RestaurantRating/RestaurantRating";
-import "./EatOutRestaurantPage.scss";
-import { useContext } from "react";
-import { RestaurantsContext } from "contexts/RestaurantsContext/RestaurantsContext";
-import { useState } from "react";
 import LikeButton from "components/LikeButton/LikeButton";
 import CheckInButton from "components/CheckInButton/CheckInButton";
 import RestaurantInformationCard from "components/RestaurantInformationCard/RestaurantInformationCard";
 import LocationMap from "components/LocationMap/LocationMap";
+import "./EatOutRestaurantPage.scss";
 
 const EatOutRestaurantPage = () => {
   const navigate = useNavigate();
@@ -58,7 +56,6 @@ const EatOutRestaurantPage = () => {
             <div className="restaurant-page-banner__breadcrumbs-wrapper">
               <Breadcrumbs />
             </div>
-
             <div className="restaurant-page-banner__categories">
               {restaurantsData[restaurantIndex].categories.map((value) => (
                 <div
@@ -69,11 +66,9 @@ const EatOutRestaurantPage = () => {
                 </div>
               ))}
             </div>
-
             <h1 className="restaurant-page-banner__title">
               {restaurantsData[restaurantIndex].name}
             </h1>
-
             <div className="restaurant-actions-bar">
               <div className="restaurant-actions-bar__actions-group">
                 <RestaurantRating restaurantId={params.restaurantId} />
