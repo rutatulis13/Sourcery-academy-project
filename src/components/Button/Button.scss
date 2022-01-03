@@ -7,6 +7,7 @@
     border: unset;
     border-radius: 65px;
     color: $color-white;
+    cursor: pointer;
     padding: 8px 24px;
 
     &:focus,
@@ -16,6 +17,10 @@
 
     &:active {
         background-color: $color-button-darkest-purple;
+    }
+
+    &--medium {
+        @extend %button-medium;
     }
 
     &:disabled {

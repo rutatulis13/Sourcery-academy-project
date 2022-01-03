@@ -1,0 +1,21 @@
+@import '../../styles/mixins/mixins';
+
+.eat-out-category-breadcrumbs {
+    margin-bottom: 8px;
+}
+
+.eat-out-category-content {
+    margin-top: 72px;
+
+    @include mobile {
+        margin-top: 32px;
+    }
+
+    @include tablet-s {
+        margin-top: 48px;
+    }
+
+    @include tablet-l {
+        margin-top: 48px;
+    }
+}
