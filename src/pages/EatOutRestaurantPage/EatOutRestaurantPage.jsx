@@ -119,7 +119,7 @@ const EatOutRestaurantPage = () => {
             <section className="restaurant-reviews">
               <h2 className="restaurant-section-title">Reviews</h2>
               <RestaurantReviewsList
-                restaurant={restaurantsData[restaurantIndex]}
+                reviews={restaurantsData[restaurantIndex].reviews}
               />
             </section>
           </div>

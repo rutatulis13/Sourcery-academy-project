@@ -5,29 +5,29 @@ import { ReactComponent as StarRating } from "assets/star-rating.svg";
 import "./RestaurantReviewsList.scss";
 import { useEffect } from "react";
 
-const RestaurantReviewsList = ({ restaurant }) => {
+const RestaurantReviewsList = ({ reviews }) => {
   const [isShowMoreButtonVisible, setIsShowMoreButtonVisible] = useState(false);
-  const [reviews, setReviews] = useState([]);
+  const [reviewsToShow, setReviewsToShow] = useState([]);
 
   useEffect(() => {
-    const slicedReviews = restaurant.reviews.slice(0, 3);
-    setReviews(slicedReviews);
-    if (slicedReviews.length < restaurant.reviews.length) {
+    const slicedReviews = reviews.slice(0, 3);
+    setReviewsToShow(slicedReviews);
+    if (slicedReviews.length < reviews.length) {
       setIsShowMoreButtonVisible(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onShowMoreReviews = () => {
-    setReviews(restaurant.reviews);
+    setReviewsToShow(reviews);
     setIsShowMoreButtonVisible(false);
   };
 
   return (
-    restaurant && (
+    reviews && (
       <div className="restaurant-reviews-list-container">
         <ul className="restaurant-reviews-list">
-          {reviews.map((review) => (
+          {reviewsToShow.map((review) => (
             <li key={review.id} className="restaurant-reviews-list__item">
               <h3 className="restaurant-reviews-list__item-name">
                 {review.userName}
@@ -53,7 +53,7 @@ const RestaurantReviewsList = ({ restaurant }) => {
 };
 
 RestaurantReviewsList.propTypes = {
-  restaurant: PropTypes.object.isRequired,
+  reviews: PropTypes.array.isRequired,
 };
 
 export default RestaurantReviewsList;
