@@ -11,7 +11,7 @@ const ReservationsSection = () => {
     {
       name: "rooms",
       imagePath: DoorImage,
-      headerMessage: "Meeting rooms", //TODO
+      headerMessage: "Meeting rooms",
       linkPath: "reservations/meeting-rooms",
     },
     {
