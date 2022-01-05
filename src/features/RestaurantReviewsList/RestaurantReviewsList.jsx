@@ -26,26 +26,23 @@ const RestaurantReviewsList = ({ reviews }) => {
     reviews && (
       <div className="restaurant-reviews-list-container">
         <ul className="restaurant-reviews-list">
-          {reviewsToShow.map(
-            (review) =>
-              review.id && (
-                <li
-                  key={`${review.id}_${review.userName}`}
-                  className="restaurant-reviews-list__item"
-                >
-                  <h3 className="restaurant-reviews-list__item-name">
-                    {review.userName}
-                  </h3>
-                  <div className="restaurant-reviews-list__item-rating">
-                    <StarRating />
-                    {review.rating.toFixed(1)}
-                  </div>
-                  <p className="restaurant-reviews-list__item-comment">
-                    {review.comment}
-                  </p>
-                </li>
-              )
-          )}
+          {reviewsToShow.map((review) => (
+            <li
+              key={`${review.id}_${review.userName}`}
+              className="restaurant-reviews-list__item"
+            >
+              <h3 className="restaurant-reviews-list__item-name">
+                {review.userName}
+              </h3>
+              <div className="restaurant-reviews-list__item-rating">
+                <StarRating />
+                {review.rating.toFixed(1)}
+              </div>
+              <p className="restaurant-reviews-list__item-comment">
+                {review.comment}
+              </p>
+            </li>
+          ))}
         </ul>
         {isShowMoreButtonVisible && (
           <Button type="button" size="medium" onClick={onShowMoreReviews}>
