@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import Button from "components/Button/Button";
 import { ReactComponent as FavoritesIcon } from "assets/heart.svg";
 import { ReactComponent as AvailableIcon } from "assets/circle-check.svg";
@@ -16,7 +17,7 @@ const filterOptions = [
   { text: "Available", image: AvailableIcon },
 ];
 
-const ReservationsSearch = () => {
+const ReservationsSearch = ({ onSearch }) => {
   const [selectedFilterOptionIndex, setSelectedFilterOptionIndex] = useState(0);
   const searchTextInputRef = useRef();
   const searchDateInputRef = useRef();
@@ -29,9 +30,18 @@ const ReservationsSearch = () => {
     searchTextInputRef.current.value = "";
   };
 
+  const onSubmit = (event) => {
+    event.preventDefault();
+    onSearch(
+      filterOptions[selectedFilterOptionIndex].text,
+      searchTextInputRef.current.value,
+      searchDateInputRef.current.value
+    );
+  };
+
   return (
     <section className="reservations-search">
-      <form>
+      <form onSubmit={onSubmit}>
         <h2 className="reservations-search__title">Search</h2>
         <div className="reservations-search__filter-options">
           {filterOptions.map((filterOption, filterOptionIndex) => (
@@ -105,6 +115,10 @@ const ReservationsSearch = () => {
       </form>
     </section>
   );
+};
+
+ReservationsSearch.propTypes = {
+  onSearch: PropTypes.func,
 };
 
 export default ReservationsSearch;
