@@ -1,0 +1,43 @@
+@import '../../../../styles/base/base';
+@import '../../../../styles/mixins/mixins';
+
+// button text color:
+$color-post-button: #6a7889;
+
+.comment-form {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+
+    &__input {
+        align-items: center;
+        display: flex;
+        margin-right: 12px;
+        width: 100%;
+
+        img {
+            border-radius: 50%;
+            height: 24px;
+            margin-right: 12px;
+            object-fit: cover;
+            width: 24px;
+        }
+
+        input {
+            @extend %tiny;
+            border-style: none;
+            line-height: 11px;
+            text-transform: none;
+            width: calc(100% - 36px);
+        }
+    }
+
+    button {
+        @extend %caption-2;
+        border-style: none;
+        color: $color-post-button;
+    }
+}
