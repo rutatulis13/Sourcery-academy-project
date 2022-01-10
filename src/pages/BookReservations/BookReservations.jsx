@@ -1,11 +1,11 @@
 import React from "react";
 import PageLayout from "components/PageLayout/PageLayout";
-import ReservationsFilters from "components/ReservationsFilters/ReservationsFilters";
+import ReservationsSearch from "components/ReservationsSearch/ReservationsSearch";
 
 const BookReservations = () => {
   return (
     <PageLayout title="Book Reservations">
-      <ReservationsFilters />
+      <ReservationsSearch />
     </PageLayout>
   );
 };

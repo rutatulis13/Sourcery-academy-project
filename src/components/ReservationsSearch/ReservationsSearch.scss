@@ -1,7 +1,7 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
-.reservations-filters {
+.reservations-search {
     background-color: $color-white;
     border-radius: 4px;
     box-shadow: $box-shadow-main;
@@ -12,7 +12,7 @@
     }
 
     &__title {
-        color: $color-text-title;
+        color: $color-text-main;
         margin-bottom: 24px;
     }
 
@@ -23,13 +23,17 @@
     }
 
     &__filter-option {
+        align-items: center;
         background-color: $color-white;
         border: 1px solid #cacfd5;
         border-radius: 8px;
-        color: $color-text-title;
+        color: $color-text-main;
         cursor: pointer;
+        display: flex;
         font-size: $font-size-button-medium;
         font-weight: 500;
+        gap: 8px;
+        justify-content: center;
         padding: 6px 12px;
 
         @include mobile {
@@ -37,9 +41,20 @@
         }
 
         &--selected {
-            background-color: $color-text-title;
-            border-color: $color-text-title;
+            background-color: $color-text-main;
+            border-color: $color-text-main;
             color: $color-white;
+        }
+    }
+
+    &__filter-option-image {
+        height: 16px;
+        width: 16px;
+
+        &--selected {
+            path {
+                stroke: currentColor;
+            }
         }
     }
 
@@ -52,13 +67,16 @@
         @include mobile {
             align-items: stretch;
             flex-direction: column;
-            gap: 24px;
         }
 
         @include tablet-s {
             align-items: stretch;
             flex-direction: column;
-            gap: 32px;
+        }
+
+        @include tablet-l {
+            gap: 24px;
+            margin-top: 24px;
         }
     }
 
@@ -68,18 +86,19 @@
         height: 48px;
     }
 
-    &__search-by-text-wrapper {
+    &__text-wrapper {
         display: flex;
         flex-direction: column;
         flex-grow: 3;
+        min-width: 0;
         position: relative;
     }
 
-    &__search-by-text {
+    &__text {
         padding: 0 40px;
     }
 
-    &__search-by-text-icon-wrapper {
+    &__text-icon-wrapper {
         align-items: center;
         display: flex;
         height: 100%;
@@ -89,7 +108,7 @@
         top: 0;
     }
 
-    &__search-by-text-clear-button {
+    &__text-clear-button {
         align-items: center;
         background: none;
         border: 0;
@@ -101,19 +120,62 @@
         top: 0;
     }
 
-    &__search-by-date-wrapper {
+    &__date-wrapper {
+        @extend %caption-1;
+        color: $color-text-accent;
         display: flex;
         flex-direction: column;
         flex-grow: 1;
+        font-weight: 700;
+        min-width: 0;
+        position: relative;
     }
 
-    &__search-by-date {
+    &__date-label {
+        position: absolute;
+        text-transform: uppercase;
+        top: -24px;
+    }
+
+    &__date {
         flex-grow: 1;
-        padding: 0 16px;
+        padding: 0 40px 0 16px;
+
+        &::-webkit-calendar-picker-indicator {
+            background: transparent;
+            bottom: 0;
+            color: $color-transparent;
+            height: auto;
+            left: -24px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: auto;
+        }
     }
 
-    &__search-submit-wrapper {
+    &__date-icon-wrapper {
+        align-items: center;
         display: flex;
+        height: 100%;
+        pointer-events: none;
+        position: absolute;
+        right: 16px;
+        top: 0;
+    }
+
+    &__submit-wrapper {
+        display: flex;
+        flex-shrink: 0;
         justify-content: center;
+    }
+
+    &__submit-icon {
+        margin-right: 16px;
+        vertical-align: text-top;
+
+        path {
+            stroke: currentColor;
+        }
     }
 }
