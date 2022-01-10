@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { RestaurantsContext } from "contexts/RestaurantsContext/RestaurantsContext";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
-import RestaurantRating from "components/RestaurantRating/RestaurantRating";
-import LikeButton from "components/LikeButton/LikeButton";
 import CheckInButton from "components/CheckInButton/CheckInButton";
-import RestaurantInformationCard from "components/RestaurantInformationCard/RestaurantInformationCard";
+import LikeButton from "components/LikeButton/LikeButton";
 import LocationMap from "components/LocationMap/LocationMap";
+import RestaurantRating from "components/RestaurantRating/RestaurantRating";
+import RestaurantInformationCard from "components/RestaurantInformationCard/RestaurantInformationCard";
+import RestaurantReviewsList from "features/RestaurantReviewsList/RestaurantReviewsList";
 import "./EatOutRestaurantPage.scss";
 
 const EatOutRestaurantPage = () => {
@@ -117,7 +118,9 @@ const EatOutRestaurantPage = () => {
 
             <section className="restaurant-reviews">
               <h2 className="restaurant-section-title">Reviews</h2>
-              <></>
+              <RestaurantReviewsList
+                reviews={restaurantsData[restaurantIndex].reviews}
+              />
             </section>
           </div>
         </div>
