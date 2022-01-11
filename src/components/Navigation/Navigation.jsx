@@ -1,5 +1,6 @@
 import React from "react";
 import NavigationItem from "./NavigationItem/NavigationItem";
+import ReservationsButton from "./NavigationItem/ReservationsButton";
 import home from "assets/home.svg";
 import compass from "assets/compass.svg";
 import bookmark from "assets/bookmark.svg";
@@ -15,8 +16,7 @@ const Navigation = () => {
           iconAlt="home"
           pageName="Dashboard"
         />
-        <NavigationItem
-          route="/reservations"
+        <ReservationsButton
           icon={bookmark}
           iconAlt="bookmark"
           pageName="Reservations"
