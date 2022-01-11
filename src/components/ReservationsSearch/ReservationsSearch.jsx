@@ -10,9 +10,17 @@ import { ReactComponent as CalendarIcon } from "assets/calendar.svg";
 import "./ReservationsSearch.scss";
 
 const filterOptions = [
-  { text: "All" },
-  { text: "Favorites", image: FavoritesIcon },
-  { text: "Available", image: AvailableIcon },
+  { text: "All", ariaLabel: "Show all items" },
+  {
+    text: "Favorites",
+    ariaLabel: "Filter favorite items",
+    image: FavoritesIcon,
+  },
+  {
+    text: "Available",
+    ariaLabel: "Filter available items",
+    image: AvailableIcon,
+  },
 ];
 
 const ReservationsSearch = ({ onSearch }) => {
@@ -39,7 +47,7 @@ const ReservationsSearch = ({ onSearch }) => {
 
   return (
     <section className="reservations-search">
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} role="search" aria-label="On reservations page">
         <h2 className="reservations-search__title">Search</h2>
         <div className="reservations-search__filter-options">
           {filterOptions.map((filterOption, filterOptionIndex) => (
@@ -50,6 +58,7 @@ const ReservationsSearch = ({ onSearch }) => {
                   selectedFilterOptionIndex === filterOptionIndex,
               })}
               type="button"
+              aria-label={filterOption.ariaLabel}
               onClick={() => onSelectFilter(filterOptionIndex)}
             >
               {filterOption.image && (
@@ -70,9 +79,10 @@ const ReservationsSearch = ({ onSearch }) => {
         <div className="reservations-search__search-actions">
           <div className="reservations-search__text-wrapper">
             <input
-              type="text"
+              type="search"
               className="reservations-search__text"
               placeholder="Search reservations..."
+              aria-label="Search the reservations"
               ref={searchTextInputRef}
             />
             <div className="reservations-search__text-icon-wrapper">
@@ -81,6 +91,7 @@ const ReservationsSearch = ({ onSearch }) => {
             <button
               type="button"
               className="reservations-search__text-clear-button"
+              aria-label="Clear search text"
               onClick={onClearSearchText}
             >
               <ClearIcon />
