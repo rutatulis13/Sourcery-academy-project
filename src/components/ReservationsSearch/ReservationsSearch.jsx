@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import Button from "components/Button/Button";
 import { ReactComponent as FavoritesIcon } from "assets/heart.svg";
 import { ReactComponent as AvailableIcon } from "assets/circle-check.svg";
 import { ReactComponent as SearchIcon } from "assets/search.svg";
 import { ReactComponent as ClearIcon } from "assets/circle-x.svg";
 import { ReactComponent as CalendarIcon } from "assets/calendar.svg";
-
 import "./ReservationsSearch.scss";
-import { useRef } from "react";
-import classNames from "classnames";
 
 const filterOptions = [
   { text: "All" },
