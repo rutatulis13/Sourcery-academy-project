@@ -9,7 +9,6 @@ $color-gray-6: #dcdfe3;
 $color-gray-7: #edeff1;
 $color-gray-8: #f6f7f8;
 $color-green: #7bf1a8; // unused
-$color-light-grey: #cacfd5; ////////// ??
 $color-red: #ff6e75;
 $color-transparent: 'transparent';
 $color-white: #fff;
@@ -42,6 +41,9 @@ $color-border: $color-gray-5;
 
 // like button (heart icon):
 $color-icon-heart-filled: $color-red;
+
+// input colors:
+$color-input-placeholder: $color-gray-5;
 
 // navigation:
 $color-bg-nav-active-link: rgba($color-base-inv, 0.12);
