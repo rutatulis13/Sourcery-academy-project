@@ -4,7 +4,7 @@
 .restaurant-card {
     background-color: $color-base;
     border-radius: 8px;
-    box-shadow: $box-shadow-main;
+    box-shadow: $box-shadow-base;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -88,10 +88,8 @@
     }
 
     &__categories {
+        @extend %tiny;
         color: $color-text-main-alt;
-        font-size: $font-size-restaurant-card-secondary;
-        font-weight: 500;
-        text-transform: uppercase;
 
         svg {
             margin: 0 8px 1px 14px;
@@ -114,10 +112,9 @@
     }
 
     &__time {
+        @extend %tiny;
         color: $color-text-main-alt;
-        font-size: $font-size-restaurant-card-secondary;
-        font-weight: 500;
-        margin-top: 4px;
+        margin-top: 2px;
     }
 
     &__info-icon {
