@@ -9,25 +9,30 @@ const MobileNavigation = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   const closeMobileMenu = () => setNavbarOpen(false);
-  const handleOutsideClick = (e) => {
-    if (!node.current.contains(e.target)) {
-      setNavbarOpen(false);
-    }
-  };
-  const handleKeyboardClick = (e) => {
-    if (e.keyCode === 27) {
-      setNavbarOpen(false);
-    }
-  };
 
   useEffect(() => {
-    document.addEventListener("keydown", handleKeyboardClick);
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => {
-      document.removeEventListener("keydown", handleKeyboardClick);
-      document.removeEventListener("mousedown", handleOutsideClick);
+    let handleOutsideClick = (e) => {
+      if (!node.current.contains(e.target)) {
+        setNavbarOpen(false);
+      }
     };
-  }, []);
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    let handleKeyboardClick = (e) => {
+      if (e.keyCode === 27) {
+        setNavbarOpen(false);
+      }
+      if (e.keyCode === 13) {
+        setNavbarOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeyboardClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.addEventListener("keydown", handleKeyboardClick);
+    };
+  });
 
   return (
     <div className="mobile-navigation" ref={node}>
