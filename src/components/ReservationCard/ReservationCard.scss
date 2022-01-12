@@ -1,12 +1,11 @@
-@import '../../styles/base/colors';
-@import '../../styles/base/typography';
+@import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
 .reservation-card {
     align-items: center;
     background-color: $color-white;
     border-radius: 8px;
-    box-shadow: 0 8px 22px ($color-box-shadow);
+    box-shadow: $box-shadow-card-small;
     display: flex;
     font-weight: 500;
     justify-content: space-between;
