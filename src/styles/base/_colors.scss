@@ -32,8 +32,11 @@ $color-text-reservations-primary: #3e5067;
 $color-text-reservations-secondary: #627485;
 $color-border-primary: #cacfd5;
 
-//Reservation section:
-$color-box-shadow: rgba(0, 0, 0, 0.25);
+// scrollbar:
+$color-scrollbar-track: $color-gray-7;
+$color-scrollbar-thumb: $color-gray-5;
+$color-scrollbar-thumb-hover: darken($color-scrollbar-thumb, 10%);
+$color-scrollbar-thumb-active: darken($color-scrollbar-thumb, 40%);
 
 // breadcrumbs:
 $color-breadcrumbs: #9ea7b3;
@@ -56,7 +59,8 @@ $color-restaurant-rating-secondary: #31465e;
 // restaurant page:
 $color-text-restaurant-page-category: $color-white;
 $color-text-restaurant-page-title: $color-gray-1;
-$color-text-restaurant-page-invite: $color-gray-3;
+$color-text-restaurant-page-section-title: $color-gray-2;
+$color-text-restaurant-page-details: $color-gray-3;
 
 // weather:
 $color-text-weather: rgba(0, 0, 0, 0.5);
