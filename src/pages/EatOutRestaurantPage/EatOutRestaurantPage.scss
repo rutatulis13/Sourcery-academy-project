@@ -89,7 +89,7 @@ $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=
 
     &__check-in-info {
         @extend %caption-1;
-        color: $color-text-title;
+        color: $color-text-main;
         font-weight: 700;
         text-align: center;
     }
