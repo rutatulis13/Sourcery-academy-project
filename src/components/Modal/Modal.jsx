@@ -31,8 +31,8 @@ const Modal = (props) => {
 
   return (
     <>
-      <div className="modalStyle"></div>
-      <div ref={modalRef} className="modalStyle__body">
+      <div className="modal"></div>
+      <div ref={modalRef} className="modal__body">
         {/* <button onClick={props.updateModalState}>Hide Me</button> */}
         {props.children}
       </div>
@@ -42,8 +42,8 @@ const Modal = (props) => {
 
 Modal.propTypes = {
   updateModalState: PropTypes.any,
-  children: PropTypes.any,
-  setShowModal: PropTypes.any,
+  children: PropTypes.node,
+  setShowModal: PropTypes.func,
 };
 
 export default Modal;

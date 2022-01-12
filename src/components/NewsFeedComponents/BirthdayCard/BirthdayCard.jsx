@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./BirthdayCard.scss";
 import LikeButtonCounter from "../LikeButtonCounter/LikeButtonCounter";
 import Message from "assets/message-icon.svg";
-import Rectangle from "assets/rectangle.svg";
+import Divider from "../Divider/Divider";
 import moment from "moment";
 import Modal from "components/Modal/Modal";
 import Comments from "../Comments/Comments";
@@ -34,12 +34,8 @@ const BirthdayCard = ({ onStorieChange, storie }) => {
           </div>
           <div className="birthday-card__content__body__wish">Send a wish!</div>
         </div>
-        <img
-          className="birthday-card__content__divider"
-          src={Rectangle}
-          alt="rectangle"
-        />
-        <Comments comments={storie.comments} onSubmit={onSubmit} />
+        <Divider />
+        {/* <Comments comments={storie.comments} onSubmit={onSubmit} /> */}
         <div className="birthday-card__content__action">
           <LikeButtonCounter
             itemDataAccessor="stories"
@@ -51,10 +47,9 @@ const BirthdayCard = ({ onStorieChange, storie }) => {
             <img src={Message} alt="message-icon" />
           </button>
           {showModal ? (
-            <Modal
-              updateModalState={toggleModal}
-              setShowModal={updateShowModal}
-            ></Modal>
+            <Modal setShowModal={updateShowModal}>
+              <Comments comments={storie.comments} onSubmit={onSubmit} />
+            </Modal>
           ) : null}
           <span>{storie.comments.length}</span>
         </div>

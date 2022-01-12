@@ -24,6 +24,8 @@
     &__content {
         @extend %tiny;
         color: $color-comment-date;
+        display: block;
+        overflow-wrap: break-word;
         text-transform: none;
     }
 }

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./VideoCard.scss";
 import LikeButtonCounter from "../LikeButtonCounter/LikeButtonCounter";
 import Message from "assets/message-icon.svg";
+import Video from "./Video/Video";
 import moment from "moment";
 
 const VideoCard = ({ storie, comments }) => {
@@ -17,9 +18,10 @@ const VideoCard = ({ storie, comments }) => {
         </div>
       </div>
       <div className="video-card__post-video">
-        <video controls src={storie.postVideo}>
+        {/* <video controls src={storie.postVideo}>
           <track default kind="captions" />
-        </video>
+        </video> */}
+        <Video src={storie.postVideo} />
       </div>
       <div className="video-card__action">
         <LikeButtonCounter

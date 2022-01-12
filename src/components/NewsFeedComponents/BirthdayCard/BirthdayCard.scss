@@ -51,6 +51,7 @@ $birthday-card-z-index: 1;
             flex-direction: column;
             height: 102.44px;
             justify-content: flex-end;
+            margin-bottom: 16px;
             position: relative;
             width: 100%;
 
@@ -65,17 +66,11 @@ $birthday-card-z-index: 1;
             }
         }
 
-        &__divider {
-            margin-bottom: 16px;
-            margin-top: 16px;
-            position: relative;
-            width: 100%;
-        }
-
         &__action {
             align-items: center;
             display: flex;
             flex-direction: row;
+            margin-top: 16px;
             width: 100%;
 
             button {

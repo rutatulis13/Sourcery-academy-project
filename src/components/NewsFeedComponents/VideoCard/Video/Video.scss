@@ -1,0 +1,101 @@
+$color-pause-button-background: #fff;
+$color-pause-button-image: #6e44ff;
+$z-index-progressbar: 30;
+
+.video {
+    position: relative;
+
+    video {
+        height: 405px;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    &__button {
+        height: 75px;
+        left: 50%;
+        opacity: 0;
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.25s ease-out;
+        visibility: hidden;
+        width: 75px;
+
+        button {
+            background: none;
+            border-style: none;
+        }
+    }
+
+    &__time-controls {
+        align-items: center;
+        bottom: 8px;
+        display: flex;
+        justify-content: space-evenly;
+        opacity: 0;
+        padding: 0 8px;
+        position: absolute;
+        transition: all 0.25s ease-out;
+        visibility: hidden;
+        width: 100%;
+
+        &__progressbar {
+            background-color: $color-pause-button-background;
+            border-radius: 15px;
+            height: 5px;
+            margin: 0 20px;
+            position: relative;
+            width: 75vw;
+            z-index: $z-index-progressbar;
+
+            &__time {
+                background-color: $color-pause-button-image;
+                border-radius: 15px;
+                height: 100%;
+            }
+        }
+
+        &__control {
+            color: $color-pause-button-background;
+        }
+    }
+
+    &:hover > .video__button,
+    &:hover > .video__time-controls {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.pause {
+    cursor: pointer;
+
+    path:nth-child(1) {
+        fill: $color-pause-button-background;
+        stroke: none;
+    }
+
+    path:nth-child(2) {
+        stroke: $color-pause-button-image;
+    }
+
+    path:nth-child(3) {
+        stroke: $color-pause-button-image;
+    }
+}
+
+.play {
+    cursor: pointer;
+
+    path:nth-child(1) {
+        fill: $color-pause-button-background;
+        stroke: none;
+    }
+
+    path:nth-child(2) {
+        fill: $color-pause-button-image;
+        stroke: $color-pause-button-image;
+    }
+}
