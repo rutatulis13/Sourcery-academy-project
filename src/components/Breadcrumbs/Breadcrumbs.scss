@@ -16,7 +16,7 @@
         }
 
         &-link {
-            color: $color-breadcrumbs;
+            color: $color-text-accent;
             font-size: $font-size-breadcrumbs;
             font-weight: $font-weight-breadcrumbs;
             line-height: $line-height-breadcrumbs;
@@ -25,7 +25,7 @@
         }
 
         &:last-child > &-link {
-            color: $color-breadcrumbs-last;
+            color: $color-text-main-alt;
         }
     }
 }

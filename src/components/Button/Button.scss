@@ -3,7 +3,7 @@
 
 .button {
     @extend %button-large;
-    background-color: $color-button-purple;
+    background-color: $color-primary;
     border: unset;
     border-radius: 65px;
     color: $color-white;
@@ -12,11 +12,11 @@
 
     &:focus,
     &:hover {
-        background-color: $color-button-dark-purple;
+        background-color: $color-primary-hover;
     }
 
     &:active {
-        background-color: $color-button-darkest-purple;
+        background-color: $color-primary-active;
     }
 
     &--medium {
@@ -25,6 +25,6 @@
 
     &:disabled {
         background-color: $color-button-grey;
-        color: $color-text-button-disabled;
+        color: $color-text-accent;
     }
 }

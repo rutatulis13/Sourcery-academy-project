@@ -19,12 +19,17 @@
         padding: 0 25px;
         text-decoration: none;
 
-        &:hover {
-            background-color: $color-bg-hover;
+        &:hover,
+        &:focus {
+            background-color: $color-primary-hover;
+        }
+
+        &:active {
+            background-color: $color-primary-active;
         }
 
         &--active {
-            background-color: $color-bg-hover;
+            background-color: $color-bg-nav-active-link;
         }
     }
 }

@@ -1,11 +1,5 @@
 $color-black: #000;
-$color-light-grey: #cacfd5;
-$color-grey: #dcdfe3;
-$color-white: #fff;
-$color-purple: #6e44ff;
-$color-green: #7bf1a8;
-$color-red: #ff6e75;
-
+$color-bluish-dark-gray: #31465e;
 $color-gray-1: #001836;
 $color-gray-2: #3e5067;
 $color-gray-3: #6a7889;
@@ -14,35 +8,43 @@ $color-gray-5: #cacfd5;
 $color-gray-6: #dcdfe3;
 $color-gray-7: #edeff1;
 $color-gray-8: #f6f7f8;
+$color-green: #7bf1a8; // unused
+$color-light-grey: #cacfd5;
+$color-red: #ff6e75;
+$color-white: #fff;
+$color-yellow: #fadb5e;
 
-// layout:
-$color-bg-topbar: #6e44ff;
-$color-bg-hover: #603bdf;
-$color-bg-container: #f6f7f8;
+// common:
+$color-base: $color-white;
+$color-base-inv: $color-black;
+$color-primary: #6e44ff;
+$color-primary-hover: #5836cc;
+$color-primary-active: #462ca3;
+
+// main text colors:
+$color-text-strong: $color-gray-1;
+$color-text-main: $color-gray-2;
+$color-text-main-alt: $color-gray-3;
+$color-text-accent: $color-gray-4;
+$color-text-light-red: #ff6e75;
+
+// main layout elements:
+$color-bg-body: $color-gray-6;
+$color-bg-topbar: $color-primary;
+$color-bg-container: $color-gray-8;
 $color-bg-footer: $color-white;
 
-// text:
-$color-text-title: #3e5067;
-$color-text-footer: #3e5067;
-$color-text-grey: #9ea7b3;
-$color-text-dark-grey: #3e5067;
-$color-text-light-red: #ff6e75;
-$color-text-dropdown: #3e5067;
+// border:
+$color-border-primary: $color-gray-5;
 
-$color-border-primary: #cacfd5;
+// navigation:
+$color-bg-nav-active-link: rgba(0, 0, 0, 0.12);
 
 // scrollbar:
 $color-scrollbar-track: $color-gray-7;
 $color-scrollbar-thumb: $color-gray-5;
 $color-scrollbar-thumb-hover: darken($color-scrollbar-thumb, 10%);
 $color-scrollbar-thumb-active: darken($color-scrollbar-thumb, 40%);
-
-// breadcrumbs:
-$color-breadcrumbs: #9ea7b3;
-$color-breadcrumbs-last: #6a7889;
-
-// eat out section:
-$color-text-eat-out-browse-card: rgba(0, 0, 0, 0.7);
 
 // restaurant card:
 $color-text-restaurant-card-primary: $color-gray-1;
@@ -52,8 +54,8 @@ $color-icon-heart-filled: $color-red;
 $color-bg-restaurant-card: $color-white;
 
 // restaurant rating:
-$color-restaurant-rating-primary: #fadb5e;
-$color-restaurant-rating-secondary: #31465e;
+$color-restaurant-rating-primary: $color-yellow;
+$color-restaurant-rating-secondary: $color-bluish-dark-gray;
 
 // restaurant page:
 $color-text-restaurant-page-category: $color-white;
@@ -66,8 +68,4 @@ $color-text-weather: rgba(0, 0, 0, 0.5);
 $color-text-weather-temp: rgba(0, 0, 0, 0.7);
 
 // button:
-$color-button-purple: #6e44ff;
-$color-button-dark-purple: #5836cc;
-$color-button-darkest-purple: #462ca3;
 $color-button-grey: #edeff1;
-$color-text-button-disabled: #9ea7b3;

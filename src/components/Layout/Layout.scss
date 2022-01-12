@@ -36,7 +36,7 @@
 
     &__copyright {
         @include restrict-block-to-max-width($max-page-width);
-        color: $color-text-footer;
+        color: $color-text-main;
         font-size: $font-size-footer;
         font-weight: 500;
         text-align: right;
