@@ -9,13 +9,13 @@ $color-gray-6: #dcdfe3;
 $color-gray-7: #edeff1;
 $color-gray-8: #f6f7f8;
 $color-green: #7bf1a8; // unused
-$color-light-grey: #cacfd5;
+$color-light-grey: #cacfd5; ////////// ??
 $color-red: #ff6e75;
 $color-transparent: 'transparent';
 $color-white: #fff;
 $color-yellow: #fadb5e;
 
-// common:
+// main common colors:
 $color-base: $color-white;
 $color-base-hover: $color-gray-7;
 $color-base-inv: $color-black;
@@ -29,7 +29,7 @@ $color-text-strong: $color-gray-1;
 $color-text-main: $color-gray-2;
 $color-text-main-alt: $color-gray-3;
 $color-text-accent: $color-gray-4;
-$color-text-light-red: #ff6e75;
+$color-text-error: $color-red;
 
 // main layout elements:
 $color-bg-body: $color-gray-6;
@@ -37,11 +37,18 @@ $color-bg-topbar: $color-primary;
 $color-bg-container: $color-gray-8;
 $color-bg-footer: $color-white;
 
-// border:
-$color-border-primary: $color-gray-5;
+// border colors:
+$color-border: $color-gray-5;
+
+// like button (heart icon):
+$color-icon-heart-filled: $color-red;
 
 // navigation:
-$color-bg-nav-active-link: rgba(0, 0, 0, 0.12);
+$color-bg-nav-active-link: rgba($color-base-inv, 0.12);
+
+// restaurant rating:
+$color-restaurant-rating-primary: $color-yellow;
+$color-restaurant-rating-secondary: $color-bluish-dark-gray;
 
 // scrollbar:
 $color-scrollbar-track: $color-gray-7;
@@ -49,23 +56,6 @@ $color-scrollbar-thumb: $color-gray-5;
 $color-scrollbar-thumb-hover: darken($color-scrollbar-thumb, 10%);
 $color-scrollbar-thumb-active: darken($color-scrollbar-thumb, 40%);
 
-// restaurant card:
-$color-text-restaurant-card-primary: $color-gray-1;
-$color-text-restaurant-card-secondary: $color-gray-3;
-$color-text-restaurant-card-details: $color-gray-2;
-$color-icon-heart-filled: $color-red;
-$color-bg-restaurant-card: $color-white;
-
-// restaurant rating:
-$color-restaurant-rating-primary: $color-yellow;
-$color-restaurant-rating-secondary: $color-bluish-dark-gray;
-
-// restaurant page:
-$color-text-restaurant-page-category: $color-white;
-$color-text-restaurant-page-title: $color-gray-1;
-$color-text-restaurant-page-section-title: $color-gray-2;
-$color-text-restaurant-page-details: $color-gray-3;
-
 // weather:
-$color-text-weather: rgba(0, 0, 0, 0.5);
-$color-text-weather-temp: rgba(0, 0, 0, 0.7);
+$color-text-weather: rgba($color-base-inv, 0.5);
+$color-text-weather-temp: rgba($color-base-inv, 0.7);

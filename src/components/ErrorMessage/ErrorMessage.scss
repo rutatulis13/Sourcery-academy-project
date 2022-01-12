@@ -3,6 +3,6 @@
 
 .error-message {
     @extend %tiny;
-    color: $color-text-light-red;
+    color: $color-text-error;
     margin-top: 8px;
 }

@@ -70,7 +70,7 @@
         &--invalid {
             @extend %body-small;
             background: $color-white;
-            border: 1px solid $color-text-light-red;
+            border: 1px solid $color-text-error;
             border-radius: 5px;
             color: $color-text-main;
             display: block;

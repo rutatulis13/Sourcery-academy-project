@@ -47,16 +47,16 @@ $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=
     }
 
     &__category-card {
-        background-color: $color-text-restaurant-page-title;
+        background-color: $color-text-strong;
         border-radius: 8px;
-        color: $color-text-restaurant-page-category;
+        color: $color-base;
         font-size: $font-size-restaurant-page-category;
         font-weight: 500;
         padding: 6px 12px;
     }
 
     &__title {
-        color: $color-text-restaurant-page-title;
+        color: $color-text-strong;
         font-size: $font-size-restaurant-page-title;
         margin: 12px 0 48px;
     }
@@ -96,7 +96,7 @@ $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=
 
     &__invite {
         @extend %caption-2;
-        color: $color-text-restaurant-page-details;
+        color: $color-text-main-alt;
         margin: 4px 8px;
     }
 }
@@ -128,7 +128,7 @@ $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=
 
 .restaurant-section-title {
     @extend %h2-alternative;
-    color: $color-text-restaurant-page-section-title;
+    color: $color-text-main;
     margin-bottom: 24px;
 }
 
