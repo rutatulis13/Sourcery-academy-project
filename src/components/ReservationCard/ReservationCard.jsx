@@ -4,23 +4,22 @@ import "./ReservationCard.scss";
 import { UserContext } from "../../contexts/UserContext/UserContext";
 import { Link } from "react-router-dom";
 
-const ReservationCard = ({ reservationItem }) => {
-  const { name, headerMessage, imagePath, linkPath } = reservationItem;
+const ReservationCard = ({ name, headerMessage, imagePath, linkPath }) => {
   const context = useContext(UserContext);
 
   const getReservedNumber = () => {
     if (!context.loading && context.userData) {
-      return context.userData.reservations[name]?.length ?? 0;
+      return context.userData.reservations?.[name]?.length ?? 0;
     }
   };
 
   return (
     <Link to={linkPath} className="reservation-card">
-      <div className="reservation-card__left">
+      <div className="reservation-card__content-wrapper">
         <h2 className="reservation-card__header">{headerMessage}</h2>
-        <div className="reservation-card__uppercase">{`${getReservedNumber()} Reserved`}</div>
+        <div className="reservation-card__reservation-count">{`${getReservedNumber()} Reserved`}</div>
       </div>
-      <div className="reservation-card__right">
+      <div className="reservation-card__image-wrapper">
         <img src={imagePath} alt={name} className="reservation-card__image" />
       </div>
     </Link>
@@ -28,7 +27,10 @@ const ReservationCard = ({ reservationItem }) => {
 };
 
 ReservationCard.propTypes = {
-  reservationItem: PropTypes.object.isRequired,
+  name: PropTypes.string,
+  headerMessage: PropTypes.string,
+  imagePath: PropTypes.string,
+  linkPath: PropTypes.string,
 };
 
 export default ReservationCard;
