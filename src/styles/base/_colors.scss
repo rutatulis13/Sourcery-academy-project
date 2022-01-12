@@ -11,15 +11,18 @@ $color-gray-8: #f6f7f8;
 $color-green: #7bf1a8; // unused
 $color-light-grey: #cacfd5;
 $color-red: #ff6e75;
+$color-transparent: 'transparent';
 $color-white: #fff;
 $color-yellow: #fadb5e;
 
 // common:
 $color-base: $color-white;
+$color-base-hover: $color-gray-7;
 $color-base-inv: $color-black;
 $color-primary: #6e44ff;
 $color-primary-hover: #5836cc;
 $color-primary-active: #462ca3;
+$color-primary-disabled: $color-gray-7;
 
 // main text colors:
 $color-text-strong: $color-gray-1;
@@ -66,6 +69,3 @@ $color-text-restaurant-page-details: $color-gray-3;
 // weather:
 $color-text-weather: rgba(0, 0, 0, 0.5);
 $color-text-weather-temp: rgba(0, 0, 0, 0.7);
-
-// button:
-$color-button-grey: #edeff1;

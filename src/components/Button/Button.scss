@@ -24,7 +24,7 @@
     }
 
     &:disabled {
-        background-color: $color-button-grey;
+        background-color: $color-primary-disabled;
         color: $color-text-accent;
     }
 }

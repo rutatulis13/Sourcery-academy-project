@@ -1,6 +1,6 @@
 @import '../../styles/base/typography';
 @import '../../styles/base/colors';
-$hover-bright-grey: #edeff1;
+
 $hover-border-radius: 3.5px;
 $list-size: 24px;
 $grey-triangle-length: 8px;
@@ -10,7 +10,7 @@ $white-triangle-length: 6px;
     position: absolute;
 
     &__content {
-        background-color: $color-white;
+        background-color: $color-base;
         border: 1px solid $color-border-primary;
         border-radius: 5px;
         list-style: none;
@@ -24,7 +24,7 @@ $white-triangle-length: 6px;
             padding: 15px 16px;
 
             &:hover {
-                background-color: $hover-bright-grey;
+                background-color: $color-base-hover;
             }
 
             a {
