@@ -27,16 +27,16 @@
     }
 
     &__header {
-        color: $color-text-reservations-primary;
-        font-size: $font-size-reservation-h2;
+        color: $color-text-main;
+        font-size: $font-size-2xl;
         font-weight: 900;
-        line-height: 30px;
+        line-height: $font-size-2xl * 1.25;
         margin: 0 0 6px;
     }
 
     &__reservation-count {
-        color: $color-text-reservations-secondary;
-        font-size: $font-size-reserved;
+        color: $color-text-accent;
+        font-size: $font-size-xs;
         text-transform: uppercase;
     }
 
