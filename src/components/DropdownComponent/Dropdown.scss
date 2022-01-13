@@ -20,7 +20,7 @@ $white-triangle-length: 6px;
         top: 10px;
 
         li {
-            font-size: $font-size-dropdown;
+            @extend %body-small;
             padding: 15px 16px;
 
             &:hover {

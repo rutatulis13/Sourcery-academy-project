@@ -1,3 +1,4 @@
+// fonts:
 $font-main: 'Roboto', sans-serif;
 
 // main font sizes:
@@ -12,40 +13,9 @@ $font-size-3xl: 32px;
 $font-size-4xl: 36px;
 $font-size-5xl: 48px;
 
-$font-size-dropdown: 14px;
-$font-size-title: 36px;
-
-$line-height-title: 42px;
-
-// button:
-$font-size-button-large: $font-size-sm;
-$font-size-button-medium: $font-size-xs;
-%button-large {
-    font-size: $font-size-button-large;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.71;
-    text-transform: uppercase;
-}
-%button-medium {
-    font-size: $font-size-button-medium;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.5;
-    text-transform: uppercase;
-}
-
-// breadcrumbs:
-$font-size-breadcrumbs: 12px;
-$font-weight-breadcrumbs: 500;
-$line-height-breadcrumbs: 18px;
-
 // restaurant category cards:
 $font-size-restaurant-category-card-title-small: 20px;
 $font-size-restaurant-category-card-text: 12px;
-
-// restaurant rating:
-$font-size-restaurant-rating: 14px;
 
 // restaurant page:
 $font-size-restaurant-page-category: $font-size-xs;
@@ -56,15 +26,21 @@ $font-size-weather: 12px;
 $font-size-weather-temp: 60px;
 $font-size-weather-cond: 20px;
 
-// variables of global stylings and placeholders:
+// variables for global styling and placeholders:
 
 // body:
 $font-size-body: $font-size-base;
 $font-size-body-small: $font-size-sm;
 
+// button:
+$font-size-button-large: $font-size-sm;
+
 // caption:
 $font-size-caption-1: $font-size-sm;
 $font-size-caption-2: $font-size-xs;
+
+// h1:
+$font-size-h1: $font-size-4xl;
 
 // h2:
 $font-size-h2: $font-size-3xl;
@@ -80,7 +56,7 @@ $font-size-h4-alternative: $font-size-base;
 // tiny:
 $font-size-tiny: $font-size-2xs;
 
-// global stylings and placeholders:
+// global styling and placeholders:
 
 %body {
     font-size: $font-size-body;
@@ -90,14 +66,22 @@ $font-size-tiny: $font-size-2xs;
 %body-small {
     font-size: $font-size-body-small;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     line-height: 1.57;
+}
+
+%button-large {
+    font-size: $font-size-button-large;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.71;
+    text-transform: uppercase;
 }
 
 %caption-1 {
     font-size: $font-size-caption-1;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 1.14;
     text-transform: uppercase;
 }
@@ -107,6 +91,13 @@ $font-size-tiny: $font-size-2xs;
     font-weight: 500;
     line-height: 1.5;
     text-transform: uppercase;
+}
+
+h1 {
+    font-size: $font-size-h1;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.17;
 }
 
 h2 {

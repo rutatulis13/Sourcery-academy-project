@@ -38,8 +38,7 @@
     }
 
     .rating-value {
+        @extend %caption-1;
         color: $color-restaurant-rating-secondary;
-        font-size: $font-size-restaurant-rating;
-        font-weight: 700;
     }
 }

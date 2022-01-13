@@ -20,7 +20,7 @@
     }
 
     &--medium {
-        @extend %button-medium;
+        @extend %caption-2;
     }
 
     &:disabled {

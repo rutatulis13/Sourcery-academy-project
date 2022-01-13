@@ -70,10 +70,9 @@
         }
 
         div {
+            @extend %caption-1;
             color: $color-restaurant-rating-primary;
             display: block;
-            font-size: $font-size-restaurant-rating;
-            font-weight: 700;
             padding-left: 8px;
         }
     }

@@ -46,7 +46,6 @@
     &__item-value {
         @extend %caption-1;
         color: $color-text-main-alt;
-        font-weight: 700;
         overflow: hidden;
         text-overflow: ellipsis;
 

@@ -16,12 +16,9 @@
         }
 
         &-link {
+            @extend %caption-2;
             color: $color-text-accent;
-            font-size: $font-size-breadcrumbs;
-            font-weight: $font-weight-breadcrumbs;
-            line-height: $line-height-breadcrumbs;
             text-decoration: none;
-            text-transform: uppercase;
         }
 
         &:last-child > &-link {

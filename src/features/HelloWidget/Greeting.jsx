@@ -16,7 +16,7 @@ const Greeting = ({ name }) => {
     }
   };
 
-  return <div className="hello-widget__greeting">{greeting()}</div>;
+  return <h1 className="hello-widget__greeting">{greeting()}</h1>;
 };
 
 Greeting.propTypes = {
