@@ -12,6 +12,7 @@ import { convertToMonSunWeekFormat } from "utils/dates";
 import { weekDayNameToNumber } from "utils/dates";
 import classNames from "classnames";
 import CheckInButton from "components/CheckInButton/CheckInButton";
+import { getUrlWithoutProtocol } from "utils/strings";
 
 const RestaurantCard = ({ restaurant, large }) => {
   const getTodayWorkingHours = (hoursArray) => {
@@ -94,7 +95,7 @@ const RestaurantCard = ({ restaurant, large }) => {
                 href={restaurant.website}
                 className="restaurant-card__website-link"
               >
-                {restaurant.website.replace(/(^\w+:|^)\/\//, "")}
+                {getUrlWithoutProtocol(restaurant.website)}
               </a>
             </div>
             <div className="restaurant-card__address">

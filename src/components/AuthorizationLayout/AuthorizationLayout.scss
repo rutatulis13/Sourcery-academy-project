@@ -13,12 +13,12 @@
 
     &__title {
         @extend %h2-alternative;
-        color: $color-text-dark-grey;
+        color: $color-text-main;
         margin-bottom: 8px;
     }
 
     &__subtitle {
-        color: $color-text-dark-grey;
+        color: $color-text-main;
         margin-bottom: 0;
     }
 
