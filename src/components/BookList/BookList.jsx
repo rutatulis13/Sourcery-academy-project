@@ -2,12 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import BookItem from "components/BookList/BookItem/BookItem";
 
-const BookList = ({ props }) => {
-  const books = props;
-
+const BookList = ({ books = [] }) => {
   return (
     <ul id="list" className="list">
-      {books.length >= 0 &&
+      {books.length > 0 &&
         books.map((book, index) => (
           <li key={book.id}>
             <BookItem number={index} props={book} />
@@ -18,7 +16,7 @@ const BookList = ({ props }) => {
 };
 
 BookList.propTypes = {
-  props: PropTypes.node,
+  books: PropTypes.array,
 };
 
 export default BookList;

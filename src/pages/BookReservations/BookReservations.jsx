@@ -30,19 +30,19 @@ const BookReservations = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = booksList.slice(indexOfFirstItem, indexOfLastItem);
 
-  const paginate = (pageNumber) => {
+  const changePage = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
   return (
     <PageLayout title="Book Reservations">
       {currentItems.length >= 0 && (
         <div className="list-block">
-          <BookList props={currentItems} />
+          <BookList books={currentItems} />
           <Pagination
             itemsPerPage={itemsPerPage}
             totalItems={booksList.length}
             currentPage={currentPage}
-            paginate={paginate}
+            handlePageChange={changePage}
           />
         </div>
       )}
