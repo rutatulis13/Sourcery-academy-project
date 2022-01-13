@@ -1,0 +1,181 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.reservations-search {
+    background-color: $color-white;
+    border-radius: 4px;
+    box-shadow: $box-shadow-main;
+    padding: 36px 42px;
+
+    @include mobile {
+        padding: 18px;
+    }
+
+    &__title {
+        color: $color-text-main;
+        margin-bottom: 24px;
+    }
+
+    &__filter-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    &__filter-option {
+        align-items: center;
+        background-color: $color-white;
+        border: 1px solid #cacfd5;
+        border-radius: 8px;
+        color: $color-text-main;
+        cursor: pointer;
+        display: flex;
+        font-size: $font-size-button-medium;
+        font-weight: 500;
+        gap: 8px;
+        justify-content: center;
+        padding: 6px 12px;
+
+        @include mobile {
+            width: 100%;
+        }
+
+        &--selected {
+            background-color: $color-text-main;
+            border-color: $color-text-main;
+            color: $color-white;
+        }
+    }
+
+    &__filter-option-image {
+        height: 16px;
+        width: 16px;
+
+        &--selected {
+            path {
+                stroke: currentColor;
+            }
+        }
+    }
+
+    &__search-actions {
+        align-items: center;
+        display: flex;
+        gap: 42px;
+        margin-top: 16px;
+
+        @include mobile {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        @include tablet-s {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        @include tablet-l {
+            gap: 24px;
+            margin-top: 24px;
+        }
+    }
+
+    input {
+        border: 1px solid $color-border-primary;
+        border-radius: 5px;
+        height: 48px;
+    }
+
+    &__text-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 3;
+        min-width: 0;
+        position: relative;
+    }
+
+    &__text {
+        padding: 0 40px;
+    }
+
+    &__text-icon-wrapper {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        left: 16px;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+    }
+
+    &__text-clear-button {
+        align-items: center;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        display: flex;
+        height: 100%;
+        position: absolute;
+        right: 16px;
+        top: 0;
+    }
+
+    &__date-wrapper {
+        @extend %caption-1;
+        color: $color-text-accent;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        font-weight: 700;
+        min-width: 0;
+        position: relative;
+    }
+
+    &__date-label {
+        position: absolute;
+        text-transform: uppercase;
+        top: -24px;
+    }
+
+    &__date {
+        flex-grow: 1;
+        padding: 0 40px 0 16px;
+
+        &::-webkit-calendar-picker-indicator {
+            background: transparent;
+            bottom: 0;
+            color: $color-transparent;
+            height: auto;
+            left: -24px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: auto;
+        }
+    }
+
+    &__date-icon-wrapper {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        pointer-events: none;
+        position: absolute;
+        right: 16px;
+        top: 0;
+    }
+
+    &__submit-wrapper {
+        display: flex;
+        flex-shrink: 0;
+        justify-content: center;
+    }
+
+    &__submit-icon {
+        margin-right: 16px;
+        vertical-align: text-top;
+
+        path {
+            stroke: currentColor;
+        }
+    }
+}
