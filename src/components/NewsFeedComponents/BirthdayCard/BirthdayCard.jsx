@@ -1,24 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./BirthdayCard.scss";
 import LikeButtonCounter from "../LikeButtonCounter/LikeButtonCounter";
-import Message from "assets/message-icon.svg";
+import { ReactComponent as Message } from "assets/message-icon.svg";
 import Divider from "../Divider/Divider";
 import moment from "moment";
-import Modal from "components/Modal/Modal";
-import Comments from "../Comments/Comments";
 
-const BirthdayCard = ({ onStorieChange, storie }) => {
-  const [showModal, updateShowModal] = useState(false);
-
-  const toggleModal = () => updateShowModal((state) => !state);
-
-  const onSubmit = (comment) => {
-    onStorieChange({
-      ...storie,
-      comments: [...storie.comments, comment],
-    });
-  };
+const BirthdayCard = ({ onStorieChange, toggleModal, storie, ...props }) => {
+  // const onSubmit = (comment) => {
+  //   onStorieChange({
+  //     ...storie,
+  //     comments: [...storie.comments, comment],
+  //   });
+  // };
 
   return (
     <div className="birthday-card">
@@ -43,16 +37,21 @@ const BirthdayCard = ({ onStorieChange, storie }) => {
             icon="Gift"
             defaultLikes={storie.wishes}
           />
-          <button onClick={toggleModal}>
-            <img src={Message} alt="message-icon" />
+          <button
+            onClick={() => {
+              toggleModal(storie);
+            }}
+          >
+            <Message />
           </button>
-          {showModal ? (
-            <Modal setShowModal={updateShowModal}>
+          {/* {showModal ? (
+            <Modal setShowModal={setShowModal}>
               <Comments comments={storie.comments} onSubmit={onSubmit} />
             </Modal>
-          ) : null}
+          ) : null} */}
           <span>{storie.comments.length}</span>
         </div>
+        {props.children}
       </div>
     </div>
   );
@@ -61,6 +60,8 @@ const BirthdayCard = ({ onStorieChange, storie }) => {
 BirthdayCard.propTypes = {
   storie: PropTypes.object,
   onStorieChange: PropTypes.func,
+  toggleModal: PropTypes.func,
+  children: PropTypes.any,
 };
 
 export default BirthdayCard;

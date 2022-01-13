@@ -7,7 +7,7 @@ const Modal = (props) => {
 
   useEffect(() => {
     let handleOutsideClick = (e) => {
-      if (!modalRef.current.contains(e.target)) {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
         props.setShowModal(false);
       }
     };
@@ -15,9 +15,6 @@ const Modal = (props) => {
 
     let handleKeyboardClick = (e) => {
       if (e.keyCode === 27) {
-        props.setShowModal(false);
-      }
-      if (e.keyCode === 13) {
         props.setShowModal(false);
       }
     };
@@ -30,19 +27,18 @@ const Modal = (props) => {
   });
 
   return (
-    <>
-      <div className="modal"></div>
+    <div className="modal">
       <div ref={modalRef} className="modal__body">
         {/* <button onClick={props.updateModalState}>Hide Me</button> */}
         {props.children}
       </div>
-    </>
+    </div>
   );
 };
 
 Modal.propTypes = {
   updateModalState: PropTypes.any,
-  children: PropTypes.node,
+  children: PropTypes.any,
   setShowModal: PropTypes.func,
 };
 

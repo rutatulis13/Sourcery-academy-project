@@ -6,7 +6,7 @@ import Message from "assets/message-icon.svg";
 import Video from "./Video/Video";
 import moment from "moment";
 
-const VideoCard = ({ storie, comments }) => {
+const VideoCard = ({ storie, comments, toggleModal }) => {
   return (
     <div className="video-card">
       <div className="video-card__header">
@@ -30,7 +30,11 @@ const VideoCard = ({ storie, comments }) => {
           icon="Heart"
           defaultLikes={storie.likes}
         />
-        <button>
+        <button
+          onClick={() => {
+            toggleModal(storie);
+          }}
+        >
           <img src={Message} alt="message-icon" />
         </button>
         <span>{storie.comments.length}</span>
@@ -42,6 +46,7 @@ const VideoCard = ({ storie, comments }) => {
 VideoCard.propTypes = {
   storie: PropTypes.object,
   comments: PropTypes.object,
+  toggleModal: PropTypes.func,
 };
 
 export default VideoCard;

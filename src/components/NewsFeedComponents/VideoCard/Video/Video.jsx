@@ -6,23 +6,23 @@ import { ReactComponent as Play } from "assets/play.svg";
 
 const Video = (props) => {
   const [playing, setPlaying] = useState(false);
-  const [videoTime, setVideoTime] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [progress, setProgress] = useState(0);
+  // const [videoTime, setVideoTime] = useState(0);
+  // const [currentTime, setCurrentTime] = useState(0);
+  // const [progress, setProgress] = useState(0);
   const videoRef = useRef();
   //   const progressBar = useRef();
 
-  window.setInterval(function () {
-    setCurrentTime(videoRef.current?.currentTime);
-    setProgress((videoRef.current?.currentTime / videoTime) * 100);
-  }, 1000);
+  // window.setInterval(function () {
+  //   setCurrentTime(videoRef.current?.currentTime);
+  //   setProgress((videoRef.current?.currentTime / videoTime) * 100);
+  // }, 1000);
 
   const videoHandler = (control) => {
     if (control === "play") {
       videoRef.current.play();
       setPlaying(true);
-      var video = document.getElementById("video");
-      setVideoTime(video.duration);
+      // var video = document.getElementById("video");
+      // // setVideoTime(video.duration);
     } else if (control === "pause") {
       videoRef.current.pause();
       setPlaying(false);
@@ -64,7 +64,7 @@ const Video = (props) => {
           </button>
         </div>
       )}
-      <div className="video__time-controls">
+      {/* <div className="video__time-controls">
         <div className="video__time-controls__control">
           {Math.floor(currentTime / 60) +
             ":" +
@@ -72,29 +72,16 @@ const Video = (props) => {
         </div>
         <div className="video__time-controls__progressbar">
           <div
-            // onClick={onClick}
-            // onKeyDown={onClick}
-            // aria-hidden="true"
             style={{ width: `${progress}%` }}
             className="video__time-controls__progressbar__time"
-            // id="progress_bar"
           ></div>
-          {/* <input
-            type="range"
-            ref={progressBar}
-            value={progress}
-            step="0.01"
-            min="0"
-            max={videoTime ? videoTime : `${videoTime}`}
-            onChange={(e) => setCurrentTime(e.target.value)}
-          /> */}
         </div>
         <div className="video__time-controls__control">
           {Math.floor(videoTime / 60) +
             ":" +
             ("0" + Math.floor(videoTime % 60)).slice(-2)}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

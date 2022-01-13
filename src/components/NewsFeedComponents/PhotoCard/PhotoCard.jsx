@@ -5,7 +5,7 @@ import LikeButtonCounter from "../LikeButtonCounter/LikeButtonCounter";
 import Message from "assets/message-icon.svg";
 import moment from "moment";
 
-const BirthdayCard = ({ storie, comments }) => {
+const BirthdayCard = ({ storie, comments, toggleModal }) => {
   return (
     <div className="photo-card">
       <div className="photo-card__header">
@@ -26,7 +26,11 @@ const BirthdayCard = ({ storie, comments }) => {
           icon="Heart"
           defaultLikes={storie.likes}
         />
-        <button>
+        <button
+          onClick={() => {
+            toggleModal(storie);
+          }}
+        >
           <img src={Message} alt="message-icon" />
         </button>
         <span>{storie.comments.length}</span>
@@ -38,6 +42,7 @@ const BirthdayCard = ({ storie, comments }) => {
 BirthdayCard.propTypes = {
   storie: PropTypes.object,
   comments: PropTypes.object,
+  toggleModal: PropTypes.func,
 };
 
 export default BirthdayCard;
