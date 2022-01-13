@@ -1,52 +1,33 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
+import classNames from "classnames/bind";
 import PropTypes from "prop-types";
 import NavigationItem from "./NavigationItem";
 import "./ReservationsButton.scss";
 
-const ReservationsButton = ({ icon, iconAlt, pageName }) => {
-  const node = useRef();
-  const [navbarOpen, setNavbarOpen] = useState(false);
-
-  useEffect(() => {
-    let handleOutsideClick = (e) => {
-      if (!node.current.contains(e.target)) {
-        setNavbarOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    let handleKeyboardClick = (e) => {
-      if (e.keyCode === 27) {
-        setNavbarOpen(false);
-      }
-      if (e.keyCode === 13) {
-        setNavbarOpen(false);
-      }
-    };
-    document.addEventListener("keydown", handleKeyboardClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-      document.addEventListener("keydown", handleKeyboardClick);
-    };
+const ReservationsButton = (props) => {
+  const buttonClasses = classNames("reservations-dropdown__button", {
+    "reservations-dropdown__button--active": window.location.pathname.includes(
+      "reservations"
+    ),
   });
+
   return (
     <div className="reservations-dropdown">
       <button
         type="button"
         tabIndex="0"
-        className="reservations-dropdown__button"
-        onClick={(e) => setNavbarOpen(!navbarOpen)}
+        className={buttonClasses}
+        onClick={props.onClick}
       >
         <img
           className="reservations-dropdown__button--icon"
-          src={icon}
-          alt={iconAlt}
+          src={props.icon}
+          alt={props.iconAlt}
         />
-        <span>{pageName}</span>
+        <span>{props.pageName}</span>
       </button>
-      {navbarOpen ? (
-        <div className="reservations-dropdown__menu" ref={node}>
+      {props.dropdownOpen ? (
+        <div className="reservations-dropdown__menu">
           <NavigationItem
             route="/reservations/books"
             pageName="Book Reservations"
@@ -65,6 +46,8 @@ ReservationsButton.propTypes = {
   icon: PropTypes.string,
   iconAlt: PropTypes.string,
   pageName: PropTypes.string,
+  onClick: PropTypes.func,
+  dropdownOpen: PropTypes.bool,
 };
 
 export default ReservationsButton;

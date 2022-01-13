@@ -35,7 +35,6 @@
 
     &__mobile-nav-section {
         @media (max-width: 849px) {
-            display: flex;
             padding-left: 15px;
         }
         @media (min-width: 850px) {

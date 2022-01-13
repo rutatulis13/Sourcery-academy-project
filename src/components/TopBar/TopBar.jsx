@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Navigation from "components/Navigation/Navigation";
 import UserWidget from "../UserWidget/UserWidget.jsx";
@@ -7,6 +7,35 @@ import logo from "assets/logo-nav.svg";
 import "./TopBar.scss";
 
 const TopBar = () => {
+  const mobileNavigationRef = useRef();
+  const navigationRef = useRef();
+  const [navbarOpen, setNavbarOpen] = useState(false);
+
+  const closeMobileMenu = () => setNavbarOpen(!navbarOpen);
+
+  useEffect(() => {
+    let handleOutsideClick = (e) => {
+      if (
+        !mobileNavigationRef.current.contains(e.target) &&
+        !navigationRef.current.contains(e.target)
+      ) {
+        setNavbarOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    let handleKeyboardClick = (e) => {
+      if (e.keyCode === 27 || e.keyCode === 13) {
+        setNavbarOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeyboardClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.addEventListener("keydown", handleKeyboardClick);
+    };
+  });
   return (
     <header className="top-bar">
       <div className="top-bar__content">
@@ -17,15 +46,21 @@ const TopBar = () => {
             alt="Team Space Application"
           />
         </NavLink>
-        <div className="top-bar__navigation-section">
-          <Navigation />
+        <div className="top-bar__navigation-section" ref={navigationRef}>
+          <Navigation onClick={closeMobileMenu} dropdownOpen={navbarOpen} />
         </div>
         <div className="top-bar__user-mobile-nav-section">
           <div className="top-bar__user-section">
             <UserWidget />
           </div>
-          <div className="top-bar__mobile-nav-section">
-            <MobileNavigation />
+          <div
+            className="top-bar__mobile-nav-section"
+            ref={mobileNavigationRef}
+          >
+            <MobileNavigation
+              onClick={closeMobileMenu}
+              dropdownOpen={navbarOpen}
+            />
           </div>
         </div>
       </div>

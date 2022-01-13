@@ -15,7 +15,7 @@ const NavigationItem = ({
   return (
     <li>
       <NavLink
-        onClick={(e) => closeMobileMenu(isMobile)}
+        onClick={() => closeMobileMenu(isMobile)}
         to={route}
         className={({ isActive }) =>
           classNames({

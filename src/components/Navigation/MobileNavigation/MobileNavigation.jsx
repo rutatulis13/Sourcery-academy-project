@@ -1,18 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 import Navigation from "../Navigation";
-import "./MobileNavigation.scss";
 import menu from "assets/menu.svg";
 import close from "assets/close.svg";
+import "./MobileNavigation.scss";
 
-const MobileNavigation = () => {
-  const node = useRef();
+const MobileNavigation = (props) => {
+  const navigationRef = useRef();
   const [navbarOpen, setNavbarOpen] = useState(false);
 
-  const closeMobileMenu = () => setNavbarOpen(false);
+  const closeMobileMenu = () => setNavbarOpen(!navbarOpen);
 
   useEffect(() => {
     let handleOutsideClick = (e) => {
-      if (!node.current.contains(e.target)) {
+      if (!navigationRef.current.contains(e.target)) {
         setNavbarOpen(false);
       }
     };
@@ -35,12 +36,12 @@ const MobileNavigation = () => {
   });
 
   return (
-    <div className="mobile-navigation" ref={node}>
+    <div className="mobile-navigation" ref={navigationRef}>
       <button
         type="button"
         tabIndex="0"
         className="mobile-navigation__button"
-        onClick={(e) => setNavbarOpen(!navbarOpen)}
+        onClick={closeMobileMenu}
       >
         <img
           className="mobile-navigation__button--icon"
@@ -48,13 +49,22 @@ const MobileNavigation = () => {
           alt=""
         />
       </button>
-      <div className="mobile-navigation__menu">
-        {navbarOpen && (
-          <Navigation isMobile={true} closeMobileMenu={closeMobileMenu} />
-        )}
+      <div className="mobile-navigation__dropdown">
+        {navbarOpen ? (
+          <Navigation
+            isMobile={true}
+            onClick={props.onClick}
+            dropdownOpen={props.dropdownOpen}
+          />
+        ) : null}
       </div>
     </div>
   );
+};
+
+MobileNavigation.propTypes = {
+  onClick: PropTypes.func,
+  dropdownOpen: PropTypes.bool,
 };
 
 export default MobileNavigation;
