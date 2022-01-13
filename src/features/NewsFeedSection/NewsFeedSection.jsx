@@ -14,13 +14,6 @@ const NewsFeedSection = () => {
     setModalStorie(storie);
   };
 
-  // const onSubmit = (comment) => {
-  //   onStorieChange({
-  //     ...modalStorie,
-  //     comments: [...modalStorie.comments, comment],
-  //   });
-  // };
-
   useEffect(() => {
     fetch(
       "http://frontendsourceryweb.s3-website.eu-central-1.amazonaws.com/stories.json"
@@ -79,13 +72,12 @@ const NewsFeedSection = () => {
         <Modal setShowModal={setShowModal}>
           {modalStorie.type === "birthday" && (
             <BirthdayCard
-              onStorieChange={UpdateStorie(modalStorie.id)}
               key={modalStorie.id}
               storie={modalStorie}
+              onStorieChange={UpdateStorie(modalStorie.id)}
               toggleModal={toggleModal}
-            >
-              {/* <Comments comments={modalStorie.comments} onSubmit={onSubmit} /> */}
-            </BirthdayCard>
+              modalCard
+            />
           )}
           {modalStorie.type === "post" && (
             <PhotoCard

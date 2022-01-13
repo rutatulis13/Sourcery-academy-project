@@ -5,14 +5,15 @@ import LikeButtonCounter from "../LikeButtonCounter/LikeButtonCounter";
 import { ReactComponent as Message } from "assets/message-icon.svg";
 import Divider from "../Divider/Divider";
 import moment from "moment";
+import Comments from "../Comments/Comments";
 
-const BirthdayCard = ({ onStorieChange, toggleModal, storie, ...props }) => {
-  // const onSubmit = (comment) => {
-  //   onStorieChange({
-  //     ...storie,
-  //     comments: [...storie.comments, comment],
-  //   });
-  // };
+const BirthdayCard = ({ onStorieChange, toggleModal, storie, modalCard }) => {
+  const onSubmit = (comment) => {
+    onStorieChange({
+      ...storie,
+      comments: [...storie.comments, comment],
+    });
+  };
 
   return (
     <div className="birthday-card">
@@ -51,7 +52,9 @@ const BirthdayCard = ({ onStorieChange, toggleModal, storie, ...props }) => {
           ) : null} */}
           <span>{storie.comments.length}</span>
         </div>
-        {props.children}
+        {modalCard && (
+          <Comments comments={storie.comments} onSubmit={onSubmit} />
+        )}
       </div>
     </div>
   );
@@ -61,7 +64,7 @@ BirthdayCard.propTypes = {
   storie: PropTypes.object,
   onStorieChange: PropTypes.func,
   toggleModal: PropTypes.func,
-  children: PropTypes.any,
+  modalCard: PropTypes.bool,
 };
 
 export default BirthdayCard;
