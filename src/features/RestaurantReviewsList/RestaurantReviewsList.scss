@@ -37,9 +37,9 @@
     list-style-type: none;
 
     &__item {
-        background-color: $color-bg-restaurant-card;
+        background-color: $color-base;
         border-radius: 8px;
-        box-shadow: $box-shadow-main;
+        box-shadow: $box-shadow-base;
         overflow: hidden;
         padding: 19px 16px;
         position: relative;
@@ -47,18 +47,16 @@
 
     &__item-name {
         @extend %caption-1;
-        font-weight: 700;
         margin: 0 64px 6px 0;
     }
 
     &__item-rating {
+        @extend %caption-1;
         align-items: center;
         background-color: $color-restaurant-rating-primary;
         border-radius: 0 8px;
         color: $color-restaurant-rating-secondary;
         display: flex;
-        font-size: $font-size-restaurant-rating;
-        font-weight: 700;
         gap: 8px;
         justify-content: center;
         padding: 7px 13px;
