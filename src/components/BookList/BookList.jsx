@@ -2,13 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import BookItem from "components/BookList/BookItem/BookItem";
 
-const BookList = ({ books = [] }) => {
+const BookList = ({ books = [], handleBookedUntil }) => {
   return (
     <ul id="list" className="list">
       {books.length > 0 &&
         books.map((book, index) => (
           <li key={book.id}>
-            <BookItem number={index} props={book} />
+            <BookItem
+              number={index}
+              handleBookedUntil={handleBookedUntil}
+              props={book}
+            />
           </li>
         ))}
     </ul>
@@ -17,6 +21,7 @@ const BookList = ({ books = [] }) => {
 
 BookList.propTypes = {
   books: PropTypes.array,
+  handleBookedUntil: PropTypes.func,
 };
 
 export default BookList;

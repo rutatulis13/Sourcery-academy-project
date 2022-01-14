@@ -24,6 +24,7 @@ const BookReservations = () => {
         setBooksList(data.books.bookList);
       });
   }, []);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -33,11 +34,22 @@ const BookReservations = () => {
   const changePage = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  const changeBookedUntil = (id) => {
+    let index = booksList.findIndex((e) => e.id === id);
+    let newList = [...booksList];
+    newList[index].bookedUntil = null;
+    setBooksList(newList);
+  };
+
   return (
     <PageLayout title="Book Reservations">
       {currentItems.length >= 0 && (
         <div className="list-block">
-          <BookList books={currentItems} />
+          <BookList
+            books={currentItems}
+            handleBookedUntil={changeBookedUntil}
+          />
           <Pagination
             itemsPerPage={itemsPerPage}
             totalItems={booksList.length}

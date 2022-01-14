@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import cross from "../../../assets/reservations/crossmark.svg";
 import check from "../../../assets/reservations/checkmark.svg";
@@ -8,8 +8,8 @@ import RestaurantRating from "components/RestaurantRating/RestaurantRating";
 import { UserContext } from "contexts/UserContext/UserContext";
 import "./BookItem.scss";
 
-const BookItem = ({ number, props }) => {
-  //const [bookingStatus, setBookingStatus] = useState(false);
+const BookItem = ({ number, handleBookedUntil, props }) => {
+  const [bookingStatus, setBookingStatus] = useState(false);
   const book = props;
   const { userData } = useContext(UserContext);
   const no = number;
@@ -18,14 +18,16 @@ const BookItem = ({ number, props }) => {
     let btn = document.getElementById(`booking-button${no}`);
 
     if (btn.innerHTML.toLowerCase() === "book") {
+      setBookingStatus(true);
       userData.reservations.books.push({ id: book.id });
       btn.innerHTML = "return";
     } else if (btn.innerHTML.toLowerCase() === "return") {
+      setBookingStatus(false);
       let index = userData.reservations.books.findIndex(
         (e) => e.id === book.id
       );
-
       if (index >= 0) {
+        handleBookedUntil(book.id);
         let tempList = userData.reservations.books.filter((item) => {
           return item !== userData.reservations.books[index];
         });
@@ -54,6 +56,16 @@ const BookItem = ({ number, props }) => {
                 <div className="availability">
                   booked until {book.bookedUntil}
                 </div>
+              </div>
+            ) : bookingStatus ||
+              userData.reservations?.books.findIndex(
+                (e) => e.id === book.id
+              ) !== -1 ? (
+              <div className="flexbox">
+                <figure className="mark mark__icon__cross">
+                  <img className="mark__icon" src={cross} alt="" />
+                </figure>
+                <div className="availability">booked</div>
               </div>
             ) : (
               <div className="flexbox">
@@ -105,6 +117,7 @@ const BookItem = ({ number, props }) => {
 BookItem.propTypes = {
   number: PropTypes.number,
   props: PropTypes.object,
+  handleBookedUntil: PropTypes.func,
 };
 
 export default BookItem;
