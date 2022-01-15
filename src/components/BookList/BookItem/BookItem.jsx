@@ -4,7 +4,6 @@ import cross from "../../../assets/reservations/crossmark.svg";
 import check from "../../../assets/reservations/checkmark.svg";
 import LikeButton from "components/LikeButton/LikeButton";
 import Button from "components/Button/Button";
-import RestaurantRating from "components/RestaurantRating/RestaurantRating";
 import { UserContext } from "contexts/UserContext/UserContext";
 import "./BookItem.scss";
 
@@ -75,9 +74,6 @@ const BookItem = ({ number, handleBookedUntil, props }) => {
                 <div className="availability">available</div>
               </div>
             )}
-          </div>
-          <div className="rating">
-            <RestaurantRating restaurantId={book.id} />
           </div>
           <div className="heart">
             <LikeButton itemDataAccessor="books" itemId={book.id} />
