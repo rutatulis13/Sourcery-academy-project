@@ -96,6 +96,14 @@
 
     &__text {
         padding: 0 40px;
+
+        &::-webkit-search-decoration,
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-results-button,
+        &::-webkit-search-results-decoration {
+            /* stylelint-disable-next-line property-no-vendor-prefix */
+            -webkit-appearance: none;
+        }
     }
 
     &__text-icon-wrapper {
