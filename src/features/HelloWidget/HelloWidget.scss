@@ -4,7 +4,7 @@ $font-size-clock: 100px;
 $line-height-clock: 118px;
 
 .hello-widget {
-    color: $color-text-title;
+    color: $color-text-main;
     font-weight: bold;
 
     &__clock {
@@ -13,8 +13,6 @@ $line-height-clock: 118px;
     }
 
     &__greeting {
-        font-size: $font-size-title;
-        line-height: $line-height-title;
         margin-top: 16px;
     }
 }

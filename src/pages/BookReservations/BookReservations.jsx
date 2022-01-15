@@ -3,10 +3,17 @@ import { useState, useEffect } from "react";
 import PageLayout from "components/PageLayout/PageLayout";
 import BookList from "components/BookList/BookList";
 import Pagination from "components/BookList/Pagination/Pagination";
+import ReservationsSearch from "components/ReservationsSearch/ReservationsSearch";
+import "./BookReservations.scss";
 
 const BookReservations = () => {
   //const [bookData, setBookData] = useState({});
   const [booksList, setBooksList] = useState([]);
+
+  const handleSearch = (filter, text, date) => {
+    // eslint-disable-next-line no-console
+    console.log(filter, text, date); // TODO: use these values for filtering
+  };
 
   useEffect(() => {
     fetch(
@@ -43,6 +50,9 @@ const BookReservations = () => {
 
   return (
     <PageLayout title="Book Reservations">
+      <div className="reservations-search-wrapper">
+        <ReservationsSearch onSearch={handleSearch} />
+      </div>
       {currentItems.length >= 0 && (
         <div className="list-block">
           <BookList
