@@ -3,6 +3,7 @@
 
 $font-size-clock: 100px;
 $line-height-clock: 1.18;
+$line-height-greeting: 1.16;
 
 .hello-widget {
     color: $color-text-main;
@@ -23,11 +24,13 @@ $line-height-clock: 1.18;
     }
 
     &__greeting {
+        font-size: $font-size-4xl;
+        line-height: $line-height-greeting;
         margin-top: 16px;
 
         @include mobile {
-            font-size: $font-size-title/5 * 4;
-            line-height: $line-height-title/5 * 4;
+            font-size: $font-size-4xl/5 * 4;
+            line-height: $line-height-greeting/5 * 4;
         }
     }
 }
