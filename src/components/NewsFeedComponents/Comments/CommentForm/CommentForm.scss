@@ -43,5 +43,6 @@ $color-post-button: #6a7889;
         @extend %caption-2;
         border-style: none;
         color: $color-post-button;
+        cursor: pointer;
     }
 }

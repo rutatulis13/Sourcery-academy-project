@@ -1,12 +1,19 @@
+@import '../../../../styles/mixins/mixins';
+
 $color-pause-button-background: #fff;
 $color-pause-button-image: #6e44ff;
 $z-index-progressbar: 30;
 
 .video {
+    height: 409px;
     position: relative;
 
+    @include tablet-s {
+        max-width: 769px;
+    }
+
     video {
-        height: 405px;
+        height: 100%;
         object-fit: cover;
         width: 100%;
     }

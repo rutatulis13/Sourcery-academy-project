@@ -3,18 +3,28 @@
 
 .button {
     @extend %button-large;
-    background-color: $color-button-purple;
+    background-color: $color-primary;
     border: unset;
     border-radius: 65px;
     color: $color-white;
+    cursor: pointer;
     padding: 8px 24px;
 
     &:focus,
     &:hover {
-        background-color: $color-button-dark-purple;
+        background-color: $color-primary-hover;
     }
 
     &:active {
-        background-color: $color-button-darkest-purple;
+        background-color: $color-primary-active;
+    }
+
+    &--medium {
+        @extend %caption-2;
+    }
+
+    &:disabled {
+        background-color: $color-primary-disabled;
+        color: $color-text-accent;
     }
 }

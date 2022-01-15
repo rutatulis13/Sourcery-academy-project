@@ -1,44 +1,105 @@
+// fonts:
 $font-main: 'Roboto', sans-serif;
 
-$font-size-header: 16px;
-$font-size-footer: 10px;
-$font-size-dropdown: 14px;
-$font-size-title: 36px;
-$line-height-title: 42px;
+// main font sizes:
+$font-size-2xs: 10px;
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-2xl: 24px;
+$font-size-3xl: 32px;
+$font-size-4xl: 36px;
+$font-size-5xl: 48px;
+$font-size-6xl: 60px;
 
-// caption:
-$font-size-caption-1: 14px;
-$font-size-caption-2: 12px;
+// restaurant category cards:
+$font-size-restaurant-category-card-title-small: $font-size-xl;
+$font-size-restaurant-category-card-text: $font-size-xs;
 
-// h2:
-$font-size-h2: 32px;
-$font-size-h2-alternative: 24px;
+// restaurant page:
+$font-size-restaurant-page-category: $font-size-xs;
+$font-size-restaurant-page-title: $font-size-5xl;
+
+// weather widget:
+$font-size-weather: $font-size-xs;
+$font-size-weather-temp: $font-size-6xl;
+$font-size-weather-cond: $font-size-xl;
+
+// variables for global styling and placeholders:
 
 // body:
-$font-size-body-small: 14px;
+$font-size-body: $font-size-base;
+$font-size-body-small: $font-size-sm;
 
 // button:
-$font-size-button-large: 14px;
+$font-size-button-large: $font-size-sm;
+
+// caption:
+$font-size-caption-1: $font-size-sm;
+$font-size-caption-2: $font-size-xs;
+
+// h1:
+$font-size-h1: $font-size-4xl;
+
+// h2:
+$font-size-h2: $font-size-3xl;
+$font-size-h2-alternative: $font-size-2xl;
+
+// h3:
+$font-size-h3: $font-size-2xl;
+$font-size-h3-alternative: $font-size-xl;
+
+// h4:
+$font-size-h4-alternative: $font-size-base;
 
 // tiny:
-$font-size-tiny: 10px;
+$font-size-tiny: $font-size-2xs;
 
-// breadcrumbs:
-$font-size-breadcrumbs: 12px;
-$font-weight-breadcrumbs: 500;
-$line-height-breadcrumbs: 18px;
+// global styling and placeholders:
 
-// restaurant card:
-$font-size-restaurant-card-primary: 24px;
-$font-size-restaurant-card-secondary: 10px;
+%body {
+    font-size: $font-size-body;
+    line-height: 1.5;
+}
 
-// restaurant rating:
-$font-size-restaurant-rating: 14px;
+%body-small {
+    font-size: $font-size-body-small;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.57;
+}
 
-// weather:
-$font-size-weather: 12px;
-$font-size-weather-temp: 60px;
-$font-size-weather-cond: 20px;
+%button-large {
+    font-size: $font-size-button-large;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.71;
+    text-transform: uppercase;
+}
+
+%caption-1 {
+    font-size: $font-size-caption-1;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.14;
+    text-transform: uppercase;
+}
+
+%caption-2 {
+    font-size: $font-size-caption-2;
+    font-weight: 500;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: $font-size-h1;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.17;
+}
 
 h2 {
     font-size: $font-size-h2;
@@ -51,14 +112,28 @@ h2 {
     font-size: $font-size-h2-alternative;
     font-style: normal;
     font-weight: 900;
-    line-height: 1.3;
+    line-height: 1.33;
 }
 
-%body-small {
-    font-size: $font-size-body-small;
+h3 {
+    font-size: $font-size-h3;
     font-style: normal;
-    font-weight: normal;
-    line-height: 1.57;
+    font-weight: 500;
+    line-height: 1.172;
+}
+
+%h3-alternative {
+    font-size: $font-size-h3-alternative;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+%h4-alternative {
+    font-size: $font-size-h4-alternative;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
 }
 
 %tiny {
@@ -66,29 +141,5 @@ h2 {
     font-style: normal;
     font-weight: 500;
     line-height: 1.5;
-    text-transform: uppercase;
-}
-
-%caption-1 {
-    font-size: $font-size-caption-1;
-    font-style: normal;
-    font-weight: bold;
-    line-height: 1.14;
-    text-transform: uppercase;
-}
-
-%caption-2 {
-    font-size: $font-size-caption-2;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.5;
-    text-transform: uppercase;
-}
-
-%button-large {
-    font-size: $font-size-button-large;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.71;
     text-transform: uppercase;
 }

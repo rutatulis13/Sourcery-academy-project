@@ -17,7 +17,7 @@
         max-width: 0;
         opacity: 0;
         overflow: hidden;
-        padding: 0;
+        padding: 2px 0 0;
         transition: 250ms ease-in;
 
         &--show {
@@ -38,7 +38,7 @@
     }
 
     .rating-value {
+        @extend %caption-1;
         color: $color-restaurant-rating-secondary;
-        font-size: $font-size-restaurant-rating;
     }
 }

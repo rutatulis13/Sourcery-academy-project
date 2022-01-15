@@ -3,6 +3,7 @@ import BirthdayCard from "components/NewsFeedComponents/BirthdayCard/BirthdayCar
 import PhotoCard from "components/NewsFeedComponents/PhotoCard/PhotoCard";
 import VideoCard from "components/NewsFeedComponents/VideoCard/VideoCard";
 import Modal from "components/Modal/Modal";
+import { MasonryItem } from "components/MasonryLayout/MasonryLayout";
 
 const NewsFeedSection = () => {
   const [stories, setStories] = useState([]);
@@ -42,33 +43,48 @@ const NewsFeedSection = () => {
         switch (storie.type) {
           case "birthday":
             return (
-              <BirthdayCard
-                key={`${index}_${storie.id}`}
-                storie={storie}
-                onLiked={UpdateStorie(storie.id)}
-                onDisliked={UpdateStorie(storie.id)}
-                toggleModal={toggleModal}
-              />
+              <MasonryItem
+                key={storie.id}
+                span={storie.type !== "birthday" ? 2 : undefined}
+              >
+                <BirthdayCard
+                  key={`${index}_${storie.id}`}
+                  storie={storie}
+                  onLiked={UpdateStorie(storie.id)}
+                  onDisliked={UpdateStorie(storie.id)}
+                  toggleModal={toggleModal}
+                />
+              </MasonryItem>
             );
           case "post":
             return (
-              <PhotoCard
-                key={`${index}_${storie.id}`}
-                storie={storie}
-                onLiked={UpdateStorie(storie.id)}
-                onDisliked={UpdateStorie(storie.id)}
-                toggleModal={toggleModal}
-              />
+              <MasonryItem
+                key={storie.id}
+                span={storie.type !== "birthday" ? 2 : undefined}
+              >
+                <PhotoCard
+                  key={`${index}_${storie.id}`}
+                  storie={storie}
+                  onLiked={UpdateStorie(storie.id)}
+                  onDisliked={UpdateStorie(storie.id)}
+                  toggleModal={toggleModal}
+                />
+              </MasonryItem>
             );
           case "video":
             return (
-              <VideoCard
-                key={`${index}_${storie.id}`}
-                storie={storie}
-                onLiked={UpdateStorie(storie.id)}
-                onDisliked={UpdateStorie(storie.id)}
-                toggleModal={toggleModal}
-              />
+              <MasonryItem
+                key={storie.id}
+                span={storie.type !== "birthday" ? 2 : undefined}
+              >
+                <VideoCard
+                  key={`${index}_${storie.id}`}
+                  storie={storie}
+                  onLiked={UpdateStorie(storie.id)}
+                  onDisliked={UpdateStorie(storie.id)}
+                  toggleModal={toggleModal}
+                />
+              </MasonryItem>
             );
           default:
             return "";
