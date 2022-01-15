@@ -27,6 +27,10 @@ $color-very-light-grey: #c5d1d4;
     text-align: center;
     width: 120px;
 
+    @include mobile {
+        display: none;
+    }
+
     &__image {
         height: 100%;
         width: auto;
@@ -164,6 +168,7 @@ $color-very-light-grey: #c5d1d4;
     @include mobile {
         border-radius: 0;
         height: 170px;
+        margin: 6px 0;
         padding: 24px 16px;
         width: 100vw;
     }

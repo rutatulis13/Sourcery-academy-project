@@ -10,6 +10,7 @@ $font-size-14: 14px;
 
 .pagination-block {
     display: flex;
+    margin-top: 16px;
 
     &__page-button {
         background: $color-white;

@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import PageLayout from "components/PageLayout/PageLayout";
 import BookList from "components/BookList/BookList";
 import Pagination from "components/BookList/Pagination/Pagination";
-import "../../components/BookList/BookList.scss";
 
 const BookReservations = () => {
   //const [bookData, setBookData] = useState({});

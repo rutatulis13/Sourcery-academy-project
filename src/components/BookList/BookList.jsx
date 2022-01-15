@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import BookItem from "components/BookList/BookItem/BookItem";
+import "../../components/BookList/BookList.scss";
 
 const BookList = ({ books = [], handleBookedUntil }) => {
   return (
