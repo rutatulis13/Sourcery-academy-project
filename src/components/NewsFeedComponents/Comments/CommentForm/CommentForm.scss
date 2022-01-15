@@ -15,6 +15,7 @@ $color-post-button: #6a7889;
 
     &__input {
         align-items: center;
+        border-radius: none;
         display: flex;
         margin-right: 12px;
         width: 100%;
@@ -30,7 +31,9 @@ $color-post-button: #6a7889;
         input {
             @extend %tiny;
             border-style: none;
+            height: 24px;
             line-height: 11px;
+            //padding: 0 8px 0 8px;
             text-transform: none;
             width: calc(100% - 36px);
         }

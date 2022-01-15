@@ -2,8 +2,8 @@
 @import '../../../../styles/mixins/mixins';
 
 .comment {
+    max-width: 384px;
     position: relative;
-    width: 100%;
 
     &__header {
         @extend %tiny;
@@ -27,5 +27,6 @@
         display: block;
         overflow-wrap: break-word;
         text-transform: none;
+        width: 100%;
     }
 }

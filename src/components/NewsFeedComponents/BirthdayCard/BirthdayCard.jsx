@@ -1,17 +1,38 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./BirthdayCard.scss";
-import LikeButtonCounter from "../LikeButtonCounter/LikeButtonCounter";
 import { ReactComponent as Message } from "assets/message-icon.svg";
 import Divider from "../Divider/Divider";
 import moment from "moment";
 import Comments from "../Comments/Comments";
+import LikeButton from "components/LikeButton/LikeButton";
 
-const BirthdayCard = ({ onStorieChange, toggleModal, storie, modalCard }) => {
+const BirthdayCard = ({
+  onStorieChange,
+  toggleModal,
+  storie,
+  modalCard,
+  onLiked,
+  onDisliked,
+}) => {
   const onSubmit = (comment) => {
     onStorieChange({
       ...storie,
       comments: [...storie.comments, comment],
+    });
+  };
+
+  const onLike = () => {
+    onLiked({
+      ...storie,
+      wishes: storie.wishes + 1,
+    });
+  };
+
+  const onDislike = () => {
+    onDisliked({
+      ...storie,
+      wishes: storie.wishes - 1,
     });
   };
 
@@ -30,14 +51,15 @@ const BirthdayCard = ({ onStorieChange, toggleModal, storie, modalCard }) => {
           <div className="birthday-card__content__body__wish">Send a wish!</div>
         </div>
         <Divider />
-        {/* <Comments comments={storie.comments} onSubmit={onSubmit} /> */}
         <div className="birthday-card__content__action">
-          <LikeButtonCounter
+          <LikeButton
             itemDataAccessor="stories"
             itemId={storie.id}
             icon="Gift"
-            defaultLikes={storie.wishes}
+            onLike={onLike}
+            onDislike={onDislike}
           />
+          <span>{storie.wishes}</span>
           <button
             onClick={() => {
               toggleModal(storie);
@@ -45,16 +67,13 @@ const BirthdayCard = ({ onStorieChange, toggleModal, storie, modalCard }) => {
           >
             <Message />
           </button>
-          {/* {showModal ? (
-            <Modal setShowModal={setShowModal}>
-              <Comments comments={storie.comments} onSubmit={onSubmit} />
-            </Modal>
-          ) : null} */}
           <span>{storie.comments.length}</span>
         </div>
-        {modalCard && (
-          <Comments comments={storie.comments} onSubmit={onSubmit} />
-        )}
+        <div className="birthday-card__content__comments">
+          {modalCard && (
+            <Comments comments={storie.comments} onSubmit={onSubmit} />
+          )}
+        </div>
       </div>
     </div>
   );
@@ -65,6 +84,8 @@ BirthdayCard.propTypes = {
   onStorieChange: PropTypes.func,
   toggleModal: PropTypes.func,
   modalCard: PropTypes.bool,
+  onLiked: PropTypes.func,
+  onDisliked: PropTypes.func,
 };
 
 export default BirthdayCard;

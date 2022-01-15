@@ -58,10 +58,13 @@
         align-items: center;
         display: flex;
         flex-direction: row;
+        margin: 0 16px 0 8px;
         width: 100%;
 
         button {
+            background: transparent;
             border-style: none;
+            cursor: pointer;
             margin-right: 8px;
         }
 
@@ -70,5 +73,10 @@
             color: $color-amount-of-likes;
             margin-right: 12px;
         }
+    }
+
+    &__comments {
+        margin: 0 16px;
+        position: relative;
     }
 }

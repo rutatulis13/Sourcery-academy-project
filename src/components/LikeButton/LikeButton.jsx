@@ -92,7 +92,7 @@ const LikeButton = ({ itemDataAccessor, itemId, icon, onLike, onDislike }) => {
   );
 };
 
-export const LikeButtonPropTypes = {
+LikeButton.propTypes = {
   itemDataAccessor: PropTypes.oneOf([
     "books",
     "devices",
@@ -104,7 +104,5 @@ export const LikeButtonPropTypes = {
   onLike: PropTypes.func,
   onDislike: PropTypes.func,
 };
-
-LikeButton.propTypes = LikeButtonPropTypes;
 
 export default LikeButton;

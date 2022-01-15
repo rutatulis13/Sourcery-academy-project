@@ -32,6 +32,7 @@ const NewsFeedSection = () => {
       const storiesCopy = [...stories];
       storiesCopy[index] = storie;
       setStories(storiesCopy);
+      setModalStorie(storie);
     };
   };
 
@@ -42,9 +43,10 @@ const NewsFeedSection = () => {
           case "birthday":
             return (
               <BirthdayCard
-                onStorieChange={UpdateStorie(storie.id)}
                 key={`${index}_${storie.id}`}
                 storie={storie}
+                onLiked={UpdateStorie(storie.id)}
+                onDisliked={UpdateStorie(storie.id)}
                 toggleModal={toggleModal}
               />
             );
@@ -53,6 +55,8 @@ const NewsFeedSection = () => {
               <PhotoCard
                 key={`${index}_${storie.id}`}
                 storie={storie}
+                onLiked={UpdateStorie(storie.id)}
+                onDisliked={UpdateStorie(storie.id)}
                 toggleModal={toggleModal}
               />
             );
@@ -61,6 +65,8 @@ const NewsFeedSection = () => {
               <VideoCard
                 key={`${index}_${storie.id}`}
                 storie={storie}
+                onLiked={UpdateStorie(storie.id)}
+                onDisliked={UpdateStorie(storie.id)}
                 toggleModal={toggleModal}
               />
             );
@@ -75,6 +81,8 @@ const NewsFeedSection = () => {
               key={modalStorie.id}
               storie={modalStorie}
               onStorieChange={UpdateStorie(modalStorie.id)}
+              onLiked={UpdateStorie(modalStorie.id)}
+              onDisliked={UpdateStorie(modalStorie.id)}
               toggleModal={toggleModal}
               modalCard
             />
@@ -83,14 +91,22 @@ const NewsFeedSection = () => {
             <PhotoCard
               key={modalStorie.id}
               storie={modalStorie}
+              onStorieChange={UpdateStorie(modalStorie.id)}
+              onLiked={UpdateStorie(modalStorie.id)}
+              onDisliked={UpdateStorie(modalStorie.id)}
               toggleModal={toggleModal}
+              modalCard
             />
           )}
           {modalStorie.type === "video" && (
             <VideoCard
               key={modalStorie.id}
               storie={modalStorie}
+              onStorieChange={UpdateStorie(modalStorie.id)}
+              onLiked={UpdateStorie(modalStorie.id)}
+              onDisliked={UpdateStorie(modalStorie.id)}
               toggleModal={toggleModal}
+              modalCard
             />
           )}
         </Modal>

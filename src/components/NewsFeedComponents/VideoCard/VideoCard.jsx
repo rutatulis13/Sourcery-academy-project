@@ -1,12 +1,41 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./VideoCard.scss";
-import LikeButtonCounter from "../LikeButtonCounter/LikeButtonCounter";
 import Message from "assets/message-icon.svg";
 import Video from "./Video/Video";
 import moment from "moment";
+import Comments from "../Comments/Comments";
+import LikeButton from "components/LikeButton/LikeButton";
 
-const VideoCard = ({ storie, comments, toggleModal }) => {
+const VideoCard = ({
+  onStorieChange,
+  toggleModal,
+  storie,
+  modalCard,
+  onLiked,
+  onDisliked,
+}) => {
+  const onSubmit = (comment) => {
+    onStorieChange({
+      ...storie,
+      comments: [...storie.comments, comment],
+    });
+  };
+
+  const onLike = () => {
+    onLiked({
+      ...storie,
+      likes: storie.likes + 1,
+    });
+  };
+
+  const onDislike = () => {
+    onDisliked({
+      ...storie,
+      likes: storie.likes - 1,
+    });
+  };
+
   return (
     <div className="video-card">
       <div className="video-card__header">
@@ -18,18 +47,17 @@ const VideoCard = ({ storie, comments, toggleModal }) => {
         </div>
       </div>
       <div className="video-card__post-video">
-        {/* <video controls src={storie.postVideo}>
-          <track default kind="captions" />
-        </video> */}
         <Video src={storie.postVideo} />
       </div>
       <div className="video-card__action">
-        <LikeButtonCounter
+        <LikeButton
           itemDataAccessor="stories"
           itemId={storie.id}
           icon="Heart"
-          defaultLikes={storie.likes}
+          onLike={onLike}
+          onDislike={onDislike}
         />
+        <span>{storie.likes}</span>
         <button
           onClick={() => {
             toggleModal(storie);
@@ -39,14 +67,22 @@ const VideoCard = ({ storie, comments, toggleModal }) => {
         </button>
         <span>{storie.comments.length}</span>
       </div>
+      <div className="video-card__comments">
+        {modalCard && (
+          <Comments comments={storie.comments} onSubmit={onSubmit} />
+        )}
+      </div>
     </div>
   );
 };
 
 VideoCard.propTypes = {
   storie: PropTypes.object,
-  comments: PropTypes.object,
+  onStorieChange: PropTypes.func,
   toggleModal: PropTypes.func,
+  modalCard: PropTypes.bool,
+  onLiked: PropTypes.func,
+  onDisliked: PropTypes.func,
 };
 
 export default VideoCard;

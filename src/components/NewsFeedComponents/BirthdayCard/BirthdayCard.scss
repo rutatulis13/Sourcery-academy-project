@@ -6,8 +6,6 @@ $birthday-card-z-index: 1;
 .birthday-card {
     align-items: center;
     background: none;
-    flex-direction: column;
-    height: 230.438px;
     margin-bottom: 50px;
     max-width: 416px;
     position: relative;
@@ -35,10 +33,10 @@ $birthday-card-z-index: 1;
         display: flex;
         flex-direction: column;
         margin-bottom: 50px;
+        margin-top: -35px;
         max-width: 416px;
         padding: 16px;
         position: relative;
-        top: -35px;
 
         &__body {
             @extend %caption-2;
@@ -70,11 +68,13 @@ $birthday-card-z-index: 1;
             align-items: center;
             display: flex;
             flex-direction: row;
-            margin-top: 16px;
+            margin: 16px 0 0 -16px;
             width: 100%;
 
             button {
+                background: transparent;
                 border-style: none;
+                cursor: pointer;
                 margin-right: 8px;
             }
 
@@ -83,6 +83,11 @@ $birthday-card-z-index: 1;
                 color: $color-amount-of-likes;
                 margin-right: 12px;
             }
+        }
+
+        &__comments {
+            max-width: 100%;
+            position: relative;
         }
     }
 }
