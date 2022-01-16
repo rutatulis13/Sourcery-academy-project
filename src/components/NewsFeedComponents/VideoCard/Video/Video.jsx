@@ -87,8 +87,8 @@ const Video = (props) => {
 };
 
 Video.propTypes = {
-  src: PropTypes.any,
-  id: PropTypes.any,
+  src: PropTypes.node,
+  id: PropTypes.node,
 };
 
 export default Video;

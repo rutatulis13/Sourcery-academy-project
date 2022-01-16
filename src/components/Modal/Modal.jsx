@@ -37,8 +37,8 @@ const Modal = (props) => {
 };
 
 Modal.propTypes = {
-  updateModalState: PropTypes.any,
-  children: PropTypes.any,
+  updateModalState: PropTypes.node,
+  children: PropTypes.node,
   setShowModal: PropTypes.func,
 };
 
