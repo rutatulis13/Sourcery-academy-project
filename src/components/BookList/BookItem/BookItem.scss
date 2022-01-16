@@ -1,23 +1,12 @@
 @import '../../../styles/base/base';
 @import '../../../styles/mixins/mixins';
 
-$color-white: #fff;
-$color-red: #ff6e75;
-$color-green: #7bf1a8;
-$color-dark-grey: #3e5067;
-$color-light-grey: #6a7889;
-$color-dark-blue: #001836;
-$font-size-12: 12px;
-$font-size-16: 16px;
-$font-size-24: 24px;
-$color-transparent: transparent;
-$color-very-light-grey: #c5d1d4;
-
 .book-card {
     background: $color-white;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     display: flex;
+    font-family: $font-main;
     height: 160px;
     margin: 12px 0;
     max-width: 1018px;
@@ -59,19 +48,17 @@ $color-very-light-grey: #c5d1d4;
     }
 
     &__author {
-        color: $color-light-grey;
-        font-family: $font-main;
-        font-size: $font-size-12;
+        color: $color-gray-3;
+        font-size: $font-size-xs;
         font-style: normal;
         font-weight: 500;
         text-transform: uppercase;
     }
 
     &__title {
-        color: $color-dark-blue;
+        color: $color-gray-1;
         display: block;
-        font-family: $font-main;
-        font-size: $font-size-24;
+        font-size: $font-size-2xl;
         font-weight: 500;
         margin: 4px 0;
         overflow: hidden;
@@ -79,7 +66,6 @@ $color-very-light-grey: #c5d1d4;
         white-space: pre;
 
         @include mobile {
-            font-size: $font-size-16;
             width: 200px;
         }
 
@@ -121,9 +107,9 @@ $color-very-light-grey: #c5d1d4;
     }
 
     &__availability {
-        color: $color-dark-grey;
-        font-family: $font-main;
-        font-size: $font-size-12;
+        color: $color-gray-2;
+
+        font-size: $font-size-xs;
         font-style: normal;
         font-weight: 500;
         margin-left: 8px;
@@ -148,10 +134,9 @@ $color-very-light-grey: #c5d1d4;
         &__view-more {
             background-color: $color-transparent;
             border-style: none;
-            color: $color-light-grey;
+            color: $color-gray-3;
             cursor: pointer;
-            font-family: $font-main;
-            font-size: $font-size-12;
+            font-size: $font-size-xs;
             font-style: normal;
             font-weight: 500;
             margin-right: 16px;
@@ -161,15 +146,15 @@ $color-very-light-grey: #c5d1d4;
 
             &:focus,
             &:hover {
-                color: $color-dark-grey;
+                color: $color-gray-2;
             }
 
             &:active {
-                color: $color-dark-blue;
+                color: $color-gray-1;
             }
 
             &:disabled {
-                color: $color-very-light-grey;
+                color: $color-gray-7;
             }
         }
     }

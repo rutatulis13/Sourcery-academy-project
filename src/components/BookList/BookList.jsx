@@ -12,7 +12,7 @@ const BookList = ({ books = [], handleBookedUntil }) => {
             <BookItem
               number={index}
               handleBookedUntil={handleBookedUntil}
-              props={book}
+              bookData={book}
             />
           </li>
         ))}
