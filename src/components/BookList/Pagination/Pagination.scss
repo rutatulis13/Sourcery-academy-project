@@ -2,22 +2,16 @@
 @import '../../../styles/fonts/fonts';
 @import '../../../styles/mixins/mixins';
 
-$color-white: #fff;
-$color-purple: #6e44ff;
-$color-border-light-blue: #cacfd5;
-$color-dark-blue: #3e5067;
-$font-size-14: 14px;
-
 .pagination-block {
     display: flex;
     margin-top: 16px;
 
     &__page-button {
         background: $color-white;
-        border: 1px solid $color-border-light-blue;
+        border: 1px solid $color-border;
         border-radius: 5px;
-        color: $color-dark-blue;
-        font-size: $font-size-14;
+        color: $color-text-main;
+        font-size: $font-size-sm;
         font-weight: 900;
         height: 32px;
         margin-right: 16px;
@@ -31,12 +25,12 @@ $font-size-14: 14px;
         }
 
         &:active {
-            background: $color-purple;
+            background: $color-primary;
             color: $color-white;
         }
 
         &--current {
-            background: $color-purple;
+            background: $color-primary;
             color: $color-white;
         }
     }

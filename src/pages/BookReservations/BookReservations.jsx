@@ -7,8 +7,12 @@ import ReservationsSearch from "components/ReservationsSearch/ReservationsSearch
 import "./BookReservations.scss";
 
 const BookReservations = () => {
-  //const [bookData, setBookData] = useState({});
   const [booksList, setBooksList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(6);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = booksList.slice(indexOfFirstItem, indexOfLastItem);
 
   const handleSearch = (filter, text, date) => {
     // eslint-disable-next-line no-console
@@ -26,16 +30,9 @@ const BookReservations = () => {
         throw response;
       })
       .then((data) => {
-        //setBookData(data.books);
         setBooksList(data.books.bookList);
       });
   }, []);
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(6);
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = booksList.slice(indexOfFirstItem, indexOfLastItem);
 
   const changePage = (pageNumber) => {
     setCurrentPage(pageNumber);
