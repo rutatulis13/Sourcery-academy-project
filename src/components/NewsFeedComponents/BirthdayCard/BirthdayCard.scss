@@ -107,3 +107,13 @@ $birthday-card-z-index: 1;
         text-align: center;
     }
 }
+
+@include mobile {
+    .birthday-card__content__body__date span {
+        white-space: pre;
+    }
+
+    .birthday-card__content__body__date {
+        text-align: center;
+    }
+}

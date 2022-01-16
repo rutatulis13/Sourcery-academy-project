@@ -1,8 +1,4 @@
 @import '../../../../styles/base/base';
-@import '../../../../styles/mixins/mixins';
-
-// button text color:
-$color-post-button: #6a7889;
 
 .comment-form {
     align-items: center;
@@ -15,7 +11,6 @@ $color-post-button: #6a7889;
 
     &__input {
         align-items: center;
-        border-radius: none;
         display: flex;
         margin-right: 12px;
         width: 100%;
@@ -31,18 +26,34 @@ $color-post-button: #6a7889;
         input {
             @extend %tiny;
             border-style: none;
+            color: $color-text-main;
             height: 24px;
             line-height: 11px;
-            //padding: 0 8px 0 8px;
+            padding: 13px 16px;
             text-transform: none;
             width: calc(100% - 36px);
+
+            &::placeholder {
+                color: $color-text-accent;
+            }
+
+            &:focus {
+                border: 1px solid $color-text-main;
+                border-radius: 5px;
+                outline: none;
+            }
+
+            &:hover {
+                border: 1px solid $color-text-main;
+                border-radius: 5px;
+            }
         }
     }
 
     button {
         @extend %caption-2;
         border-style: none;
-        color: $color-post-button;
+        color: $color-text-main-alt;
         cursor: pointer;
     }
 }
