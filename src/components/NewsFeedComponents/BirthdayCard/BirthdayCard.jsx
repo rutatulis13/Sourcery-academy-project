@@ -46,7 +46,9 @@ const BirthdayCard = ({
           {storie.userName}
           <div className="birthday-card__content__body__date">
             Celebrated a birthday on{" "}
-            <span>{moment(storie.birthdayDate).format("MMM Do")}</span>
+            <span style={{ fontWeight: "500" }}>
+              {moment(storie.birthdayDate).format("MMM Do")}
+            </span>
           </div>
           <div className="birthday-card__content__body__wish">Send a wish!</div>
         </div>

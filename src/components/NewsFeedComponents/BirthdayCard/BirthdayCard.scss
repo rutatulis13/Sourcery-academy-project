@@ -60,7 +60,7 @@ $birthday-card-z-index: 1;
             width: 100%;
 
             &__date {
-                font-weight: 500;
+                font-weight: normal;
                 line-height: 16px;
                 text-transform: none;
             }
@@ -95,5 +95,15 @@ $birthday-card-z-index: 1;
             max-width: 100%;
             position: relative;
         }
+    }
+}
+
+@include tablet-l {
+    .birthday-card__content__body__date span {
+        white-space: pre;
+    }
+
+    .birthday-card__content__body__date {
+        text-align: center;
     }
 }
