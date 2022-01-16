@@ -8,13 +8,12 @@ const BookList = ({ books = [], handleBookedUntil }) => {
     <ul id="list" className="list-block__list">
       {books.length > 0 &&
         books.map((book, index) => (
-          <li key={book.id}>
-            <BookItem
-              number={index}
-              handleBookedUntil={handleBookedUntil}
-              bookData={book}
-            />
-          </li>
+          <BookItem
+            key={book.id}
+            number={index}
+            handleBookedUntil={handleBookedUntil}
+            bookData={book}
+          />
         ))}
     </ul>
   );

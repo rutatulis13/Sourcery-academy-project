@@ -36,7 +36,7 @@ const BookItem = ({ number, handleBookedUntil, bookData }) => {
   };
 
   return (
-    <>
+    <li>
       {bookData !== undefined && userData.reservations?.books !== undefined && (
         <div className="book-card">
           <figure className="book-card__image-container">
@@ -108,7 +108,7 @@ const BookItem = ({ number, handleBookedUntil, bookData }) => {
           </div>
         </div>
       )}
-    </>
+    </li>
   );
 };
 
