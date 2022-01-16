@@ -18,7 +18,6 @@ $line-height-clock: 1.18;
 
         @include mobile {
             font-size: $font-size-clock/3 * 2;
-            line-height: $line-height-clock/3 * 2;
         }
     }
 
