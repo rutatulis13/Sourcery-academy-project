@@ -5,7 +5,7 @@ import "../../components/BookList/BookList.scss";
 
 const BookList = ({ books = [], handleBookedUntil }) => {
   return (
-    <ul id="list" className="list">
+    <ul id="list" className="list-block__list">
       {books.length > 0 &&
         books.map((book, index) => (
           <li key={book.id}>

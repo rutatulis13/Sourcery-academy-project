@@ -13,147 +13,7 @@ $font-size-24: 24px;
 $color-transparent: transparent;
 $color-very-light-grey: #c5d1d4;
 
-.list {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-}
-
-.image-container {
-    box-sizing: border-box;
-    height: 128px;
-    margin-right: 8px;
-    text-align: center;
-    width: 120px;
-
-    @include mobile {
-        display: none;
-    }
-
-    &__image {
-        height: 100%;
-        width: auto;
-    }
-}
-
-.author {
-    color: $color-light-grey;
-    font-family: $font-main;
-    font-size: $font-size-12;
-    font-style: normal;
-    font-weight: 500;
-    text-transform: uppercase;
-}
-
-.book-title {
-    color: $color-dark-blue;
-    display: block;
-    font-family: $font-main;
-    font-size: $font-size-24;
-    font-weight: 500;
-    margin: 4px 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: pre;
-
-    @include mobile {
-        font-size: $font-size-16;
-        width: 200px;
-    }
-
-    @include tablet-s {
-        width: 300px;
-    }
-    @include tablet-l {
-        width: 400px;
-    }
-
-    @include laptop {
-        width: 590px;
-    }
-
-    @include desktop {
-        width: 800px;
-    }
-}
-
-.mark {
-    border-radius: 50%;
-    height: 18px;
-    text-align: center;
-    width: 18px;
-
-    &__icon {
-        filter: brightness(10);
-        height: 16px;
-        width: 16px;
-
-        &__check {
-            background-color: $color-green;
-        }
-
-        &__cross {
-            background-color: $color-red;
-        }
-    }
-}
-
-.availability {
-    color: $color-dark-grey;
-    font-family: $font-main;
-    font-size: $font-size-12;
-    font-style: normal;
-    font-weight: 500;
-    margin-left: 8px;
-    text-transform: uppercase;
-}
-
-.view-more {
-    background-color: $color-transparent;
-    border-style: none;
-    color: $color-light-grey;
-    cursor: pointer;
-    font-family: $font-main;
-    font-size: $font-size-12;
-    font-style: normal;
-    font-weight: 500;
-    margin-right: 16px;
-    text-align: center;
-    text-transform: uppercase;
-    width: fit-content;
-
-    &:focus,
-    &:hover {
-        color: $color-dark-grey;
-    }
-
-    &:active {
-        color: $color-dark-blue;
-    }
-
-    &:disabled {
-        color: $color-very-light-grey;
-    }
-}
-
-.buttons-in-corner {
-    bottom: 16px;
-    position: absolute;
-    right: 16px;
-    @include mobile {
-        bottom: 8px;
-        right: 16px;
-    }
-}
-
-.heart {
-    position: absolute;
-    right: 0;
-    top: 8px;
-}
-
-.item-container {
+.book-card {
     background: $color-white;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
@@ -180,6 +40,139 @@ $color-very-light-grey: #c5d1d4;
     @include tablet-l {
         width: 70vw;
     }
+
+    &__image-container {
+        box-sizing: border-box;
+        height: 128px;
+        margin-right: 8px;
+        text-align: center;
+        width: 120px;
+
+        @include mobile {
+            display: none;
+        }
+
+        &__image {
+            height: 100%;
+            width: auto;
+        }
+    }
+
+    &__author {
+        color: $color-light-grey;
+        font-family: $font-main;
+        font-size: $font-size-12;
+        font-style: normal;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        color: $color-dark-blue;
+        display: block;
+        font-family: $font-main;
+        font-size: $font-size-24;
+        font-weight: 500;
+        margin: 4px 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: pre;
+
+        @include mobile {
+            font-size: $font-size-16;
+            width: 200px;
+        }
+
+        @include tablet-s {
+            width: 300px;
+        }
+        @include tablet-l {
+            width: 400px;
+        }
+
+        @include laptop {
+            width: 590px;
+        }
+
+        @include desktop {
+            width: 800px;
+        }
+    }
+
+    &__mark {
+        border-radius: 50%;
+        height: 18px;
+        text-align: center;
+        width: 18px;
+
+        &__icon {
+            filter: brightness(10);
+            height: 16px;
+            width: 16px;
+
+            &__check {
+                background-color: $color-green;
+            }
+
+            &__cross {
+                background-color: $color-red;
+            }
+        }
+    }
+
+    &__availability {
+        color: $color-dark-grey;
+        font-family: $font-main;
+        font-size: $font-size-12;
+        font-style: normal;
+        font-weight: 500;
+        margin-left: 8px;
+        text-transform: uppercase;
+    }
+
+    &__heart {
+        position: absolute;
+        right: 8px;
+        top: 16px;
+    }
+
+    &__corner-buttons {
+        bottom: 16px;
+        position: absolute;
+        right: 16px;
+        @include mobile {
+            bottom: 8px;
+            right: 16px;
+        }
+
+        &__view-more {
+            background-color: $color-transparent;
+            border-style: none;
+            color: $color-light-grey;
+            cursor: pointer;
+            font-family: $font-main;
+            font-size: $font-size-12;
+            font-style: normal;
+            font-weight: 500;
+            margin-right: 16px;
+            text-align: center;
+            text-transform: uppercase;
+            width: fit-content;
+
+            &:focus,
+            &:hover {
+                color: $color-dark-grey;
+            }
+
+            &:active {
+                color: $color-dark-blue;
+            }
+
+            &:disabled {
+                color: $color-very-light-grey;
+            }
+        }
+    }
 }
 
 .flexbox {
@@ -192,15 +185,5 @@ $color-very-light-grey: #c5d1d4;
 
     &__space-between {
         align-content: space-between;
-    }
-}
-
-.rating {
-    bottom: 16px;
-    left: 142px;
-    position: absolute;
-
-    @include mobile {
-        bottom: 54px;
     }
 }

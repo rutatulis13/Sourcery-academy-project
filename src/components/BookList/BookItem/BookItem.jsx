@@ -40,19 +40,23 @@ const BookItem = ({ number, handleBookedUntil, props }) => {
   return (
     <>
       {book !== undefined && userData.reservations?.books !== undefined && (
-        <div className="item-container">
-          <div className="image-container">
-            <img className="image-container__image" src={book.image} alt="" />
-          </div>
+        <div className="book-card">
+          <figure className="book-card__image-container">
+            <img
+              className="book-card__image-container__image"
+              src={book.image}
+              alt=""
+            />
+          </figure>
           <div>
-            <div className="author">{book.author}</div>
-            <div className="book-title">{book.title}</div>
+            <div className="book-card__author">{book.author}</div>
+            <div className="book-card__title">{book.title}</div>
             {book.bookedUntil !== null ? (
               <div className="flexbox">
-                <figure className="mark mark__icon__cross">
-                  <img className="mark__icon" src={cross} alt="" />
+                <figure className="book-card__mark book-card__mark__icon__cross">
+                  <img className="book-card__mark__icon" src={cross} alt="" />
                 </figure>
-                <div className="availability">
+                <div className="book-card__availability">
                   booked until {book.bookedUntil}
                 </div>
               </div>
@@ -61,25 +65,27 @@ const BookItem = ({ number, handleBookedUntil, props }) => {
                 (e) => e.id === book.id
               ) !== -1 ? (
               <div className="flexbox">
-                <figure className="mark mark__icon__cross">
-                  <img className="mark__icon" src={cross} alt="" />
+                <figure className="book-card__mark book-card__mark__icon__cross">
+                  <img className="book-card__mark__icon" src={cross} alt="" />
                 </figure>
-                <div className="availability">booked</div>
+                <div className="book-card__availability">booked</div>
               </div>
             ) : (
               <div className="flexbox">
-                <figure className="mark mark__icon__check">
-                  <img className="mark__icon" src={check} alt="" />
+                <figure className="book-card__mark book-card__mark__icon__check">
+                  <img className="book-card__mark__icon" src={check} alt="" />
                 </figure>
-                <div className="availability">available</div>
+                <div className="book-card__availability">available</div>
               </div>
             )}
           </div>
-          <div className="heart">
+          <div className="book-card__heart">
             <LikeButton itemDataAccessor="books" itemId={book.id} />
           </div>
-          <div className="buttons-in-corner">
-            <button className="view-more">view more</button>
+          <div className="book-card__corner-buttons">
+            <button className="book-card__corner-buttons__view-more">
+              view more
+            </button>
 
             {userData.reservations?.books.findIndex((e) => e.id === book.id) !==
             -1 ? (
