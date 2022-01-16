@@ -17,8 +17,8 @@ $line-height-clock: 1.18;
         line-height: $line-height-clock;
 
         @include mobile {
-            font-size: $font-size-clock/5 * 4;
-            line-height: $line-height-clock/5 * 4;
+            font-size: $font-size-clock/3 * 2;
+            line-height: $line-height-clock/3 * 2;
         }
     }
 
@@ -26,7 +26,7 @@ $line-height-clock: 1.18;
         margin-top: 16px;
 
         @include mobile {
-            font-size: $font-size-h1/5 * 4;
+            font-size: $font-size-h1/3 * 2;
         }
     }
 }
