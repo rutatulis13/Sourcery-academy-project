@@ -12,6 +12,10 @@ $z-index-progressbar: 30;
         max-width: 769px;
     }
 
+    @include tablet-l {
+        height: 349px;
+    }
+
     video {
         height: 100%;
         object-fit: cover;

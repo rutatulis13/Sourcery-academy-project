@@ -53,6 +53,10 @@
             max-width: 769px;
         }
 
+        @include tablet-l {
+            height: 349px;
+        }
+
         img {
             height: 100%;
             object-fit: cover;
