@@ -10,6 +10,8 @@
     &__avatar {
         border-radius: 50%;
         height: 40px;
+        object-fit: cover;
+        object-position: 0 35%;
         width: 40px;
     }
 
