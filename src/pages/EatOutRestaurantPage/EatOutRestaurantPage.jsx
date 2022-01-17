@@ -55,7 +55,11 @@ const EatOutRestaurantPage = () => {
           ></div>
           <div className="restaurant-page-banner__content">
             <div className="restaurant-page-banner__breadcrumbs-wrapper">
-              <Breadcrumbs />
+              <Breadcrumbs
+                dark
+                maxLevels="3"
+                lastLinkText={restaurantsData[restaurantIndex].name}
+              />
             </div>
             <div className="restaurant-page-banner__categories">
               {restaurantsData[restaurantIndex].categories.map((value) => (
