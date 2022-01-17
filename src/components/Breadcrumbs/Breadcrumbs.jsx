@@ -25,7 +25,7 @@ const Breadcrumbs = () => {
 
   return (
     <nav>
-      <ul className="breadcrumbs-list">
+      <ul className="breadcrumbs-list" aria-label="breadcrumbs navigation">
         {breadcrumbsArray.map((page, index) => (
           <li className="breadcrumbs-list__item" key={`${page.name}_${index}`}>
             {index > 0 && <ChevronRightSvg />}
