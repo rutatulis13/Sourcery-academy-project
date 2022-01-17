@@ -32,9 +32,6 @@ const UserWidgetComponent = () => {
     if (e.keyCode === 27) {
       setDropdownOpen(false);
     }
-    // if (e.keyCode === 13) {
-    //   setDropdownOpen(true);
-    // }
   };
 
   useEffect(() => {
@@ -55,7 +52,6 @@ const UserWidgetComponent = () => {
         ref={node}
         className="user-widget__button"
         onClick={(e) => setDropdownOpen(!dropdownOpen)}
-        onKeyPress={() => {}}
       >
         {userData && (
           <img
