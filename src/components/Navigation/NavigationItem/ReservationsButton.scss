@@ -1,0 +1,63 @@
+@import '../../../styles/base/base';
+
+.reservations-dropdown {
+    display: inline-block;
+    position: relative;
+    @media (max-width: 850px) {
+        width: 100%;
+    }
+
+    &__button {
+        @extend %h4-alternative;
+        align-items: center;
+        background: none;
+        border: 0;
+        color: $color-white;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        height: 80px;
+        justify-content: center;
+        left: 0;
+        padding: 0 25px;
+        right: 0;
+        width: 100%;
+
+        &:hover,
+        &:focus {
+            background-color: $color-bg-nav-active-link;
+        }
+
+        &--active {
+            background-color: $color-bg-nav-active-link;
+        }
+
+        &--icon {
+            height: 24px;
+            padding-right: 17px;
+            width: auto;
+        }
+    }
+
+    &__menu {
+        background-color: $color-bg-topbar;
+        @media (min-width: 501px) {
+            border-top: 1px solid $color-bg-nav-active-link;
+            display: block;
+            position: absolute;
+            width: 100%;
+        }
+        @media (max-width: 500px) {
+            flex-direction: column;
+        }
+    }
+
+    &__menu li {
+        border-bottom: 1px solid $color-bg-nav-active-link;
+        text-align: center;
+    }
+
+    &__menu img {
+        display: none;
+    }
+}

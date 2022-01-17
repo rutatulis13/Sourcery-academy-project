@@ -4,10 +4,18 @@ import { NavLink } from "react-router-dom";
 import classNames from "classnames/bind";
 import "./NavigationItem.scss";
 
-const NavigationItem = ({ route, icon, iconAlt, pageName }) => {
+const NavigationItem = ({
+  route,
+  icon,
+  iconAlt,
+  pageName,
+  isMobile,
+  closeMobileMenu,
+}) => {
   return (
     <li>
       <NavLink
+        onClick={() => closeMobileMenu(isMobile)}
         to={route}
         className={({ isActive }) =>
           classNames({
@@ -28,6 +36,8 @@ NavigationItem.propTypes = {
   icon: PropTypes.string,
   iconAlt: PropTypes.string,
   pageName: PropTypes.string,
+  isMobile: PropTypes.bool,
+  closeMobileMenu: PropTypes.func,
 };
 
 export default NavigationItem;
