@@ -14,6 +14,7 @@ const ReservationsButton = (props) => {
   return (
     <div className="reservations-dropdown">
       <button
+        aria-expanded="false"
         type="button"
         tabIndex="0"
         className={buttonClasses}

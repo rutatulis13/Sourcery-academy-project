@@ -35,10 +35,10 @@
     }
 
     &__mobile-nav-section {
-        @media (max-width: 849px) {
+        @media (max-width: 850px) {
             padding-left: 15px;
         }
-        @media (min-width: 850px) {
+        @media (min-width: 851px) {
             display: none;
         }
     }

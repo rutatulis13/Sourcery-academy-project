@@ -14,7 +14,7 @@ const TopBar = () => {
   const closeMobileMenu = () => setNavbarOpen(!navbarOpen);
 
   useEffect(() => {
-    let handleOutsideClick = (e) => {
+    const handleOutsideClick = (e) => {
       if (
         !mobileNavigationRef.current.contains(e.target) &&
         !navigationRef.current.contains(e.target)
@@ -24,8 +24,8 @@ const TopBar = () => {
     };
     document.addEventListener("mousedown", handleOutsideClick);
 
-    let handleKeyboardClick = (e) => {
-      if (e.keyCode === 27 || e.keyCode === 13) {
+    const handleKeyboardClick = (e) => {
+      if (e.keyCode === 27) {
         setNavbarOpen(false);
       }
     };
@@ -35,7 +35,7 @@ const TopBar = () => {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.addEventListener("keydown", handleKeyboardClick);
     };
-  });
+  }, []);
   return (
     <header className="top-bar">
       <div className="top-bar__content">

@@ -12,18 +12,15 @@ const MobileNavigation = (props) => {
   const closeMobileMenu = () => setNavbarOpen(!navbarOpen);
 
   useEffect(() => {
-    let handleOutsideClick = (e) => {
+    const handleOutsideClick = (e) => {
       if (!navigationRef.current.contains(e.target)) {
         setNavbarOpen(false);
       }
     };
     document.addEventListener("mousedown", handleOutsideClick);
 
-    let handleKeyboardClick = (e) => {
+    const handleKeyboardClick = (e) => {
       if (e.keyCode === 27) {
-        setNavbarOpen(false);
-      }
-      if (e.keyCode === 13) {
         setNavbarOpen(false);
       }
     };
@@ -33,11 +30,12 @@ const MobileNavigation = (props) => {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.addEventListener("keydown", handleKeyboardClick);
     };
-  });
+  }, []);
 
   return (
     <div className="mobile-navigation" ref={navigationRef}>
       <button
+        aria-expanded="false"
         type="button"
         tabIndex="0"
         className="mobile-navigation__button"
