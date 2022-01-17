@@ -36,6 +36,10 @@ const ReservationsButton = (props) => {
             route="/reservations/devices"
             pageName="Device Reservations"
           />
+          <NavigationItem
+            route="/reservations/meeting-rooms"
+            pageName="Meeting Rooms"
+          />
         </div>
       ) : null}
     </div>

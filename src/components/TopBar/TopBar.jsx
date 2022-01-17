@@ -4,6 +4,7 @@ import Navigation from "components/Navigation/Navigation";
 import UserWidget from "../UserWidget/UserWidget.jsx";
 import MobileNavigation from "../Navigation/MobileNavigation/MobileNavigation.jsx";
 import logo from "assets/logo-nav.svg";
+import notification from "../../assets/notification.svg";
 import "./TopBar.scss";
 
 const TopBar = () => {
@@ -51,6 +52,11 @@ const TopBar = () => {
         </div>
         <div className="top-bar__user-mobile-nav-section">
           <div className="top-bar__user-section">
+            <img
+              src={notification}
+              alt="notification"
+              className="top-bar__notification"
+            />
             <UserWidget />
           </div>
           <div
