@@ -1,6 +1,6 @@
 @import '../../styles/base/typography';
 @import '../../styles/base/colors';
-$hover-bright-grey: #edeff1;
+
 $hover-border-radius: 3.5px;
 $list-size: 24px;
 $grey-triangle-length: 8px;
@@ -10,8 +10,8 @@ $white-triangle-length: 6px;
     position: absolute;
 
     &__content {
-        background-color: $color-white;
-        border: 1px solid $color-border-primary;
+        background-color: $color-base;
+        border: 1px solid $color-border;
         border-radius: 5px;
         list-style: none;
         min-width: 200px;
@@ -20,11 +20,11 @@ $white-triangle-length: 6px;
         top: 10px;
 
         li {
-            font-size: $font-size-dropdown;
+            @extend %body-small;
             padding: 15px 16px;
 
             &:hover {
-                background-color: $hover-bright-grey;
+                background-color: $color-base-hover;
             }
 
             a {
@@ -59,7 +59,7 @@ $white-triangle-length: 6px;
         }
 
         &::before {
-            border-bottom-color: $color-border-primary;
+            border-bottom-color: $color-border;
             border-width: $grey-triangle-length;
             margin-left: -$grey-triangle-length;
         }

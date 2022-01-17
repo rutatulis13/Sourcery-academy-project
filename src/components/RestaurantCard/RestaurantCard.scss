@@ -2,9 +2,9 @@
 @import '../../styles/mixins/mixins';
 
 .restaurant-card {
-    background-color: $color-bg-restaurant-card;
+    background-color: $color-base;
     border-radius: 8px;
-    box-shadow: $box-shadow-main;
+    box-shadow: $box-shadow-base;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -70,10 +70,9 @@
         }
 
         div {
+            @extend %caption-1;
             color: $color-restaurant-rating-primary;
             display: block;
-            font-size: $font-size-restaurant-rating;
-            font-weight: 700;
             padding-left: 8px;
         }
     }
@@ -88,10 +87,8 @@
     }
 
     &__categories {
-        color: $color-text-restaurant-card-secondary;
-        font-size: $font-size-restaurant-card-secondary;
-        font-weight: 500;
-        text-transform: uppercase;
+        @extend %tiny;
+        color: $color-text-main-alt;
 
         svg {
             margin: 0 8px 1px 14px;
@@ -105,7 +102,7 @@
         justify-content: space-between;
 
         a {
-            color: $color-text-restaurant-card-primary;
+            color: $color-text-strong;
             overflow: hidden;
             text-decoration: none;
             text-overflow: ellipsis;
@@ -114,10 +111,9 @@
     }
 
     &__time {
-        color: $color-text-restaurant-card-secondary;
-        font-size: $font-size-restaurant-card-secondary;
-        font-weight: 500;
-        margin-top: 4px;
+        @extend %tiny;
+        color: $color-text-main-alt;
+        margin-top: 2px;
     }
 
     &__info-icon {
@@ -133,7 +129,7 @@
 
     &__website-link {
         @extend %caption-2;
-        color: $color-text-restaurant-card-details;
+        color: $color-text-main;
         margin: 4px;
 
         &:not(:hover) {
@@ -148,14 +144,14 @@
         margin-bottom: 12px;
 
         span {
-            color: $color-text-restaurant-card-details;
+            color: $color-text-main;
             margin: 4px;
         }
     }
 
     &__description {
         @extend %body;
-        color: $color-text-restaurant-card-secondary;
+        color: $color-text-main-alt;
         min-height: 72px;
     }
 
@@ -168,7 +164,7 @@
 
     &__read-more-link {
         @extend %caption-2;
-        color: $color-text-restaurant-card-secondary;
+        color: $color-text-main-alt;
         margin: 4px 8px;
         padding: 4px 8px;
         text-decoration: none;
