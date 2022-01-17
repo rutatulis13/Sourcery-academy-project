@@ -75,7 +75,7 @@ const EatOutRestaurantPage = () => {
               {restaurantsData[restaurantIndex].name}
             </h1>
             <div className="restaurant-actions-bar">
-              <div className="restaurant-actions-bar__actions-group">
+              <div className="restaurant-actions-bar__actions-group restaurant-actions-bar__actions-group--ratings">
                 <RestaurantRating restaurantId={params.restaurantId} />
                 <LikeButton
                   itemDataAccessor="restaurants"
