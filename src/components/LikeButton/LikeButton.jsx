@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames/bind";
 import "./LikeButton.scss";
-import "./GiftButton.scss";
 import { UserContext } from "contexts/UserContext/UserContext";
 import { ReactComponent as Heart } from "assets/heart.svg";
 import { ReactComponent as Gift } from "assets/gift.svg";
@@ -58,12 +57,12 @@ const LikeButton = ({ itemDataAccessor, itemId, icon, onLike, onDislike }) => {
     }
   };
 
-  const heartIconClasses = classNames("heart__icon", {
-    "heart__icon--filled": isItemLiked,
+  const heartIconClasses = classNames("icon__heart", {
+    "icon__heart--filled": isItemLiked,
   });
 
-  const giftIconClasses = classNames("gift__icon", {
-    "gift__icon--filled": isItemLiked,
+  const giftIconClasses = classNames("icon__gift", {
+    "icon__gift--filled": isItemLiked,
   });
 
   const Image = (props) => {
@@ -82,7 +81,7 @@ const LikeButton = ({ itemDataAccessor, itemId, icon, onLike, onDislike }) => {
     Object.keys(userData).length > 0 && (
       <button
         type="button"
-        className="heart"
+        className="icon"
         aria-label={`${isItemLiked ? "Unlike" : "Like"} the item`}
         onClick={clickHandler}
       >

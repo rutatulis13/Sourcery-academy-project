@@ -16,6 +16,10 @@ $z-index-progressbar: 30;
         height: 349px;
     }
 
+    @include mobile {
+        height: 349px;
+    }
+
     video {
         height: 100%;
         object-fit: cover;

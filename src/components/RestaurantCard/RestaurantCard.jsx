@@ -80,7 +80,11 @@ const RestaurantCard = ({ restaurant, large }) => {
           <Link to={`/eat-out/restaurant/${restaurant.id}`}>
             <h3>{restaurant.name}</h3>
           </Link>
-          <LikeButton itemDataAccessor="restaurants" itemId={restaurant.id} />
+          <LikeButton
+            itemDataAccessor="restaurants"
+            itemId={restaurant.id}
+            icon="Heart"
+          />
         </div>
         <div className="restaurant-card__time">
           {getTodayWorkingHours(restaurant.openingHours)}

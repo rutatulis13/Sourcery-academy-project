@@ -6,14 +6,14 @@ const Modal = (props) => {
   let modalRef = useRef();
 
   useEffect(() => {
-    let handleOutsideClick = (e) => {
+    const handleOutsideClick = (e) => {
       if (modalRef.current && !modalRef.current.contains(e.target)) {
         props.setShowModal(false);
       }
     };
     document.addEventListener("mousedown", handleOutsideClick);
 
-    let handleKeyboardClick = (e) => {
+    const handleKeyboardClick = (e) => {
       if (e.keyCode === 27) {
         props.setShowModal(false);
       }
@@ -29,7 +29,6 @@ const Modal = (props) => {
   return (
     <div className="modal">
       <div ref={modalRef} className="modal__body">
-        {/* <button onClick={props.updateModalState}>Hide Me</button> */}
         {props.children}
       </div>
     </div>

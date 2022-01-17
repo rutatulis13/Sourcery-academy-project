@@ -57,6 +57,10 @@
             height: 349px;
         }
 
+        @include mobile {
+            height: 349px;
+        }
+
         img {
             height: 100%;
             object-fit: cover;
