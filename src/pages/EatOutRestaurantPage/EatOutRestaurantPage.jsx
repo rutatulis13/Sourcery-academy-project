@@ -57,7 +57,7 @@ const EatOutRestaurantPage = () => {
             <div className="restaurant-page-banner__breadcrumbs-wrapper">
               <Breadcrumbs
                 dark
-                maxLevels="3"
+                maxLevel={3}
                 lastLinkText={restaurantsData[restaurantIndex].name}
               />
             </div>

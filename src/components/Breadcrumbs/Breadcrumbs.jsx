@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { ReactComponent as ChevronRightSvg } from "assets/chevron-right.svg";
 import "./Breadcrumbs.scss";
 
-const Breadcrumbs = ({ dark, lastLinkText, maxLevels }) => {
+const Breadcrumbs = ({ dark, lastLinkText, maxLevel }) => {
   const routerLocation = useLocation();
   const [breadcrumbsArray, setBreadcrumbsArray] = useState([]);
 
@@ -22,22 +22,22 @@ const Breadcrumbs = ({ dark, lastLinkText, maxLevels }) => {
         ];
       }
     }
-    if (maxLevels) {
-      if (maxLevels > 2 && _breadcrumbsArray.length > maxLevels) {
-        const __breadcrumbsArray = _breadcrumbsArray.slice(0, maxLevels - 1);
+    if (maxLevel) {
+      if (maxLevel > 2 && _breadcrumbsArray.length > maxLevel) {
+        const __breadcrumbsArray = _breadcrumbsArray.slice(0, maxLevel - 1);
         __breadcrumbsArray.push(
           _breadcrumbsArray[_breadcrumbsArray.length - 1]
         );
         _breadcrumbsArray = __breadcrumbsArray;
       } else {
-        _breadcrumbsArray = _breadcrumbsArray.slice(0, maxLevels);
+        _breadcrumbsArray = _breadcrumbsArray.slice(0, maxLevel);
       }
     }
     if (lastLinkText) {
       _breadcrumbsArray[_breadcrumbsArray.length - 1].name = lastLinkText;
     }
     setBreadcrumbsArray(_breadcrumbsArray);
-  }, [routerLocation, lastLinkText, maxLevels]);
+  }, [routerLocation, lastLinkText, maxLevel]);
 
   return (
     <nav>
@@ -63,7 +63,7 @@ const Breadcrumbs = ({ dark, lastLinkText, maxLevels }) => {
 Breadcrumbs.propTypes = {
   dark: PropTypes.bool,
   lastLinkText: PropTypes.string,
-  maxLevels: PropTypes.number,
+  maxLevel: PropTypes.number,
 };
 
 export default Breadcrumbs;
