@@ -1,11 +1,10 @@
 @import '../../../styles/base/base';
 
 .categories__link {
-    background: $color-white;
+    background: $color-base;
     border-radius: 8px;
-    box-shadow: $box-shadow-card-small;
+    box-shadow: $box-shadow-lg;
     display: flex;
-    font-family: $font-main;
     height: 98px;
     padding: 24px;
     position: relative;
@@ -19,19 +18,17 @@
     }
 
     &-title {
+        @extend %h2-alternative;
         color: $color-text-main;
-        font-size: $font-size-h2-alternative;
-        font-weight: 900;
-        line-height: 32px;
         text-transform: capitalize;
-        @media (min-width: 481px) and (max-width: 533px) {
-            font-size: $font-size-title-small;
+        @media (min-width: 481px) and (max-width: 540px) {
+            font-size: $font-size-restaurant-category-card-title-small;
         }
     }
 
     &-text {
         color: $color-text-main;
-        font-size: $font-size-text;
+        font-size: $font-size-restaurant-category-card-text;
         font-weight: 500;
         line-height: 150%;
         text-transform: uppercase;

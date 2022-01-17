@@ -10,7 +10,7 @@ import "./Navigation.scss";
 const Navigation = (props) => {
   return (
     <nav className="navbar">
-      <ul className="navbar__link-section">
+      <ul className="navbar__link-section" aria-label="main navigation">
         <NavigationItem
           route="/"
           icon={home}

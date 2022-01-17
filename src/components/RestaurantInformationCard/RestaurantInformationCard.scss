@@ -2,8 +2,8 @@
 @import '../../styles/mixins/mixins';
 
 .restaurant-information-card {
-    background-color: $color-bg-restaurant-card;
-    box-shadow: $box-shadow-main;
+    background-color: $color-base;
+    box-shadow: $box-shadow-base;
     display: grid;
     gap: 28px;
     grid-template-columns: 1fr 1fr;
@@ -37,7 +37,7 @@
 
     &__item-name {
         @extend %h3-alternative;
-        color: $color-text-restaurant-page-section-title;
+        color: $color-text-main;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -45,8 +45,7 @@
 
     &__item-value {
         @extend %caption-1;
-        color: $color-text-restaurant-page-details;
-        font-weight: 700;
+        color: $color-text-main-alt;
         overflow: hidden;
         text-overflow: ellipsis;
 

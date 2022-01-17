@@ -37,7 +37,6 @@ const MobileNavigation = (props) => {
       <button
         aria-expanded="false"
         type="button"
-        tabIndex="0"
         className="mobile-navigation__button"
         onClick={closeMobileMenu}
       >

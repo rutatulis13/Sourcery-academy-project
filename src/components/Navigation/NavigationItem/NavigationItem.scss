@@ -6,27 +6,26 @@
     }
 
     &__link-item {
+        @extend %h4-alternative;
         align-items: center;
-        color: $color-white;
+        color: $color-base;
         display: flex;
-        flex-direction: row;
-        font-family: $font-main;
-        font-size: $font-size-header;
-        font-weight: 500;
         height: 80px;
         justify-content: center;
-        line-height: 24px;
         padding: 0 25px;
         text-decoration: none;
 
-        &:hover {
-            background-color: $color-bg-hover;
+        &:hover,
+        &:focus {
+            background-color: $color-primary-hover;
+        }
+
+        &:active {
+            background-color: $color-primary-active;
         }
 
         &--active {
-            @media (min-width: 501px) {
-                background-color: $color-bg-hover;
-            }
+            background-color: $color-bg-nav-active-link;
         }
     }
 }

@@ -32,9 +32,9 @@ const UserWidgetComponent = () => {
     if (e.keyCode === 27) {
       setDropdownOpen(false);
     }
-    if (e.keyCode === 13) {
-      setDropdownOpen(true);
-    }
+    // if (e.keyCode === 13) {
+    //   setDropdownOpen(true);
+    // }
   };
 
   useEffect(() => {
@@ -49,28 +49,29 @@ const UserWidgetComponent = () => {
   const { userData } = useContext(UserContext);
 
   return (
-    <div
-      ref={node}
-      className="user-widget"
-      role="button"
-      tabIndex="0"
-      onClick={(e) => setDropdownOpen(!dropdownOpen)}
-      onKeyPress={() => {}}
-    >
-      {userData && (
-        <img
-          src={userData.userImage}
-          alt="avatar"
-          className="user-widget__avatar"
-        />
-      )}
-      <div className="user-widget__badge">
-        <img
-          src={badgeImage}
-          alt="heart"
-          className="user-widget__badge-heart"
-        />
-      </div>
+    <div className="user-widget">
+      <button
+        type="button"
+        ref={node}
+        className="user-widget__button"
+        onClick={(e) => setDropdownOpen(!dropdownOpen)}
+        onKeyPress={() => {}}
+      >
+        {userData && (
+          <img
+            src={userData.userImage}
+            alt="avatar"
+            className="user-widget__avatar"
+          />
+        )}
+        <div className="user-widget__badge">
+          <img
+            src={badgeImage}
+            alt="heart"
+            className="user-widget__badge-heart"
+          />
+        </div>
+      </button>
       {dropdownOpen && <DropdownComponent dropdownItems={dropdownItems} />}
     </div>
   );

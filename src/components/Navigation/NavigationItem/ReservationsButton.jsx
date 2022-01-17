@@ -16,7 +16,6 @@ const ReservationsButton = (props) => {
       <button
         aria-expanded="false"
         type="button"
-        tabIndex="0"
         className={buttonClasses}
         onClick={props.onClick}
       >
