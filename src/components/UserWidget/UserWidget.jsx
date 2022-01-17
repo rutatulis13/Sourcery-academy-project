@@ -48,6 +48,7 @@ const UserWidgetComponent = () => {
   return (
     <div className="user-widget">
       <button
+        aria-expanded="false"
         type="button"
         ref={node}
         className="user-widget__button"
