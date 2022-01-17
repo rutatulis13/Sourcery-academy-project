@@ -5,12 +5,13 @@ import check from "../../../assets/reservations/checkmark.svg";
 import LikeButton from "components/LikeButton/LikeButton";
 import Button from "components/Button/Button";
 import { UserContext } from "contexts/UserContext/UserContext";
-import "./BookItem.scss";
+import "./Item.scss";
 
 const BookItem = ({ number, handleBookedUntil, bookData }) => {
   const { userData, setUserData } = useContext(UserContext);
-  let isBooked = false;
 
+  const date = bookData?.bookedUntil?.split("-").reverse().join("/");
+  let isBooked = false;
   const handleReservations = () => {
     let index = userData.reservations.books.findIndex(
       (e) => e.id === bookData.id
@@ -38,50 +39,52 @@ const BookItem = ({ number, handleBookedUntil, bookData }) => {
   return (
     <li>
       {bookData !== undefined && userData.reservations?.books !== undefined && (
-        <div className="book-card">
-          <figure className="book-card__image-container">
+        <div className="item-card">
+          <figure className="item-card__image-container">
             <img
-              className="book-card__image-container__image"
+              className="item-card__image-container__image"
               src={bookData.image}
               alt=""
             />
           </figure>
           <div>
-            <div className="book-card__author">{bookData.author}</div>
-            <div className="book-card__title">{bookData.title}</div>
+            <div className="item-card__author">{bookData.author}</div>
+            <div className="item-card__title">{bookData.title}</div>
             {bookData.bookedUntil !== null ? (
               <div className="flexbox">
-                <figure className="book-card__mark book-card__mark__icon__cross">
-                  <img className="book-card__mark__icon" src={cross} alt="" />
+                <figure className="item-card__mark item-card__mark__icon__cross">
+                  <img className="item-card__mark__icon" src={cross} alt="" />
                 </figure>
-                <div className="book-card__availability">
-                  booked until {bookData.bookedUntil}
-                </div>
+                {date && (
+                  <div className="item-card__availability">
+                    booked until {date}
+                  </div>
+                )}
               </div>
             ) : isBooked ||
               userData.reservations?.books.findIndex(
                 (e) => e.id === bookData.id
               ) !== -1 ? (
               <div className="flexbox">
-                <figure className="book-card__mark book-card__mark__icon__cross">
-                  <img className="book-card__mark__icon" src={cross} alt="" />
+                <figure className="item-card__mark item-card__mark__icon__cross">
+                  <img className="item-card__mark__icon" src={cross} alt="" />
                 </figure>
-                <div className="book-card__availability">booked</div>
+                <div className="item-card__availability">booked</div>
               </div>
             ) : (
               <div className="flexbox">
-                <figure className="book-card__mark book-card__mark__icon__check">
-                  <img className="book-card__mark__icon" src={check} alt="" />
+                <figure className="item-card__mark item-card__mark__icon__check">
+                  <img className="item-card__mark__icon" src={check} alt="" />
                 </figure>
-                <div className="book-card__availability">available</div>
+                <div className="item-card__availability">available</div>
               </div>
             )}
           </div>
-          <div className="book-card__heart">
+          <div className="item-card__heart">
             <LikeButton itemDataAccessor="books" itemId={bookData.id} />
           </div>
-          <div className="book-card__corner-buttons">
-            <button className="book-card__corner-buttons__view-more">
+          <div className="item-card__corner-buttons">
+            <button className="item-card__corner-buttons__view-more">
               view more
             </button>
 

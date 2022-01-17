@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import PageLayout from "components/PageLayout/PageLayout";
-import BookList from "components/BookList/BookList";
-import Pagination from "components/BookList/Pagination/Pagination";
+import ItemList from "components/ItemList/ItemList";
+import Pagination from "components/ItemList/Pagination/Pagination";
 import ReservationsSearch from "components/ReservationsSearch/ReservationsSearch";
 import "./BookReservations.scss";
 
@@ -16,7 +16,7 @@ const BookReservations = () => {
 
   const handleSearch = (filter, text, date) => {
     // eslint-disable-next-line no-console
-    console.log(filter, text, date); // TODO: use these values for filtering
+    //console.log(filter, text, date); // TODO: use these values for filtering
   };
 
   useEffect(() => {
@@ -52,9 +52,10 @@ const BookReservations = () => {
       </div>
       {currentItems.length >= 0 && (
         <div className="list-block">
-          <BookList
-            books={currentItems}
+          <ItemList
             handleBookedUntil={changeBookedUntil}
+            items={currentItems}
+            isBooks={true}
           />
           <Pagination
             itemsPerPage={itemsPerPage}
