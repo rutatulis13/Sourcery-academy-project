@@ -1,7 +1,6 @@
 @import '../../../../styles/mixins/mixins';
+@import '../../../../styles/base/colors';
 
-$color-pause-button-background: #fff;
-$color-pause-button-image: #6e44ff;
 $z-index-progressbar: 30;
 
 .video {
@@ -57,7 +56,7 @@ $z-index-progressbar: 30;
         width: 100%;
 
         &__progressbar {
-            background-color: $color-pause-button-background;
+            background-color: $color-base;
             border-radius: 15px;
             height: 5px;
             margin: 0 20px;
@@ -66,14 +65,14 @@ $z-index-progressbar: 30;
             z-index: $z-index-progressbar;
 
             &__time {
-                background-color: $color-pause-button-image;
+                background-color: $color-primary;
                 border-radius: 15px;
                 height: 100%;
             }
         }
 
         &__control {
-            color: $color-pause-button-background;
+            color: $color-base;
         }
     }
 
@@ -88,16 +87,16 @@ $z-index-progressbar: 30;
     cursor: pointer;
 
     path:nth-child(1) {
-        fill: $color-pause-button-background;
+        fill: $color-base;
         stroke: none;
     }
 
     path:nth-child(2) {
-        stroke: $color-pause-button-image;
+        stroke: $color-primary;
     }
 
     path:nth-child(3) {
-        stroke: $color-pause-button-image;
+        stroke: $color-primary;
     }
 }
 
@@ -105,12 +104,12 @@ $z-index-progressbar: 30;
     cursor: pointer;
 
     path:nth-child(1) {
-        fill: $color-pause-button-background;
+        fill: $color-base;
         stroke: none;
     }
 
     path:nth-child(2) {
-        fill: $color-pause-button-image;
-        stroke: $color-pause-button-image;
+        fill: $color-primary;
+        stroke: $color-primary;
     }
 }
