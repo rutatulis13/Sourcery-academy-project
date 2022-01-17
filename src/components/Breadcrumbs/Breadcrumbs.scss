@@ -19,10 +19,18 @@
             @extend %caption-2;
             color: $color-text-accent;
             text-decoration: none;
+
+            &--dark {
+                color: $color-text-main-alt;
+            }
         }
 
         &:last-child > &-link {
             color: $color-text-main-alt;
+
+            &--dark {
+                color: $color-text-strong;
+            }
         }
     }
 }

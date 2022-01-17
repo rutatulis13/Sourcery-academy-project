@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./Breadcrumbs.scss";
-import { ReactComponent as ChevronRightSvg } from "assets/chevron-right.svg";
+import { PropTypes } from "prop-types";
 import { Link, useLocation } from "react-router-dom";
+import classNames from "classnames";
+import { ReactComponent as ChevronRightSvg } from "assets/chevron-right.svg";
+import "./Breadcrumbs.scss";
 
-const Breadcrumbs = () => {
+const Breadcrumbs = ({ dark, lastLinkText, maxLevels }) => {
   const routerLocation = useLocation();
   const [breadcrumbsArray, setBreadcrumbsArray] = useState([]);
 
@@ -20,8 +22,22 @@ const Breadcrumbs = () => {
         ];
       }
     }
+    if (maxLevels) {
+      if (maxLevels > 2 && _breadcrumbsArray.length > maxLevels) {
+        const __breadcrumbsArray = _breadcrumbsArray.slice(0, maxLevels - 1);
+        __breadcrumbsArray.push(
+          _breadcrumbsArray[_breadcrumbsArray.length - 1]
+        );
+        _breadcrumbsArray = __breadcrumbsArray;
+      } else {
+        _breadcrumbsArray = _breadcrumbsArray.slice(0, maxLevels);
+      }
+    }
+    if (lastLinkText) {
+      _breadcrumbsArray[_breadcrumbsArray.length - 1].name = lastLinkText;
+    }
     setBreadcrumbsArray(_breadcrumbsArray);
-  }, [routerLocation]);
+  }, [routerLocation, lastLinkText, maxLevels]);
 
   return (
     <nav>
@@ -29,7 +45,12 @@ const Breadcrumbs = () => {
         {breadcrumbsArray.map((page, index) => (
           <li className="breadcrumbs-list__item" key={`${page.name}_${index}`}>
             {index > 0 && <ChevronRightSvg />}
-            <Link className="breadcrumbs-list__item-link" to={page.path}>
+            <Link
+              className={classNames("breadcrumbs-list__item-link", {
+                "breadcrumbs-list__item-link--dark": dark,
+              })}
+              to={page.path}
+            >
               {page.name}
             </Link>
           </li>
@@ -37,6 +58,12 @@ const Breadcrumbs = () => {
       </ul>
     </nav>
   );
+};
+
+Breadcrumbs.propTypes = {
+  dark: PropTypes.bool,
+  lastLinkText: PropTypes.string,
+  maxLevels: PropTypes.number,
 };
 
 export default Breadcrumbs;
