@@ -106,49 +106,49 @@
         top: 16px;
     }
 
-    &__corner-buttons {
-        bottom: 16px;
-        position: absolute;
-        right: 16px;
-        @include mobile {
-            bottom: 8px;
-            right: 16px;
-        }
-
-        &__view-more {
-            background-color: $color-transparent;
-            border-style: none;
-            color: $color-gray-3;
-            cursor: pointer;
-            font-size: $font-size-xs;
-            font-style: normal;
-            font-weight: 500;
-            margin-right: 16px;
-            text-align: center;
-            text-transform: uppercase;
-            width: fit-content;
-
-            &:focus,
-            &:hover {
-                color: $color-gray-2;
-            }
-
-            &:active {
-                color: $color-gray-1;
-            }
-
-            &:disabled {
-                color: $color-gray-7;
-            }
-        }
-    }
-
     &__quantity {
         color: $color-gray-3;
         font-size: $font-size-xs;
         font-weight: 500;
         margin-top: 36px;
         text-transform: uppercase;
+    }
+}
+
+.corner-buttons {
+    bottom: 16px;
+    position: absolute;
+    right: 16px;
+    @include mobile {
+        bottom: 8px;
+        right: 16px;
+    }
+
+    &__view-more {
+        background-color: $color-transparent;
+        border-style: none;
+        color: $color-gray-3;
+        cursor: pointer;
+        font-size: $font-size-xs;
+        font-style: normal;
+        font-weight: 500;
+        margin-right: 16px;
+        text-align: center;
+        text-transform: uppercase;
+        width: fit-content;
+
+        &:focus,
+        &:hover {
+            color: $color-gray-2;
+        }
+
+        &:active {
+            color: $color-gray-1;
+        }
+
+        &:disabled {
+            color: $color-gray-7;
+        }
     }
 }
 

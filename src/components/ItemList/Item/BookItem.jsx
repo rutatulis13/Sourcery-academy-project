@@ -76,10 +76,8 @@ const BookItem = ({ number, handleBookedUntil, bookData }) => {
           <div className="item-card__heart">
             <LikeButton itemDataAccessor="books" itemId={bookData.id} />
           </div>
-          <div className="item-card__corner-buttons">
-            <button className="item-card__corner-buttons__view-more">
-              view more
-            </button>
+          <div className="corner-buttons">
+            <button className="corner-buttons__view-more">view more</button>
 
             <Button
               size="medium"

@@ -10,16 +10,11 @@ import "./Item.scss";
 const DeviceItem = ({ number, deviceData }) => {
   const { userData, setUserData } = useContext(UserContext);
   const [isAllBooked, setIsAllBooked] = useState(false); //needed this to be a state for redrawing
-  let isBooked = false;
+  const isBooked = userData.reservations?.devices.some(
+    (device) => device.id === deviceData.id
+  );
 
   const handleReservations = () => {
-    let index = userData.reservations.devices.findIndex(
-      (e) => e.id === deviceData.id
-    );
-    if (index >= 0) {
-      isBooked = true;
-    }
-
     if (deviceData.bookedUntil?.length + 1 === deviceData.quantity) {
       if (!isBooked) {
         setIsAllBooked(true);
@@ -41,8 +36,6 @@ const DeviceItem = ({ number, deviceData }) => {
       }
       return nextUserData;
     });
-
-    isBooked = !isBooked;
   };
 
   return (
@@ -80,33 +73,19 @@ const DeviceItem = ({ number, deviceData }) => {
                 quantity: {deviceData.quantity}
               </div>
             </div>
-            <div className="item-card__corner-buttons">
-              <button className="item-card__corner-buttons__view-more">
-                view more
-              </button>
-
-              {userData.reservations?.devices.findIndex(
-                (e) => e.id === deviceData.id
-              ) !== -1 ? (
-                <Button
-                  size="medium"
-                  id={`booking-button${number}`}
-                  onClick={handleReservations}
-                >
-                  return
-                </Button>
-              ) : (
-                <Button
-                  size="medium"
-                  id={`booking-button${number}`}
-                  onClick={handleReservations}
-                  disabled={
-                    deviceData.bookedUntil?.length === deviceData.quantity
-                  }
-                >
-                  book
-                </Button>
-              )}
+            <div className="corner-buttons">
+              <button className="corner-buttons__view-more">view more</button>
+              <Button
+                size="medium"
+                id={`booking-button${number}`}
+                onClick={handleReservations}
+                disabled={
+                  deviceData.quantity === 0 ||
+                  deviceData.bookedUntil?.length === deviceData.quantity
+                }
+              >
+                {isBooked ? "return" : "book"}
+              </Button>
             </div>
             <div className="item-card__heart">
               <LikeButton itemDataAccessor="devices" itemId={deviceData.id} />
