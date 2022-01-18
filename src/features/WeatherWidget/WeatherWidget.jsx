@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import thunder from "../../assets/weatherWidget/thunder.svg";
-import cloud from "../../assets/weatherWidget/cloud.svg";
-import rain from "../../assets/weatherWidget/rain.svg";
-import humidity from "../../assets/weatherWidget/humidity.svg";
-import snow from "../../assets/weatherWidget/snow.svg";
-import wind from "../../assets/weatherWidget/wind.svg";
-import sun from "../../assets/weatherWidget/sun.svg";
+import thunder from "../../assets/WeatherWidget/thunder.svg";
+import cloud from "../../assets/WeatherWidget/cloud.svg";
+import rain from "../../assets/WeatherWidget/rain.svg";
+import humidity from "../../assets/WeatherWidget/humidity.svg";
+import snow from "../../assets/WeatherWidget/snow.svg";
+import wind from "../../assets/WeatherWidget/wind.svg";
+import sun from "../../assets/WeatherWidget/sun.svg";
 import {
   getCurrentWeekDay,
   getCurrentDay,

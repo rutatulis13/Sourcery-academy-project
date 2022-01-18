@@ -1,0 +1,119 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+$birthday-card-z-index: 1;
+
+.birthday-card {
+    align-items: center;
+    background: none;
+    max-width: 416px;
+    position: relative;
+
+    @include tablet-s {
+        max-width: 769px;
+    }
+
+    &__image {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        z-index: $birthday-card-z-index;
+
+        img {
+            border-radius: 50%;
+            height: 70px;
+            object-fit: cover;
+            width: 70px;
+        }
+    }
+
+    &__content {
+        align-items: center;
+        background: $color-white;
+        border-radius: 8px;
+        box-shadow: $box-shadow-base;
+        display: flex;
+        flex-direction: column;
+        margin-top: -35px;
+        max-width: 416px;
+        padding: 16px;
+        position: relative;
+
+        @include tablet-s {
+            max-width: 769px;
+        }
+
+        &__body {
+            @extend %caption-2;
+            align-items: center;
+            background-image: url('../../../assets/birthday-decor.svg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            color: $color-text-strong;
+            display: flex;
+            flex-direction: column;
+            height: 102.44px;
+            justify-content: flex-end;
+            margin-bottom: 16px;
+            position: relative;
+            width: 100%;
+
+            &__date {
+                font-weight: normal;
+                line-height: 16px;
+                text-transform: none;
+            }
+
+            &__wish {
+                text-transform: none;
+            }
+        }
+
+        &__action {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            margin: 16px 0 0 -16px;
+            width: 100%;
+
+            button {
+                background: transparent;
+                border-style: none;
+                cursor: pointer;
+                margin-right: 8px;
+            }
+
+            span {
+                @extend %caption-2;
+                color: $color-card-likes;
+                margin-right: 12px;
+            }
+        }
+
+        &__comments {
+            max-width: 100%;
+            position: relative;
+        }
+    }
+}
+
+@include tablet-l {
+    .birthday-card__content__body__date span {
+        white-space: pre;
+    }
+
+    .birthday-card__content__body__date {
+        text-align: center;
+    }
+}
+
+@include mobile {
+    .birthday-card__content__body__date span {
+        white-space: pre;
+    }
+
+    .birthday-card__content__body__date {
+        text-align: center;
+    }
+}

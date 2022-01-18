@@ -42,6 +42,10 @@ $color-border: $color-gray-5;
 // like button (heart icon):
 $color-icon-heart-filled: $color-red;
 
+// like button (gift icon):
+$color-icon-gift-filled-top: $color-red;
+$color-icon-gift-filled-bottom: $color-yellow;
+
 // input colors:
 $color-input-placeholder: $color-gray-5;
 
@@ -61,3 +65,6 @@ $color-scrollbar-thumb-active: darken($color-scrollbar-thumb, 40%);
 // weather:
 $color-text-weather: rgba($color-base-inv, 0.5);
 $color-text-weather-temp: rgba($color-base-inv, 0.7);
+
+// card likes:
+$color-card-likes: #627485;
