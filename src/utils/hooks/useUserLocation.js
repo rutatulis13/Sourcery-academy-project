@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 
 export const useUserLocation = () => {
   const [userLocation, setUserLocation] = useState({
-    lat: "",
-    lng: "",
+    lat: null,
+    lng: null,
   });
 
   const onSuccess = (location) => {
@@ -15,8 +15,8 @@ export const useUserLocation = () => {
 
   const onError = (error) => {
     setUserLocation({
-      lat: "",
-      lng: "",
+      lat: null,
+      lng: null,
     });
   };
 

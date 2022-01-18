@@ -1,12 +1,8 @@
-function calculateDistance(lat1, lng1, lat2, lng2) {
-  if (lat1 === lat2 && lng1 === lng2) {
-    return 0;
-  }
+function calculateDistance(coordinates1, coordinates2) {
+  const radlat1 = (Math.PI * coordinates1.lat) / 180;
+  const radlat2 = (Math.PI * coordinates2.lat) / 180;
 
-  const radlat1 = (Math.PI * lat1) / 180;
-  const radlat2 = (Math.PI * lat2) / 180;
-
-  const theta = lng1 - lng2;
+  const theta = coordinates1.lng - coordinates2.lng;
   const radtheta = (Math.PI * theta) / 180;
 
   let distance =
@@ -16,7 +12,7 @@ function calculateDistance(lat1, lng1, lat2, lng2) {
   distance = Math.acos(distance);
   distance = (distance * 180) / Math.PI;
   distance = distance * 60 * 1.1515;
-  distance = distance * 1.609344; //convert miles to km
+  distance = distance * 1.609344;
 
   return distance;
 }
