@@ -9,6 +9,7 @@
     flex-direction: column;
     height: 176px;
     justify-content: space-between;
+    margin-right: 125px;
     max-width: 100%;
     padding: 9px 19px;
     position: relative;
@@ -26,6 +27,7 @@
         font-size: $font-size-weather;
         letter-spacing: 1px;
         text-transform: capitalize;
+        z-index: $z-index-text;
     }
 
     &__main {
@@ -45,6 +47,7 @@
         display: flex;
         font-size: $font-size-weather-cond;
         padding-bottom: 10px;
+        z-index: $z-index-text;
     }
 
     &__details {
@@ -62,16 +65,20 @@
         display: flex;
         gap: 6px;
         padding-top: 9px;
+        z-index: $z-index-text;
     }
 
     &__image {
         left: 100%;
         position: absolute;
-        top: 0;
+        top: -5px;
         transform: translateX(-53%);
 
         img {
             height: 201px;
+            @include mobile {
+                height: 130px;
+            }
         }
     }
 }
