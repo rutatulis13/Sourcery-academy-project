@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import thunder from "../../assets/WeatherWidget/thunder.svg";
 import cloud from "../../assets/WeatherWidget/cloud.svg";
 import rain from "../../assets/WeatherWidget/rain.svg";
@@ -12,17 +11,25 @@ import {
   getCurrentDay,
   getCurrentMonth,
 } from "../../utils/dates.js";
+import { useUserLocation } from "utils/hooks/useUserLocation";
 import "./WeatherWidget.scss";
 
-const WeatherWidget = ({ city }) => {
-  const [weatherData, setWeatherData] = useState([]);
+const WeatherWidget = () => {
+  const [weatherData, setWeatherData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const location = useUserLocation();
+  const lat = location.lat;
+  const lng = location.lng;
+
   useEffect(() => {
+    if (!lat || !lng) return;
     setIsLoading(true);
+    setError(null);
+
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
     )
       .then((res) => {
         if (!res.ok) {
@@ -41,7 +48,7 @@ const WeatherWidget = ({ city }) => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [city]);
+  }, [lat, lng]);
 
   const getTodayDate = () => {
     return `${getCurrentWeekDay()}, ${getCurrentDay()} ${getCurrentMonth()}`;
@@ -52,8 +59,18 @@ const WeatherWidget = ({ city }) => {
       case "Thunderstorm":
         return thunder;
       case "Clouds":
+      case "Dust":
+      case "Smoke":
+      case "Fog":
+      case "Sand":
+      case "Ash":
         return cloud;
       case "Rain":
+      case "Drizzle":
+      case "Mist":
+      case "Haze":
+      case "Squall":
+      case "Tornado":
         return rain;
       case "Snow":
         return snow;
@@ -70,8 +87,15 @@ const WeatherWidget = ({ city }) => {
   return (
     <div className="weather-widget">
       {error && <div className="weather-widget__message">{error}</div>}
-      {isLoading && <div className="weather-widget__message">Loading...</div>}
-      {weatherData.name && (
+      {(!lat || !lng) && (
+        <div className="weather-widget__message">
+          Geolocation is not supported
+        </div>
+      )}
+      {isLoading && (
+        <div className="weather-widget__message">Loading weather data...</div>
+      )}
+      {weatherData.name && lat && lng && (
         <>
           <div className="weather-widget__location">
             {getTodayDate()} | {weatherData.name},{" "}
@@ -107,10 +131,6 @@ const WeatherWidget = ({ city }) => {
       )}
     </div>
   );
-};
-
-WeatherWidget.propTypes = {
-  city: PropTypes.string.isRequired,
 };
 
 export default WeatherWidget;
