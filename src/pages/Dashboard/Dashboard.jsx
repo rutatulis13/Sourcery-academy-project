@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import EatOutSection from "features/EatOutSection/EatOutSection";
 import HelloWidget from "features/HelloWidget/HelloWidget";
+import WeatherWidget from "features/WeatherWidget/WeatherWidget";
 import MasonryLayout, {
   MasonryItem,
 } from "components/MasonryLayout/MasonryLayout";
+import "./Dashboard.scss";
 
 const Dashboard = () => {
   const [posts, setPosts] = useState([]);
@@ -34,7 +36,10 @@ const Dashboard = () => {
 
   return (
     <>
-      <HelloWidget />
+      <div className="dashboard">
+        <HelloWidget />
+        <WeatherWidget />
+      </div>
       <EatOutSection />
       {error && <div>{error}</div>}
       {isLoading && <div>Loading...</div>}
