@@ -1,0 +1,36 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+.pagination-block {
+    display: flex;
+    margin-top: 16px;
+
+    &__page-button {
+        background: $color-white;
+        border: 1px solid $color-border;
+        border-radius: 5px;
+        color: $color-text-main;
+        font-size: $font-size-sm;
+        font-weight: 900;
+        height: 32px;
+        margin-right: 16px;
+        padding: 8px 0;
+        text-align: center;
+        text-decoration: none;
+        width: 32px;
+
+        @include mobile {
+            margin-right: 6px;
+        }
+
+        &:active {
+            background: $color-primary;
+            color: $color-white;
+        }
+
+        &--current {
+            background: $color-primary;
+            color: $color-white;
+        }
+    }
+}
