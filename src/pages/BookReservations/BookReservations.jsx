@@ -9,7 +9,7 @@ import "./BookReservations.scss";
 const BookReservations = () => {
   const [booksList, setBooksList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(6);
+  const itemsPerPage = 6;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = booksList.slice(indexOfFirstItem, indexOfLastItem);

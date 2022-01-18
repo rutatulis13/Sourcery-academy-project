@@ -8,7 +8,7 @@ import ReservationsSearch from "components/ReservationsSearch/ReservationsSearch
 const DeviceReservations = () => {
   const [devicesList, setDevicesList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(6);
+  const itemsPerPage = 6;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = devicesList.slice(indexOfFirstItem, indexOfLastItem);
