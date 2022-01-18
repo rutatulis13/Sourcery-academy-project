@@ -21,12 +21,6 @@ const CommentForm = (props) => {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           placeholder="Leave a comment..."
-          // style={{
-          //   backgroundImage: `url(${props.userImage})`,
-          //   backgroundPosition: "left center",
-          //   backgroundSize: "24px 24px",
-          //   backgroundRepeat: "no-repeat",
-          // }}
         />
       </div>
       <button>POST</button>
