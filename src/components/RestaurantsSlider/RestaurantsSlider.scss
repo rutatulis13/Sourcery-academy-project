@@ -1,0 +1,55 @@
+@import './../../styles/base/base';
+
+.restaurants-slider {
+    &__title {
+        color: $color-gray-2;
+        font-size: $font-size-h2-alternative;
+        font-weight: 900;
+    }
+
+    &__header {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        margin-top: 82px;
+    }
+
+    &__buttons {
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    button {
+        background-color: $color-white;
+        border: 1px solid $color-gray-6;
+        cursor: pointer;
+        padding: 7px 9px;
+
+        &:nth-child(odd) {
+            border-radius: 5px 0 0 5px;
+        }
+
+        &:nth-child(even) {
+            border-radius: 0 5px 5px 0;
+        }
+
+        &:hover {
+            background-color: $color-gray-4;
+
+            path {
+                fill: $color-white;
+                stroke: $color-gray-4;
+            }
+        }
+
+        &:active {
+            background-color: $color-gray-2;
+
+            path {
+                fill: $color-white;
+                stroke: $color-gray-2;
+            }
+        }
+    }
+}

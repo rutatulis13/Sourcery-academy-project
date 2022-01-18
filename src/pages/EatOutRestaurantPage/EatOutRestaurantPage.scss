@@ -85,6 +85,18 @@ $image-url: 'https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=
         align-items: center;
         display: flex;
         gap: 8px;
+
+        @include mobile {
+            justify-content: center;
+        }
+
+        @include tablet-s {
+            justify-content: center;
+        }
+
+        &--ratings {
+            min-width: 196px;
+        }
     }
 
     &__check-in-info {

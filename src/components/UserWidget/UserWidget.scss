@@ -2,9 +2,17 @@
     cursor: pointer;
     float: right;
 
+    &__button {
+        background: none;
+        border: 0;
+        cursor: pointer;
+    }
+
     &__avatar {
         border-radius: 50%;
         height: 40px;
+        object-fit: cover;
+        object-position: 0 35%;
         width: 40px;
     }
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EatOutSection from "features/EatOutSection/EatOutSection";
+import ReservationsSection from "features/ReservationsSection/ReservationsSection";
 import HelloWidget from "features/HelloWidget/HelloWidget";
 import MasonryLayout, {
   MasonryItem,
@@ -35,6 +36,7 @@ const Dashboard = () => {
   return (
     <>
       <HelloWidget />
+      <ReservationsSection />
       <EatOutSection />
       {error && <div>{error}</div>}
       {isLoading && <div>Loading...</div>}

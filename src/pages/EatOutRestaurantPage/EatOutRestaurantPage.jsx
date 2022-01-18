@@ -55,7 +55,11 @@ const EatOutRestaurantPage = () => {
           ></div>
           <div className="restaurant-page-banner__content">
             <div className="restaurant-page-banner__breadcrumbs-wrapper">
-              <Breadcrumbs />
+              <Breadcrumbs
+                dark
+                maxLevel={3}
+                lastLinkText={restaurantsData[restaurantIndex].name}
+              />
             </div>
             <div className="restaurant-page-banner__categories">
               {restaurantsData[restaurantIndex].categories.map((value) => (
@@ -71,7 +75,7 @@ const EatOutRestaurantPage = () => {
               {restaurantsData[restaurantIndex].name}
             </h1>
             <div className="restaurant-actions-bar">
-              <div className="restaurant-actions-bar__actions-group">
+              <div className="restaurant-actions-bar__actions-group restaurant-actions-bar__actions-group--ratings">
                 <RestaurantRating restaurantId={params.restaurantId} />
                 <LikeButton
                   itemDataAccessor="restaurants"
