@@ -51,7 +51,9 @@ const DeviceItem = ({ number, deviceData }) => {
           </figure>
           <div className="item-card__info-wrapper">
             <div className="item-card__brand">{deviceData.brand}</div>
-            <div className="item-card__title">{deviceData.name}</div>
+            <div className="item-card__title">
+              <span className="item-card__title-text">{deviceData.name}</span>
+            </div>
             {deviceData.bookedUntil?.length === deviceData.quantity ||
             isAllBooked ? (
               <div className="flexbox">
