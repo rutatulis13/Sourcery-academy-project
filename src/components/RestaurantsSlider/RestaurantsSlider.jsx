@@ -30,12 +30,20 @@ const RestaurantsSlider = ({ title, restaurants }) => {
     <div className="restaurants-slider">
       <div className="restaurants-slider__header">
         <h2 className="restaurants-slider__title">{title}</h2>
-        <div className="restaurants-slider__buttons">
-          <button onClick={handlePrev} disabled={isFirstPage}>
-            <ArrowLeft className="restaurants-slider__buttons__arrow" />
+        <div>
+          <button
+            onClick={handlePrev}
+            disabled={isFirstPage}
+            className="restaurants-slider__button"
+          >
+            <ArrowLeft />
           </button>
-          <button onClick={handleNext} disabled={isLastPage}>
-            <ArrowRight className="restaurants-slider__buttons__arrow" />
+          <button
+            onClick={handleNext}
+            disabled={isLastPage}
+            className="restaurants-slider__button"
+          >
+            <ArrowRight />
           </button>
         </div>
       </div>

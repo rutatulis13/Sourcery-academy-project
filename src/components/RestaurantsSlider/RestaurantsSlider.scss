@@ -15,12 +15,7 @@
         margin-top: 82px;
     }
 
-    &__buttons {
-        align-items: center;
-        justify-content: flex-end;
-    }
-
-    button {
+    &__button {
         background-color: $color-white;
         border: 1px solid $color-gray-6;
         cursor: pointer;
