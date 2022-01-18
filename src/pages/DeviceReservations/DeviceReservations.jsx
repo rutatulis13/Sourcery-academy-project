@@ -69,8 +69,8 @@ const DeviceReservations = () => {
         // filter from buttons:
         if (
           filter === "Favorites" &&
-          userData?.liked?.books &&
-          !userData.liked.books.some(({ id }) => id === listItem.id)
+          userData?.liked?.devices &&
+          !userData.liked.devices.some(({ id }) => id === listItem.id)
         ) {
           isFiltered = false;
         } else if (filter === "Available" && listItem.bookedUntil != null) {
