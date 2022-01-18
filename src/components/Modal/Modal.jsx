@@ -22,7 +22,7 @@ const Modal = (props) => {
 
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
-      document.addEventListener("keydown", handleKeyboardClick);
+      document.removeEventListener("keydown", handleKeyboardClick);
     };
   });
 

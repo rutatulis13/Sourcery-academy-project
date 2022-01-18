@@ -18,7 +18,7 @@ $modal-background-color: rgba(61, 61, 61, 0.658);
 
     &__body {
         max-height: 90%;
-        max-width: 90%;
+        max-width: 416px;
         z-index: $modal-body-z-index;
     }
 }
