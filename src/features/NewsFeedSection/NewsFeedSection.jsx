@@ -10,11 +10,11 @@ import MasonryLayout, {
 const NewsFeedSection = () => {
   const [stories, setStories] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [modalStorie, setModalStorie] = useState();
+  const [modalStory, setModalStory] = useState();
 
-  const toggleModal = (storie) => {
+  const toggleModal = (story) => {
     setShowModal(!showModal);
-    setModalStorie(storie);
+    setModalStory(story);
   };
 
   useEffect(() => {
@@ -29,102 +29,90 @@ const NewsFeedSection = () => {
       });
   }, []);
 
-  const UpdateStorie = (id) => {
-    return (storie) => {
+  const updateStorie = (id) => {
+    return (story) => {
       const index = stories.findIndex((obj) => obj.id === id);
       const storiesCopy = [...stories];
-      storiesCopy[index] = storie;
+      storiesCopy[index] = story;
       setStories(storiesCopy);
-      setModalStorie(storie);
+      setModalStory(story);
     };
+  };
+
+  const renderCard = (story) => {
+    switch (story.type) {
+      case "birthday":
+        return (
+          <BirthdayCard
+            key={story.id}
+            cardData={story}
+            toggleModal={toggleModal}
+            handleStoryChange={updateStorie(story.id)}
+            //modalStory={story.id}
+          />
+        );
+      case "post":
+        return (
+          <PhotoCard
+            key={story.id}
+            cardData={story}
+            toggleModal={toggleModal}
+            handleStoryChange={updateStorie(story.id)}
+            //modalStory={story.id}
+          />
+        );
+      case "video":
+        return (
+          <VideoCard
+            key={story.id}
+            cardData={story}
+            toggleModal={toggleModal}
+            handleStoryChange={updateStorie(story.id)}
+            //modalStory={story.id}
+          />
+        );
+      default:
+        return "";
+    }
   };
 
   return (
     <>
       <MasonryLayout>
-        {stories.map((storie, index) => {
-          switch (storie.type) {
-            case "birthday":
-              return (
-                <MasonryItem
-                  key={storie.id}
-                  span={storie.type !== "birthday" ? 2 : undefined}
-                >
-                  <BirthdayCard
-                    key={`${index}_${storie.id}`}
-                    storie={storie}
-                    onLiked={UpdateStorie(storie.id)}
-                    onDisliked={UpdateStorie(storie.id)}
-                    toggleModal={toggleModal}
-                  />
-                </MasonryItem>
-              );
-            case "post":
-              return (
-                <MasonryItem
-                  key={storie.id}
-                  span={storie.type !== "birthday" ? 2 : undefined}
-                >
-                  <PhotoCard
-                    key={`${index}_${storie.id}`}
-                    storie={storie}
-                    onLiked={UpdateStorie(storie.id)}
-                    onDisliked={UpdateStorie(storie.id)}
-                    toggleModal={toggleModal}
-                  />
-                </MasonryItem>
-              );
-            case "video":
-              return (
-                <MasonryItem
-                  key={storie.id}
-                  span={storie.type !== "birthday" ? 2 : undefined}
-                >
-                  <VideoCard
-                    key={`${index}_${storie.id}`}
-                    storie={storie}
-                    onLiked={UpdateStorie(storie.id)}
-                    onDisliked={UpdateStorie(storie.id)}
-                    toggleModal={toggleModal}
-                  />
-                </MasonryItem>
-              );
-            default:
-              return "";
-          }
-        })}
+        {stories.map((story) => (
+          <MasonryItem
+            key={story.id}
+            span={story.type !== "birthday" ? 2 : undefined}
+          >
+            {renderCard(story)}
+          </MasonryItem>
+        ))}
       </MasonryLayout>
       {showModal ? (
         <Modal setShowModal={setShowModal}>
-          {modalStorie.type === "birthday" && (
+          {modalStory.type === "birthday" && (
             <BirthdayCard
-              key={modalStorie.id}
-              storie={modalStorie}
-              onStorieChange={UpdateStorie(modalStorie.id)}
-              onLiked={UpdateStorie(modalStorie.id)}
-              onDisliked={UpdateStorie(modalStorie.id)}
+              key={modalStory.id}
+              cardData={modalStory}
+              handleStoryChange={updateStorie(modalStory.id)}
               toggleModal={toggleModal}
               modalCard
             />
           )}
-          {modalStorie.type === "post" && (
+          {modalStory.type === "post" && (
             <PhotoCard
-              key={modalStorie.id}
-              storie={modalStorie}
-              onStorieChange={UpdateStorie(modalStorie.id)}
-              onLiked={UpdateStorie(modalStorie.id)}
-              onDisliked={UpdateStorie(modalStorie.id)}
+              key={modalStory.id}
+              cardData={modalStory}
+              handleStoryChange={updateStorie(modalStory.id)}
               toggleModal={toggleModal}
               modalCard
             />
           )}
-          {modalStorie.type === "video" && (
+          {modalStory.type === "video" && (
             <VideoCard
-              key={modalStorie.id}
-              storie={modalStorie}
-              onStorieChange={UpdateStorie(modalStorie.id)}
-              onLiked={UpdateStorie(modalStorie.id)}
-              onDisliked={UpdateStorie(modalStorie.id)}
+              key={modalStory.id}
+              cardData={modalStory}
+              handleStoryChange={updateStorie(modalStory.id)}
               toggleModal={toggleModal}
               modalCard
             />

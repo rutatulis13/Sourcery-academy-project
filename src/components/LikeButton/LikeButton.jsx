@@ -6,7 +6,7 @@ import { UserContext } from "contexts/UserContext/UserContext";
 import { ReactComponent as Heart } from "assets/heart.svg";
 import { ReactComponent as Gift } from "assets/gift.svg";
 
-const LikeButton = ({ itemDataAccessor, itemId, icon, onLike, onDislike }) => {
+const LikeButton = ({ itemDataAccessor, itemId, icon, onLike, onUnlike }) => {
   const { userData, setUserData } = useContext(UserContext);
   const [isItemLiked, setIsItemLiked] = useState(false);
 
@@ -32,7 +32,7 @@ const LikeButton = ({ itemDataAccessor, itemId, icon, onLike, onDislike }) => {
       }
       return nextUserData;
     });
-    if (onLike !== null && onLike !== undefined) onLike();
+    !!onLike && onLike();
   };
 
   const unlikeItem = () => {
@@ -48,7 +48,7 @@ const LikeButton = ({ itemDataAccessor, itemId, icon, onLike, onDislike }) => {
       }
       return nextUserData;
     });
-    if (onDislike !== null && onDislike !== undefined) onDislike();
+    !!onUnlike && onUnlike();
   };
 
   const clickHandler = () => {
@@ -101,7 +101,7 @@ LikeButton.propTypes = {
   itemId: PropTypes.string,
   icon: PropTypes.string,
   onLike: PropTypes.func,
-  onDislike: PropTypes.func,
+  onUnlike: PropTypes.func,
 };
 
 export default LikeButton;

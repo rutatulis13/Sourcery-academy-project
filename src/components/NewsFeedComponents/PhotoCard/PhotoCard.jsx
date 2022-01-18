@@ -7,68 +7,66 @@ import Comments from "../Comments/Comments";
 import LikeButton from "components/LikeButton/LikeButton";
 
 const BirthdayCard = ({
-  onStorieChange,
+  handleStoryChange,
   toggleModal,
-  storie,
+  cardData,
   modalCard,
-  onLiked,
-  onDisliked,
 }) => {
   const onSubmit = (comment) => {
-    onStorieChange({
-      ...storie,
-      comments: [...storie.comments, comment],
+    handleStoryChange({
+      ...cardData,
+      comments: [...cardData.comments, comment],
     });
   };
 
   const onLike = () => {
-    onLiked({
-      ...storie,
-      likes: storie.likes + 1,
+    handleStoryChange({
+      ...cardData,
+      likes: cardData.likes + 1,
     });
   };
 
-  const onDislike = () => {
-    onDisliked({
-      ...storie,
-      likes: storie.likes - 1,
+  const onUnlike = () => {
+    handleStoryChange({
+      ...cardData,
+      likes: cardData.likes - 1,
     });
   };
 
   return (
     <div className="photo-card">
       <div className="photo-card__header">
-        <img src={storie.userImage} alt="avatar" />
-        <div className="photo-card__header__name">{storie.userName}</div>
+        <img src={cardData.userImage} alt="avatar" />
+        <div className="photo-card__header__name">{cardData.userName}</div>
         <div className="photo-card__header__time">
-          <span>{storie.postLocation}</span>
-          {moment(storie.postDate).startOf("hour").fromNow()}
+          <span>{cardData.postLocation}</span>
+          {moment(cardData.postDate).startOf("hour").fromNow()}
         </div>
       </div>
       <div className="photo-card__post-image">
-        <img src={storie.postImage} alt="post" />
+        <img src={cardData.postImage} alt="post" />
       </div>
       <div className="photo-card__action">
         <LikeButton
           itemDataAccessor="stories"
-          itemId={storie.id}
+          itemId={cardData.id}
           icon="Heart"
           onLike={onLike}
-          onDislike={onDislike}
+          onUnlike={onUnlike}
         />
-        <span>{storie.likes}</span>
+        <span>{cardData.likes}</span>
         <button
           onClick={() => {
-            toggleModal(storie);
+            toggleModal(cardData);
           }}
         >
           <img src={Message} alt="message-icon" />
         </button>
-        <span>{storie.comments.length}</span>
+        <span>{cardData.comments.length}</span>
       </div>
       <div className="photo-card__comments">
         {modalCard && (
-          <Comments comments={storie.comments} onSubmit={onSubmit} />
+          <Comments comments={cardData.comments} onSubmit={onSubmit} />
         )}
       </div>
     </div>
@@ -76,12 +74,10 @@ const BirthdayCard = ({
 };
 
 BirthdayCard.propTypes = {
-  storie: PropTypes.object,
-  onStorieChange: PropTypes.func,
+  cardData: PropTypes.object,
+  handleStoryChange: PropTypes.func,
   toggleModal: PropTypes.func,
   modalCard: PropTypes.bool,
-  onLiked: PropTypes.func,
-  onDisliked: PropTypes.func,
 };
 
 export default BirthdayCard;
