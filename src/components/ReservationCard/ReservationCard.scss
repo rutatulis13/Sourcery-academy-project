@@ -1,0 +1,46 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.reservation-card {
+    align-items: center;
+    background-color: $color-white;
+    border-radius: 8px;
+    box-shadow: $box-shadow-lg;
+    display: flex;
+    font-weight: 500;
+    justify-content: space-between;
+    margin: 48px 0 0;
+    max-height: 94px;
+    padding: 24px 16px;
+    text-decoration: none;
+    width: 100%;
+
+    @include tablet-l {
+        &__image {
+            height: 11.5vw;
+        }
+    }
+    @include mobile {
+        &__image {
+            height: 28.75vw;
+        }
+    }
+
+    &__header {
+        color: $color-text-main;
+        font-size: $font-size-2xl;
+        font-weight: 900;
+        line-height: 1.25;
+        margin: 0 0 6px;
+    }
+
+    &__reservation-count {
+        color: $color-text-accent;
+        font-size: $font-size-xs;
+        text-transform: uppercase;
+    }
+
+    &__image {
+        min-height: 100px;
+    }
+}
