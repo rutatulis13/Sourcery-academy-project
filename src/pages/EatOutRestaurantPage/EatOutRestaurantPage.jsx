@@ -9,6 +9,7 @@ import RestaurantRating from "components/RestaurantRating/RestaurantRating";
 import RestaurantInformationCard from "components/RestaurantInformationCard/RestaurantInformationCard";
 import RestaurantReviewsList from "features/RestaurantReviewsList/RestaurantReviewsList";
 import "./EatOutRestaurantPage.scss";
+import EatOutSimilarRestaurants from "components/EatOutSimilarRestaurants/EatOutSimilarRestaurants";
 
 const EatOutRestaurantPage = () => {
   const navigate = useNavigate();
@@ -127,6 +128,9 @@ const EatOutRestaurantPage = () => {
               />
             </section>
           </div>
+          <EatOutSimilarRestaurants
+            categories={restaurantsData[restaurantIndex].categories}
+          />
         </div>
       </>
     )
