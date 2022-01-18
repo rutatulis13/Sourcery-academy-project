@@ -55,8 +55,6 @@ const NewsFeedSection = () => {
             span={story.type !== "birthday" ? 2 : undefined}
           >
             <DynamicStoryCard
-              id={story.id}
-              cardData={story}
               handleModalOpen={handleModalOpen}
               handleStoryChange={updateStory}
               story={story}
@@ -67,8 +65,6 @@ const NewsFeedSection = () => {
       {activeStory && showModal && (
         <Modal handleModalClose={handleModalClose}>
           <DynamicStoryCard
-            id={getStoryById(activeStory).id}
-            cardData={getStoryById(activeStory)}
             handleModalOpen={handleModalOpen}
             handleStoryChange={updateStory}
             story={getStoryById(activeStory)}

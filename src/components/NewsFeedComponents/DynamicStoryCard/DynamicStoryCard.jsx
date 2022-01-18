@@ -5,8 +5,6 @@ import PhotoCard from "../PhotoCard/PhotoCard";
 import VideoCard from "../VideoCard/VideoCard";
 
 const DynamicStoryCard = ({
-  id,
-  cardData,
   handleModalOpen,
   handleStoryChange,
   showComments,
@@ -17,8 +15,8 @@ const DynamicStoryCard = ({
       case "birthday":
         return (
           <BirthdayCard
-            key={id}
-            cardData={cardData}
+            key={story.id}
+            cardData={story}
             handleModalOpen={handleModalOpen}
             handleStoryChange={handleStoryChange}
             showComments={showComments}
@@ -27,7 +25,7 @@ const DynamicStoryCard = ({
       case "post":
         return (
           <PhotoCard
-            key={id}
+            key={story.id}
             cardData={story}
             handleModalOpen={handleModalOpen}
             handleStoryChange={handleStoryChange}
@@ -37,8 +35,8 @@ const DynamicStoryCard = ({
       case "video":
         return (
           <VideoCard
-            key={id}
-            cardData={cardData}
+            key={story.id}
+            cardData={story}
             handleModalOpen={handleModalOpen}
             handleStoryChange={handleStoryChange}
             showComments={showComments}
@@ -53,8 +51,6 @@ const DynamicStoryCard = ({
 };
 
 DynamicStoryCard.propTypes = {
-  id: PropTypes.node,
-  cardData: PropTypes.object,
   handleStoryChange: PropTypes.func,
   handleModalOpen: PropTypes.func,
   showComments: PropTypes.bool,
