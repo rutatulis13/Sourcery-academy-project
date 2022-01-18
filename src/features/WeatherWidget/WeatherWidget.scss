@@ -78,7 +78,7 @@
             height: 201px;
             @include mobile {
                 height: 45px;
-                transform: translateY(100%);
+                transform: translate(-60%, 100%);
             }
             @include tablet-s {
                 height: 150px;
