@@ -74,10 +74,14 @@
         top: -5px;
         transform: translateX(-53%);
 
-        img {
+        > img {
             height: 201px;
             @include mobile {
-                height: 130px;
+                height: 45px;
+                transform: translate(-60%, 100%);
+            }
+            @include tablet-s {
+                height: 140px;
             }
         }
     }
