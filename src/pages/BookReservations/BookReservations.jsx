@@ -18,6 +18,23 @@ const BookReservations = () => {
   const { userData } = useContext(UserContext);
 
   useEffect(() => {
+    fetch(
+      "http://frontendsourceryweb.s3-website.eu-central-1.amazonaws.com/books.json"
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw response;
+      })
+      .then((data) => {
+        setBooksList(data.books.bookList);
+        setFilteredItemsList(data.books.bookList);
+        setFilterCategories(data.books.filterCategories);
+      });
+  }, []);
+
+  useEffect(() => {
     setFilteredItemsList(() =>
       booksList.filter((listItem) => {
         let isFiltered = true;
@@ -75,23 +92,6 @@ const BookReservations = () => {
       })
     );
   };
-
-  useEffect(() => {
-    fetch(
-      "http://frontendsourceryweb.s3-website.eu-central-1.amazonaws.com/books.json"
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw response;
-      })
-      .then((data) => {
-        setBooksList(data.books.bookList);
-        setFilteredItemsList(data.books.bookList);
-        setFilterCategories(data.books.filterCategories);
-      });
-  }, []);
 
   const handleFilter = (categoryName, filter, value) => {
     setFilters((currentFilters) => {
