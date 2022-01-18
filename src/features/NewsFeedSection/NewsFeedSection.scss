@@ -1,0 +1,12 @@
+@import '../../styles/base/colors';
+@import '../../styles/base/typography';
+
+.news-section {
+    margin-top: 72px;
+
+    &__title {
+        @extend %h2-alternative;
+        color: $color-text-main;
+        margin-bottom: 24px;
+    }
+}

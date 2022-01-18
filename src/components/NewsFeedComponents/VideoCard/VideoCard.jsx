@@ -7,23 +7,28 @@ import moment from "moment";
 import Comments from "../Comments/Comments";
 import LikeButton from "components/LikeButton/LikeButton";
 
-const VideoCard = ({ handleStoryChange, toggleModal, cardData, modalCard }) => {
+const VideoCard = ({
+  handleStoryChange,
+  handleModalOpen,
+  cardData,
+  showComments,
+}) => {
   const onSubmit = (comment) => {
-    handleStoryChange({
+    handleStoryChange(cardData.id, {
       ...cardData,
       comments: [...cardData.comments, comment],
     });
   };
 
   const onLike = () => {
-    handleStoryChange({
+    handleStoryChange(cardData.id, {
       ...cardData,
       likes: cardData.likes + 1,
     });
   };
 
   const onUnlike = () => {
-    handleStoryChange({
+    handleStoryChange(cardData.id, {
       ...cardData,
       likes: cardData.likes - 1,
     });
@@ -53,7 +58,7 @@ const VideoCard = ({ handleStoryChange, toggleModal, cardData, modalCard }) => {
         <span>{cardData.likes}</span>
         <button
           onClick={() => {
-            toggleModal(cardData);
+            handleModalOpen(cardData.id);
           }}
         >
           <img src={Message} alt="message-icon" />
@@ -61,7 +66,7 @@ const VideoCard = ({ handleStoryChange, toggleModal, cardData, modalCard }) => {
         <span>{cardData.comments.length}</span>
       </div>
       <div className="video-card__comments">
-        {modalCard && (
+        {showComments && (
           <Comments comments={cardData.comments} onSubmit={onSubmit} />
         )}
       </div>
@@ -72,8 +77,8 @@ const VideoCard = ({ handleStoryChange, toggleModal, cardData, modalCard }) => {
 VideoCard.propTypes = {
   cardData: PropTypes.object,
   handleStoryChange: PropTypes.func,
-  toggleModal: PropTypes.func,
-  modalCard: PropTypes.bool,
+  handleModalOpen: PropTypes.func,
+  showComments: PropTypes.bool,
 };
 
 export default VideoCard;

@@ -9,26 +9,26 @@ import LikeButton from "components/LikeButton/LikeButton";
 
 const BirthdayCard = ({
   handleStoryChange,
-  toggleModal,
+  handleModalOpen,
   cardData,
-  modalCard,
+  showComments,
 }) => {
   const onSubmit = (comment) => {
-    handleStoryChange({
+    handleStoryChange(cardData.id, {
       ...cardData,
       comments: [...cardData.comments, comment],
     });
   };
 
   const onLike = () => {
-    handleStoryChange({
+    handleStoryChange(cardData.id, {
       ...cardData,
       wishes: cardData.wishes + 1,
     });
   };
 
   const onUnlike = () => {
-    handleStoryChange({
+    handleStoryChange(cardData.id, {
       ...cardData,
       wishes: cardData.wishes - 1,
     });
@@ -62,7 +62,7 @@ const BirthdayCard = ({
           <span>{cardData.wishes}</span>
           <button
             onClick={() => {
-              toggleModal(cardData);
+              handleModalOpen(cardData.id);
             }}
           >
             <Message />
@@ -70,7 +70,7 @@ const BirthdayCard = ({
           <span>{cardData.comments.length}</span>
         </div>
         <div className="birthday-card__content__comments">
-          {modalCard && (
+          {showComments && (
             <Comments comments={cardData.comments} onSubmit={onSubmit} />
           )}
         </div>
@@ -82,8 +82,8 @@ const BirthdayCard = ({
 BirthdayCard.propTypes = {
   cardData: PropTypes.object,
   handleStoryChange: PropTypes.func,
-  toggleModal: PropTypes.func,
-  modalCard: PropTypes.bool,
+  handleModalOpen: PropTypes.func,
+  showComments: PropTypes.bool,
 };
 
 export default BirthdayCard;

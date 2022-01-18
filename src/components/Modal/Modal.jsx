@@ -8,14 +8,14 @@ const Modal = (props) => {
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (modalRef.current && !modalRef.current.contains(e.target)) {
-        props.setShowModal(false);
+        props.handleModalClose();
       }
     };
     document.addEventListener("mousedown", handleOutsideClick);
 
     const handleKeyboardClick = (e) => {
       if (e.keyCode === 27) {
-        props.setShowModal(false);
+        props.handleModalClose();
       }
     };
     document.addEventListener("keydown", handleKeyboardClick);
@@ -36,9 +36,8 @@ const Modal = (props) => {
 };
 
 Modal.propTypes = {
-  updateModalState: PropTypes.node,
   children: PropTypes.node,
-  setShowModal: PropTypes.func,
+  handleModalClose: PropTypes.func,
 };
 
 export default Modal;
