@@ -129,7 +129,7 @@ const DeviceReservations = () => {
           filterCategories={filterCategories}
         />
         {currentItems.length >= 0 && (
-          <div className="list-block">
+          <div className="reservation-items-wrapper">
             <ItemList items={currentItems} listType="devices" />
             <Pagination
               itemsPerPage={itemsPerPage}
