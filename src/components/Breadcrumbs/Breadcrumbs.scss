@@ -16,16 +16,21 @@
         }
 
         &-link {
-            color: $color-breadcrumbs;
-            font-size: $font-size-breadcrumbs;
-            font-weight: $font-weight-breadcrumbs;
-            line-height: $line-height-breadcrumbs;
+            @extend %caption-2;
+            color: $color-text-accent;
             text-decoration: none;
-            text-transform: uppercase;
+
+            &--dark {
+                color: $color-text-main-alt;
+            }
         }
 
         &:last-child > &-link {
-            color: $color-breadcrumbs-last;
+            color: $color-text-main-alt;
+
+            &--dark {
+                color: $color-text-strong;
+            }
         }
     }
 }

@@ -1,20 +1,31 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
 $font-size-clock: 100px;
-$line-height-clock: 118px;
+$line-height-clock: 1.18;
 
 .hello-widget {
-    color: $color-text-title;
+    color: $color-text-main;
     font-weight: bold;
+
+    @include mobile {
+        text-align: center;
+    }
 
     &__clock {
         font-size: $font-size-clock;
         line-height: $line-height-clock;
+
+        @include mobile {
+            font-size: $font-size-clock/3 * 2;
+        }
     }
 
     &__greeting {
-        font-size: $font-size-title;
-        line-height: $line-height-title;
         margin-top: 16px;
+
+        @include mobile {
+            font-size: $font-size-h1/3 * 2;
+        }
     }
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EatOutSection from "features/EatOutSection/EatOutSection";
+import ReservationsSection from "features/ReservationsSection/ReservationsSection";
 import HelloWidget from "features/HelloWidget/HelloWidget";
 import WeatherWidget from "features/WeatherWidget/WeatherWidget";
 import MasonryLayout, {
@@ -40,6 +41,7 @@ const Dashboard = () => {
         <HelloWidget />
         <WeatherWidget />
       </div>
+      <ReservationsSection />
       <EatOutSection />
       {error && <div>{error}</div>}
       {isLoading && <div>Loading...</div>}

@@ -47,32 +47,24 @@
     &__input {
         @extend %body-small;
         background: $color-white;
-        border: 1px solid $color-light-grey;
+        border: 1px solid $color-border;
         border-radius: 5px;
-        color: $color-light-grey;
+        color: $color-text-main;
         display: block;
         margin-top: 8px;
         padding: 13px 16px;
         width: 100%;
 
         &::placeholder {
-            color: $color-light-grey;
-        }
-
-        &:focus {
-            color: $color-text-dark-grey;
-        }
-
-        &:valid {
-            color: $color-text-dark-grey;
+            color: $color-input-placeholder;
         }
 
         &--invalid {
             @extend %body-small;
             background: $color-white;
-            border: 1px solid $color-text-light-red;
+            border: 1px solid $color-text-error;
             border-radius: 5px;
-            color: $color-text-dark-grey;
+            color: $color-text-main;
             display: block;
             margin-top: 8px;
             padding: 13px 16px;
