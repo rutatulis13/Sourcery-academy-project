@@ -9,16 +9,41 @@ import "./BookReservations.scss";
 const BookReservations = () => {
   const [filters, setFilters] = useState({});
   const [booksList, setBooksList] = useState([]);
+  const [filteredItemsList, setFilteredItemsList] = useState([]);
+  const [filterCategories, setFilterCategories] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = booksList.slice(indexOfFirstItem, indexOfLastItem);
+  const [currentItems, setCurrentItems] = useState([]);
 
   useEffect(() => {
     // eslint-disable-next-line no-console
     console.log(filters); // TODO: use this array for filtering
-  }, [filters]);
+    setFilteredItemsList(() =>
+      booksList.filter((listItem) => {
+        let isFiltered = true;
+        Object.keys(filters).forEach((filterCategory) => {
+          if (filters[filterCategory] && filters[filterCategory].length > 0) {
+            isFiltered = filters[filterCategory].some(
+              (filter) => filter === listItem[filterCategory]
+            );
+          }
+        });
+        return isFiltered;
+      })
+    );
+  }, [filters, booksList]);
+
+  useEffect(() => {
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    if (filteredItemsList.length < indexOfFirstItem) {
+      setCurrentPage(1);
+    } else {
+      setCurrentItems(
+        filteredItemsList.slice(indexOfFirstItem, indexOfLastItem)
+      );
+    }
+  }, [filteredItemsList, currentPage]);
 
   const handleSearch = (filter, text, date) => {
     // eslint-disable-next-line no-console
@@ -37,19 +62,10 @@ const BookReservations = () => {
       })
       .then((data) => {
         setBooksList(data.books.bookList);
+        setFilteredItemsList(data.books.bookList);
+        setFilterCategories(data.books.filterCategories);
       });
   }, []);
-
-  const changePage = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  const changeBookedUntil = (id) => {
-    let index = booksList.findIndex((e) => e.id === id);
-    let newList = [...booksList];
-    newList[index].bookedUntil = null;
-    setBooksList(newList);
-  };
 
   const handleFilter = (categoryName, filter, value) => {
     setFilters((currentFilters) => {
@@ -75,30 +91,44 @@ const BookReservations = () => {
     setFilters((currentFilters) => ({ ...currentFilters, [categoryName]: [] }));
   };
 
+  const changePage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const changeBookedUntil = (id) => {
+    let index = booksList.findIndex((e) => e.id === id);
+    let newList = [...booksList];
+    newList[index].bookedUntil = null;
+    setBooksList(newList);
+  };
+
   return (
     <PageLayout title="Book Reservations">
       <div className="reservations-search-wrapper">
         <ReservationsSearch onSearch={handleSearch} />
       </div>
-      <ReservationsFilters
-        onFilter={handleFilter}
-        onClearFilter={handleClearFilter}
-      />
-      {currentItems.length >= 0 && (
-        <div className="list-block">
-          <ItemList
-            handleBookedUntil={changeBookedUntil}
-            items={currentItems}
-            listType="books"
-          />
-          <Pagination
-            itemsPerPage={itemsPerPage}
-            totalItems={booksList.length}
-            currentPage={currentPage}
-            handlePageChange={changePage}
-          />
-        </div>
-      )}
+      <div className="reservations-grid">
+        <ReservationsFilters
+          onFilter={handleFilter}
+          onClearFilter={handleClearFilter}
+          filterCategories={filterCategories}
+        />
+        {currentItems.length >= 0 && (
+          <div className="reservation-items-wrapper">
+            <ItemList
+              handleBookedUntil={changeBookedUntil}
+              items={currentItems}
+              listType="books"
+            />
+            <Pagination
+              itemsPerPage={itemsPerPage}
+              totalItems={filteredItemsList.length}
+              currentPage={currentPage}
+              handlePageChange={changePage}
+            />
+          </div>
+        )}
+      </div>
     </PageLayout>
   );
 };

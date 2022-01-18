@@ -6,7 +6,7 @@ import "../../components/ItemList/ItemList.scss";
 
 const ItemList = ({ items = [], listType, handleBookedUntil }) => {
   return (
-    <ul id="list" className="list-block__list">
+    <ul id="list" className="items-list">
       {listType === "books" &&
         items.length > 0 &&
         items.map((book, index) => (

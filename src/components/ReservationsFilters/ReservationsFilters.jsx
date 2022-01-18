@@ -25,34 +25,4 @@ ReservationsFilters.propTypes = {
   onClearFilter: PropTypes.func.isRequired,
 };
 
-// TODO: TEMPORARY
-ReservationsFilters.defaultProps = {
-  filterCategories: {
-    deviceType: [
-      "Accessories",
-      "Desktop",
-      "Gadgets and hardware",
-      "Laptop",
-      "Mobile",
-      "Tablet",
-    ],
-    os: ["MacOS", "iOS", "Android", "Windows", "Linux"],
-    brand: [
-      "Apple",
-      "Dell",
-      "Google",
-      "HTC",
-      "LG",
-      "Logitech",
-      "Microsoft",
-      "One Plus",
-      "Philips",
-      "Razer",
-      "Samsung",
-      "SteelSeries",
-      "Xiaomi",
-    ],
-  },
-};
-
 export default ReservationsFilters;

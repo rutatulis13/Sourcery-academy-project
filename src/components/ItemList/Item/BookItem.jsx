@@ -33,9 +33,9 @@ const BookItem = ({ number, handleBookedUntil, bookData }) => {
   };
 
   return (
-    <li>
-      {bookData !== undefined && userData.reservations?.books !== undefined && (
-        <div className="item-card">
+    <>
+      {bookData && userData?.reservations?.books && (
+        <li className="item-card">
           <figure className="image-container">
             <img
               className="image-container__image"
@@ -43,7 +43,7 @@ const BookItem = ({ number, handleBookedUntil, bookData }) => {
               alt=""
             />
           </figure>
-          <div>
+          <div className="item-card__info-wrapper">
             <div className="item-card__author">{bookData.author}</div>
             <div className="item-card__title">{bookData.title}</div>
             {bookData.bookedUntil !== null ? (
@@ -88,9 +88,9 @@ const BookItem = ({ number, handleBookedUntil, bookData }) => {
               {isBooked ? "return" : "book"}
             </Button>
           </div>
-        </div>
+        </li>
       )}
-    </li>
+    </>
   );
 };
 
