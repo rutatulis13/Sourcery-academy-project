@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PageLayout from "components/PageLayout/PageLayout";
 import ItemList from "components/ItemList/ItemList";
 import Pagination from "components/ItemList/Pagination/Pagination";
 import ReservationsSearch from "components/ReservationsSearch/ReservationsSearch";
 import ReservationsFilters from "components/ReservationsFilters/ReservationsFilters";
+import { UserContext } from "contexts/UserContext/UserContext";
 import "./BookReservations.scss";
 
 const BookReservations = () => {
   const [filters, setFilters] = useState({});
   const [booksList, setBooksList] = useState([]);
-  const [filteredItemsList, setFilteredItemsList] = useState([]);
   const [filterCategories, setFilterCategories] = useState({});
+  const [filteredItemsList, setFilteredItemsList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
   const [currentItems, setCurrentItems] = useState([]);
+  const itemsPerPage = 6;
+  const { userData } = useContext(UserContext);
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log(filters); // TODO: use this array for filtering
     setFilteredItemsList(() =>
       booksList.filter((listItem) => {
         let isFiltered = true;
@@ -46,8 +46,34 @@ const BookReservations = () => {
   }, [filteredItemsList, currentPage]);
 
   const handleSearch = (filter, text, date) => {
-    // eslint-disable-next-line no-console
-    //console.log(filter, text, date); // TODO: use these values for filtering
+    setFilteredItemsList(() =>
+      booksList.filter((listItem) => {
+        let isFiltered = true;
+        // filter from buttons:
+        if (
+          filter === "Favorites" &&
+          userData?.liked?.books &&
+          !userData.liked.books.some(({ id }) => id === listItem.id)
+        ) {
+          isFiltered = false;
+        } else if (filter === "Available" && listItem.bookedUntil != null) {
+          isFiltered = false;
+        }
+        // filter from text input:
+        if (
+          text &&
+          !listItem.title.toUpperCase().includes(text.toUpperCase()) &&
+          !listItem.author.toUpperCase().includes(text.toUpperCase())
+        ) {
+          isFiltered = false;
+        }
+        // filter from date input:
+        if (date && listItem.bookedUntil !== date) {
+          isFiltered = false;
+        }
+        return isFiltered;
+      })
+    );
   };
 
   useEffect(() => {

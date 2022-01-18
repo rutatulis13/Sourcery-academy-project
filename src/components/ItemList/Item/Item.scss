@@ -6,7 +6,6 @@
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     display: flex;
-    font-family: $font-main;
     height: 160px;
     padding: 16px;
     position: relative;
@@ -20,16 +19,9 @@
     &__info-wrapper {
         display: flex;
         flex-direction: column;
-
-        @include mobile {
-            max-width: 150px;
-        }
-        @include tablet {
-            max-width: 230px;
-        }
-        @include laptop {
-            max-width: 630px;
-        }
+        overflow: hidden;
+        text-decoration: none;
+        text-overflow: ellipsis;
     }
 
     &__author,
@@ -42,12 +34,18 @@
     }
 
     &__title {
+        align-items: center;
         color: $color-gray-1;
-        display: block;
+        display: flex;
         font-size: $font-size-2xl;
         font-weight: 500;
+        justify-content: space-between;
         margin: 4px 0;
+    }
+
+    &__title-text {
         overflow: hidden;
+        text-decoration: none;
         text-overflow: ellipsis;
         white-space: nowrap;
     }

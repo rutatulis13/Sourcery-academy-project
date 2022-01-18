@@ -45,7 +45,9 @@ const BookItem = ({ number, handleBookedUntil, bookData }) => {
           </figure>
           <div className="item-card__info-wrapper">
             <div className="item-card__author">{bookData.author}</div>
-            <div className="item-card__title">{bookData.title}</div>
+            <div className="item-card__title">
+              <span className="item-card__title-text">{bookData.title}</span>
+            </div>
             {bookData.bookedUntil !== null ? (
               <div className="flexbox">
                 <figure className="item-card__mark--cross">
