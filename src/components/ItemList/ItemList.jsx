@@ -4,10 +4,10 @@ import BookItem from "./Item/BookItem";
 import DeviceItem from "./Item/DeviceItem";
 import "../../components/ItemList/ItemList.scss";
 
-const ItemList = ({ items = [], isBooks, handleBookedUntil }) => {
+const ItemList = ({ items = [], listType, handleBookedUntil }) => {
   return (
     <ul id="list" className="list-block__list">
-      {isBooks &&
+      {listType === "books" &&
         items.length > 0 &&
         items.map((book, index) => (
           <BookItem
@@ -17,7 +17,7 @@ const ItemList = ({ items = [], isBooks, handleBookedUntil }) => {
             bookData={book}
           />
         ))}
-      {!isBooks &&
+      {listType === "devices" &&
         items.length > 0 &&
         items.map((device, index) => (
           <DeviceItem key={device.id} number={index} deviceData={device} />
@@ -29,7 +29,7 @@ const ItemList = ({ items = [], isBooks, handleBookedUntil }) => {
 ItemList.propTypes = {
   handleBookedUntil: PropTypes.func,
   items: PropTypes.array,
-  isBooks: PropTypes.bool,
+  listType: PropTypes.oneOf(["books", "devices"]),
 };
 
 export default ItemList;

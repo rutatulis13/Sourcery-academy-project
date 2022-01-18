@@ -55,7 +55,7 @@ const BookReservations = () => {
           <ItemList
             handleBookedUntil={changeBookedUntil}
             items={currentItems}
-            isBooks={true}
+            listType="books"
           />
           <Pagination
             itemsPerPage={itemsPerPage}

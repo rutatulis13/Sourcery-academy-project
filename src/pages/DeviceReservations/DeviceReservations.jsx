@@ -44,7 +44,7 @@ const DeviceReservations = () => {
       </div>
       {currentItems.length >= 0 && (
         <div className="list-block">
-          <ItemList items={currentItems} isBooks={false} />
+          <ItemList items={currentItems} listType="devices" />
           <Pagination
             itemsPerPage={itemsPerPage}
             totalItems={devicesList.length}

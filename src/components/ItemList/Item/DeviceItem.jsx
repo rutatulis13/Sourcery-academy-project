@@ -50,9 +50,9 @@ const DeviceItem = ({ number, deviceData }) => {
       {deviceData !== undefined &&
         userData.reservations?.devices !== undefined && (
           <div className="item-card">
-            <figure className="item-card__image-container">
+            <figure className="image-container">
               <img
-                className="item-card__image-container__image"
+                className="image-container__image"
                 src={deviceData.image}
                 alt=""
               />
@@ -63,15 +63,15 @@ const DeviceItem = ({ number, deviceData }) => {
               {deviceData.bookedUntil?.length === deviceData.quantity ||
               isAllBooked ? (
                 <div className="flexbox">
-                  <figure className="item-card__mark item-card__mark__icon__cross">
-                    <img className="item-card__mark__icon" src={cross} alt="" />
+                  <figure className="item-card__mark--cross">
+                    <img className="item-card__mark" src={cross} alt="" />
                   </figure>
                   <div className="item-card__availability">booked</div>
                 </div>
               ) : (
                 <div className="flexbox">
-                  <figure className="item-card__mark item-card__mark__icon__check">
-                    <img className="item-card__mark__icon" src={check} alt="" />
+                  <figure className="item-card__mark--check">
+                    <img className="item-card__mark" src={check} alt="" />
                   </figure>
                   <div className="item-card__availability">available</div>
                 </div>

@@ -9,16 +9,14 @@ import "./Item.scss";
 
 const BookItem = ({ number, handleBookedUntil, bookData }) => {
   const { userData, setUserData } = useContext(UserContext);
-
   const date = bookData?.bookedUntil?.split("-").reverse().join("/");
-  let isBooked = false;
+  const isBooked = userData.reservations?.books.some(
+    (book) => book.id === bookData.id
+  );
+
   const handleReservations = () => {
-    let index = userData.reservations.books.findIndex(
-      (e) => e.id === bookData.id
-    );
-    if (index >= 0) {
+    if (isBooked) {
       handleBookedUntil(bookData.id);
-      isBooked = true;
     }
 
     setUserData((currentUserData) => {
@@ -32,17 +30,15 @@ const BookItem = ({ number, handleBookedUntil, bookData }) => {
       }
       return nextUserData;
     });
-
-    isBooked = !isBooked;
   };
 
   return (
     <li>
       {bookData !== undefined && userData.reservations?.books !== undefined && (
         <div className="item-card">
-          <figure className="item-card__image-container">
+          <figure className="image-container">
             <img
-              className="item-card__image-container__image"
+              className="image-container__image"
               src={bookData.image}
               alt=""
             />
@@ -52,8 +48,8 @@ const BookItem = ({ number, handleBookedUntil, bookData }) => {
             <div className="item-card__title">{bookData.title}</div>
             {bookData.bookedUntil !== null ? (
               <div className="flexbox">
-                <figure className="item-card__mark item-card__mark__icon__cross">
-                  <img className="item-card__mark__icon" src={cross} alt="" />
+                <figure className="item-card__mark--cross">
+                  <img className="item-card__mark" src={cross} alt="" />
                 </figure>
                 {date && (
                   <div className="item-card__availability">
@@ -61,20 +57,17 @@ const BookItem = ({ number, handleBookedUntil, bookData }) => {
                   </div>
                 )}
               </div>
-            ) : isBooked ||
-              userData.reservations?.books.findIndex(
-                (e) => e.id === bookData.id
-              ) !== -1 ? (
+            ) : isBooked ? (
               <div className="flexbox">
-                <figure className="item-card__mark item-card__mark__icon__cross">
-                  <img className="item-card__mark__icon" src={cross} alt="" />
+                <figure className="item-card__mark--cross">
+                  <img className="item-card__mark" src={cross} alt="" />
                 </figure>
                 <div className="item-card__availability">booked</div>
               </div>
             ) : (
               <div className="flexbox">
-                <figure className="item-card__mark item-card__mark__icon__check">
-                  <img className="item-card__mark__icon" src={check} alt="" />
+                <figure className="item-card__mark--check">
+                  <img className="item-card__mark" src={check} alt="" />
                 </figure>
                 <div className="item-card__availability">available</div>
               </div>
@@ -88,26 +81,14 @@ const BookItem = ({ number, handleBookedUntil, bookData }) => {
               view more
             </button>
 
-            {userData.reservations?.books.findIndex(
-              (e) => e.id === bookData.id
-            ) !== -1 ? (
-              <Button
-                size="medium"
-                id={`booking-button${number}`}
-                onClick={handleReservations}
-              >
-                return
-              </Button>
-            ) : (
-              <Button
-                size="medium"
-                id={`booking-button${number}`}
-                onClick={handleReservations}
-                disabled={!!bookData.bookedUntil}
-              >
-                book
-              </Button>
-            )}
+            <Button
+              size="medium"
+              id={`booking-button${number}`}
+              onClick={handleReservations}
+              disabled={!!bookData.bookedUntil && !isBooked}
+            >
+              {isBooked ? "return" : "book"}
+            </Button>
           </div>
         </div>
       )}
