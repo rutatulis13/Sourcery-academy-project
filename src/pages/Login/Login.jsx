@@ -35,7 +35,7 @@ const Login = () => {
   };
 
   const getErrorMessage = (name) => {
-    if (submitted && values[name].length < 3) {
+    if (submitted && values[name].length < 2) {
       return `Please enter ${name}`;
     }
 
