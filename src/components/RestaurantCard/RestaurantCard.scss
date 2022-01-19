@@ -97,7 +97,6 @@
 
     &__title {
         align-items: center;
-
         display: flex;
         justify-content: space-between;
 
@@ -105,8 +104,12 @@
             color: $color-text-strong;
             overflow: hidden;
             text-decoration: none;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+
+            h3 {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
         }
     }
 

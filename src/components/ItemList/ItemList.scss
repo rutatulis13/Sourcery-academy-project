@@ -1,9 +1,6 @@
-.list-block {
-    align-items: center;
+.items-list {
     display: flex;
     flex-direction: column;
-
-    &__list {
-        list-style-type: none;
-    }
+    gap: 12px;
+    width: 100%;
 }

@@ -25,7 +25,8 @@ const filterOptions = [
 
 const ReservationsSearch = ({ onSearch }) => {
   const [selectedFilterOptionIndex, setSelectedFilterOptionIndex] = useState(0);
-  const searchTextInputRef = useRef();
+  const [textInputValue, setTextInputValue] = useState("");
+  //const searchTextInputRef = useRef();
   const searchDateInputRef = useRef();
 
   const onSelectFilter = (filterOptionIndex) => {
@@ -33,16 +34,21 @@ const ReservationsSearch = ({ onSearch }) => {
   };
 
   const onClearSearchText = () => {
-    searchTextInputRef.current.value = "";
+    //searchTextInputRef.current.value = "";
+    setTextInputValue("");
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
     onSearch(
       filterOptions[selectedFilterOptionIndex].text,
-      searchTextInputRef.current.value,
+      textInputValue,
       searchDateInputRef.current.value
     );
+  };
+
+  const handleTextInputChange = (event) => {
+    setTextInputValue(event.target.value);
   };
 
   return (
@@ -83,19 +89,22 @@ const ReservationsSearch = ({ onSearch }) => {
               className="reservations-search__text"
               placeholder="Search reservations..."
               aria-label="Search the reservations"
-              ref={searchTextInputRef}
+              value={textInputValue}
+              onChange={handleTextInputChange}
             />
             <div className="reservations-search__text-icon-wrapper">
               <SearchIcon />
             </div>
-            <button
-              type="button"
-              className="reservations-search__text-clear-button"
-              aria-label="Clear search text"
-              onClick={onClearSearchText}
-            >
-              <ClearIcon />
-            </button>
+            {textInputValue && (
+              <button
+                type="button"
+                className="reservations-search__text-clear-button"
+                aria-label="Clear search text"
+                onClick={onClearSearchText}
+              >
+                <ClearIcon />
+              </button>
+            )}
           </div>
           <div className="reservations-search__date-wrapper">
             <label

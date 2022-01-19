@@ -6,28 +6,22 @@
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     display: flex;
-    font-family: $font-main;
     height: 160px;
-    margin: 12px 0;
-    max-width: 1018px;
     padding: 16px;
     position: relative;
-    width: 60vw;
 
     @include mobile {
-        border-radius: 0;
         height: 170px;
         margin: 6px 0;
         padding: 24px 16px;
-        width: 100vw;
     }
 
-    @include tablet-s {
-        width: 95vw;
-    }
-
-    @include tablet-l {
-        width: 70vw;
+    &__info-wrapper {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        text-decoration: none;
+        text-overflow: ellipsis;
     }
 
     &__author,
@@ -40,40 +34,26 @@
     }
 
     &__title {
+        align-items: center;
         color: $color-gray-1;
-        display: block;
+        display: flex;
         font-size: $font-size-2xl;
         font-weight: 500;
+        justify-content: space-between;
         margin: 4px 0;
+    }
+
+    &__title-text {
         overflow: hidden;
+        text-decoration: none;
         text-overflow: ellipsis;
-        white-space: pre;
-
-        @include mobile {
-            width: 200px;
-        }
-
-        @include tablet-s {
-            width: 300px;
-        }
-        @include tablet-l {
-            width: 400px;
-        }
-
-        @include laptop {
-            width: 590px;
-        }
-
-        @include desktop {
-            width: 800px;
-        }
+        white-space: nowrap;
     }
 
     &__mark {
         filter: brightness(10);
         height: 16px;
         margin: 1px 0 0 1px;
-        //text-align: center;
         width: 16px;
 
         &--check {
@@ -154,19 +134,24 @@
 
 .image-container {
     box-sizing: border-box;
-    height: 128px;
+    flex-shrink: 0;
+    height: 100%;
     margin-right: 8px;
     text-align: center;
-    width: 120px;
+    width: 128px;
 
     @include mobile {
-        display: none;
+        width: 48px;
+    }
+
+    @include tablet {
+        width: 72px;
     }
 
     &__image {
         height: 100%;
-        max-width: 120px;
-        width: auto;
+        object-fit: contain;
+        width: 100%;
     }
 }
 

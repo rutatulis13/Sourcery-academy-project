@@ -39,60 +39,61 @@ const DeviceItem = ({ number, deviceData }) => {
   };
 
   return (
-    <li>
-      {deviceData !== undefined &&
-        userData.reservations?.devices !== undefined && (
-          <div className="item-card">
-            <figure className="image-container">
-              <img
-                className="image-container__image"
-                src={deviceData.image}
-                alt=""
-              />
-            </figure>
-            <div>
-              <div className="item-card__brand">{deviceData.brand}</div>
-              <div className="item-card__title">{deviceData.name}</div>
-              {deviceData.bookedUntil?.length === deviceData.quantity ||
-              isAllBooked ? (
-                <div className="flexbox">
-                  <figure className="item-card__mark--cross">
-                    <img className="item-card__mark" src={cross} alt="" />
-                  </figure>
-                  <div className="item-card__availability">booked</div>
-                </div>
-              ) : (
-                <div className="flexbox">
-                  <figure className="item-card__mark--check">
-                    <img className="item-card__mark" src={check} alt="" />
-                  </figure>
-                  <div className="item-card__availability">available</div>
-                </div>
-              )}
-              <div className="item-card__quantity">
-                quantity: {deviceData.quantity}
+    <>
+      {deviceData && userData?.reservations?.devices && (
+        <li className="item-card">
+          <figure className="image-container">
+            <img
+              className="image-container__image"
+              src={deviceData.image}
+              alt=""
+            />
+          </figure>
+          <div className="item-card__info-wrapper">
+            <div className="item-card__brand">{deviceData.brand}</div>
+            <div className="item-card__title">
+              <span className="item-card__title-text">{deviceData.name}</span>
+            </div>
+            {deviceData.bookedUntil?.length === deviceData.quantity ||
+            isAllBooked ? (
+              <div className="flexbox">
+                <figure className="item-card__mark--cross">
+                  <img className="item-card__mark" src={cross} alt="" />
+                </figure>
+                <div className="item-card__availability">booked</div>
               </div>
-            </div>
-            <div className="corner-buttons">
-              <button className="corner-buttons__view-more">view more</button>
-              <Button
-                size="medium"
-                id={`booking-button${number}`}
-                onClick={handleReservations}
-                disabled={
-                  deviceData.quantity === 0 ||
-                  deviceData.bookedUntil?.length === deviceData.quantity
-                }
-              >
-                {isBooked ? "return" : "book"}
-              </Button>
-            </div>
-            <div className="item-card__heart">
-              <LikeButton itemDataAccessor="devices" itemId={deviceData.id} />
+            ) : (
+              <div className="flexbox">
+                <figure className="item-card__mark--check">
+                  <img className="item-card__mark" src={check} alt="" />
+                </figure>
+                <div className="item-card__availability">available</div>
+              </div>
+            )}
+            <div className="item-card__quantity">
+              quantity: {deviceData.quantity}
             </div>
           </div>
-        )}
-    </li>
+          <div className="corner-buttons">
+            <button className="corner-buttons__view-more">view more</button>
+            <Button
+              size="medium"
+              id={`booking-button${number}`}
+              onClick={handleReservations}
+              disabled={
+                deviceData.quantity === 0 ||
+                deviceData.bookedUntil?.length === deviceData.quantity
+              }
+            >
+              {isBooked ? "return" : "book"}
+            </Button>
+          </div>
+          <div className="item-card__heart">
+            <LikeButton itemDataAccessor="devices" itemId={deviceData.id} />
+          </div>
+        </li>
+      )}
+    </>
   );
 };
 
