@@ -1,17 +1,3 @@
-@mixin respond-to($size, $dir) {
-    @if ($size == retina) {
-        // stylelint-disable media-feature-name-no-vendor-prefix
-        @media only screen and (min-resolution: 2dppx),
-            (-webkit-min-device-pixel-ratio: 2) {
-            @content;
-        }
-    } @else if ($size and $dir) {
-        @media screen and (#{$dir}-width: ($size + px)) {
-            @content;
-        }
-    }
-}
-
 @mixin restrict-block-to-max-width($width) {
     box-sizing: border-box;
     margin: auto;
@@ -26,7 +12,48 @@
 }
 
 @mixin tablet {
+    @media (min-width: 481px) and (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin tablet-s {
     @media (min-width: 481px) and (max-width: 768px) {
         @content;
     }
+}
+
+@mixin tablet-l {
+    @media (min-width: 769px) and (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media (min-width: 1201px) and (max-width: 1600px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1601px) {
+        @content;
+    }
+}
+
+@mixin form-row-style {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: -#{$form-row-spacing};
+    margin-right: -#{$form-row-spacing};
+    position: relative;
+}
+
+@mixin form-col-style {
+    padding-left: $form-col-padding;
+    padding-right: $form-col-padding;
+    position: relative;
 }

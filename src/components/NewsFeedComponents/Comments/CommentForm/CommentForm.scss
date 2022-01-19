@@ -1,0 +1,59 @@
+@import '../../../../styles/base/base';
+
+.comment-form {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 12px;
+    position: relative;
+    width: 100%;
+
+    &__input {
+        align-items: center;
+        display: flex;
+        margin-right: 12px;
+        width: 100%;
+
+        img {
+            border-radius: 50%;
+            height: 24px;
+            margin-right: 12px;
+            object-fit: cover;
+            width: 24px;
+        }
+
+        input {
+            @extend %tiny;
+            border-style: none;
+            color: $color-text-main;
+            height: 24px;
+            line-height: 11px;
+            padding: 13px 16px;
+            text-transform: none;
+            width: calc(100% - 36px);
+
+            &::placeholder {
+                color: $color-text-accent;
+            }
+
+            &:focus {
+                border: 1px solid $color-text-main;
+                border-radius: 5px;
+                outline: none;
+            }
+
+            &:hover {
+                border: 1px solid $color-text-main;
+                border-radius: 5px;
+            }
+        }
+    }
+
+    button {
+        @extend %caption-2;
+        border-style: none;
+        color: $color-text-main-alt;
+        cursor: pointer;
+    }
+}

@@ -37,4 +37,32 @@ const getCurrentMonth = () => {
   return monthNames[new Date().getMonth()];
 };
 
-export { getCurrentWeekDay, getCurrentDay, getCurrentMonth };
+const convertToMonSunWeekFormat = (weekDay) => {
+  if (weekDay && typeof weekDay === "number" && weekDay >= 0 && weekDay <= 6) {
+    return weekDay === 0 ? 6 : weekDay - 1;
+  } else {
+    return null;
+  }
+};
+
+const convertToSunSatWeekFormat = (weekDay) => {
+  if (weekDay && typeof weekDay === "number" && weekDay >= 0 && weekDay <= 6) {
+    return weekDay === 6 ? 0 : weekDay + 1;
+  } else {
+    return null;
+  }
+};
+
+const weekDayNameToNumber = (weekDayName, monSunWeekFormat = false) => {
+  const result = weekDays.indexOf(weekDayName);
+  return monSunWeekFormat ? convertToMonSunWeekFormat(result) : result;
+};
+
+export {
+  getCurrentWeekDay,
+  getCurrentDay,
+  getCurrentMonth,
+  convertToMonSunWeekFormat,
+  convertToSunSatWeekFormat,
+  weekDayNameToNumber,
+};

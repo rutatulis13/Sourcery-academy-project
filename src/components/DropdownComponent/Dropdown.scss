@@ -1,0 +1,78 @@
+@import '../../styles/base/typography';
+@import '../../styles/base/colors';
+
+$hover-border-radius: 3.5px;
+$list-size: 24px;
+$grey-triangle-length: 8px;
+$white-triangle-length: 6px;
+
+.dropdown {
+    position: absolute;
+
+    &__content {
+        background-color: $color-base;
+        border: 1px solid $color-border;
+        border-radius: 5px;
+        list-style: none;
+        min-width: 200px;
+        position: absolute;
+        right: -43px;
+        top: 10px;
+
+        li {
+            @extend %body-small;
+            padding: 15px 16px;
+
+            &:hover {
+                background-color: $color-base-hover;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            a:link,
+            a:visited,
+            a:hover,
+            a:active {
+                color: $color-text-main;
+            }
+
+            &:first-child {
+                border-top-left-radius: $hover-border-radius;
+                border-top-right-radius: $hover-border-radius;
+            }
+
+            &:last-child {
+                border-bottom-left-radius: $hover-border-radius;
+                border-bottom-right-radius: $hover-border-radius;
+            }
+        }
+
+        &::after,
+        &::before {
+            border: solid transparent;
+            bottom: 100%;
+            content: '';
+            left: 90%;
+            position: absolute;
+        }
+
+        &::before {
+            border-bottom-color: $color-border;
+            border-width: $grey-triangle-length;
+            margin-left: -$grey-triangle-length;
+        }
+
+        &::after {
+            border-bottom-color: $color-white;
+            border-width: $white-triangle-length;
+            margin-left: -$white-triangle-length;
+        }
+
+        img {
+            padding-right: 10px;
+            vertical-align: middle;
+        }
+    }
+}

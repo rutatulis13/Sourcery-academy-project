@@ -1,0 +1,50 @@
+@import '../../styles/mixins/mixins';
+
+.grid {
+    display: grid;
+    gap: 32px;
+
+    @include tablet-l {
+        gap: 24px;
+    }
+
+    @include tablet-s {
+        gap: 16px;
+    }
+
+    @include mobile {
+        gap: 8px;
+    }
+
+    @for $i from 1 through 12 {
+        &--mobile-#{$i} {
+            @include mobile {
+                grid-template-columns: repeat(#{$i}, 1fr);
+            }
+        }
+
+        &--tablet-s-#{$i} {
+            @include tablet-s {
+                grid-template-columns: repeat(#{$i}, 1fr);
+            }
+        }
+
+        &--tablet-l-#{$i} {
+            @include tablet-l {
+                grid-template-columns: repeat(#{$i}, 1fr);
+            }
+        }
+
+        &--laptop-#{$i} {
+            @include laptop {
+                grid-template-columns: repeat(#{$i}, 1fr);
+            }
+        }
+
+        &--desktop-#{$i} {
+            @include desktop {
+                grid-template-columns: repeat(#{$i}, 1fr);
+            }
+        }
+    }
+}

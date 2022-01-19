@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@monsonjeremy/react-leaflet": "~3.2.2",
+    "caniuse-lite": "^1.0.30001291",
     "classnames": "^2.3.1",
+    "leaflet": "~1.7.1",
+    "moment": "^2.29.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -55,13 +59,13 @@
   },
   "devDependencies": {
     "@sambego/storybook-state": "^2.0.1",
-    "@storybook/addon-actions": "^6.0.27",
-    "@storybook/addon-backgrounds": "^6.0.27",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-backgrounds": "^6.4.9",
     "@storybook/addon-knobs": "^6.0.27",
     "@storybook/addon-links": "^6.0.27",
     "@storybook/addon-notes": "^5.3.21",
     "@storybook/addons": "^6.0.27",
-    "@storybook/react": "^6.0.27",
+    "@storybook/react": "^6.4.9",
     "@svgr/webpack": "^5.4.0",
     "css-loader": "^5.0.0",
     "eslint": "6.6.0",
@@ -79,7 +83,7 @@
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-sass-guidelines": "^7.1.0",
-    "stylelint-declaration-use-variable": "^1.7.2",
+    "stylelint-declaration-use-variable": "^1.7.3",
     "stylelint-prettier": "^1.1.2"
   }
 }

@@ -3,16 +3,18 @@
 @import 'base/typography';
 @import 'fonts/fonts';
 @import 'mixins/mixins';
-@import 'placeholders/placeholders';
+@import 'components/index';
+
 @import 'print';
+
+body {
+    background-color: $color-bg-body;
+    min-width: 280px;
+}
 
 * {
     box-sizing: border-box;
     font-family: $font-main;
     margin: 0;
     padding: 0;
-}
-
-body {
-    min-width: 240px;
 }

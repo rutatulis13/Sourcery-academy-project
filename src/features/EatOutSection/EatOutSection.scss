@@ -1,0 +1,35 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+$font-size-browse-card-tablet-l: 2vw;
+$font-size-browse-button: 12px;
+
+.eat-out-section {
+    margin: 32px 0;
+}
+
+.browse-card {
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 128px;
+    padding: 16px;
+
+    &__text {
+        @extend %h2-alternative;
+        color: $color-base-inv;
+        display: block;
+        margin: 16px;
+        opacity: 0.7;
+        text-align: center;
+
+        @include tablet-l {
+            font-size: $font-size-browse-card-tablet-l;
+            margin: 1vw;
+        }
+    }
+}

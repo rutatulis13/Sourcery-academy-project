@@ -1,0 +1,32 @@
+@import '../../../../styles/base/base';
+@import '../../../../styles/mixins/mixins';
+
+.comment {
+    max-width: 384px;
+    position: relative;
+
+    &__header {
+        @extend %tiny;
+        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0;
+        position: relative;
+        width: 100%;
+
+        &__date {
+            color: $color-text-strong;
+            font-weight: normal;
+        }
+    }
+
+    &__content {
+        @extend %tiny;
+        color: $color-text-strong;
+        display: block;
+        overflow-wrap: break-word;
+        text-transform: none;
+        width: 100%;
+    }
+}

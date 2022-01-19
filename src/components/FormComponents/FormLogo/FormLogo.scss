@@ -1,0 +1,12 @@
+@import 'src/styles/mixins/mixins';
+
+.form-logo {
+    display: block;
+    height: 68px;
+    margin: 163px auto 72px;
+    width: 162px;
+
+    @include mobile {
+        margin: 20px auto;
+    }
+}

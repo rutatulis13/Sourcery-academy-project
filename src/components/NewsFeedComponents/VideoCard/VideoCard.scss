@@ -1,0 +1,77 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+.video-card {
+    background: $color-white;
+    border-radius: 8px;
+    box-shadow: $box-shadow-base;
+    max-width: 416px;
+    padding: 12px 0;
+    position: relative;
+
+    @include tablet-s {
+        max-width: 769px;
+    }
+
+    &__header {
+        @extend %caption-2;
+        align-items: center;
+        display: flex;
+        margin: 0 16px 12px;
+        max-width: 100%;
+
+        img {
+            border-radius: 50%;
+            height: 24px;
+            margin-right: 12px;
+            max-width: 24px;
+            min-width: 24px;
+            object-fit: cover;
+        }
+
+        &__name {
+            color: $color-text-strong;
+        }
+
+        &__time {
+            color: $color-text-main-alt;
+            margin-left: auto;
+
+            span {
+                margin-right: 12px;
+            }
+        }
+    }
+
+    &__post-video {
+        height: 100%;
+        margin-bottom: 16px;
+        position: relative;
+    }
+
+    &__action {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        margin: 0 16px 0 8px;
+        max-width: 100%;
+
+        button {
+            background: transparent;
+            border-style: none;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        span {
+            @extend %caption-2;
+            color: $color-card-likes;
+            margin-right: 12px;
+        }
+    }
+
+    &__comments {
+        margin: 0 16px;
+        position: relative;
+    }
+}

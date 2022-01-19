@@ -2,23 +2,12 @@ $font-family-name: 'Roboto';
 
 @font-face {
     font-family: $font-family-name;
-    src: url('./Roboto-Regular.ttf');
+    font-weight: 400;
+    src: url('./Roboto-Regular.woff2');
 }
 
 @font-face {
     font-family: $font-family-name;
-    font-weight: 500; // medium
-    src: url('./Roboto-Medium.ttf');
-}
-
-@font-face {
-    font-family: $font-family-name;
-    font-weight: 700; // bold
-    src: url('./Roboto-Bold.ttf');
-}
-
-@font-face {
-    font-family: $font-family-name;
-    font-weight: 900; // heavy
-    src: url('./Roboto-Black.ttf');
+    font-weight: 500;
+    src: url('./Roboto-Medium.woff2');
 }

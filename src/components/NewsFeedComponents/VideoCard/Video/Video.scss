@@ -1,0 +1,82 @@
+@import '../../../../styles/mixins/mixins';
+@import '../../../../styles/base/colors';
+
+$z-index-progressbar: 30;
+
+.video {
+    height: 409px;
+    position: relative;
+
+    @include tablet-s {
+        max-width: 769px;
+    }
+
+    @include tablet-l {
+        height: 349px;
+    }
+
+    @include mobile {
+        height: 349px;
+    }
+
+    video {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    &__button {
+        height: 75px;
+        left: 50%;
+        opacity: 0;
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.25s ease-out;
+        visibility: hidden;
+        width: 75px;
+
+        button {
+            background: none;
+            border-style: none;
+        }
+    }
+
+    &:hover > .video__button,
+    &:hover > .video__time-controls {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.pause {
+    cursor: pointer;
+
+    path:nth-child(1) {
+        fill: $color-base;
+        stroke: none;
+    }
+
+    path:nth-child(2) {
+        stroke: $color-primary;
+    }
+
+    path:nth-child(3) {
+        stroke: $color-primary;
+    }
+}
+
+.play {
+    cursor: pointer;
+
+    path:nth-child(1) {
+        fill: $color-base;
+        stroke: none;
+    }
+
+    path:nth-child(2) {
+        fill: $color-primary;
+        stroke: $color-primary;
+    }
+}

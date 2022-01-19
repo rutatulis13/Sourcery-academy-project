@@ -1,0 +1,160 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+.item-card {
+    background: $color-white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    display: flex;
+    height: 160px;
+    padding: 16px;
+    position: relative;
+
+    @include mobile {
+        height: 170px;
+        margin: 6px 0;
+        padding: 24px 16px;
+    }
+
+    &__info-wrapper {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        text-decoration: none;
+        text-overflow: ellipsis;
+    }
+
+    &__author,
+    &__brand {
+        color: $color-gray-3;
+        font-size: $font-size-xs;
+        font-style: normal;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        align-items: center;
+        color: $color-gray-1;
+        display: flex;
+        font-size: $font-size-2xl;
+        font-weight: 500;
+        justify-content: space-between;
+        margin: 4px 0;
+    }
+
+    &__title-text {
+        overflow: hidden;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__mark {
+        filter: brightness(10);
+        height: 16px;
+        margin: 1px 0 0 1px;
+        width: 16px;
+
+        &--check {
+            background-color: $color-green;
+            border-radius: 50%;
+            height: 18px;
+            width: 18px;
+        }
+
+        &--cross {
+            background-color: $color-red;
+            border-radius: 50%;
+            height: 18px;
+            width: 18px;
+        }
+    }
+
+    &__availability {
+        color: $color-gray-2;
+        font-size: $font-size-xs;
+        font-style: normal;
+        font-weight: 500;
+        margin-left: 8px;
+        text-transform: uppercase;
+    }
+
+    &__heart {
+        position: absolute;
+        right: 8px;
+        top: 16px;
+    }
+
+    &__quantity {
+        color: $color-gray-3;
+        font-size: $font-size-xs;
+        font-weight: 500;
+        margin-top: 36px;
+        text-transform: uppercase;
+    }
+}
+
+.corner-buttons {
+    bottom: 16px;
+    position: absolute;
+    right: 16px;
+    @include mobile {
+        bottom: 8px;
+        right: 16px;
+    }
+
+    &__view-more {
+        background: transparent;
+        border-style: none;
+        color: $color-gray-3;
+        cursor: pointer;
+        font-size: $font-size-xs;
+        font-style: normal;
+        font-weight: 500;
+        margin-right: 16px;
+        text-align: center;
+        text-transform: uppercase;
+        width: fit-content;
+
+        &:focus,
+        &:hover {
+            color: $color-gray-2;
+        }
+
+        &:active {
+            color: $color-gray-1;
+        }
+
+        &:disabled {
+            color: $color-gray-7;
+        }
+    }
+}
+
+.image-container {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    height: 100%;
+    margin-right: 8px;
+    text-align: center;
+    width: 128px;
+
+    @include mobile {
+        width: 48px;
+    }
+
+    @include tablet {
+        width: 72px;
+    }
+
+    &__image {
+        height: 100%;
+        object-fit: contain;
+        width: 100%;
+    }
+}
+
+.flexbox {
+    display: flex;
+}

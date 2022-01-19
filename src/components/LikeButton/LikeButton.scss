@@ -1,0 +1,100 @@
+@import '../../styles/base/base';
+
+// heart icon:
+$color-icon-heart-filled: #ff6e75;
+$color-icon-heart-filled-active: darken($color-icon-heart-filled, 5%);
+$color-icon-heart-active: desaturate($color-icon-heart-filled-active, 25%);
+
+// gift icon:
+$color-icon-gift-filled-active-top: darken($color-icon-gift-filled-top, 5%);
+$color-icon-gift-filled-active-bottom: darken(
+    $color-icon-gift-filled-bottom,
+    5%
+);
+$color-icon-gift-active-top: desaturate($color-icon-gift-filled-active-top, 5%);
+$color-icon-gift-active-bottom: desaturate(
+    $color-icon-gift-filled-active-bottom,
+    5%
+);
+
+.icon {
+    background: transparent;
+    border: 0 none;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin: 0 8px;
+    padding: 0;
+
+    &__heart {
+        &--filled path {
+            fill: $color-icon-heart-filled;
+            stroke: $color-icon-heart-filled;
+        }
+
+        &:hover path {
+            fill: $color-icon-heart-filled;
+            fill-opacity: 0.75;
+        }
+
+        &--filled:active path {
+            fill: $color-icon-heart-active;
+            fill-opacity: 1;
+        }
+
+        &:not(.icon__heart--filled):active path {
+            fill: $color-icon-heart-filled-active;
+            fill-opacity: 1;
+            stroke: $color-icon-heart-filled-active;
+        }
+    }
+
+    &__gift {
+        /* stylelint-disable no-descending-specificity */
+        &--filled {
+            path:nth-child(1) {
+                fill: $color-icon-gift-filled-bottom;
+            }
+
+            path:nth-child(2) {
+                fill: $color-icon-gift-filled-top;
+            }
+        }
+        /* stylelint-enable no-descending-specificity */
+
+        &:hover {
+            fill-opacity: 0.75;
+
+            path:nth-child(1) {
+                fill: $color-icon-gift-filled-bottom;
+            }
+
+            path:nth-child(2) {
+                fill: $color-icon-gift-filled-top;
+            }
+        }
+
+        &--filled:active {
+            path:nth-child(1) {
+                fill: $color-icon-gift-filled-active-bottom;
+                fill-opacity: 1;
+            }
+
+            path:nth-child(2) {
+                fill: $color-icon-gift-filled-active-top;
+                fill-opacity: 1;
+            }
+        }
+
+        &:not(.icon__gift--filled):active {
+            path:nth-child(1) {
+                fill: $color-icon-gift-active-bottom;
+                fill-opacity: 1;
+            }
+
+            path:nth-child(2) {
+                fill: $color-icon-gift-active-top;
+                fill-opacity: 1;
+            }
+        }
+    }
+}

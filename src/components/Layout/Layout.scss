@@ -35,10 +35,9 @@
     }
 
     &__copyright {
+        @extend %tiny;
         @include restrict-block-to-max-width($max-page-width);
-        color: $color-text-footer;
-        font-size: $font-size-footer;
-        font-weight: 500;
+        color: $color-text-main;
         text-align: right;
     }
 }
