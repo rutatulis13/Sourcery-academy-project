@@ -33,6 +33,11 @@ const UserWidgetComponent = () => {
       setDropdownOpen(false);
     }
   };
+  const handleEnterClick = (e) => {
+    if (e.key === "Enter") {
+      setDropdownOpen(true);
+    }
+  };
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyboardClick);
@@ -46,29 +51,30 @@ const UserWidgetComponent = () => {
   const { userData } = useContext(UserContext);
 
   return (
-    <div className="user-widget">
-      <button
-        aria-expanded="false"
-        type="button"
-        ref={node}
-        className="user-widget__button"
-        onClick={(e) => setDropdownOpen(!dropdownOpen)}
-      >
-        {userData && (
-          <img
-            src={userData.userImage}
-            alt="avatar"
-            className="user-widget__avatar"
-          />
-        )}
-        <div className="user-widget__badge">
-          <img
-            src={badgeImage}
-            alt="heart"
-            className="user-widget__badge-heart"
-          />
-        </div>
-      </button>
+    <div
+      ref={node}
+      className="user-widget"
+      role="button"
+      tabIndex="0"
+      onClick={(e) => setDropdownOpen(!dropdownOpen)}
+      onKeyPress={(e) => {
+        handleEnterClick(e);
+      }}
+    >
+      {userData && (
+        <img
+          src={userData.userImage}
+          alt="avatar"
+          className="user-widget__avatar"
+        />
+      )}
+      <div className="user-widget__badge">
+        <img
+          src={badgeImage}
+          alt="heart"
+          className="user-widget__badge-heart"
+        />
+      </div>
       {dropdownOpen && <DropdownComponent dropdownItems={dropdownItems} />}
     </div>
   );
