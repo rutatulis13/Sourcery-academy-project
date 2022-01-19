@@ -148,35 +148,3 @@ Pagination.propTypes = {
   handlePageChange: PropTypes.func,
 };
 export default Pagination;
-
-/*
-{currentPage === totalPages && totalPages !== 2 && (
-            <a
-              className="pagination-block__page-button"
-              href="#list"
-              onClick={() => handlePageChange(currentPage - 1)}
-            >
-              {currentPage - 1}
-            </a>
-          )}
-
-          {totalPages === 4 && currentPage !== 4 && (
-            <a
-              className="pagination-block__page-button"
-              href="#list"
-              onClick={() => handlePageChange(currentPage - 1)}
-            >
-              {totalPages - 1}
-            </a>
-          )}
-
-          {currentPage !== totalPages && totalPages !== 2 && (
-            <a
-              className="pagination-block__page-button"
-              href="#list"
-              onClick={() => handlePageChange(totalPages)}
-            >
-              {totalPages}
-            </a>
-          )}
-*/

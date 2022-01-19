@@ -89,7 +89,11 @@ const DeviceItem = ({ number, deviceData }) => {
             </Button>
           </div>
           <div className="item-card__heart">
-            <LikeButton itemDataAccessor="devices" itemId={deviceData.id} />
+            <LikeButton
+              itemDataAccessor="devices"
+              itemId={deviceData.id}
+              icon="Heart"
+            />
           </div>
         </li>
       )}
