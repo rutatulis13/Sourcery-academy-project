@@ -51,14 +51,6 @@ const UserWidgetComponent = () => {
   const { userData } = useContext(UserContext);
 
   return (
-    // <div className="user-widget">
-    //   <button
-    //     aria-expanded="false"
-    //     type="button"
-    //     ref={node}
-    //     className="user-widget__button"
-    //     onClick={(e) => setDropdownOpen(!dropdownOpen)}
-    //   >
     <div
       ref={node}
       className="user-widget"
@@ -83,7 +75,6 @@ const UserWidgetComponent = () => {
           className="user-widget__badge-heart"
         />
       </div>
-      {/* </button> */}
       {dropdownOpen && <DropdownComponent dropdownItems={dropdownItems} />}
     </div>
   );
