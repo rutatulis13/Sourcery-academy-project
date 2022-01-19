@@ -34,7 +34,7 @@ const Register = () => {
   };
 
   const getErrorMessage = (name) => {
-    if (submitted && values[name].length < 3) {
+    if (submitted && values[name].length < 2) {
       return `Please enter ${name}`;
     }
 
@@ -44,11 +44,11 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      values.firstName.length > 2 &&
-      values.lastName.length > 2 &&
-      values.email.length > 2 &&
-      values.password.length > 2 &&
-      values.repeatPassword.length > 2
+      values.firstName.length > 1 &&
+      values.lastName.length > 1 &&
+      values.email.length > 1 &&
+      values.password.length > 1 &&
+      values.repeatPassword.length > 1
     ) {
       const { firstName, lastName, email, password } = values;
       setValid(true);
