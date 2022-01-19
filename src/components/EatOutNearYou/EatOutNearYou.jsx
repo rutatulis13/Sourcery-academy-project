@@ -18,10 +18,14 @@ const EatOutNearYou = () => {
     .sort((a, b) => a.distance - b.distance);
 
   return (
-    <RestaurantsSlider
-      title="Discover near you"
-      restaurants={restaurantsByDistance}
-    />
+    <>
+      {location.lat && location.lng ? (
+        <RestaurantsSlider
+          title="Discover near you"
+          restaurants={restaurantsByDistance}
+        />
+      ) : null}
+    </>
   );
 };
 
