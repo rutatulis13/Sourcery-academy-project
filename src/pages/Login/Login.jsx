@@ -1,10 +1,10 @@
-import AuthorizationLayout from "components/AuthorizationLayout/AuthorizationLayout";
 import React, { useState, useContext } from "react";
 import { Navigate } from "react-router-dom";
 import Form from "../../components/FormComponents/Form/Form";
+import FormAction from "../../components/FormComponents/FormAction/FormAction";
 import FormRow from "../../components/FormComponents/FormRow/FormRow";
 import FormInput from "../../components/FormComponents/FormInput/FormInput";
-import FormAction from "../../components/FormComponents/FormAction/FormAction";
+import AuthorizationLayout from "components/AuthorizationLayout/AuthorizationLayout";
 import { AuthContext } from "components/AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -13,12 +13,11 @@ const Login = () => {
     email: "",
     password: "",
   });
-
-  const { login } = useContext(AuthContext);
-
-  const navigate = useNavigate();
-
   const [submitted, setSubmitted] = useState(false);
+  const [valid, setValid] = useState(false);
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,29 +34,39 @@ const Login = () => {
     });
   };
 
+  const getErrorMessage = (name) => {
+    if (submitted && values[name].length < 3) {
+      return `Please enter ${name}`;
+    }
+
+    if (submitted && values[name] !== userDetails[name]) {
+      return `Wrong ${name}`;
+    }
+    return "";
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const userDetails = JSON.parse(localStorage.getItem("userDetails"));
     if (
       userDetails &&
       values.email === userDetails.email &&
       values.password === userDetails.password
     ) {
-      setSubmitted(true);
+      setValid(true);
       login();
       navigate("/");
-    } else {
-      setSubmitted(false);
     }
+    setSubmitted(true);
   };
 
   return (
     <AuthorizationLayout title="Login" subtitle="Welcome back, please login.">
       <Form onSubmit={handleSubmit}>
-        {submitted ? <Navigate to="/" /> : null}
+        {submitted && valid ? <Navigate to="/" /> : null}
         <FormRow>
           <FormInput
             width="100"
+            error={getErrorMessage("email")}
             onChange={handleChange}
             value={values.email}
             id="email"
@@ -71,6 +80,7 @@ const Login = () => {
         <FormRow>
           <FormInput
             width="100"
+            error={getErrorMessage("password")}
             onChange={handleChange}
             value={values.password}
             id="password"
@@ -87,7 +97,7 @@ const Login = () => {
           buttonName="Login"
           question="Don’t have an account?"
           linkName="Sign up"
-          isDisabled={values.email.length <= 2 || values.password.length <= 2}
+          // isDisabled={values.email.length <= 2 || values.password.length <= 2}
         />
       </Form>
     </AuthorizationLayout>

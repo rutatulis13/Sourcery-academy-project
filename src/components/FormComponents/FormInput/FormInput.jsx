@@ -7,11 +7,11 @@ import ErrorMessage from "../../ErrorMessage/ErrorMessage";
 import "../Form/Form.scss";
 
 const FormInput = (props) => {
-  const { isInvalid } = props;
+  const { error } = props;
 
   const inputClass = classNames({
     form__input: true,
-    "form__input--invalid": isInvalid,
+    "form__input--invalid": !!error,
   });
 
   return (
@@ -27,10 +27,10 @@ const FormInput = (props) => {
           placeholder={props.placeholder}
           name={props.name}
         />
-        {isInvalid ? (
+        {error ? (
           <>
             <InputDelete onClick={() => props.onClick(props.name)} />
-            <ErrorMessage>Please enter {props.placeholder}</ErrorMessage>
+            <ErrorMessage>{error}</ErrorMessage>
           </>
         ) : null}
         {props.children}
@@ -41,7 +41,7 @@ const FormInput = (props) => {
 
 FormInput.propTypes = {
   width: PropTypes.oneOf(["33", "50", "66", "100"]),
-  isInvalid: PropTypes.bool,
+  error: PropTypes.string,
   onClick: PropTypes.func,
   onChange: PropTypes.func,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

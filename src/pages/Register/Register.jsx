@@ -33,8 +33,12 @@ const Register = () => {
     });
   };
 
-  const isInputValid = (name) => {
-    return !submitted || values[name].length >= 3;
+  const getErrorMessage = (name) => {
+    if (submitted && values[name].length < 3) {
+      return `Please enter ${name}`;
+    }
+
+    return "";
   };
 
   const handleSubmit = (e) => {
@@ -63,7 +67,7 @@ const Register = () => {
         <FormRow>
           <FormInput
             width="50"
-            isInvalid={!isInputValid("firstName")}
+            error={getErrorMessage("firstName")}
             onChange={handleChange}
             value={values.firstName}
             id="first-name"
@@ -75,7 +79,7 @@ const Register = () => {
           ></FormInput>
           <FormInput
             width="50"
-            isInvalid={!isInputValid("lastName")}
+            error={getErrorMessage("lastName")}
             onChange={handleChange}
             value={values.lastName}
             id="last-name"
@@ -89,11 +93,11 @@ const Register = () => {
         <FormRow>
           <FormInput
             width="100"
-            isInvalid={!isInputValid("email")}
+            error={getErrorMessage("email")}
             onChange={handleChange}
             value={values.email}
             id="email"
-            type="text"
+            type="email"
             placeholder="Email"
             name="email"
             label="Email"
@@ -103,7 +107,7 @@ const Register = () => {
         <FormRow>
           <FormInput
             width="50"
-            isInvalid={!isInputValid("password")}
+            error={getErrorMessage("password")}
             onChange={handleChange}
             value={values.password}
             id="password"
@@ -115,7 +119,7 @@ const Register = () => {
           ></FormInput>
           <FormInput
             width="50"
-            isInvalid={!isInputValid("repeatPassword")}
+            error={getErrorMessage("repeatPassword")}
             onChange={handleChange}
             value={values.repeatPassword}
             id="repeatPassword"
