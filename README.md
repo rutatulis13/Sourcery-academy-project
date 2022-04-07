@@ -1,4 +1,6 @@
-🚨 Be sure to update this file according to your team.
+This is React project which our team of six people created in Sourcery Academy (organised by Devbridge). It was really interesting to learn using SASS, BEM, basics of accessibility. All work process was based on Agile methodoly. 
+
+This is an internal company app. There is a login section with very basic validation, clock, weather section, news feed, devices and book reservation, restaurants, which you can like, comment. All the information comes from API.
 
 ## Run the project
 * To run this project you will need [Node](https://nodejs.org/en/). We strongly recommend to use [nvm](https://github.com/nvm-sh/nvm) for installing node.
